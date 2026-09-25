@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://azzikrinternational.netlify.app/sitemap.xml
