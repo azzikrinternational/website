@@ -1,0 +1,735 @@
+/* ==========================================================================
+   Az-Zikr International | Master Stylesheet (Responsive)
+   ========================================================================== */
+
+:root {
+    --primary-color: #134372;
+    --primary-hover: #092038;
+    --accent-color: #9A6F20; /* Updated: Darkened gold for WCAG AA text contrast compliance (QA-06) */
+    --accent-hover: #7d5918;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --bg-light: #f8fafc;
+    --white: #ffffff;
+    --border-color: #e2e8f0;
+    --max-width: 1200px;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.site-logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-color);
+}
+
+.logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--white);
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    color: #e2e8f0;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+nav a:hover, nav a.active {
+    color: var(--white);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.header-socials {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.social-icon {
+    color: #ffffff;
+    font-size: 1.1rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-2px);
+}
+
+.social-icon.wa:hover { color: #128C7E; }
+.social-icon.fb:hover { color: #1877F2; }
+.social-icon.insta:hover { color: #E4405F; }
+.social-icon.yt:hover { color: #FF0000; }
+
+/* --- Hero & Home Intro Sections --- */
+.intro-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 50px 20px 65px 20px;
+}
+
+.intro-section h1 {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}
+
+.intro-text {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* --- Action Buttons --- */
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 22px !important;
+    font-size: 0.92rem !important;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--white);
+    border: 1px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+/* --- Info Boxes & Grid --- */
+.info-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: var(--max-width);
+    margin: -30px auto 30px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.info-box {
+    background: var(--white);
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid var(--accent-color);
+}
+
+.info-box h4 {
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.info-box p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+/* --- UPDATED: Department Grid (3 Columns Layout) --- */
+.department-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.dept-playcard {
+    position: relative;
+    height: 180px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.dept-playcard:hover {
+    transform: translateY(-5px);
+}
+
+.playcard-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 60%);
+}
+
+.playcard-title {
+    position: relative;
+    z-index: 2;
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* --- Banner Styling --- */
+.courses-banner {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.courses-banner h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.courses-banner p {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Department Sections --- */
+.dept-block {
+    margin-bottom: 50px;
+}
+
+.dept-header {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+}
+
+/* --- Course Catalog Grid --- */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.course-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
+}
+
+.course-card h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.course-desc {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-bottom: 15px;
+}
+
+.curriculum-list {
+    margin-top: 15px;
+    background-color: #f1f5f9;
+    padding: 12px 16px;
+    border-radius: 6px;
+}
+
+.curriculum-title {
+    display: block;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.curriculum-list ul {
+    list-style-type: square;
+    padding-left: 18px;
+}
+
+.curriculum-list li {
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.course-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+}
+
+.badge {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+.mode-tag {
+    background-color: #fef3c7;
+    color: #92400e;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+/* --- Enrollment Flyer Grid --- */
+.flyer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.flyer-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+}
+
+.flyer-img-wrapper {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: #0f172a;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flyer-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.flyer-img-wrapper:hover .flyer-img {
+    transform: scale(1.02);
+    opacity: 0.95;
+}
+
+.flyer-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: #16a34a;
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.click-hint {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.75);
+    color: var(--white);
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.flyer-details {
+    padding: 18px;
+}
+
+.flyer-details h4 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.flyer-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.flyer-btn {
+    background-color: #128C7E;
+    color: var(--white);
+}
+
+.flyer-btn:hover {
+    background-color: #0e6f63;
+}
+
+/* --- Empty Department State --- */
+.empty-dept-card {
+    background-color: #f1f5f9;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+}
+
+.empty-title {
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.empty-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+
+/* --- Fullscreen Image Modal --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 6px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+    object-fit: contain;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- Footer & Social Bar --- */
+footer {
+    background-color: var(--primary-hover);
+    color: #94a3b8;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.88rem;
+    margin-top: auto;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.footer-social-title {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.footer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.footer-btn:hover {
+    opacity: 0.88;
+}
+
+.wa-btn { background-color: #128C7E; }
+.fb-btn { background-color: #1877F2; }
+.insta-btn { background-color: #E4405F; }
+.yt-btn { background-color: #FF0000; }
+
+/* ==========================================================================
+   Responsive Breakpoints (Tablets & Mobile)
+   ========================================================================== */
+
+/* --- Medium Devices: Tablets (max-width: 992px) --- */
+@media (max-width: 992px) {
+    header {
+        padding: 15px 20px;
+    }
+    
+    main {
+        padding: 30px 15px;
+    }
+    
+    .intro-section h1, .courses-banner h2 {
+        font-size: 2rem;
+    }
+
+    .info-strip {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: -25px;
+    }
+
+    /* Switch department grid to 2 columns on tablets */
+    .department-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* --- Small Devices: Mobile Phones & Portrait Tablets (max-width: 768px) --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px 15px;
+    }
+
+    .logo-container {
+        justify-content: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+    }
+
+    nav a {
+        padding: 6px 10px;
+        font-size: 0.88rem;
+    }
+
+    .header-socials {
+        gap: 16px;
+        margin-top: 4px;
+    }
+
+    .intro-section {
+        padding: 40px 15px 50px 15px;
+    }
+
+    .intro-section h1, .courses-banner h2 {
+        font-size: 1.65rem;
+    }
+
+    .intro-text, .courses-banner p {
+        font-size: 0.95rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-btn {
+        width: 100%;
+        padding: 12px 18px !important;
+    }
+
+    .info-strip {
+        grid-template-columns: 1fr;
+        margin-top: -20px;
+        padding: 0 15px;
+    }
+
+    /* Switch department grid to single column on mobile */
+    .department-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-grid, .flyer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flyer-img-wrapper {
+        height: 280px;
+    }
+
+    .footer-socials {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .footer-btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}
+
+/* --- Extra Small Devices (max-width: 480px) --- */
+@media (max-width: 480px) {
+    .site-logo {
+        width: 38px;
+        height: 38px;
+    }
+
+    .logo-text {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .dept-header {
+        font-size: 1.25rem;
+    }
+
+    .course-card, .info-box {
+        padding: 18px;
+    }
+}
