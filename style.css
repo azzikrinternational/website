@@ -99,6 +99,11 @@ nav a:hover, nav a.active {
     background-color: rgba(255, 255, 255, 0.15);
 }
 
+/* Hide top Courses button/link */
+nav a[href="courses.html"] {
+    display: none !important;
+}
+
 .header-socials {
     display: flex;
     gap: 14px;
@@ -295,6 +300,11 @@ nav a:hover, nav a.active {
 /* --- Department Sections --- */
 .dept-block {
     margin-bottom: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+.dept-block.hidden-dept {
+    display: none !important;
 }
 
 .dept-header {
