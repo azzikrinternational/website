@@ -41,20 +41,12 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            // 1. Register the user in Supabase Auth
+            // Register the user in Supabase Auth
             const { data, error } = await supabaseClient.auth.signUp({ email, password });
             
             if (error) {
                 alert('Registration failed: ' + error.message);
             } else {
-                const user = data.user;
-                if (user) {
-                    // 2. Initialize their progress row in the 'profiles' table (starts at lesson index 0)
-                    await supabaseClient
-                        .from('profiles')
-                        .insert([{ id: user.id, current_lesson: 0 }]);
-                }
-                
                 alert('Account created successfully! Redirecting to login...');
                 window.location.href = '/login.html';
             }
