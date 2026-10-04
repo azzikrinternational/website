@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration - Az-Zikr International</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f9f9f9; }
+        .form-box { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 400px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { background-color: #2e7d32; color: white; border: none; padding: 12px; width: 100%; font-size: 16px; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #1b5e20; }
+        p { text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="form-box">
+        <h2>Student Registration</h2>
+        <form id="signup-form">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" placeholder="student@example.com" required>
+
+            <label for="password">Create Password:</label>
+            <input type="password" id="password" placeholder="At least 6 characters" required>
+
+            <button type="submit">Register Account</button>
+        </form>
+        <p>Already have an account? <a href="/login.html">Log in here</a></p>
+    </div>
+
+    <!-- Supabase CDN and Sign-Up Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const supabaseUrl = 'https://hxsubmacyeprcvckpjuj.supabase.co';
+        const supabaseKey = 'sb_publishable_Hrhr0EMdvwFjaPqaHyE_kg_k00oq4hw';
+        const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+        document.getElementById('signup-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // 1. Register the user in Supabase Auth
+            const { data, error } = await supabaseClient.auth.signUp({ email, password });
+            
+            if (error) {
+                alert('Registration failed: ' + error.message);
+            } else {
+                const user = data.user;
+                if (user) {
+                    // 2. Initialize their progress row in the 'profiles' table (starts at lesson index 0)
+                    await supabaseClient
+                        .from('profiles')
+                        .insert([{ id: user.id, current_lesson: 0 }]);
+                }
+                
+                alert('Account created successfully! Redirecting to login...');
+                window.location.href = '/login.html';
+            }
+        });
+    </script>
+
+</body>
+</html>
