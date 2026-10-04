@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard - Az-Zikr International</title>
+</head>
+<body>
+
+    <h1>Welcome to Your Student Dashboard</h1>
+    <p>Here are your active course videos and materials.</p>
+
+    <!-- Example Video Embed -->
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <br><br>
+    <button id="logout-btn">Log Out</button>
+
+    <!-- Supabase CDN and Protection Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const supabaseUrl = 'https://hxsubmacyeprcvckpjuj.supabase.co';
+        const supabaseKey = 'sb_publishable_Hrhr0EMdvwFjaPqaHyE_kg_k00oq4hw';
+        const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+        // 1. Check if user is logged in upon page load
+        async function checkAuth() {
+            const { data: { session }, error } = await supabaseClient.auth.getSession();
+            if (!session || error) {
+                // If not logged in, kick them back to login page immediately
+                window.location.href = '/login.html';
+            }
+        }
+        checkAuth();
+
+        // 2. Handle Logout Button Click
+        document.getElementById('logout-btn').addEventListener('click', async () => {
+            await supabaseClient.auth.signOut();
+            window.location.href = '/login.html';
+        });
+    </script>
+
+</body>
+</html>
