@@ -25,11 +25,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-    <!-- Inline Mobile Responsiveness & Layout Fixes -->
+    <!-- Inline Mobile Responsiveness & Enhanced Button Styling -->
     <style>
         html {
             scroll-behavior: smooth;
         }
+        .hero-join-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .hero-join-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.6);
+            background: linear-gradient(135deg, #388e3c, #2e7d32);
+        }
+        .hero-join-btn:active {
+            transform: translateY(-1px);
+        }
+
         @media screen and (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -55,16 +80,9 @@
             .intro-section p.intro-text {
                 font-size: 0.95rem !important;
             }
-            .hero-actions {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                align-items: center;
-            }
-            .hero-btn {
+            .hero-join-btn {
                 width: 100%;
                 max-width: 250px;
-                text-align: center;
             }
         }
     </style>
@@ -116,10 +134,11 @@
             Az-Zikr International is a free online Islamic institute serving exclusively women. We offer authentic, structured Quranic and Islamic studies for students worldwide.
         </p>
 
-        <!-- Centered Single Green Join Us Action Button -->
-        <div class="hero-actions" style="display: flex; justify-content: center;">
-            <a href="#learning-methods" class="hero-btn btn-secondary" style="box-shadow: 0 4px 6px rgba(0,0,0,0.3); background-color: #2e7d32; border-color: #2e7d32; color: #ffffff;">
-                <i class="fa-solid fa-arrow-down"></i> Join Us
+        <!-- Centered Enhanced Join Us Action Button -->
+        <div class="hero-actions" style="display: flex; justify-content: center; margin-top: 15px;">
+            <a href="#learning-methods" class="hero-join-btn">
+                <span>Join Us</span>
+                <i class="fa-solid fa-arrow-down-long"></i>
             </a>
         </div>
     </section>
