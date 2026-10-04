@@ -28,7 +28,7 @@
     <!-- Inline Mobile Responsiveness & Layout Fixes -->
     <style>
         html {
-            scroll-behavior: smooth; /* Enables smooth scrolling when clicking the Join Us button */
+            scroll-behavior: smooth;
         }
         @media screen and (max-width: 768px) {
             header {
@@ -116,12 +116,9 @@
             Az-Zikr International is a free online Islamic institute serving exclusively women. We offer authentic, structured Quranic and Islamic studies for students worldwide.
         </p>
 
-        <!-- Centered Rounded Rectangular Action Buttons -->
-        <div class="hero-actions">
-            <a href="signup.html" class="hero-btn btn-primary" style="box-shadow: 0 4px 6px rgba(0,0,0,0.3); background-color: #2e7d32;">
-                <i class="fa-solid fa-user-plus"></i> Register for Portal
-            </a>
-            <a href="#learning-methods" class="hero-btn btn-secondary" style="box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+        <!-- Centered Single Green Join Us Action Button -->
+        <div class="hero-actions" style="display: flex; justify-content: center;">
+            <a href="#learning-methods" class="hero-btn btn-secondary" style="box-shadow: 0 4px 6px rgba(0,0,0,0.3); background-color: #2e7d32; border-color: #2e7d32; color: #ffffff;">
                 <i class="fa-solid fa-arrow-down"></i> Join Us
             </a>
         </div>
@@ -143,8 +140,8 @@
     </section>
 
     <main>
-        <!-- Learning Method Options with ID for smooth anchor scrolling -->
-        <div id="learning-methods" style="background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 40px; text-align: center;">
+        <!-- Learning Method Options with ID placed right at the top for exact alignment -->
+        <div id="learning-methods" style="scroll-margin-top: 40px; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 40px; text-align: center;">
             <h2 style="color: #2e7d32; margin-bottom: 10px;">Choose Your Learning Method</h2>
             <p style="color: #666; margin-bottom: 25px;">Access our courses either through our self-paced website portal or join our active WhatsApp cohorts.</p>
             
