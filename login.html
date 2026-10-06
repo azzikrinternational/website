@@ -7,7 +7,7 @@
     
     <!-- Title & Description -->
     <title>Student Login | Az-Zikr International</title>
-    <meta name="description" content="Log in to your Az-Zikr International student portal to access your self-paced Islamic courses, video lessons, and progress tracking.">
+    <meta name="description" content="Log in to your Az-Zikr International student portal to access your course selection, enrolled classes, and progress tracking.">
 
     <!-- Google Fonts for Amiri Arabic & Clean UI Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -366,7 +366,7 @@
         <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a></p>
     </footer>
 
-    <!-- Script configured to redirect to dashboard.html -->
+    <!-- Script configured to redirect to student hub / course selection page -->
     <script>
         // Password visibility toggle logic
         const togglePassword = document.getElementById('togglePassword');
@@ -403,14 +403,13 @@
             submitBtn.textContent = 'Signing in...';
 
             try {
-                // Replace with your actual Supabase credentials when ready
                 const supabaseUrl = 'YOUR_SUPABASE_URL';
                 const supabaseKey = 'YOUR_SUPABASE_ANON_KEY';
 
                 if (supabaseUrl === 'YOUR_SUPABASE_URL' || !supabaseUrl) {
-                    // Safe fallback redirect directly to dashboard.html for testing
+                    // Fallback redirect to student hub page for layout testing
                     setTimeout(() => {
-                        window.location.href = 'dashboard.html';
+                        window.location.href = 'student-hub.html';
                     }, 500);
                     return;
                 }
@@ -423,12 +422,12 @@
 
                 if (error) throw error;
 
-                // Successful login -> Redirect straight to dashboard.html
-                window.location.href = 'dashboard.html';
+                // Successful login -> Redirect to the student hub / course selection & progress page
+                window.location.href = 'student-hub.html';
 
             } catch (error) {
-                // Fallback redirect to dashboard.html for seamless layout testing if auth keys aren't linked yet
-                window.location.href = 'dashboard.html';
+                // Fallback redirect to student-hub.html for seamless layout testing if keys aren't linked yet
+                window.location.href = 'student-hub.html';
             }
         });
     </script>
