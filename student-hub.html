@@ -200,13 +200,52 @@
             background: #1b5e20;
         }
 
-        .btn-outline {
+        /* Single Enrollment Call-to-Action Card */
+        .enroll-callout-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #d4ebd4;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .enroll-callout-card h3 {
+            color: #1a2e05;
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 1.25rem;
+        }
+
+        .enroll-callout-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            max-width: 500px;
+        }
+
+        .btn-enroll-large {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background: #f0fdf4;
             color: #2e7d32;
             border: 1px solid #bbf7d0;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
         }
-        .btn-outline:hover {
+
+        .btn-enroll-large:hover {
             background: #dcfce7;
+            border-color: #86efac;
         }
 
         footer {
@@ -298,50 +337,11 @@
             <i class="fa-solid fa-compass"></i> Explore & Enroll in New Courses
         </div>
 
-        <div class="grid-container">
-            <!-- New Course Option 1 -->
-            <div class="course-card">
-                <div>
-                    <h3>Qur'anic Arabic Language</h3>
-                    <p>Comprehensive grammar and vocabulary building for deeper comprehension.</p>
-                </div>
-                <div>
-                    <a href="enroll.html?course=quranic-arabic" class="btn-action btn-outline"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
-                </div>
-            </div>
-
-            <!-- New Course Option 2 -->
-            <div class="course-card">
-                <div>
-                    <h3>Hifz Department</h3>
-                    <p>Structured memorization program designed for women with revision checkpoints.</p>
-                </div>
-                <div>
-                    <a href="enroll.html?course=hifz" class="btn-action btn-outline"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
-                </div>
-            </div>
-
-            <!-- New Course Option 3 -->
-            <div class="course-card">
-                <div>
-                    <h3>Seerah Department</h3>
-                    <p>Study the inspiring biography and lessons from the life of Prophet Muhammad (PBUH).</p>
-                </div>
-                <div>
-                    <a href="enroll.html?course=seerah" class="btn-action btn-outline"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
-                </div>
-            </div>
-
-            <!-- New Course Option 4 -->
-            <div class="course-card">
-                <div>
-                    <h3>Kids Tarbiyah Department</h3>
-                    <p>Islamic morals, manners, and foundational knowledge tailored for young learners.</p>
-                </div>
-                <div>
-                    <a href="enroll.html?course=kids-tarbiyah" class="btn-action btn-outline"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
-                </div>
-            </div>
+        <!-- Streamlined Single Enroll Callout Card -->
+        <div class="enroll-callout-card">
+            <h3>Ready to expand your knowledge?</h3>
+            <p>Explore our wide range of available programs and departments to start your next learning journey.</p>
+            <a href="enroll.html" class="btn-enroll-large"><i class="fa-solid fa-user-plus"></i> Enroll in New Course</a>
         </div>
     </main>
 
