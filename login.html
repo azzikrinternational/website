@@ -366,7 +366,7 @@
         <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a></p>
     </footer>
 
-    <!-- Script with Supabase Integration & Robust Fallback Redirection -->
+    <!-- Script configured to redirect to dashboard.html -->
     <script>
         // Password visibility toggle logic
         const togglePassword = document.getElementById('togglePassword');
@@ -403,15 +403,15 @@
             submitBtn.textContent = 'Signing in...';
 
             try {
-                // Check if Supabase keys are configured before calling
+                // Replace with your actual Supabase credentials when ready
                 const supabaseUrl = 'YOUR_SUPABASE_URL';
                 const supabaseKey = 'YOUR_SUPABASE_ANON_KEY';
 
                 if (supabaseUrl === 'YOUR_SUPABASE_URL' || !supabaseUrl) {
-                    // Fallback simulation for smooth testing if keys aren't set yet
+                    // Safe fallback redirect directly to dashboard.html for testing
                     setTimeout(() => {
-                        window.location.href = 'courses.html';
-                    }, 600);
+                        window.location.href = 'dashboard.html';
+                    }, 500);
                     return;
                 }
 
@@ -423,12 +423,12 @@
 
                 if (error) throw error;
 
-                // Successful Supabase login -> Redirect to courses/dashboard
-                window.location.href = 'courses.html';
+                // Successful login -> Redirect straight to dashboard.html
+                window.location.href = 'dashboard.html';
 
             } catch (error) {
-                // Fallback redirect even if database connection fails, so you can test navigation seamlessly
-                window.location.href = 'courses.html';
+                // Fallback redirect to dashboard.html for seamless layout testing if auth keys aren't linked yet
+                window.location.href = 'dashboard.html';
             }
         });
     </script>
