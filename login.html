@@ -14,6 +14,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Supabase JS Client CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <!-- Enhanced Styling -->
     <style>
         * {
@@ -319,7 +322,7 @@
                 <h2>Student Portal</h2>
                 <p class="subtitle">Welcome back! Please sign in to your account.</p>
                 
-                <!-- Error Alert Box (Hidden by default, used for Supabase feedback) -->
+                <!-- Error Alert Box -->
                 <div id="loginAlert" class="alert-box alert-error"></div>
 
                 <form id="loginForm">
@@ -349,7 +352,7 @@
                         <a href="forgot-password.html" class="forgot-pass">Forgot password?</a>
                     </div>
 
-                    <button type="submit" class="btn-submit">Sign In</button>
+                    <button type="submit" class="btn-submit" id="submitBtn">Sign In</button>
                 </form>
 
                 <div class="form-footer">
@@ -363,8 +366,15 @@
         <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a></p>
     </footer>
 
-    <!-- Simple Script for Password Visibility Toggle -->
+    <!-- Supabase Integration & Authentication Script -->
     <script>
+        // Replace these with your actual Supabase Project URL and Anon Public Key
+        const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+        const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+        
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Password visibility toggle logic
         const togglePassword = document.getElementById('togglePassword');
         const passwordInput = document.getElementById('password');
         const eyeIcon = document.getElementById('eyeIcon');
@@ -381,6 +391,17 @@
                 eyeIcon.classList.add('fa-eye');
             }
         });
-    </script>
-</body>
-</html>
+
+        // Form submission & authentication handle
+        const loginForm = document.getElementById('loginForm');
+        const loginAlert = document.getElementById('loginAlert');
+        const submitBtn = document.getElementById('submitBtn');
+
+        loginForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            // Clear previous errors & show loading state
+            loginAlert.style.display = 'none';
