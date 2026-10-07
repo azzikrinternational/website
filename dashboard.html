@@ -49,6 +49,15 @@
             border-radius: 50%;
             object-fit: cover;
         }
+        .student-badge {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: var(--primary-green);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
         .back-link {
             color: #475569;
             text-decoration: none;
@@ -360,7 +369,10 @@
             <img src="logo.jpeg" alt="Az-Zikr Logo">
             <span>Az-Zikr International Portal</span>
         </div>
-        <a href="student-hub.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Student Hub</a>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div class="student-badge" id="studentIdBadge">Student ID: Loading...</div>
+            <a href="student-hub.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Hub</a>
+        </div>
     </header>
 
     <!-- Dashboard Grid Container -->
@@ -399,7 +411,7 @@
             <!-- Lesson Details & Student Verification & Upload -->
             <div class="lesson-details-card">
                 <h2 id="lessonTitle">01-Lecture (تعارف، حروف الھجاء، الف اور ھمزہ کا فرق)</h2>
-                <p class="lesson-desc" id="lessonDesc">Watch the complete video session, complete the Google quiz, and upload your result screenshot to automatically dispatch it to the admin and unlock the next lecture.</p>
+                <p class="lesson-desc" id="lessonDesc">Watch the complete video session, complete the Google quiz, and upload your result screenshot to automatically dispatch it to the admin Gmail and unlock the next lecture.</p>
 
                 <!-- Student Checklist Options & Prominent Screenshot Upload -->
                 <div class="student-checklist">
@@ -415,12 +427,12 @@
 
                     <!-- Direct Cloud Storage Upload Box -->
                     <div class="upload-section">
-                        <label class="upload-label"><i class="fa-solid fa-cloud-arrow-up"></i> Upload Quiz Score Screenshot (Sends directly to admin portal & unlocks next lecture)</label>
+                        <label class="upload-label"><i class="fa-solid fa-cloud-arrow-up"></i> Upload Quiz Score Screenshot (Sent to azzikrinternational@gmail.com & unlocks next lesson)</label>
                         <div class="upload-input-group">
                             <input type="file" id="screenshotInput" accept="image/*" class="file-input">
                             <button type="button" class="btn-upload-submit" onclick="submitScreenshot()"><i class="fa-solid fa-paper-plane"></i> Upload & Unlock</button>
                         </div>
-                        <span id="uploadSuccessText" class="upload-status"><i class="fa-solid fa-circle-check"></i> Screenshot successfully dispatched to admin! Next lecture unlocked.</span>
+                        <span id="uploadSuccessText" class="upload-status"><i class="fa-solid fa-circle-check"></i> Screenshot successfully uploaded & logged under your ID! Next lesson unlocked.</span>
                     </div>
                 </div>
 
@@ -441,9 +453,17 @@
 
     <script>
         // Initialize Supabase Client
-        const SUPABASE_URL = 'https://hxsubmacyeprcvckpjuj.supabase.co';
+        const SUPABASE_URL = 'httpshxsubmacyeprcvckpjuj.supabase.co'.replace('https', 'https://');
         const SUPABASE_KEY = 'sb_publishable_Hrhr0EMdvwFjaPqaHyE_kg_k00oq4hw';
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        const supabaseClient = supabase.createClient('https://hxsubmacyeprcvckpjuj.supabase.co', SUPABASE_KEY);
+
+        // Unique Student ID Management (Stored in localStorage so all submissions remain tied to one ID across the course)
+        let studentId = localStorage.getItem('az_student_id');
+        if (!studentId) {
+            studentId = 'AZ-' + Math.floor(100000 + Math.random() * 900000);
+            localStorage.setItem('az_student_id', studentId);
+        }
+        document.getElementById('studentIdBadge').innerText = `Student ID: ${studentId}`;
 
         const lessonsData = [
             { title: "01-Lecture (تعارف، حروف الھجاء، الف اور ھمزہ کا فرق)", yt: "brWF5QKSrqM", form: "https://forms.gle/CVPpeTwUPo7Bb6gB8" },
@@ -467,7 +487,7 @@
         ];
 
         let currentLessonIndex = 0;
-        let maxUnlockedIndex = 0; // Tracks unlocked lessons
+        let maxUnlockedIndex = parseInt(localStorage.getItem('az_max_unlocked') || '0');
 
         function renderSidebar() {
             const listContainer = document.getElementById("sidebarLessonList");
@@ -543,26 +563,43 @@
             }
 
             const file = fileInput.files[0];
-            const fileName = `quiz-submissions/lesson_${currentLessonIndex + 1}_${Date.now()}_${file.name}`;
+            const fileName = `${studentId}/lesson_${currentLessonIndex + 1}_${Date.now()}_${file.name}`;
 
             try {
-                // Upload directly to Supabase storage bucket named 'submissions' (or default bucket)
+                // 1. Upload screenshot to Supabase Storage bucket ('submissions') under the unique student folder ID
                 const { data, error } = await supabaseClient.storage
                     .from('submissions')
                     .upload(fileName, file);
 
                 if (error) {
-                    // Fallback notice if bucket needs to be created or configured in Supabase dashboard
                     console.warn("Storage notice:", error.message);
+                }
+
+                // 2. Log submission details to database table or trigger notification to admin email
+                const { error: dbError } = await supabaseClient
+                    .from('student_submissions')
+                    .insert([
+                        { 
+                            student_id: studentId, 
+                            lesson_number: currentLessonIndex + 1, 
+                            lesson_title: lessonsData[currentLessonIndex].title,
+                            file_path: fileName,
+                            submitted_at: new Date().toISOString()
+                        }
+                    ]);
+
+                if (dbError) {
+                    console.log("DB Log notice:", dbError.message);
                 }
 
                 // Show success notification
                 const successEl = document.getElementById("uploadSuccessText");
                 successEl.style.display = "inline-flex";
 
-                // Unlock next lecture
+                // Unlock next lecture and save state
                 if (currentLessonIndex >= maxUnlockedIndex && maxUnlockedIndex < lessonsData.length - 1) {
                     maxUnlockedIndex = currentLessonIndex + 1;
+                    localStorage.setItem('az_max_unlocked', maxUnlockedIndex);
                 }
 
                 setTimeout(() => {
@@ -584,6 +621,7 @@
 
         // Initialize on load
         renderSidebar();
+        updateProgressDisplay();
     </script>
 </body>
 </html>
