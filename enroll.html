@@ -17,55 +17,145 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Extra styling for the unified layout -->
+    <!-- Enhanced Modern Styling -->
     <style>
-        .category-heading {
-            text-align: center;
-            font-size: 1.6rem;
+        .enroll-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section Header Styling */
+        .section-category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
             color: #1a2e05;
             margin: 40px 0 20px 0;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #2e7d32;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e2e8f0;
         }
-        .portal-course-card {
-            background: #ffffff;
-            border-radius: 12px;
-            border: 1px solid #d4ebd4;
-            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.08);
-            padding: 30px;
+        .section-category-header i {
+            color: #2e7d32;
+        }
+
+        /* Featured Web Portal Course Card */
+        .portal-feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
             margin-bottom: 20px;
+        }
+
+        .portal-highlight-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f4fdf4 100%);
+            border-radius: 16px;
+            border: 2px solid #bbf7d0;
+            box-shadow: 0 10px 30px rgba(46, 125, 50, 0.08);
+            padding: 35px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
         }
-        .portal-course-card h4 {
-            margin: 0;
-            color: #2e7d32;
-            font-size: 1.3rem;
+
+        .portal-highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #2e7d32, #c9933b);
         }
-        .portal-meta {
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        .portal-action-row {
+
+        .portal-card-top {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-            margin-top: 5px;
+            align-items: flex-start;
             flex-wrap: wrap;
             gap: 15px;
+            margin-bottom: 15px;
         }
-        .badge-portal {
-            background: #f0fdf4;
-            color: #2e7d32;
-            border: 1px solid #bbf7d0;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.85rem;
+
+        .portal-badge {
+            background: #2e7d32;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
             font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .portal-highlight-card h4 {
+            margin: 0 0 10px 0;
+            color: #1a2e05;
+            font-size: 1.7rem;
+            font-weight: 700;
+        }
+
+        .portal-highlight-card p {
+            color: #4b5563;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .portal-features-list {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .portal-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.92rem;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .portal-feature-item i {
+            color: #2e7d32;
+        }
+
+        .btn-portal-action {
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.25);
+            transition: all 0.2s ease;
+            width: fit-content;
+        }
+
+        .btn-portal-action:hover {
+            background: linear-gradient(135deg, #388e3c, #2e7d32);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(46, 125, 50, 0.35);
+        }
+
+        @media (max-width: 768px) {
+            .portal-highlight-card {
+                padding: 25px 20px;
+            }
+            .btn-portal-action {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -97,120 +187,17 @@
         <p style="color: #f8f9fa; text-shadow: 0 1px 3px rgba(0,0,0,0.6);">Register for our interactive Web Portal courses or explore traditional WhatsApp batches below.</p>
     </div>
 
-    <main>
+    <main class="enroll-container">
 
         <!-- SECTION 1: WEB PORTAL COURSES -->
-        <h2 class="category-heading"><i class="fa-solid fa-laptop-code"></i> Web Portal Courses (Interactive Learning)</h2>
-        
-        <section class="dept-block">
-            <h3 class="dept-header">Qur'anic Arabic Language Department</h3>
-            <div class="portal-course-card">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <h4>Asaan Grammar Course</h4>
-                    <span class="badge-portal"><i class="fa-solid fa-globe"></i> Portal Registration</span>
-                </div>
-                <p class="portal-meta">Learn Qur'anic Arabic terminology and sentence structures easily through our dedicated student portal dashboard.</p>
-                <div class="portal-action-row">
-                    <span style="font-size: 0.9rem; color: #666;"><i class="fa-solid fa-circle-check" style="color: #2e7d32;"></i> Admissions Open</span>
-                    <a href="login.html" class="btn flyer-btn" style="background: #2e7d32; color: white;"><i class="fa-solid fa-right-to-bracket"></i> Log In & Access Portal</a>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- SECTION 2: WHATSAPP / TRADITIONAL BATCH COURSES -->
-        <h2 class="category-heading" style="margin-top: 60px;"><f class="fa-solid fa-comments"></f> WhatsApp Batch Admissions</h2>
-
-        <section class="dept-block">
-            <h3 class="dept-header">Tajweed, Tarteel & Nazrah Department</h3>
-            <div class="empty-dept-card">
-                <p class="empty-title">Admissions Currently Closed</p>
-                <p class="empty-desc">There are no active admissions in this department at the moment. New batches will be announced soon.</p>
-            </div>
-        </section>
-
-        <section class="dept-block">
-            <h3 class="dept-header">Hifz Department</h3>
-            <div class="empty-dept-card">
-                <p class="empty-title">Admissions Currently Closed</p>
-                <p class="empty-desc">There are no active admissions in this department at the moment. New batches will be announced soon.</p>
-            </div>
-        </section>
-
-        <section class="dept-block">
-            <h3 class="dept-header">Seerah Department</h3>
-            <div class="empty-dept-card">
-                <p class="empty-title">Admissions Currently Closed</p>
-                <p class="empty-desc">There are no active admissions in this department at the moment. New batches will be announced soon.</p>
-            </div>
-        </section>
-
-        <section class="dept-block">
-            <h3 class="dept-header">Kids Tarbiyah Department</h3>
-            <div class="flyer-grid">
-                <div class="flyer-card">
-                    <div class="flyer-img-wrapper" onclick="openFlyer('BIS.png')">
-                        <img src="BIS.png" alt="Basic Islamic History Flyer" class="flyer-img" loading="lazy">
-                        <div class="flyer-badge">Admissions Open</div>
-                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to enlarge</div>
-                    </div>
-                    <div class="flyer-details">
-                        <h4>Basic Islamic History (Qasas ul Anbiyaa)</h4>
-                        <p class="flyer-meta">Starts: September 2026 | Age 8-16 (Boys & Girls)</p>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Basic%20Islamic%20History%20(Kids%20Tarbiyah)." target="_blank" class="btn flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="dept-block">
-            <h3 class="dept-header">Lisan ul Quran in English Department</h3>
-            <div class="flyer-grid">
-                <div class="flyer-card">
-                    <div class="flyer-img-wrapper" onclick="openFlyer('IMG-20260924-WA0129.jpg')">
-                        <img src="IMG-20260924-WA0129.jpg" alt="Basic to Advanced Arabic Grammar Flyer" class="flyer-img" loading="lazy">
-                        <div class="flyer-badge">Admissions Open</div>
-                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to enlarge</div>
-                    </div>
-                    <div class="flyer-details">
-                        <h4>Basic to Advanced Arabic Grammar (English Speaking Students Only)</h4>
-                        <p class="flyer-meta">Starts: January 2027 | Duration: 1 Year & 6 Months (Females Only)</p>
-                        <a href="https://wa.me/923335449457?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Basic%20to%20Advanced%20Arabic%20Grammar." target="_blank" class="btn flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <div id="imageModal" class="modal" onclick="closeFlyer()">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="fullFlyerImage" alt="Enlarged Flyer">
-    </div>
-
-    <footer>
-        <div class="footer-socials">
-            <span class="footer-social-title">Follow & Join Us:</span>
-            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="footer-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Channel</a>
-            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="footer-btn fb-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
-            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn insta-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn yt-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        <div class="section-category-header">
+            <i class="fa-solid fa-laptop-code"></i>
+            <span>Interactive Web Portal Courses</span>
         </div>
-        <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: var(--accent-color); text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: var(--accent-color); text-decoration: none;">Terms of Service</a></p>
-    </footer>
-
-    <script>
-        function openFlyer(imageSrc) {
-            var modal = document.getElementById("imageModal");
-            var modalImg = document.getElementById("fullFlyerImage");
-            modal.style.display = "flex";
-            modalImg.src = imageSrc;
-        }
-
-        function closeFlyer() {
-            document.getElementById("imageModal").style.display = "none";
-        }
-    </script>
-
-</body>
-</html>
+        
+        <div class="portal-feature-grid">
+            <div class="portal-highlight-card">
+                <div>
+                    <div class="portal-card-top">
+                        <span class="portal-badge"><i class="fa-solid fa-circle-dot"></i> Qur'an Arabic Department</span>
+                        <span style="font-size: 0.9rem; color: #2e7d32; font-weight: 60
