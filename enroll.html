@@ -5,137 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
 
-    <title>Enroll Now - Registration | Az-Zikr International</title>
-    <meta name="description" content="Register for web portal courses and WhatsApp classes at Az-Zikr International.">
+    <title>Enroll Now - Free Registration | Az-Zikr International</title>
+    <meta name="description" content="Register for free Islamic and Quranic courses at Az-Zikr International. Join online classes for women today.">
 
     <link rel="canonical" href="https://azzikrinternational.com/enroll.html">
     <meta property="og:url" content="https://azzikrinternational.com/enroll.html">
     <meta property="og:title" content="Enroll Now | Az-Zikr International">
-    <meta property="og:description" content="Register today for online Islamic classes and interactive web portal courses.">
+    <meta property="og:description" content="Register today for 100% free online Islamic classes for women.">
     <meta property="og:image" content="https://azzikrinternational.com/logo.jpeg">
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        .enroll-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .section-category-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.5rem;
-            color: #1a2e05;
-            margin: 40px 0 20px 0;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #e2e8f0;
-        }
-        .section-category-header i {
-            color: #2e7d32;
-        }
-        .portal-feature-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        .portal-highlight-card {
+        /* Extra styles for portal highlight card inside departments */
+        .portal-highlight-box {
             background: linear-gradient(135deg, #ffffff 0%, #f4fdf4 100%);
-            border-radius: 16px;
+            border-radius: 12px;
             border: 2px solid #bbf7d0;
-            box-shadow: 0 10px 30px rgba(46, 125, 50, 0.08);
-            padding: 35px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.06);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
+            gap: 20px;
         }
-        .portal-highlight-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #2e7d32, #c9933b);
-        }
-        .portal-card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-        .portal-badge {
-            background: #2e7d32;
-            color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .portal-highlight-card h4 {
-            margin: 0 0 10px 0;
+        .portal-highlight-box h4 {
+            margin: 0;
             color: #1a2e05;
-            font-size: 1.7rem;
-            font-weight: 700;
+            font-size: 1.4rem;
         }
-        .portal-highlight-card p {
+        .portal-highlight-box p {
             color: #4b5563;
-            font-size: 1.05rem;
+            margin: 0;
             line-height: 1.6;
-            margin-bottom: 25px;
         }
-        .portal-features-list {
+        .portal-features {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
-            margin-bottom: 30px;
         }
-        .portal-feature-item {
+        .portal-feature {
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             color: #374151;
             font-weight: 500;
         }
-        .portal-feature-item i {
-            color: #2e7d32;
-        }
-        .btn-portal-action {
+        .portal-feature i { color: #2e7d32; }
+        .btn-portal {
             background: linear-gradient(135deg, #2e7d32, #1b5e20);
             color: white;
-            padding: 14px 28px;
-            border-radius: 10px;
+            padding: 12px 24px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.25);
-            transition: all 0.2s ease;
+            gap: 8px;
             width: fit-content;
+            transition: all 0.2s;
         }
-        .btn-portal-action:hover {
-            background: linear-gradient(135deg, #388e3c, #2e7d32);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(46, 125, 50, 0.35);
-        }
-        @media (max-width: 768px) {
-            .portal-highlight-card { padding: 25px 20px; }
-            .btn-portal-action { width: 100%; }
-        }
+        .btn-portal:hover { background: linear-gradient(135deg, #388e3c, #2e7d32); }
     </style>
 </head>
 <body>
@@ -163,49 +93,124 @@
 
     <div class="courses-banner" style="background: linear-gradient(rgba(5, 15, 30, 0.85), rgba(5, 15, 30, 0.90)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff;">
         <h2 style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">Open Enrolments</h2>
-        <p style="color: #f8f9fa; text-shadow: 0 1px 3px rgba(0,0,0,0.6);">Register for our interactive Web Portal courses or explore traditional WhatsApp batches below.</p>
+        <p style="color: #f8f9fa; text-shadow: 0 1px 3px rgba(0,0,0,0.6);">Click any flyer image to view full screen or register via WhatsApp below.</p>
     </div>
 
-    <main class="enroll-container">
+    <main>
 
-        <!-- SECTION 1: WEB PORTAL COURSES -->
-        <div class="section-category-header">
-            <i class="fa-solid fa-laptop-code"></i>
-            <span>Interactive Web Portal Courses</span>
-        </div>
-        
-        <div class="portal-feature-grid">
-            <div class="portal-highlight-card">
+        <!-- 1. QUR'ANIC ARABIC LANGUAGE DEPARTMENT (Interactive Web Portal Course) -->
+        <section class="dept-block">
+            <h3 class="dept-header">Qur'anic Arabic Language Department</h3>
+            <div class="portal-highlight-box">
                 <div>
-                    <div class="portal-card-top">
-                        <span class="portal-badge"><i class="fa-solid fa-circle-dot"></i> Qur'an Arabic Department</span>
-                        <span style="font-size: 0.9rem; color: #2e7d32; font-weight: 600;"><i class="fa-solid fa-signal"></i> Admissions Open</span>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span style="background: #2e7d32; color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">Interactive Web Portal</span>
+                        <span style="font-size: 0.85rem; color: #2e7d32; font-weight: 600;"><i class="fa-solid fa-signal"></i> Admissions Open</span>
                     </div>
                     <h4>Asaan Grammar Course</h4>
-                    <p>Unlock direct comprehension of the Holy Qur'an. Learn Arabic terminology, root words, and sentence structures easily through our dedicated interactive student portal dashboard.</p>
-                    
-                    <div class="portal-features-list">
-                        <div class="portal-feature-item"><i class="fa-solid fa-check"></i> Beginner Friendly</div>
-                        <div class="portal-feature-item"><i class="fa-solid fa-check"></i> Step-by-Step Dashboard</div>
-                        <div class="portal-feature-item"><i class="fa-solid fa-check"></i> Direct Qur'anic Focus</div>
-                    </div>
+                    <p style="margin-top: 8px;">Unlock direct comprehension of the Holy Qur'an with structured lessons, video modules, PDF notes, and automated Google Form quizzes through our dedicated student portal dashboard.</p>
+                </div>
+                
+                <div class="portal-features">
+                    <div class="portal-feature"><i class="fa-solid fa-check"></i> Beginner Friendly</div>
+                    <div class="portal-feature"><i class="fa-solid fa-check"></i> Semester 1, 2 & 3</div>
+                    <div class="portal-feature"><i class="fa-solid fa-check"></i> Self-Paced Dashboard</div>
                 </div>
 
                 <div>
-                    <!-- Passes course slug via URL to login page -->
-                    <a href="login.html?course=asaan-grammar" class="btn-portal-action">
-                        <i class="fa-solid fa-right-to-bracket"></i> Log In & Register on Portal
+                    <a href="login.html?course=asaan-grammar" class="btn-portal">
+                        <i class="fa-solid fa-right-to-bracket"></i> Log In & Access Portal Course
                     </a>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- SECTION 2: WHATSAPP BATCH ADMISSIONS -->
-        <div class="section-category-header" style="margin-top: 60px;">
-            <i class="fa-solid fa-comments"></i>
-            <span>WhatsApp Batch Admissions</span>
-        </div>
+        <!-- 2. TAJWEED DEPARTMENT -->
+        <section class="dept-block">
+            <h3 class="dept-header">Tajweed, Tarteel & Nazrah Department</h3>
+            <div class="flyer-grid">
+                <div class="flyer-card">
+                    <div class="flyer-img-wrapper" onclick="openFlyer('tajweed course.png')">
+                        <img src="tajweed course.png" alt="Tajweed Courses Flyer" class="flyer-img" loading="lazy">
+                        <div class="flyer-badge">Admissions Open</div>
+                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to enlarge</div>
+                    </div>
+                    <div class="flyer-details">
+                        <h4>Tajweed & Noorani Qaida Courses</h4>
+                        <p class="flyer-meta">Starts: August 31st, 2026 | Females Only</p>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20Tajweed%20%26%20Noorani%20Qaida%20Course." target="_blank" class="btn flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- 3. HIFZ DEPARTMENT -->
+        <section class="dept-block">
+            <h3 class="dept-header">Hifz Department</h3>
+            <div class="flyer-grid">
+
+                <div class="flyer-card">
+                    <div class="flyer-img-wrapper" onclick="openFlyer('Aleimran.jpg')">
+                        <img src="Aleimran.jpg" alt="Hifz Surah Al-Imran Flyer" class="flyer-img" loading="lazy">
+                        <div class="flyer-badge">Admissions Open</div>
+                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to enlarge</div>
+                    </div>
+                    <div class="flyer-details">
+                        <h4>Hifz Surah Āl ‘Imrān (2nd Batch)</h4>
+                        <p class="flyer-meta">Starts: 2nd Sept 2026 | Wed & Thu @ 10:30 AM PKT (Females Only)</p>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Hifz%20Surah%20Al-Imran%20(2nd%20Batch)." target="_blank" class="btn flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="flyer-card">
+                    <div class="flyer-img-wrapper" onclick="openFlyer('AN-nisa.jpg')">
+                        <img src="AN-nisa.jpg" alt="Hifz Suratun Nisaa Flyer" class="flyer-img" loading="lazy">
+                        <div class="flyer-badge">Admissions Open</div>
+                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to enlarge</div>
+                    </div>
+                    <div class="flyer-details">
+                        <h4>Hifz Suratun Nisaa with Translation</h4>
+                        <p class="flyer-meta">Starts: Sept 2026 | Mon & Tue @ 3:00 PM PKT (Restricted for Indian Citizens)</p>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Hifz%20Suratun%20Nisaa%20with%20Translation." target="_blank" class="btn flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="flyer-card">
+                    <div class="flyer-img-wrapper" onclick="openFlyer('selected.jpg')">
+                        <img src="selected.jpg" alt="Memorization of 5 Selected Surahs Flyer" class="flyer-img" loading="lazy">
+                        <div class="flyer-badge">Admissions Open</div>
+                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to enlarge</div>
+                    </div>
+                    <div class="flyer-details">
+                        <h4>5 Selected Surahs (Batch 03)</h4>
+                        <p class="flyer-meta">Starts: 15th Sept 2026 | 3 Days/Wk @ 8:00 AM PKT (Restricted for Indian Residents)</p>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%205%20Selected%20Surahs%20(Batch%2003)." target="_blank" class="btn flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. SEERAH DEPARTMENT -->
+        <section class="dept-block">
+            <h3 class="dept-header">Seerah Department</h3>
+            <div class="flyer-grid">
+                <div class="flyer-card">
+                    <div class="flyer-img-wrapper" onclick="openFlyer('umm.png')">
+                        <img src="umm.png" alt="Ummahatul-Mu'minin Batch 7 Flyer" class="flyer-img" loading="lazy">
+                        <div class="flyer-badge">Admissions Open</div>
+                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to enlarge</div>
+                    </div>
+                    <div class="flyer-details">
+                        <h4>Ummahatul-Mu'minin wa Banatu-4 (Batch 7)</h4>
+                        <p class="flyer-meta">Starts: August 15, 2026 | Duration: 4 Months (Females Only)</p>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Ummahatul-Muminin%20(Batch%207)." target="_blank" class="btn flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. KIDS TARBIYAH DEPARTMENT -->
         <section class="dept-block">
             <h3 class="dept-header">Kids Tarbiyah Department</h3>
             <div class="flyer-grid">
@@ -218,7 +223,7 @@
                     <div class="flyer-details">
                         <h4>Basic Islamic History (Qasas ul Anbiyaa)</h4>
                         <p class="flyer-meta">Starts: September 2026 | Age 8-16 (Boys & Girls)</p>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Basic%20Islamic%20History." target="_blank" class="btn flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Basic%20Islamic%20History%20(Kids%20Tarbiyah)." target="_blank" class="btn flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
                     </div>
                 </div>
             </div>
@@ -239,7 +244,7 @@
             <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn insta-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
             <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn yt-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
         </div>
-        <p>&copy; 2026 Az-Zikr International. All Rights Reserved.</p>
+        <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: var(--accent-color); text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: var(--accent-color); text-decoration: none;">Terms of Service</a></p>
     </footer>
 
     <script>
@@ -249,9 +254,11 @@
             modal.style.display = "flex";
             modalImg.src = imageSrc;
         }
+
         function closeFlyer() {
             document.getElementById("imageModal").style.display = "none";
         }
     </script>
+
 </body>
 </html>
