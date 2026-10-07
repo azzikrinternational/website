@@ -140,11 +140,15 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.1rem;
             margin-bottom: 25px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
         .lesson-details-card {
             background: #ffffff;
@@ -161,6 +165,30 @@
             color: #64748b;
             line-height: 1.6;
         }
+        .resource-links-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .resource-btn {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #334155;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+        .resource-btn:hover {
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+        }
         .btn-complete {
             background: var(--primary-green);
             color: white;
@@ -172,7 +200,6 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-top: 20px;
             transition: background 0.2s;
         }
         .btn-complete:hover {
@@ -203,7 +230,7 @@
     <div class="dash-layout">
         
         <!-- Left Sidebar Syllabus -->
-        aside class="dash-sidebar">
+        <aside class="dash-sidebar">
             <div class="course-title-small">Qur'an Arabic Department</div>
             <h3>Asaan Grammar Course</h3>
             
@@ -243,13 +270,9 @@
 
         <!-- Right Content Area -->
         <main class="dash-content">
-            <!-- Video Box -->
+            <!-- Video Box (Replace src with your YouTube embed link) -->
             <div class="video-container">
-                <!-- Replace with your hosted video iframe or video player element -->
-                <div style="text-align: center;">
-                    <i class="fa-solid fa-circle-play" style="font-size: 3.5rem; color: #2e7d32; margin-bottom: 10px;"></i>
-                    <p style="margin: 0; color: #94a3b8; font-size: 0.95rem;">Video Player: Lesson 1 Lecture Recording</p>
-                </div>
+                <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID" title="Lesson Video" allowfullscreen></iframe>
             </div>
 
             <!-- Lesson Notes & Action Card -->
@@ -257,15 +280,21 @@
                 <h2>Module 1: Introduction to Arabic Root Words</h2>
                 <p>Welcome to the first module of the Asaan Grammar Course. In this lesson, we break down how nearly all Arabic words are derived from 3-letter root systems, making Qur'anic vocabulary memorization straightforward and intuitive.</p>
                 
-                <hr style="border: none; border-top: 1px solid var(--border-color); margin: 20px 0;">
+                <!-- Resource Links (Notes PDF & Google Form Quiz) -->
+                <div class="resource-links-row">
+                    <a href="notes/lesson-1-handout.pdf" target="_blank" class="resource-btn">
+                        <i class="fa-solid fa-file-pdf" style="color: #dc2626;"></i> Download Lesson PDF Notes
+                    </a>
+                    <a href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" target="_blank" class="resource-btn">
+                        <i class="fa-solid fa-square-poll-check" style="color: #2563eb;"></i> Complete Lesson Quiz (Google Form)
+                    </a>
+                </div>
+
+                <hr style="border: none; border-top: 1px solid var(--border-color); margin: 25px 0;">
                 
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-                    <div>
-                        <span style="font-size: 0.85rem; color: #64748b;"><i class="fa-solid fa-file-pdf" style="color: #dc2626;"></i> Download Notes:</span>
-                        <a href="#" style="color: var(--primary-green); font-weight: 600; text-decoration: none; margin-left: 5px;">Lesson_1_Handout.pdf</a>
-                    </div>
+                <div style="display: flex; justify-content: flex-end; align-items: center;">
                     <button class="btn-complete">
-                        <i class="fa-solid fa-check"></i> Mark as Complete & Next
+                        <i class="fa-solid fa-check"></i> Mark as Complete & Next Lesson
                     </button>
                 </div>
             </div>
