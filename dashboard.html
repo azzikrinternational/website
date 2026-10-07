@@ -61,7 +61,7 @@
         /* Main Dashboard Grid Layout */
         .dashboard-container {
             display: grid;
-            grid-template-columns: 350px 1fr;
+            grid-template-columns: 380px 1fr;
             min-height: calc(100vh - 70px);
         }
         @media (max-width: 900px) {
@@ -118,27 +118,39 @@
         .progress-bar-fill {
             background: var(--primary-green);
             height: 100%;
-            width: 15%;
+            width: 5%;
             border-radius: 4px;
+        }
+
+        .semester-heading {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 20px 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
         }
 
         /* Lesson Items in Sidebar */
         .lesson-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
         .lesson-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px 15px;
-            border-radius: 10px;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
             background: #ffffff;
             cursor: pointer;
             text-decoration: none;
             color: #334155;
+            font-size: 0.9rem;
             transition: all 0.2s;
         }
         .lesson-item:hover {
@@ -151,9 +163,8 @@
             color: var(--primary-dark);
             font-weight: 600;
         }
-        .lesson-item i { font-size: 1rem; color: #94a3b8; }
+        .lesson-item i { font-size: 0.95rem; color: #94a3b8; flex-shrink: 0; }
         .lesson-item.active i { color: var(--primary-green); }
-        .lesson-item.completed i { color: #16a34a; }
 
         /* Main Content Panel */
         .dashboard-content {
@@ -278,71 +289,76 @@
             <div class="progress-box">
                 <div class="progress-info">
                     <span>Course Progress</span>
-                    <span>15% Complete</span>
+                    <span id="progressText">5% Complete</span>
                 </div>
                 <div class="progress-bar-bg">
-                    <div class="progress-bar-fill"></div>
+                    <div class="progress-bar-fill" id="progressBar" style="width: 5%;"></div>
                 </div>
             </div>
 
+            <!-- SEMESTER 1 -->
+            <div class="semester-heading">Semester 1</div>
             <div class="lesson-list">
-                <a href="#" class="lesson-item active">
+                <a href="javascript:void(0);" class="lesson-item active" onclick="loadLesson(0)">
                     <i class="fa-solid fa-play-circle"></i>
-                    <span>1. Introduction to Arabic Root Words</span>
+                    <span>01-Lecture (Lisan-ul-Quran-2022) By Amir Sohail</span>
                 </a>
-                <a href="#" class="lesson-item">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <span>2. Understanding Ism (Nouns)</span>
-                </a>
-                <a href="#" class="lesson-item">
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(1)">
                     <i class="fa-solid fa-lock"></i>
-                    <span>3. Exploring Fi'l (Verbs) Basics</span>
+                    <span>02-Lecture (Lisan-ul-Quran-2022) By Amir Sohail</span>
                 </a>
-                <a href="#" class="lesson-item">
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(2)">
                     <i class="fa-solid fa-lock"></i>
-                    <span>4. Harf (Particles) in Qur'an</span>
+                    <span>03-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (مذکر،مونث)جنس</span>
                 </a>
-                <a href="#" class="lesson-item">
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(3)">
                     <i class="fa-solid fa-lock"></i>
-                    <span>5. Sentence Structures & Practice</span>
+                    <span>04-Lecture (Lisan-ul-Quran-2022) By Amir Sohail ( واحد،مثنیٰ،جمع۔جمع مکسر)عدد</span>
+                </a>
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(4)">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>05-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (اضافت)</span>
+                </a>
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(5)">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>06-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (حروفِ قمری و شمسی)</span>
                 </a>
             </div>
-        </aside>
 
-        <!-- Main Video & Lesson Content Area -->
-        <main class="dashboard-content">
-            
-            <!-- Video Container -->
-            <div class="video-wrapper">
-                <!-- Replace src placeholder with actual YouTube embed link when provided -->
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Lesson Video Player" allowfullscreen></iframe>
+            <!-- SEMESTER 2 -->
+            <div class="semester-heading">Semester 2</div>
+            <div class="lesson-list">
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(6)">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>07-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (اسمِ اشارہ)</span>
+                </a>
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(7)">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>08-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (ضمائر)</span>
+                </a>
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(8)">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>09-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (حروفِ جارہ)</span>
+                </a>
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(9)">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>10-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (اسمِ موصول)</span>
+                </a>
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(10)">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>11-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (جملہ اسمیہ)</span>
+                </a>
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(11)">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>12-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (جملہ اسمیہ مع خبر شبه جملہ)</span>
+                </a>
             </div>
 
-            <!-- Lesson Details & Compulsory Google Form Quiz -->
-            <div class="lesson-details-card">
-                <h2>Lesson 1: Introduction to Arabic Root Words</h2>
-                <p class="lesson-desc">In this opening session, we explore how Arabic words are built from fundamental 3-letter root formations, giving you direct keys to unlock vocabulary meanings across the entire Holy Qur'an.</p>
-                
-                <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;">
-                    <a href="notes/lesson-1-notes.pdf" target="_blank" class="btn-notes">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF Notes
-                    </a>
-                </div>
-
-                <!-- Compulsory Google Form Section -->
-                <div class="action-buttons-group">
-                    <a href="https://forms.gle/your-google-form-link-here" target="_blank" class="btn-quiz-compulsory">
-                        <i class="fa-solid fa-square-poll-vertical"></i> Complete Compulsory Lesson Quiz (Google Form)
-                    </a>
-                    <p class="quiz-reminder-text">
-                        <i class="fa-solid fa-triangle-exclamation"></i> Please take a screenshot of your secured marks after submission; you will be needing them at the end of the course for issuance of your certificate.
-                    </p>
-                </div>
-            </div>
-
-        </main>
-
-    </div>
-
-</body>
-</html>
+            <!-- SEMESTER 3 -->
+            <div class="semester-heading">Semester 3</div>
+            <div class="lesson-list">
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(12)">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>13-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (مرکب توصیفی)</span>
+                </a>
+                <a href="javascript:void
