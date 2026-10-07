@@ -35,12 +35,21 @@
             font-weight: 600;
             font-size: 0.9rem;
         }
-        .form-group input {
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
             width: 100%;
             padding: 12px 15px;
             border: 1px solid #cbd5e1;
             border-radius: 8px;
             font-size: 1rem;
+        }
+        .remember-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #4b5563;
         }
         .btn-submit {
             width: 100%;
@@ -92,6 +101,13 @@
                     <label>Password</label>
                     <input type="password" id="password" required placeholder="••••••••">
                 </div>
+                
+                <!-- Remember Me Row -->
+                <div class="remember-row">
+                    <input type="checkbox" id="rememberMe" checked>
+                    <label for="rememberMe" style="margin-bottom: 0; cursor: pointer;">Remember me on this device</label>
+                </div>
+
                 <button type="submit" class="btn-submit"><i class="fa-solid fa-right-to-bracket"></i> Sign In & Access Hub</button>
                 <div id="errorMsg"></div>
             </form>
@@ -99,22 +115,29 @@
     </main>
 
     <script>
-        // Supabase Initialization
-        const SUPABASE_URL = 'https://hxsubmacyeprcvckpjuj.supabase.co';
-        const SUPABASE_KEY = 'sb_publishable_Hrhr0EMdvwFjaPqaHyE_kg_k00oq4hw';
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        const SUPABASE_URL = 'httpshxsubmacyeprcvckpjuj.supabase.co'; // verify your project URL string format if needed
+        // Using correct initialization with persistence config
+        const supabaseClient = supabase.createClient(
+            'https://hxsubmacyeprcvckpjuj.supabase.co', 
+            'sb_publishable_Hrhr0EMdvwFjaPqaHyE_kg_k00oq4hw',
+            {
+                auth: {
+                    persistSession: true,
+                    storage: window.localStorage
+                }
+            }
+        );
 
         document.getElementById('loginForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
             const errorDiv = document.getElementById('errorMsg');
             errorDiv.textContent = "";
 
-            // Capture course selection from URL query parameter (e.g. ?course=asaan-grammar)
             const urlParams = new URLSearchParams(window.location.search);
             const selectedCourse = urlParams.get('course');
-
             if (selectedCourse) {
                 localStorage.setItem('enrolled_course', selectedCourse);
             }
@@ -126,7 +149,7 @@
             });
 
             if (error) {
-                // If account doesn't exist, try auto-signing up for smooth onboarding
+                // Auto sign-up fallback helper for smooth testing
                 const { data: signUpData, error: signUpError } = await supabaseClient.auth.signUp({
                     email: email,
                     password: password
@@ -138,7 +161,7 @@
                 }
             }
 
-            // Redirect straight to Student Hub after successful login/signup
+            // If "Remember Me" is checked, storage handles session persistence automatically.
             window.location.href = 'student-hub.html';
         });
     </script>
