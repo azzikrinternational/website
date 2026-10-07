@@ -3,445 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
+    <title>Student Login - Az-Zikr International</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Title & Description -->
-    <title>Student Login | Az-Zikr International</title>
-    <meta name="description" content="Log in to your Az-Zikr International student portal to access your course selection, enrolled classes, and progress tracking.">
-
-    <!-- Google Fonts for Amiri Arabic & Clean UI Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Supabase JS Client CDN (Version 2) -->
+    <!-- Supabase CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <!-- Enhanced Styling -->
     <style>
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #050f1e 0%, #0d2342 100%);
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(46, 125, 50, 0.2);
-            padding: 14px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-        .site-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #2e7d32;
-        }
-        .logo-text {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #2e7d32;
-            letter-spacing: -0.3px;
-        }
-        .header-nav {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-        .header-nav a {
-            text-decoration: none;
-            color: #444;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-        .header-nav a:hover {
-            color: #2e7d32;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-        }
-        
         .login-wrapper {
-            width: 100%;
-            max-width: 440px;
-        }
-
-        .login-card {
+            max-width: 450px;
+            margin: 60px auto;
             background: #ffffff;
-            padding: 40px 35px;
+            padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Decorative top accent border */
-        .login-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #2e7d32, #c9933b);
-        }
-
-        .login-header-icon {
-            width: 55px;
-            height: 55px;
-            background: #f0fdf4;
-            color: #2e7d32;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            margin: 0 auto 18px auto;
             border: 1px solid #d4ebd4;
+            box-shadow: 0 10px 30px rgba(46, 125, 50, 0.08);
         }
-
-        .login-card h2 {
+        .login-wrapper h2 {
             color: #1a2e05;
-            margin-top: 0;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
             text-align: center;
-            font-size: 1.6rem;
-            font-weight: 700;
         }
-        .login-card p.subtitle {
-            text-align: center;
-            color: #666;
-            font-size: 0.92rem;
-            margin-bottom: 30px;
-        }
-        
         .form-group {
             margin-bottom: 20px;
         }
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 600;
-            font-size: 0.85rem;
             color: #374151;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
-        
-        .input-with-icon {
-            position: relative;
-        }
-        
-        .input-with-icon i.field-icon {
-            position: absolute;
-            left: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #9ca3af;
-            font-size: 0.95rem;
-        }
-
         .form-group input {
             width: 100%;
-            padding: 12px 14px 12px 42px;
-            border: 1px solid #d1d5db;
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
             border-radius: 8px;
-            font-size: 0.95rem;
-            color: #1f2937;
-            background-color: #f9fafb;
-            transition: all 0.2s ease;
+            font-size: 1rem;
         }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #2e7d32;
-            background-color: #ffffff;
-            box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.12);
-        }
-
-        .password-toggle {
-            position: absolute;
-            right: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #9ca3af;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-        .password-toggle:hover {
-            color: #4b5563;
-        }
-
-        .form-options {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-            margin-bottom: 24px;
-        }
-        
-        .remember-me {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: #4b5563;
-            cursor: pointer;
-        }
-        
-        .forgot-pass {
-            color: #2e7d32;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .forgot-pass:hover {
-            text-decoration: underline;
-        }
-
         .btn-submit {
             width: 100%;
-            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            background: #2e7d32;
             color: white;
+            padding: 14px;
             border: none;
-            padding: 13px;
+            border-radius: 8px;
             font-size: 1rem;
             font-weight: 600;
-            border-radius: 8px;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
-            transition: all 0.2s ease;
+            transition: background 0.2s;
         }
         .btn-submit:hover {
-            background: linear-gradient(135deg, #388e3c, #2e7d32);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 15px rgba(46, 125, 50, 0.4);
+            background: #1b5e20;
         }
-        .btn-submit:active {
-            transform: translateY(0);
-        }
-
-        .form-footer {
-            text-align: center;
-            margin-top: 25px;
-            font-size: 0.9rem;
-            color: #6b7280;
-            border-top: 1px solid #f3f4f6;
-            padding-top: 20px;
-        }
-        .form-footer a {
-            color: #2e7d32;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .form-footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Alert message styling */
-        .alert-box {
-            padding: 12px 15px;
-            border-radius: 6px;
-            font-size: 0.88rem;
-            margin-bottom: 20px;
-            display: none;
-        }
-        .alert-error {
-            background: #fef2f2;
-            border: 1px solid #fecaca;
-            color: #991b1b;
-        }
-
-        footer {
-            background: #030810;
-            color: #94a3b8;
-            text-align: center;
-            padding: 20px;
+        #errorMsg {
+            color: #dc2626;
             font-size: 0.85rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-        footer a {
-            color: #c9933b;
-            text-decoration: none;
-        }
-
-        @media screen and (max-width: 480px) {
-            .login-card {
-                padding: 30px 20px;
-                border-radius: 12px;
-            }
+            margin-top: 15px;
+            text-align: center;
         }
     </style>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo-container">
-            <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo">
+        <div class="logo-container">
+            <img src="logo.jpeg" alt="Logo" class="site-logo">
             <span class="logo-text">Az-Zikr International</span>
-        </a>
-        <nav class="header-nav">
-            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-            <a href="courses.html"><i class="fa-solid fa-book-open"></i> Courses</a>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="enroll.html">Enroll Now</a>
         </nav>
     </header>
 
     <main>
         <div class="login-wrapper">
-            <div class="login-card">
-                <div class="login-header-icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
+            <h2>Student Portal Login</h2>
+            <p style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 30px;">Sign in to access your course dashboard.</p>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" required placeholder="student@example.com">
                 </div>
-                <h2>Student Portal</h2>
-                <p class="subtitle">Welcome back! Please sign in to your account.</p>
-                
-                <!-- Error Alert Box -->
-                <div id="loginAlert" class="alert-box alert-error"></div>
-
-                <form id="loginForm">
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <div class="input-with-icon">
-                            <i class="fa-regular fa-envelope field-icon"></i>
-                            <input type="email" id="email" name="email" required placeholder="student@example.com">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <div class="input-with-icon">
-                            <i class="fa-solid fa-lock field-icon"></i>
-                            <input type="password" id="password" name="password" required placeholder="••••••••">
-                            <button type="button" id="togglePassword" class="password-toggle" title="Show/Hide Password">
-                                <i class="fa-regular fa-eye" id="eyeIcon"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="form-options">
-                        <label class="remember-me">
-                            <input type="checkbox" id="remember"> Remember me
-                        </label>
-                        <a href="forgot-password.html" class="forgot-pass">Forgot password?</a>
-                    </div>
-
-                    <button type="submit" class="btn-submit" id="submitBtn">Sign In</button>
-                </form>
-
-                <div class="form-footer">
-                    Don't have a portal account? <a href="signup.html">Register here</a>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" required placeholder="••••••••">
                 </div>
-            </div>
+                <button type="submit" class="btn-submit"><i class="fa-solid fa-right-to-bracket"></i> Sign In & Access Hub</button>
+                <div id="errorMsg"></div>
+            </form>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a></p>
-    </footer>
-
-    <!-- Safe Script Initialization -->
     <script>
-        // Password visibility toggle logic
-        const togglePassword = document.getElementById('togglePassword');
-        const passwordInput = document.getElementById('password');
-        const eyeIcon = document.getElementById('eyeIcon');
+        // Supabase Initialization
+        const SUPABASE_URL = 'https://hxsubmacyeprcvckpjuj.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_Hrhr0EMdvwFjaPqaHyE_kg_k00oq4hw';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-        if (togglePassword) {
-            togglePassword.addEventListener('click', function () {
-                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                passwordInput.setAttribute('type', type);
-                
-                if (type === 'text') {
-                    eyeIcon.classList.remove('fa-eye');
-                    eyeIcon.classList.add('fa-eye-slash');
-                } else {
-                    eyeIcon.classList.remove('fa-eye-slash');
-                    eyeIcon.classList.add('fa-eye');
-                }
-            });
-        }
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('errorMsg');
+            errorDiv.textContent = "";
 
-        // Initialize Supabase Client safely
-        let supabaseClient = null;
-        try {
-            const SUPABASE_URL = 'https://hxsubmacyeprcvckpjuj.supabase.co';
-            const SUPABASE_ANON_KEY = 'sb_publishable_Hrhr0EMdvwFjaPqaHyE_kg_k00oq4hw';
-            if (typeof supabase !== 'undefined' && supabase.createClient) {
-                supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            // Capture course selection from URL query parameter (e.g. ?course=asaan-grammar)
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedCourse = urlParams.get('course');
+
+            if (selectedCourse) {
+                localStorage.setItem('enrolled_course', selectedCourse);
             }
-        } catch (err) {
-            console.error('Supabase init error:', err);
-        }
 
-        // Form submission & authentication handle
-        const loginForm = document.getElementById('loginForm');
-        const loginAlert = document.getElementById('loginAlert');
-        const submitBtn = document.getElementById('submitBtn');
-
-        if (loginForm) {
-            loginForm.addEventListener('submit', async function (e) {
-                e.preventDefault();
-                
-                const email = document.getElementById('email').value.trim();
-                const password = document.getElementById('password').value;
-
-                loginAlert.style.display = 'none';
-                loginAlert.textContent = '';
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Signing in...';
-
-                try {
-                    if (!supabaseClient) {
-                        // Fallback redirect if client didn't load
-                        window.location.href = 'student-hub.html';
-                        return;
-                    }
-
-                    const { data, error } = await supabaseClient.auth.signInWithPassword({
-                        email: email,
-                        password: password,
-                    });
-
-                    if (error) throw error;
-
-                    // Successful login -> Redirect straight to student-hub.html
-                    window.location.href = 'student-hub.html';
-
-                } catch (error) {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Sign In';
-                    loginAlert.textContent = error.message || 'Invalid login credentials. Please try again.';
-                    loginAlert.style.display = 'block';
-                }
+            // Authenticate with Supabase
+            const { data, error } = await supabaseClient.auth.signInWithPassword({
+                email: email,
+                password: password
             });
-        }
+
+            if (error) {
+                // If account doesn't exist, try auto-signing up for smooth onboarding
+                const { data: signUpData, error: signUpError } = await supabaseClient.auth.signUp({
+                    email: email,
+                    password: password
+                });
+                
+                if (signUpError) {
+                    errorDiv.textContent = signUpError.message;
+                    return;
+                }
+            }
+
+            // Redirect straight to Student Hub after successful login/signup
+            window.location.href = 'student-hub.html';
+        });
     </script>
 </body>
 </html>
