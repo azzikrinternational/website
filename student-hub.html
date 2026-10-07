@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     
-    <!-- Title & Description -->
     <title>Student Portal Hub | Az-Zikr International</title>
     <meta name="description" content="Manage your enrolled Islamic courses, track your learning progress, and explore new departments.">
 
@@ -14,18 +13,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Supabase JS Client CDN (Version 2) -->
+    <!-- Supabase JS Client CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <!-- Page Styling -->
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             background-color: #f4f9f4;
             color: #333;
             display: flex;
@@ -48,159 +43,71 @@
             text-decoration: none;
         }
         .site-logo {
-            width: 40px;
-            height: 40px;
+            width: 40px; height: 40px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #2e7d32;
         }
-        .logo-text {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #2e7d32;
-        }
-        .header-nav {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-        .header-nav a {
-            text-decoration: none;
-            color: #444;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-        .header-nav a:hover {
-            color: #2e7d32;
-        }
+        .logo-text { font-size: 1.1rem; font-weight: 700; color: #2e7d32; }
+        .header-nav { display: flex; gap: 20px; align-items: center; }
+        .header-nav a { text-decoration: none; color: #444; font-weight: 500; font-size: 0.9rem; }
+        .header-nav a:hover { color: #2e7d32; }
         .btn-logout {
-            background: #fee2e2;
-            color: #991b1b;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s;
+            background: #fee2e2; color: #991b1b;
+            padding: 6px 14px; border-radius: 6px;
+            font-size: 0.85rem; font-weight: 600;
+            border: none; cursor: pointer; transition: background 0.2s;
         }
-        .btn-logout:hover {
-            background: #fecaca;
-        }
+        .btn-logout:hover { background: #fecaca; }
 
         main {
-            flex: 1;
-            max-width: 1100px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 40px 20px;
+            flex: 1; max-width: 1100px; width: 100%;
+            margin: 0 auto; padding: 40px 20px;
         }
 
         .welcome-banner {
             background: linear-gradient(135deg, #2e7d32, #1b5e20);
-            color: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 35px;
+            color: white; padding: 30px;
+            border-radius: 12px; margin-bottom: 35px;
             box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
         }
-        .welcome-banner h1 {
-            margin: 0 0 8px 0;
-            font-size: 1.8rem;
-        }
-        .welcome-banner p {
-            margin: 0;
-            opacity: 0.9;
-            font-size: 0.95rem;
-        }
+        .welcome-banner h1 { margin: 0 0 8px 0; font-size: 1.8rem; }
+        .welcome-banner p { margin: 0; opacity: 0.9; font-size: 0.95rem; }
 
         .section-heading {
-            font-size: 1.3rem;
-            color: #1a2e05;
-            margin-bottom: 20px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.3rem; color: #1a2e05;
+            margin-bottom: 20px; font-weight: 700;
+            display: flex; align-items: center; gap: 10px;
         }
 
-        /* Course Grid Section */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 20px;
+        /* Empty State for Enrolled Courses */
+        .empty-enrollment-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 40px;
+            border: 1px solid #d4ebd4;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             margin-bottom: 45px;
         }
-
-        .course-card {
-            background: #ffffff;
-            border-radius: 10px;
-            padding: 24px;
-            border: 1px solid #d4ebd4;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .course-card h3 {
-            margin-top: 0;
+        .empty-enrollment-card i {
+            font-size: 2.5rem;
             color: #2e7d32;
-            font-size: 1.15rem;
+            margin-bottom: 15px;
+        }
+        .empty-enrollment-card h3 {
+            color: #1a2e05;
+            margin-top: 0;
             margin-bottom: 8px;
+            font-size: 1.2rem;
         }
-
-        .course-card p {
+        .empty-enrollment-card p {
             color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-
-        /* Progress Bar */
-        .progress-container {
+            font-size: 0.95rem;
             margin-bottom: 20px;
         }
-        .progress-info {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #555;
-            margin-bottom: 6px;
-        }
-        .progress-bar-bg {
-            background: #e5e7eb;
-            height: 8px;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        .progress-bar-fill {
-            background: #2e7d32;
-            height: 100%;
-            border-radius: 4px;
-        }
 
-        .btn-action {
-            display: block;
-            text-align: center;
-            padding: 10px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background 0.2s;
-        }
-
-        .btn-primary {
-            background: #2e7d32;
-            color: white;
-        }
-        .btn-primary:hover {
-            background: #1b5e20;
-        }
-
-        /* Single Enrollment Call-to-Action Card */
+        /* Enroll Callout Card */
         .enroll-callout-card {
             background: #ffffff;
             border-radius: 12px;
@@ -213,53 +120,28 @@
             align-items: center;
             justify-content: center;
         }
-
         .enroll-callout-card h3 {
             color: #1a2e05;
-            margin-top: 0;
-            margin-bottom: 8px;
-            font-size: 1.25rem;
+            margin-top: 0; margin-bottom: 8px; font-size: 1.25rem;
         }
-
         .enroll-callout-card p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            max-width: 500px;
+            color: #666; font-size: 0.95rem; margin-bottom: 20px; max-width: 500px;
         }
-
         .btn-enroll-large {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #f0fdf4;
-            color: #2e7d32;
-            border: 1px solid #bbf7d0;
-            padding: 12px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.2s;
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #2e7d32; color: #ffffff;
+            border: 1px solid #2e7d32; padding: 12px 28px;
+            border-radius: 8px; text-decoration: none;
+            font-weight: 600; font-size: 1rem; transition: all 0.2s;
         }
-
-        .btn-enroll-large:hover {
-            background: #dcfce7;
-            border-color: #86efac;
-        }
+        .btn-enroll-large:hover { background: #1b5e20; }
 
         footer {
-            background: #030810;
-            color: #94a3b8;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.85rem;
+            background: #030810; color: #94a3b8;
+            text-align: center; padding: 20px; font-size: 0.85rem;
             border-top: 1px solid rgba(255,255,255,0.05);
         }
-        footer a {
-            color: #c9933b;
-            text-decoration: none;
-        }
+        footer a { color: #c9933b; text-decoration: none; }
     </style>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -279,57 +161,20 @@
     </header>
 
     <main>
-        <!-- Welcome Banner -->
         <div class="welcome-banner">
             <h1>Student Portal Hub</h1>
-            <p>Track your active learning progress or choose a new course to enroll in.</p>
+            <p>Welcome to your portal. Explore and enroll in our active course offering below.</p>
         </div>
 
-        <!-- Section 1: Enrolled Courses & Progress -->
+        <!-- Section 1: My Enrolled Courses (Clean State - No Dummy Data) -->
         <div class="section-heading">
-            <i class="fa-solid fa-book-bookmark"></i> My Enrolled Courses (Progress)
+            <i class="fa-solid fa-book-bookmark"></i> My Enrolled Courses
         </div>
         
-        <div class="grid-container">
-            <!-- Enrolled Course 1 -->
-            <div class="course-card">
-                <div>
-                    <h3>Tajweed, Tarteel, & Nazrah</h3>
-                    <p>Master correct pronunciation and articulation points of Arabic letters.</p>
-                </div>
-                <div>
-                    <div class="progress-container">
-                        <div class="progress-info">
-                            <span>Progress</span>
-                            <span>45% Complete</span>
-                        </div>
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" style="width: 45%;"></div>
-                        </div>
-                    </div>
-                    <a href="dashboard.html?course=tajweed" class="btn-action btn-primary"><i class="fa-solid fa-play"></i> Continue Learning</a>
-                </div>
-            </div>
-
-            <!-- Enrolled Course 2 -->
-            <div class="course-card">
-                <div>
-                    <h3>Lisan ul Quran (English)</h3>
-                    <p>Understand the vocabulary and structure of the Quran directly in English.</p>
-                </div>
-                <div>
-                    <div class="progress-container">
-                        <div class="progress-info">
-                            <span>Progress</span>
-                            <span>10% Complete</span>
-                        </div>
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" style="width: 10%;"></div>
-                        </div>
-                    </div>
-                    <a href="dashboard.html?course=lisan-ul-quran" class="btn-action btn-primary"><i class="fa-solid fa-play"></i> Continue Learning</a>
-                </div>
-            </div>
+        <div class="empty-enrollment-card">
+            <i class="fa-solid fa-folder-open"></i>
+            <h3>No Active Enrollments Yet</h3>
+            <p>You are not currently enrolled in any active classes. Check out our featured course below to get started!</p>
         </div>
 
         <!-- Section 2: Explore & Enroll in New Courses -->
@@ -337,11 +182,10 @@
             <i class="fa-solid fa-compass"></i> Explore & Enroll in New Courses
         </div>
 
-        <!-- Streamlined Single Enroll Callout Card -->
         <div class="enroll-callout-card">
-            <h3>Ready to expand your knowledge?</h3>
-            <p>Explore our wide range of available programs and departments to start your next learning journey.</p>
-            <a href="enroll.html" class="btn-enroll-large"><i class="fa-solid fa-user-plus"></i> Enroll in New Course</a>
+            <h3>Featured Program: Qur'an Arabic Department</h3>
+            <p>Unlock direct comprehension of the Holy Qur'an with our signature Asaan Grammar Course.</p>
+            <a href="enroll.html" class="btn-enroll-large"><i class="fa-solid fa-user-plus"></i> View & Enroll Now</a>
         </div>
     </main>
 
@@ -349,13 +193,11 @@
         <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a></p>
     </footer>
 
-    <!-- Safe Initialization & Session Guard Script -->
     <script>
         let supabaseClient = null;
         try {
             const SUPABASE_URL = 'https://hxsubmacyeprcvckpjuj.supabase.co';
             const SUPABASE_ANON_KEY = 'sb_publishable_Hrhr0EMdvwFjaPqaHyE_kg_k00oq4hw';
-            
             if (typeof supabase !== 'undefined' && supabase.createClient) {
                 supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
             }
@@ -363,31 +205,11 @@
             console.error('Supabase initialization error:', err);
         }
 
-        // Optional Route Guard: Check session safely without blocking rendering
-        async function checkUserSession() {
-            if (!supabaseClient) return;
-            try {
-                const { data: { session }, error } = await supabaseClient.auth.getSession();
-                if (error || !session) {
-                    // Uncomment the line below once live authentication is fully enforced
-                    // window.location.href = 'login.html';
-                }
-            } catch (e) {
-                console.error('Session check failed:', e);
-            }
-        }
-        checkUserSession();
-
-        // Handle Logout
         const logoutBtn = document.getElementById('logoutBtn');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', async function() {
                 if (supabaseClient) {
-                    try {
-                        await supabaseClient.auth.signOut();
-                    } catch (e) {
-                        // ignore network errors on signout
-                    }
+                    try { await supabaseClient.auth.signOut(); } catch (e) {}
                 }
                 window.location.href = 'login.html';
             });
