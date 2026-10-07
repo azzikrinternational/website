@@ -361,4 +361,114 @@
                     <i class="fa-solid fa-lock"></i>
                     <span>13-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (مرکب توصیفی)</span>
                 </a>
-                <a href="javascript:void
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(13)">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>14-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (افعال کا بیان - ماضی)</span>
+                </a>
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(14)">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>15-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (مضارع)</span>
+                </a>
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(15)">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>16-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (امر اور نہیں)</span>
+                </a>
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(16)">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>17-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (اسمِ فاعل اور مفعول)</span>
+                </a>
+                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(17)">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>18-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (قواعد اور مشق)</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Video & Lesson Content Area -->
+        <main class="dashboard-content">
+            
+            <!-- Video Container -->
+            <div class="video-wrapper">
+                <iframe id="lessonVideo" src="https://www.youtube.com/embed/brWF5QKSrqM" title="Lesson Video Player" allowfullscreen></iframe>
+            </div>
+
+            <!-- Lesson Details & Compulsory Google Form Quiz -->
+            <div class="lesson-details-card">
+                <h2 id="lessonTitle">01-Lecture (Lisan-ul-Quran-2022) By Amir Sohail</h2>
+                <p class="lesson-desc" id="lessonDesc">Watch the complete video session above, download your reference notes, and complete the compulsory quiz to record your assessment marks.</p>
+                
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;">
+                    <a href="notes/asaan-grammar-notes.pdf" target="_blank" class="btn-notes">
+                        <i class="fa-solid fa-file-pdf"></i> Download PDF Notes
+                    </a>
+                </div>
+
+                <!-- Compulsory Google Form Section -->
+                <div class="action-buttons-group">
+                    <a id="lessonQuizBtn" href="https://forms.gle/CVPpeTwUPo7Bb6gB8" target="_blank" class="btn-quiz-compulsory">
+                        <i class="fa-solid fa-square-poll-vertical"></i> Complete Compulsory Lesson Quiz (Google Form)
+                    </a>
+                    <p class="quiz-reminder-text">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Please take a screenshot of your secured marks after submission; you will be needing them at the end of the course for issuance of your certificate.
+                    </p>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script>
+        const lessonsData = [
+            { title: "01-Lecture (Lisan-ul-Quran-2022) By Amir Sohail", yt: "brWF5QKSrqM", form: "https://forms.gle/CVPpeTwUPo7Bb6gB8" },
+            { title: "02-Lecture (Lisan-ul-Quran-2022) By Amir Sohail", yt: "UCyEe5WhclY", form: "https://forms.gle/7Y1JZ9FCvkkGTFvx7" },
+            { title: "03-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (مذکر،مونث)جنس", yt: "yRwwgPW9R30", form: "https://forms.gle/wdvAt3fWLkuFqTXb9" },
+            { title: "04-Lecture (Lisan-ul-Quran-2022) By Amir Sohail ( واحد،مثنیٰ،جمع۔جمع مکسر)عدد", yt: "FqaRRa4sJPc", form: "https://forms.gle/ZvymLiBKtDQKx3Pj9" },
+            { title: "05-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (اضافت)", yt: "13tlmxGK4bA", form: "https://forms.gle/2kotKsx4ZEAxVwHG7" },
+            { title: "06-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (حروفِ قمری و شمسی)", yt: "ZUn2wSycLBw", form: "https://forms.gle/RVPg2THE9xp1WjJSA" },
+            { title: "07-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (اسمِ اشارہ)", yt: "WoN2GUuUHEQ", form: "https://forms.gle/A52VmfckJMEY99oU9" },
+            { title: "08-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (ضمائر)", yt: "eSgn0Mi5saU", form: "https://forms.gle/a4Fx9yoHbc4z7A9j6" },
+            { title: "09-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (حروفِ جارہ)", yt: "NSZRnpJPN1A", form: "https://forms.gle/HExnGvDRWvJGxrsp8" },
+            { title: "10-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (اسمِ موصول)", yt: "CDRMaK9BrkQ", form: "https://forms.gle/jYgJdV9GkzunYMwJA" },
+            { title: "11-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (جملہ اسمیہ)", yt: "Zb6kifdH21A", form: "https://forms.gle/bjrrdAjYBXuLZMPu7" },
+            { title: "12-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (جملہ اسمیہ مع خبر شبه جملہ)", yt: "Kqf4uNeFdbE", form: "https://forms.gle/SY4YeRsGqV5w5Yr5A" },
+            { title: "13-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (مرکب توصیفی)", yt: "RrmBNxF-inA", form: "https://forms.gle/t1RndbKeBmW11GhS8" },
+            { title: "14-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (افعال کا بیان - ماضی)", yt: "x_S8VwjyPNE", form: "https://forms.gle/86jDgQmBR9PxxcY37" },
+            { title: "15-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (مضارع)", yt: "koh66cdECec", form: "https://forms.gle/SxZ5tfY6XHk65TPE9" },
+            { title: "16-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (امر اور نہیں)", yt: "hAB3JidO-eQ", form: "https://forms.gle/9iwUFFBwy4AB5kZAA" },
+            { title: "17-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (اسمِ فاعل اور مفعول)", yt: "EpV5-B4D-Oo", form: "https://forms.gle/oD6UJDPRNuVScEJu9" },
+            { title: "18-Lecture (Lisan-ul-Quran-2022) By Amir Sohail (قواعد اور مشق)", yt: "P6M8whos1Go", form: "https://forms.gle/pv3WBVbdHGgi3kRQA" }
+        ];
+
+        function loadLesson(index) {
+            const lesson = lessonsData[index];
+            document.getElementById("lessonVideo").src = "https://www.youtube.com/embed/" + lesson.yt;
+            document.getElementById("lessonTitle").innerText = lesson.title;
+            document.getElementById("lessonQuizBtn").href = lesson.form;
+
+            // Update active state in sidebar
+            const items = document.querySelectorAll(".lesson-item");
+            items.forEach((item, idx) => {
+                item.classList.remove("active");
+                const icon = item.querySelector("i");
+                if (idx < index) {
+                    icon.className = "fa-solid fa-circle-check";
+                    icon.style.color = "#16a34a";
+                } else if (idx === index) {
+                    item.classList.add("active");
+                    icon.className = "fa-solid fa-play-circle";
+                    icon.style.color = "var(--primary-green)";
+                } else {
+                    icon.className = "fa-solid fa-lock";
+                    icon.style.color = "#94a3b8";
+                }
+            });
+
+            // Update progress percentage
+            const percent = Math.round(((index + 1) / lessonsData.length) * 100);
+            document.getElementById("progressText").innerText = percent + "% Complete";
+            document.getElementById("progressBar").style.width = percent + "%";
+        }
+    </script>
+</body>
+</html>
