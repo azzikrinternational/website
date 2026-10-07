@@ -252,9 +252,15 @@
             justify-content: space-between;
         }
         .flyer-details h4 {
-            margin: 0 0 6px 0;
+            margin: 0 0 4px 0;
             color: var(--primary-dark);
             font-size: 1.05rem;
+        }
+        .flyer-tagline {
+            font-size: 0.85rem;
+            color: #2e7d32;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
         .flyer-meta {
             color: #64748b;
@@ -277,19 +283,6 @@
             transition: background 0.2s;
         }
         .flyer-btn:hover { background: #20ba5a; }
-
-        .empty-status {
-            background: #f8fafc;
-            border: 1px dashed var(--border-color);
-            padding: 20px;
-            border-radius: 8px;
-            color: #64748b;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .empty-status i { color: #94a3b8; }
 
         /* Modal */
         .modal {
@@ -338,7 +331,7 @@
 
     <div class="enroll-hero">
         <h2>Open Enrolments</h2>
-        <p>Choose between our interactive automated Web Portal or join our traditional WhatsApp batch programs below.</p>
+        <p>Choose between our interactive automated Web Portal or join our active WhatsApp batch programs below.</p>
     </div>
 
     <!-- Filter Buttons -->
@@ -380,7 +373,7 @@
         <div class="filter-section" data-category="whatsapp" style="margin-top: 50px;">
             <h3 class="section-header-title"><i class="fa-brands fa-whatsapp"></i> WhatsApp Course Portal</h3>
 
-            <!-- Tajweed Department (Open) -->
+            <!-- 1. Tajweed Department (Open) -->
             <div class="dept-card-wrapper">
                 <h4 class="dept-title"><i class="fa-solid fa-book-quran" style="color: var(--primary-green);"></i> Tajweed, Tarteel & Nazrah Department</h4>
                 <div class="flyer-grid">
@@ -392,7 +385,8 @@
                         </div>
                         <div class="flyer-details">
                             <div>
-                                <h4>Tajweed & Noorani Qaida Course</h4>
+                                <h4>Tajweed & Noorani Qaida</h4>
+                                <div class="flyer-tagline">Perfect Qur'an recitation</div>
                                 <p class="flyer-meta">Active Batch | Females Only</p>
                             </div>
                             <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20Tajweed%20Course." target="_blank" class="flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
@@ -401,7 +395,7 @@
                 </div>
             </div>
 
-            <!-- English Department (Open) -->
+            <!-- 2. English Department (Open) -->
             <div class="dept-card-wrapper">
                 <h4 class="dept-title"><i class="fa-solid fa-language" style="color: var(--primary-green);"></i> English Department</h4>
                 <div class="flyer-grid">
@@ -413,7 +407,8 @@
                         </div>
                         <div class="flyer-details">
                             <div>
-                                <h4>Spoken & Functional English Batch</h4>
+                                <h4>Spoken & Functional English</h4>
+                                <div class="flyer-tagline">Master fluent communication</div>
                                 <p class="flyer-meta">Active Admissions</p>
                             </div>
                             <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20English%20Department%20course." target="_blank" class="flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
@@ -422,21 +417,25 @@
                 </div>
             </div>
 
-            <!-- Hifz Department (Closed) -->
+            <!-- 3. Kids Tarbiyah Department (Open with BIS.png) -->
             <div class="dept-card-wrapper">
-                <h4 class="dept-title"><i class="fa-solid fa-award" style="color: #94a3b8;"></i> Hifz Department</h4>
-                <div class="empty-status">
-                    <i class="fa-solid fa-circle-info"></i>
-                    <span>Admissions are currently closed for this department. New batches will be announced soon.</span>
-                </div>
-            </div>
-
-            <!-- Seerah Department (Closed) -->
-            <div class="dept-card-wrapper">
-                <h4 class="dept-title"><i class="fa-solid fa-landmark" style="color: #94a3b8;"></i> Seerah Department</h4>
-                <div class="empty-status">
-                    <i class="fa-solid fa-circle-info"></i>
-                    <span>Admissions are currently closed for this department. New batches will be announced soon.</span>
+                <h4 class="dept-title"><i class="fa-solid fa-child-reaching" style="color: var(--primary-green);"></i> Kids Tarbiyah Department</h4>
+                <div class="flyer-grid">
+                    <div class="flyer-card">
+                        <div class="flyer-img-wrapper" onclick="openFlyer('BIS.png')">
+                            <img src="BIS.png" alt="Basic Islamic History Flyer" class="flyer-img" loading="lazy">
+                            <div class="flyer-badge-open">Admissions Open</div>
+                            <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to enlarge</div>
+                        </div>
+                        <div class="flyer-details">
+                            <div>
+                                <h4>Basic Islamic History</h4>
+                                <div class="flyer-tagline">Inspiring prophetic stories</div>
+                                <p class="flyer-meta">Age 8-16 (Boys & Girls)</p>
+                            </div>
+                            <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Basic%20Islamic%20History%20(Kids%20Tarbiyah)." target="_blank" class="flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -473,14 +472,12 @@
         }
 
         function filterSelection(category) {
-            // Update active button style
             var buttons = document.getElementsByClassName("filter-btn");
             for (var i = 0; i < buttons.length; i++) {
                 buttons[i].classList.remove("active");
             }
             event.target.classList.add("active");
 
-            // Show/Hide sections
             var sections = document.getElementsByClassName("filter-section");
             for (var j = 0; j < sections.length; j++) {
                 if (category === 'all') {
