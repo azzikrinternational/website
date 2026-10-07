@@ -153,7 +153,13 @@
             font-size: 0.9rem;
             transition: all 0.2s;
         }
-        .lesson-item:hover {
+        .lesson-item.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: #f8fafc;
+            border-style: dashed;
+        }
+        .lesson-item:hover:not(.locked) {
             border-color: var(--primary-green);
             background: #f8fafc;
         }
@@ -165,6 +171,7 @@
         }
         .lesson-item i { font-size: 0.95rem; color: #94a3b8; flex-shrink: 0; }
         .lesson-item.active i { color: var(--primary-green); }
+        .lesson-item.locked i { color: #cbd5e1; }
 
         /* Main Content Panel */
         .dashboard-content {
@@ -207,22 +214,24 @@
             margin-bottom: 25px;
         }
 
-        /* Student Checkboxes Section */
+        /* Student Checklists & Prominent Upload Box */
         .student-checklist {
-            background: #f8fafc;
-            border: 1px solid var(--border-color);
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            background: #f0fdf4;
+            border: 2px solid #bbf7d0;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
         .checklist-title {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--primary-dark);
-            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         .checkbox-label {
             display: flex;
@@ -238,6 +247,62 @@
             height: 18px;
             accent-color: var(--primary-green);
             cursor: pointer;
+        }
+
+        /* Prominent File Upload Box */
+        .upload-section {
+            margin-top: 8px;
+            padding-top: 15px;
+            border-top: 1px solid #bbf7d0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .upload-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #166534;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .upload-input-group {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .file-input {
+            font-size: 0.85rem;
+            color: #334155;
+            background: #ffffff;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            flex-grow: 1;
+        }
+        .btn-upload-submit {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-upload-submit:hover { background: #1b4d3e; }
+        .upload-status {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #16a34a;
+            display: none;
+            align-items: center;
+            gap: 6px;
         }
 
         /* Action Buttons & Google Form Callout */
@@ -315,79 +380,8 @@
 
             <!-- SEMESTER 1 (All 18 Lectures) -->
             <div class="semester-heading">Semester 1 Syllabus</div>
-            <div class="lesson-list">
-                <a href="javascript:void(0);" class="lesson-item active" onclick="loadLesson(0)">
-                    <i class="fa-solid fa-play-circle"></i>
-                    <span>01-Lecture: تعارف، حروف الھجاء، الف اور ھمزہ کا فرق</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(1)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>02-Lecture: کلمہ کی اقسام ،اسم کا تعارف</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(2)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>03-Lecture (مذکر،مونث)جنس</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(3)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>04-Lecture (واحد،مثنیٰ،جمع۔جمع مکسر)عدد</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(4)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>05-Lecture (جمع سالم(جمع سالم بنانے کا طریقہ))</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(5)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>06-Lecture (وسعت(معرفہ،معرفہ کی اقسام،نکرہ))</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(6)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>07-Lecture (اعراب(رفع،نصب،جر))</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(7)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>08-Lecture (اعراب" واحد، مثنّی جمع سالم کی مشق")</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(8)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>09-Lecture (جملہ اسمیہ(مرکب تام))</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(9)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>10-Lecture (جملہ اسمیہ (معرف باللام مبتدا))</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(10)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>11-Lecture (جملہ اسمیہ (اسمائے اشارہ بطورمبتدا))</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(11)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>12-Lecture (جملہ اسمیہ (ضمائر بطورمبتدا))</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(12)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>13-Lecture (مرکب توصیفی)</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(13)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>14-Lecture (مرکب اشاری)</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(14)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>15-Lecture (مرکب اضافی)</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(15)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>16-Lecture (پیچیدہ مرکب اضافی)</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(16)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>17-Lecture (مرکب اضافی میں ضمائر کا استعمال)</span>
-                </a>
-                <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(17)">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>18-Lecture (مرکب جاری)</span>
-                </a>
+            <div class="lesson-list" id="sidebarLessonList">
+                <!-- Populated dynamically via script -->
             </div>
         </aside>
 
@@ -399,22 +393,32 @@
                 <iframe id="lessonVideo" src="https://www.youtube.com/embed/brWF5QKSrqM" title="Lesson Video Player" allowfullscreen></iframe>
             </div>
 
-            <!-- Lesson Details & Student Verification Checkboxes -->
+            <!-- Lesson Details & Student Verification & Upload -->
             <div class="lesson-details-card">
-                <h2 id="lessonTitle">01-Lecture: تعارف، حروف الھجاء، الف اور ھمزہ کا فرق</h2>
-                <p class="lesson-desc" id="lessonDesc">Watch the complete video session above and complete the compulsory quiz to record your assessment marks.</p>
+                <h2 id="lessonTitle">01-Lecture (تعارف، حروف الھجاء، الف اور ھمزہ کا فرق)</h2>
+                <p class="lesson-desc" id="lessonDesc">Watch the complete video session, complete the Google quiz, and upload your result screenshot to unlock the next lecture.</p>
 
-                <!-- Student Checklist Options -->
+                <!-- Student Checklist Options & Prominent Screenshot Upload -->
                 <div class="student-checklist">
-                    <div class="checklist-title">Student Progress Verification:</div>
+                    <div class="checklist-title"><i class="fa-solid fa-list-check"></i> Student Progress Verification:</div>
                     <label class="checkbox-label">
-                        <input type="checkbox" id="watchedCheck" onchange="updateChecklist()">
+                        <input type="checkbox" id="watchedCheck">
                         I have watched the video lecture of this class.
                     </label>
                     <label class="checkbox-label">
-                        <input type="checkbox" id="quizCheck" onchange="updateChecklist()">
-                        I have done Google test / quiz.
+                        <input type="checkbox" id="quizCheck">
+                        I have done Google test.
                     </label>
+
+                    <!-- Screenshot Upload Option with E-Mail Integration -->
+                    <div class="upload-section">
+                        <label class="upload-label"><i class="fa-solid fa-cloud-arrow-up"></i> Upload Quiz Score Screenshot (Sends to azzikrinternational@gmail.com & unlocks next lesson)</label>
+                        <div class="upload-input-group">
+                            <input type="file" id="screenshotInput" accept="image/*" class="file-input">
+                            <button type="button" class="btn-upload-submit" onclick="submitScreenshot()"><i class="fa-solid fa-paper-plane"></i> Upload & Unlock</button>
+                        </div>
+                        <span id="uploadSuccessText" class="upload-status"><i class="fa-solid fa-circle-check"></i> Screenshot submitted & sent! Next lecture unlocked successfully.</span>
+                    </div>
                 </div>
 
                 <!-- Compulsory Google Form Section -->
@@ -434,8 +438,8 @@
 
     <script>
         const lessonsData = [
-            { title: "01-Lecture: تعارف، حروف الھجاء، الف اور ھمزہ کا فرق", yt: "brWF5QKSrqM", form: "https://forms.gle/CVPpeTwUPo7Bb6gB8" },
-            { title: "02-Lecture: کلمہ کی اقسام ،اسم کا تعارف", yt: "UCyEe5WhclY", form: "https://forms.gle/7Y1JZ9FCvkkGTFvx7" },
+            { title: "01-Lecture (تعارف، حروف الھجاء، الف اور ھمزہ کا فرق)", yt: "brWF5QKSrqM", form: "https://forms.gle/CVPpeTwUPo7Bb6gB8" },
+            { title: "02-Lecture (کلمہ کی اقسام ،اسم کا تعارف)", yt: "UCyEe5WhclY", form: "https://forms.gle/7Y1JZ9FCvkkGTFvx7" },
             { title: "03-Lecture (مذکر،مونث)جنس", yt: "yRwwgPW9R30", form: "https://forms.gle/wdvAt3fWLkuFqTXb9" },
             { title: "04-Lecture (واحد،مثنیٰ،جمع۔جمع مکسر)عدد", yt: "FqaRRa4sJPc", form: "https://forms.gle/ZvymLiBKtDQKx3Pj9" },
             { title: "05-Lecture (جمع سالم(جمع سالم بنانے کا طریقہ))", yt: "13tlmxGK4bA", form: "https://forms.gle/2kotKsx4ZEAxVwHG7" },
@@ -455,57 +459,113 @@
         ];
 
         let currentLessonIndex = 0;
+        let maxUnlockedIndex = 0; // Tracks unlocked lessons
+
+        function renderSidebar() {
+            const listContainer = document.getElementById("sidebarLessonList");
+            listContainer.innerHTML = "";
+
+            lessonsData.forEach((lesson, idx) => {
+                const item = document.createElement("a");
+                item.href = "javascript:void(0);";
+                item.className = "lesson-item";
+                
+                if (idx === currentLessonIndex) {
+                    item.classList.add("active");
+                }
+                
+                if (idx > maxUnlockedIndex) {
+                    item.classList.add("locked");
+                }
+
+                let iconClass = "fa-solid fa-lock";
+                if (idx < maxUnlockedIndex) {
+                    iconClass = "fa-solid fa-circle-check";
+                } else if (idx === currentLessonIndex) {
+                    iconClass = "fa-solid fa-play-circle";
+                }
+
+                item.innerHTML = `<i class="${iconClass}"></i><span>${lesson.title}</span>`;
+
+                if (idx <= maxUnlockedIndex) {
+                    item.onclick = () => loadLesson(idx);
+                } else {
+                    item.onclick = () => alert("🔒 This lecture is locked. Please complete the current lesson's quiz and upload your score screenshot first.");
+                }
+
+                listContainer.appendChild(item);
+            });
+        }
 
         function loadLesson(index) {
+            if (index > maxUnlockedIndex) {
+                alert("🔒 This lecture is locked. Complete the current lesson requirement first.");
+                return;
+            }
+
             currentLessonIndex = index;
             const lesson = lessonsData[index];
             document.getElementById("lessonVideo").src = "https://www.youtube.com/embed/" + lesson.yt;
             document.getElementById("lessonTitle").innerText = lesson.title;
             document.getElementById("lessonQuizBtn").href = lesson.form;
 
-            // Reset checkboxes for new lesson
+            // Reset UI for the loaded lesson
             document.getElementById("watchedCheck").checked = false;
             document.getElementById("quizCheck").checked = false;
+            document.getElementById("screenshotInput").value = "";
+            document.getElementById("uploadSuccessText").style.display = "none";
 
-            // Update active state in sidebar
-            const items = document.querySelectorAll(".lesson-item");
-            items.forEach((item, idx) => {
-                item.classList.remove("active");
-                const icon = item.querySelector("i");
-                if (idx < index) {
-                    icon.className = "fa-solid fa-circle-check";
-                    icon.style.color = "#16a34a";
-                } else if (idx === index) {
-                    item.classList.add("active");
-                    icon.className = "fa-solid fa-play-circle";
-                    icon.style.color = "var(--primary-green)";
-                } else {
-                    icon.className = "fa-solid fa-lock";
-                    icon.style.color = "#94a3b8";
-                }
-            });
-
-            updateProgressDisplay(index);
+            renderSidebar();
+            updateProgressDisplay();
         }
 
-        function updateChecklist() {
+        function submitScreenshot() {
             const watched = document.getElementById("watchedCheck").checked;
             const quiz = document.getElementById("quizCheck").checked;
-            
-            // If both are checked, automatically mark current item as completed & advance progress if desired
-            if (watched && quiz && currentLessonIndex < lessonsData.length - 1) {
-                const currentItem = document.querySelectorAll(".lesson-item")[currentLessonIndex];
-                const icon = currentItem.querySelector("i");
-                icon.className = "fa-solid fa-circle-check";
-                icon.style.color = "#16a34a";
+            const fileInput = document.getElementById("screenshotInput");
+
+            if (!watched || !quiz) {
+                alert("⚠️ Please check both verification boxes confirming you watched the video and completed the Google test.");
+                return;
             }
+
+            if (fileInput.files.length === 0) {
+                alert("⚠️ Please select and attach your Google Form test screenshot before uploading.");
+                return;
+            }
+
+            const fileName = fileInput.files[0].name;
+
+            // Trigger email dispatch to azzikrinternational@gmail.com
+            const emailSubject = encodeURIComponent("Student Quiz Screenshot Submission - " + lessonsData[currentLessonIndex].title);
+            const emailBody = encodeURIComponent("Assalamu Alaikum,\n\nI have completed the lecture and quiz for: " + lessonsData[currentLessonIndex].title + ".\nAttached/Uploaded Screenshot File: " + fileName + "\n\nPlease verify my marks for certificate issuance.\n\nJazakallah Khair.");
+            
+            // Open user's mail client to send to admin
+            window.location.href = `mailto:azzikrinternational@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+
+            // Show success notification
+            const successEl = document.getElementById("uploadSuccessText");
+            successEl.style.display = "inline-flex";
+
+            // Unlock next lecture
+            if (currentLessonIndex >= maxUnlockedIndex && maxUnlockedIndex < lessonsData.length - 1) {
+                maxUnlockedIndex = currentLessonIndex + 1;
+            }
+
+            setTimeout(() => {
+                renderSidebar();
+                updateProgressDisplay();
+            }, 800);
         }
 
-        function updateProgressDisplay(index) {
-            const percent = Math.round(((index + 1) / lessonsData.length) * 100);
+        function updateProgressDisplay() {
+            const percent = Math.round(((maxUnlockedIndex + 1) / lessonsData.length) * 100);
             document.getElementById("progressText").innerText = percent + "% Complete";
             document.getElementById("progressBar").style.width = percent + "%";
         }
+
+        // Initialize on load
+        renderSidebar();
     </script>
 </body>
 </html>
