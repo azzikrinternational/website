@@ -207,12 +207,45 @@
             margin-bottom: 25px;
         }
 
+        /* Student Checkboxes Section */
+        .student-checklist {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .checklist-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #334155;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .checkbox-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-green);
+            cursor: pointer;
+        }
+
         /* Action Buttons & Google Form Callout */
         .action-buttons-group {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-top: 20px;
+            margin-top: 15px;
             padding-top: 20px;
             border-top: 1px solid var(--border-color);
         }
@@ -285,11 +318,11 @@
             <div class="lesson-list">
                 <a href="javascript:void(0);" class="lesson-item active" onclick="loadLesson(0)">
                     <i class="fa-solid fa-play-circle"></i>
-                    <span>تعارف، حروف الھجاء، الف اور ھمزہ کا فرق</span>
+                    <span>01-Lecture: تعارف، حروف الھجاء، الف اور ھمزہ کا فرق</span>
                 </a>
                 <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(1)">
                     <i class="fa-solid fa-lock"></i>
-                    <span>کلمہ کی اقسام ،اسم کا تعارف</span>
+                    <span>02-Lecture: کلمہ کی اقسام ،اسم کا تعارف</span>
                 </a>
                 <a href="javascript:void(0);" class="lesson-item" onclick="loadLesson(2)">
                     <i class="fa-solid fa-lock"></i>
@@ -366,10 +399,23 @@
                 <iframe id="lessonVideo" src="https://www.youtube.com/embed/brWF5QKSrqM" title="Lesson Video Player" allowfullscreen></iframe>
             </div>
 
-            <!-- Lesson Details & Compulsory Google Form Quiz -->
+            <!-- Lesson Details & Student Verification Checkboxes -->
             <div class="lesson-details-card">
-                <h2 id="lessonTitle">تعارف، حروف الھجاء، الف اور ھمزہ کا فرق</h2>
+                <h2 id="lessonTitle">01-Lecture: تعارف، حروف الھجاء، الف اور ھمزہ کا فرق</h2>
                 <p class="lesson-desc" id="lessonDesc">Watch the complete video session above and complete the compulsory quiz to record your assessment marks.</p>
+
+                <!-- Student Checklist Options -->
+                <div class="student-checklist">
+                    <div class="checklist-title">Student Progress Verification:</div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="watchedCheck" onchange="updateChecklist()">
+                        I have watched the video lecture of this class.
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="quizCheck" onchange="updateChecklist()">
+                        I have done Google test / quiz.
+                    </label>
+                </div>
 
                 <!-- Compulsory Google Form Section -->
                 <div class="action-buttons-group">
@@ -388,8 +434,8 @@
 
     <script>
         const lessonsData = [
-            { title: "تعارف، حروف الھجاء، الف اور ھمزہ کا فرق", yt: "brWF5QKSrqM", form: "https://forms.gle/CVPpeTwUPo7Bb6gB8" },
-            { title: "کلمہ کی اقسام ،اسم کا تعارف", yt: "UCyEe5WhclY", form: "https://forms.gle/7Y1JZ9FCvkkGTFvx7" },
+            { title: "01-Lecture: تعارف، حروف الھجاء، الف اور ھمزہ کا فرق", yt: "brWF5QKSrqM", form: "https://forms.gle/CVPpeTwUPo7Bb6gB8" },
+            { title: "02-Lecture: کلمہ کی اقسام ،اسم کا تعارف", yt: "UCyEe5WhclY", form: "https://forms.gle/7Y1JZ9FCvkkGTFvx7" },
             { title: "03-Lecture (مذکر،مونث)جنس", yt: "yRwwgPW9R30", form: "https://forms.gle/wdvAt3fWLkuFqTXb9" },
             { title: "04-Lecture (واحد،مثنیٰ،جمع۔جمع مکسر)عدد", yt: "FqaRRa4sJPc", form: "https://forms.gle/ZvymLiBKtDQKx3Pj9" },
             { title: "05-Lecture (جمع سالم(جمع سالم بنانے کا طریقہ))", yt: "13tlmxGK4bA", form: "https://forms.gle/2kotKsx4ZEAxVwHG7" },
@@ -408,11 +454,18 @@
             { title: "18-Lecture (مرکب جاری)", yt: "P6M8whos1Go", form: "https://forms.gle/pv3WBVbdHGgi3kRQA" }
         ];
 
+        let currentLessonIndex = 0;
+
         function loadLesson(index) {
+            currentLessonIndex = index;
             const lesson = lessonsData[index];
             document.getElementById("lessonVideo").src = "https://www.youtube.com/embed/" + lesson.yt;
             document.getElementById("lessonTitle").innerText = lesson.title;
             document.getElementById("lessonQuizBtn").href = lesson.form;
+
+            // Reset checkboxes for new lesson
+            document.getElementById("watchedCheck").checked = false;
+            document.getElementById("quizCheck").checked = false;
 
             // Update active state in sidebar
             const items = document.querySelectorAll(".lesson-item");
@@ -432,7 +485,23 @@
                 }
             });
 
-            // Update progress percentage
+            updateProgressDisplay(index);
+        }
+
+        function updateChecklist() {
+            const watched = document.getElementById("watchedCheck").checked;
+            const quiz = document.getElementById("quizCheck").checked;
+            
+            // If both are checked, automatically mark current item as completed & advance progress if desired
+            if (watched && quiz && currentLessonIndex < lessonsData.length - 1) {
+                const currentItem = document.querySelectorAll(".lesson-item")[currentLessonIndex];
+                const icon = currentItem.querySelector("i");
+                icon.className = "fa-solid fa-circle-check";
+                icon.style.color = "#16a34a";
+            }
+        }
+
+        function updateProgressDisplay(index) {
             const percent = Math.round(((index + 1) / lessonsData.length) * 100);
             document.getElementById("progressText").innerText = percent + "% Complete";
             document.getElementById("progressBar").style.width = percent + "%";
