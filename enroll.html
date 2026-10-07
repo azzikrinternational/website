@@ -373,13 +373,13 @@
         <div class="filter-section" data-category="whatsapp" style="margin-top: 50px;">
             <h3 class="section-header-title"><i class="fa-brands fa-whatsapp"></i> WhatsApp Course Portal</h3>
 
-            <!-- 1. Tajweed Department (Open) -->
+            <!-- 1. Tajweed Department (IMG-20260827-WA0368.jpg) -->
             <div class="dept-card-wrapper">
                 <h4 class="dept-title"><i class="fa-solid fa-book-quran" style="color: var(--primary-green);"></i> Tajweed, Tarteel & Nazrah Department</h4>
                 <div class="flyer-grid">
                     <div class="flyer-card">
                         <div class="flyer-img-wrapper" onclick="openFlyer('IMG-20260827-WA0368.jpg')">
-                            <img src="IMG-20260827-WA0368.jpg" alt="Tajweed Course Flyer" class="flyer-img" loading="lazy" onerror="this.src='tajweed course.png'">
+                            <img src="IMG-20260827-WA0368.jpg" alt="Tajweed Course Flyer" class="flyer-img" loading="lazy">
                             <div class="flyer-badge-open">Admissions Open</div>
                             <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to enlarge</div>
                         </div>
@@ -395,20 +395,20 @@
                 </div>
             </div>
 
-            <!-- 2. English Department (Open) -->
+            <!-- 2. English Department (IMG-20260924-WA0129.jpg) -->
             <div class="dept-card-wrapper">
                 <h4 class="dept-title"><i class="fa-solid fa-language" style="color: var(--primary-green);"></i> English Department</h4>
                 <div class="flyer-grid">
                     <div class="flyer-card">
                         <div class="flyer-img-wrapper" onclick="openFlyer('IMG-20260924-WA0129.jpg')">
-                            <img src="IMG-20260924-WA0129.jpg" alt="English Course Flyer" class="flyer-img" loading="lazy" onerror="this.src='BIS.png'">
+                            <img src="IMG-20260924-WA0129.jpg" alt="English Course Flyer" class="flyer-img" loading="lazy">
                             <div class="flyer-badge-open">Admissions Open</div>
                             <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to enlarge</div>
                         </div>
                         <div class="flyer-details">
                             <div>
-                                <h4>Spoken & Functional English</h4>
-                                <div class="flyer-tagline">Master fluent communication</div>
+                                <h4>Quran Arabic for English Speakers</h4>
+                                <div class="flyer-tagline">Understand Qur'an easily</div>
                                 <p class="flyer-meta">Active Admissions</p>
                             </div>
                             <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20English%20Department%20course." target="_blank" class="flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
@@ -417,7 +417,7 @@
                 </div>
             </div>
 
-            <!-- 3. Kids Tarbiyah Department (Open with BIS.png) -->
+            <!-- 3. Kids Tarbiyah Department (BIS.png) -->
             <div class="dept-card-wrapper">
                 <h4 class="dept-title"><i class="fa-solid fa-child-reaching" style="color: var(--primary-green);"></i> Kids Tarbiyah Department</h4>
                 <div class="flyer-grid">
@@ -467,31 +467,4 @@
             modalImg.src = imageSrc;
         }
 
-        function closeFlyer() {
-            document.getElementById("imageModal").style.display = "none";
-        }
-
-        function filterSelection(category) {
-            var buttons = document.getElementsByClassName("filter-btn");
-            for (var i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
-            event.target.classList.add("active");
-
-            var sections = document.getElementsByClassName("filter-section");
-            for (var j = 0; j < sections.length; j++) {
-                if (category === 'all') {
-                    sections[j].style.display = "block";
-                } else {
-                    if (sections[j].getAttribute("data-category") === category) {
-                        sections[j].style.display = "block";
-                    } else {
-                        sections[j].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
-
-</body>
-</html>
+        function
