@@ -2,157 +2,276 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Dashboard - Az-Zikr International</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f9f9f9; color: #333; }
-        .lesson-box { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        iframe { max-width: 100%; border-radius: 4px; }
-        button { background-color: #2e7d32; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 4px; cursor: pointer; }
-        button:hover { background-color: #1b5e20; }
-        #logout-btn { background-color: #555; margin-top: 10px; }
-        #logout-btn:hover { background-color: #333; }
-        #delete-btn { background-color: #c62828; margin-top: 10px; }
-        #delete-btn:hover { background-color: #b71c1c; }
+        :root {
+            --primary-dark: #1a2e05;
+            --primary-green: #2e7d32;
+            --bg-light: #f8fafc;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        /* Top Dash Navigation Bar */
+        .dash-header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .dash-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        .dash-brand img { height: 35px; border-radius: 4px; }
+
+        /* Main Dashboard Grid Layout */
+        .dash-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            min-height: calc(100vh - 70px);
+        }
+
+        /* Sidebar Syllabus */
+        .dash-sidebar {
+            background: #ffffff;
+            border-right: 1px solid var(--border-color);
+            padding: 25px 20px;
+            overflow-y: auto;
+        }
+        .course-title-small {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--primary-green);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .dash-sidebar h3 {
+            margin: 0 0 20px 0;
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+        }
+        
+        .progress-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+        .progress-track {
+            background: #e5e7eb;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: var(--primary-green);
+            height: 100%;
+            width: 15%;
+        }
+
+        .module-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .module-item {
+            padding: 12px 15px;
+            border-radius: 8px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            color: #4b5563;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .module-item:hover {
+            border-color: var(--primary-green);
+            color: var(--primary-dark);
+        }
+        .module-item.active {
+            background: #f0fdf4;
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+        .module-item i { font-size: 0.8rem; }
+
+        /* Content Area */
+        .dash-content {
+            padding: 40px;
+            max-width: 900px;
+        }
+        .video-container {
+            background: #000000;
+            border-radius: 12px;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .lesson-details-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .lesson-details-card h2 {
+            margin-top: 0;
+            color: var(--primary-dark);
+        }
+        .lesson-details-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        .btn-complete {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            transition: background 0.2s;
+        }
+        .btn-complete:hover {
+            background: #1b5e20;
+        }
+
+        @media (max-width: 900px) {
+            .dash-layout { grid-template-columns: 1fr; }
+            .dash-sidebar { border-right: none; border-bottom: 1px solid var(--border-color); max-height: 300px; }
+            .dash-content { padding: 20px; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="lesson-box">
-        <h1 id="lesson-title">Loading Lesson...</h1>
+    <!-- Header Navigation -->
+    <header class="dash-header">
+        <a href="student-hub.html" class="dash-brand">
+            <img src="logo.jpeg" alt="Logo">
+            <span>Az-Zikr International Portal</span>
+        </a>
+        <a href="student-hub.html" style="color: #4b5563; text-decoration: none; font-size: 0.9rem; font-weight: 600;">
+            <i class="fa-solid fa-arrow-left"></i> Back to Student Hub
+        </a>
+    </header>
 
-        <!-- YouTube Video Player Container -->
-        <div id="video-container"></div>
-    </div>
-
-    <div class="lesson-box">
-        <h3>Lesson Quiz</h3>
-        <!-- Google Form Test Container -->
-        <div id="form-container"></div>
-    </div>
-
-    <!-- Button to mark test complete and unlock next lesson -->
-    <button id="complete-btn">I Completed the Test - Unlock Next Lesson</button>
-
-    <br><br>
-    <hr>
-    
-    <!-- Account Actions -->
-    <button id="logout-btn">Log Out</button>
-    <br>
-    <button id="delete-btn">Delete My Account</button>
-
-    <!-- Supabase Script -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script>
-        const supabaseUrl = 'https://hxsubmacyeprcvckpjuj.supabase.co';
-        const supabaseKey = 'sb_publishable_Hrhr0EMdvwFjaPqaHyE_kg_k00oq4hw';
-        const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
-
-        // Your lessons list mapped with your exact video IDs and Google Form URLs
-        const lessons = [
-            { 
-                title: "Lesson 1", 
-                videoId: "brWF5QKSrqM", 
-                formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeDFsY0uuT3_11WjyYLqQxZpBLUrDMaInVo9Ov2euhtLWGSFQ/viewform?embedded=true" 
-            },
-            { 
-                title: "Lesson 2", 
-                videoId: "UCyEe5WhclY", 
-                formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeYjLo5dAciFqT0YPsVcG5mjyXlc1kuzTY30XsuQyDtDBApTw/viewform?embedded=true" 
-            }
-        ];
-
-        async function loadStudentProgress() {
-            // 1. Verify user is logged in
-            const { data: { user } } = await supabaseClient.auth.getUser();
-            if (!user) {
-                window.location.href = '/login.html';
-                return;
-            }
-
-            // 2. Fetch student's current lesson index from Supabase
-            const { data, error } = await supabaseClient
-                .from('profiles')
-                .select('current_lesson')
-                .eq('id', user.id)
-                .single();
-
-            let currentLessonIndex = (data && data.current_lesson !== null) ? data.current_lesson : 0;
-
-            // 3. Check if all lessons are completed
-            if (currentLessonIndex >= lessons.length) {
-                document.getElementById('lesson-title').innerText = "Congratulations! You have completed all available lessons.";
-                document.getElementById('video-container').innerHTML = "";
-                document.getElementById('form-container').innerHTML = "";
-                document.getElementById('complete-btn').style.display = "none";
-                return;
-            }
-
-            renderLesson(currentLessonIndex);
-        }
-
-        function renderLesson(index) {
-            const lesson = lessons[index];
-            document.getElementById('lesson-title').innerText = lesson.title;
+    <!-- Main Dashboard Split Layout -->
+    <div class="dash-layout">
+        
+        <!-- Left Sidebar Syllabus -->
+        aside class="dash-sidebar">
+            <div class="course-title-small">Qur'an Arabic Department</div>
+            <h3>Asaan Grammar Course</h3>
             
-            // Render YouTube Video
-            document.getElementById('video-container').innerHTML = `
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/${lesson.videoId}" frameborder="0" allowfullscreen></iframe>
-            `;
+            <div class="progress-box">
+                <div class="progress-text">
+                    <span>Course Progress</span>
+                    <span>15% Complete</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
 
-            // Render Google Form Test
-            document.getElementById('form-container').innerHTML = `
-                <iframe src="${lesson.formUrl}" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-            `;
-        }
+            <div class="module-list">
+                <div class="module-item active">
+                    <i class="fa-solid fa-play-circle"></i>
+                    <span>1. Introduction to Arabic Root Words</span>
+                </div>
+                <div class="module-item">
+                    <i class="fa-solid fa-circle-check" style="color: #cbd5e1;"></i>
+                    <span>2. Understanding Ism (Nouns)</span>
+                </div>
+                <div class="module-item">
+                    <i class="fa-solid fa-lock" style="color: #cbd5e1;"></i>
+                    <span>3. Exploring Fi'l (Verbs) Basics</span>
+                </div>
+                <div class="module-item">
+                    <i class="fa-solid fa-lock" style="color: #cbd5e1;"></i>
+                    <span>4. Harf (Particles) in Qur'an</span>
+                </div>
+                <div class="module-item">
+                    <i class="fa-solid fa-lock" style="color: #cbd5e1;"></i>
+                    <span>5. Sentence Structures & Practice</span>
+                </div>
+            </div>
+        </aside>
 
-        // 4. When student clicks button after finishing test, unlock next lesson
-        document.getElementById('complete-btn').addEventListener('click', async () => {
-            const { data: { user } } = await supabaseClient.auth.getUser();
-            if (!user) return;
+        <!-- Right Content Area -->
+        <main class="dash-content">
+            <!-- Video Box -->
+            <div class="video-container">
+                <!-- Replace with your hosted video iframe or video player element -->
+                <div style="text-align: center;">
+                    <i class="fa-solid fa-circle-play" style="font-size: 3.5rem; color: #2e7d32; margin-bottom: 10px;"></i>
+                    <p style="margin: 0; color: #94a3b8; font-size: 0.95rem;">Video Player: Lesson 1 Lecture Recording</p>
+                </div>
+            </div>
 
-            const { data } = await supabaseClient
-                .from('profiles')
-                .select('current_lesson')
-                .eq('id', user.id)
-                .single();
-
-            let nextIndex = data && data.current_lesson !== null ? data.current_lesson + 1 : 1;
-
-            const { error } = await supabaseClient
-                .from('profiles')
-                .update({ current_lesson: nextIndex })
-                .eq('id', user.id);
-
-            if (error) {
-                alert('Error updating progress: ' + error.message);
-            } else {
-                alert('Progress saved! Loading next lesson...');
-                window.location.reload();
-            }
-        });
-
-        // 5. Handle Logout Click
-        document.getElementById('logout-btn').addEventListener('click', async () => {
-            await supabaseClient.auth.signOut();
-            window.location.href = '/login.html';
-        });
-
-        // 6. Handle Delete Account Click
-        document.getElementById('delete-btn').addEventListener('click', async () => {
-            if (confirm('Are you sure you want to delete your account? This action is permanent.')) {
-                const { error } = await supabaseClient.rpc('delete_user_account');
+            <!-- Lesson Notes & Action Card -->
+            <div class="lesson-details-card">
+                <h2>Module 1: Introduction to Arabic Root Words</h2>
+                <p>Welcome to the first module of the Asaan Grammar Course. In this lesson, we break down how nearly all Arabic words are derived from 3-letter root systems, making Qur'anic vocabulary memorization straightforward and intuitive.</p>
                 
-                if (error) {
-                    alert('Error deleting account: ' + error.message);
-                } else {
-                    alert('Your account has been successfully deleted.');
-                    window.location.href = '/signup.html';
-                }
-            }
-        });
+                <hr style="border: none; border-top: 1px solid var(--border-color); margin: 20px 0;">
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                    <div>
+                        <span style="font-size: 0.85rem; color: #64748b;"><i class="fa-solid fa-file-pdf" style="color: #dc2626;"></i> Download Notes:</span>
+                        <a href="#" style="color: var(--primary-green); font-weight: 600; text-decoration: none; margin-left: 5px;">Lesson_1_Handout.pdf</a>
+                    </div>
+                    <button class="btn-complete">
+                        <i class="fa-solid fa-check"></i> Mark as Complete & Next
+                    </button>
+                </div>
+            </div>
+        </main>
 
-        loadStudentProgress();
-    </script>
+    </div>
+
 </body>
 </html>
