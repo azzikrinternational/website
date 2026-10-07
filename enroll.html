@@ -5,17 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
 
-    <title>Enroll Now - Free Registration | Az-Zikr International</title>
-    <meta name="description" content="Register for free Islamic and Quranic courses at Az-Zikr International. Join online classes for women today.">
+    <title>Enroll Now - Registration | Az-Zikr International</title>
+    <meta name="description" content="Register for web portal courses and WhatsApp classes at Az-Zikr International.">
 
     <link rel="canonical" href="https://azzikrinternational.com/enroll.html">
     <meta property="og:url" content="https://azzikrinternational.com/enroll.html">
     <meta property="og:title" content="Enroll Now | Az-Zikr International">
-    <meta property="og:description" content="Register today for 100% free online Islamic classes for women.">
+    <meta property="og:description" content="Register today for online Islamic classes and interactive web portal courses.">
     <meta property="og:image" content="https://azzikrinternational.com/logo.jpeg">
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Extra styling for the unified layout -->
+    <style>
+        .category-heading {
+            text-align: center;
+            font-size: 1.6rem;
+            color: #1a2e05;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #2e7d32;
+        }
+        .portal-course-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #d4ebd4;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.08);
+            padding: 30px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .portal-course-card h4 {
+            margin: 0;
+            color: #2e7d32;
+            font-size: 1.3rem;
+        }
+        .portal-meta {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .portal-action-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-top: 5px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .badge-portal {
+            background: #f0fdf4;
+            color: #2e7d32;
+            border: 1px solid #bbf7d0;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
 
@@ -42,28 +94,32 @@
 
     <div class="courses-banner" style="background: linear-gradient(rgba(5, 15, 30, 0.85), rgba(5, 15, 30, 0.90)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff;">
         <h2 style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">Open Enrolments</h2>
-        <p style="color: #f8f9fa; text-shadow: 0 1px 3px rgba(0,0,0,0.6);">Click any flyer image to view full screen or register via WhatsApp below.</p>
+        <p style="color: #f8f9fa; text-shadow: 0 1px 3px rgba(0,0,0,0.6);">Register for our interactive Web Portal courses or explore traditional WhatsApp batches below.</p>
     </div>
 
     <main>
 
+        <!-- SECTION 1: WEB PORTAL COURSES -->
+        <h2 class="category-heading"><i class="fa-solid fa-laptop-code"></i> Web Portal Courses (Interactive Learning)</h2>
+        
         <section class="dept-block">
             <h3 class="dept-header">Qur'anic Arabic Language Department</h3>
-            <div class="flyer-grid">
-                <div class="flyer-card">
-                    <div class="flyer-img-wrapper" onclick="openFlyer('asaan-grammar.jpg')">
-                        <img src="asaan-grammar.jpg" alt="Asaan Grammar Course Flyer" class="flyer-img" loading="lazy" onerror="this.src='logo.jpeg'">
-                        <div class="flyer-badge">Admissions Open</div>
-                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to enlarge</div>
-                    </div>
-                    <div class="flyer-details">
-                        <h4>Asaan Grammar Course</h4>
-                        <p class="flyer-meta">Learn Qur'anic Arabic Terminology & Sentences Easily</p>
-                        <a href="https://wa.me/923335449457?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20Asaan%20Grammar%20Course." target="_blank" class="btn flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
-                    </div>
+            <div class="portal-course-card">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h4>Asaan Grammar Course</h4>
+                    <span class="badge-portal"><i class="fa-solid fa-globe"></i> Portal Registration</span>
+                </div>
+                <p class="portal-meta">Learn Qur'anic Arabic terminology and sentence structures easily through our dedicated student portal dashboard.</p>
+                <div class="portal-action-row">
+                    <span style="font-size: 0.9rem; color: #666;"><i class="fa-solid fa-circle-check" style="color: #2e7d32;"></i> Admissions Open</span>
+                    <a href="login.html" class="btn flyer-btn" style="background: #2e7d32; color: white;"><i class="fa-solid fa-right-to-bracket"></i> Log In & Access Portal</a>
                 </div>
             </div>
         </section>
+
+
+        <!-- SECTION 2: WHATSAPP / TRADITIONAL BATCH COURSES -->
+        <h2 class="category-heading" style="margin-top: 60px;"><f class="fa-solid fa-comments"></f> WhatsApp Batch Admissions</h2>
 
         <section class="dept-block">
             <h3 class="dept-header">Tajweed, Tarteel & Nazrah Department</h3>
