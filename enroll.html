@@ -343,3 +343,158 @@
 
     <!-- Filter Buttons -->
     <div class="filter-container">
+        <button class="filter-btn active" onclick="filterSelection('all')">View All</button>
+        <button class="filter-btn" onclick="filterSelection('portal')">Web Portal Courses</button>
+        <button class="filter-btn" onclick="filterSelection('whatsapp')">WhatsApp Batches</button>
+    </div>
+
+    <main class="enroll-main-container">
+
+        <!-- WEB PORTAL SECTION -->
+        <div class="filter-section" data-category="portal">
+            <h3 class="section-header-title"><i class="fa-solid fa-laptop-code"></i> Interactive Web Portal Courses</h3>
+            
+            <div class="portal-highlight-box">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <span class="portal-badge"><i class="fa-solid fa-circle-dot" style="font-size: 0.6rem;"></i> Qur'an Arabic Department</span>
+                    <span style="font-size: 0.85rem; color: #16a34a; font-weight: 700;"><i class="fa-solid fa-signal"></i> Admissions Open</span>
+                </div>
+                <div>
+                    <h4>Asaan Grammar Course</h4>
+                    <p style="margin-top: 8px;">Unlock direct comprehension of the Holy Qur'an with structured video modules, automated Google Form quizzes, and downloadable PDF notes through our dedicated student portal dashboard.</p>
+                </div>
+                <div class="portal-features">
+                    <div class="portal-feature"><i class="fa-solid fa-check"></i> Beginner Friendly</div>
+                    <div class="portal-feature"><i class="fa-solid fa-check"></i> Semesters 1, 2 & 3</div>
+                    <div class="portal-feature"><i class="fa-solid fa-check"></i> Self-Paced Access</div>
+                </div>
+                <div>
+                    <a href="login.html?course=asaan-grammar" class="btn-portal">
+                        <i class="fa-solid fa-right-to-bracket"></i> Log In & Access Portal Course
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- WHATSAPP COURSES SECTION -->
+        <div class="filter-section" data-category="whatsapp" style="margin-top: 50px;">
+            <h3 class="section-header-title"><i class="fa-brands fa-whatsapp"></i> WhatsApp Course Portal</h3>
+
+            <!-- Tajweed Department (Open) -->
+            <div class="dept-card-wrapper">
+                <h4 class="dept-title"><i class="fa-solid fa-book-quran" style="color: var(--primary-green);"></i> Tajweed, Tarteel & Nazrah Department</h4>
+                <div class="flyer-grid">
+                    <div class="flyer-card">
+                        <div class="flyer-img-wrapper" onclick="openFlyer('IMG-20260827-WA0368.jpg')">
+                            <img src="IMG-20260827-WA0368.jpg" alt="Tajweed Course Flyer" class="flyer-img" loading="lazy" onerror="this.src='tajweed course.png'">
+                            <div class="flyer-badge-open">Admissions Open</div>
+                            <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to enlarge</div>
+                        </div>
+                        <div class="flyer-details">
+                            <div>
+                                <h4>Tajweed & Noorani Qaida Course</h4>
+                                <p class="flyer-meta">Active Batch | Females Only</p>
+                            </div>
+                            <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20Tajweed%20Course." target="_blank" class="flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- English Department (Open) -->
+            <div class="dept-card-wrapper">
+                <h4 class="dept-title"><i class="fa-solid fa-language" style="color: var(--primary-green);"></i> English Department</h4>
+                <div class="flyer-grid">
+                    <div class="flyer-card">
+                        <div class="flyer-img-wrapper" onclick="openFlyer('IMG-20260924-WA0129.jpg')">
+                            <img src="IMG-20260924-WA0129.jpg" alt="English Course Flyer" class="flyer-img" loading="lazy" onerror="this.src='BIS.png'">
+                            <div class="flyer-badge-open">Admissions Open</div>
+                            <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to enlarge</div>
+                        </div>
+                        <div class="flyer-details">
+                            <div>
+                                <h4>Spoken & Functional English Batch</h4>
+                                <p class="flyer-meta">Active Admissions</p>
+                            </div>
+                            <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20English%20Department%20course." target="_blank" class="flyer-btn"><i class="fa-brands fa-whatsapp"></i> Register via WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hifz Department (Closed) -->
+            <div class="dept-card-wrapper">
+                <h4 class="dept-title"><i class="fa-solid fa-award" style="color: #94a3b8;"></i> Hifz Department</h4>
+                <div class="empty-status">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Admissions are currently closed for this department. New batches will be announced soon.</span>
+                </div>
+            </div>
+
+            <!-- Seerah Department (Closed) -->
+            <div class="dept-card-wrapper">
+                <h4 class="dept-title"><i class="fa-solid fa-landmark" style="color: #94a3b8;"></i> Seerah Department</h4>
+                <div class="empty-status">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Admissions are currently closed for this department. New batches will be announced soon.</span>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <div id="imageModal" class="modal" onclick="closeFlyer()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="fullFlyerImage" alt="Enlarged Flyer">
+    </div>
+
+    <footer>
+        <div class="footer-socials">
+            <span class="footer-social-title">Follow & Join Us:</span>
+            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="footer-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Channel</a>
+            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="footer-btn fb-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn insta-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn yt-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        </div>
+        <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: var(--accent-color); text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: var(--accent-color); text-decoration: none;">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        function openFlyer(imageSrc) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("fullFlyerImage");
+            modal.style.display = "flex";
+            modalImg.src = imageSrc;
+        }
+
+        function closeFlyer() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        function filterSelection(category) {
+            // Update active button style
+            var buttons = document.getElementsByClassName("filter-btn");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+            event.target.classList.add("active");
+
+            // Show/Hide sections
+            var sections = document.getElementsByClassName("filter-section");
+            for (var j = 0; j < sections.length; j++) {
+                if (category === 'all') {
+                    sections[j].style.display = "block";
+                } else {
+                    if (sections[j].getAttribute("data-category") === category) {
+                        sections[j].style.display = "block";
+                    } else {
+                        sections[j].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
