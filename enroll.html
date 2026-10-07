@@ -467,4 +467,31 @@
             modalImg.src = imageSrc;
         }
 
-        function
+        function closeFlyer() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        function filterSelection(category) {
+            var buttons = document.getElementsByClassName("filter-btn");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+            event.target.classList.add("active");
+
+            var sections = document.getElementsByClassName("filter-section");
+            for (var j = 0; j < sections.length; j++) {
+                if (category === 'all') {
+                    sections[j].style.display = "block";
+                } else {
+                    if (sections[j].getAttribute("data-category") === category) {
+                        sections[j].style.display = "block";
+                    } else {
+                        sections[j].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
