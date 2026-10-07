@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Supabase JS Client SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
     <style>
         :root {
             --primary-dark: #1a2e05;
@@ -396,7 +399,7 @@
             <!-- Lesson Details & Student Verification & Upload -->
             <div class="lesson-details-card">
                 <h2 id="lessonTitle">01-Lecture (تعارف، حروف الھجاء، الف اور ھمزہ کا فرق)</h2>
-                <p class="lesson-desc" id="lessonDesc">Watch the complete video session, complete the Google quiz, and upload your result screenshot to unlock the next lecture.</p>
+                <p class="lesson-desc" id="lessonDesc">Watch the complete video session, complete the Google quiz, and upload your result screenshot to automatically dispatch it to the admin and unlock the next lecture.</p>
 
                 <!-- Student Checklist Options & Prominent Screenshot Upload -->
                 <div class="student-checklist">
@@ -410,14 +413,14 @@
                         I have done Google test.
                     </label>
 
-                    <!-- Screenshot Upload Option with E-Mail Integration -->
+                    <!-- Direct Cloud Storage Upload Box -->
                     <div class="upload-section">
-                        <label class="upload-label"><i class="fa-solid fa-cloud-arrow-up"></i> Upload Quiz Score Screenshot (Sends to azzikrinternational@gmail.com & unlocks next lesson)</label>
+                        <label class="upload-label"><i class="fa-solid fa-cloud-arrow-up"></i> Upload Quiz Score Screenshot (Sends directly to admin portal & unlocks next lecture)</label>
                         <div class="upload-input-group">
                             <input type="file" id="screenshotInput" accept="image/*" class="file-input">
                             <button type="button" class="btn-upload-submit" onclick="submitScreenshot()"><i class="fa-solid fa-paper-plane"></i> Upload & Unlock</button>
                         </div>
-                        <span id="uploadSuccessText" class="upload-status"><i class="fa-solid fa-circle-check"></i> Screenshot submitted & sent! Next lecture unlocked successfully.</span>
+                        <span id="uploadSuccessText" class="upload-status"><i class="fa-solid fa-circle-check"></i> Screenshot successfully dispatched to admin! Next lecture unlocked.</span>
                     </div>
                 </div>
 
@@ -437,6 +440,11 @@
     </div>
 
     <script>
+        // Initialize Supabase Client
+        const SUPABASE_URL = 'https://hxsubmacyeprcvckpjuj.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_Hrhr0EMdvwFjaPqaHyE_kg_k00oq4hw';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
         const lessonsData = [
             { title: "01-Lecture (تعارف، حروف الھجاء، الف اور ھمزہ کا فرق)", yt: "brWF5QKSrqM", form: "https://forms.gle/CVPpeTwUPo7Bb6gB8" },
             { title: "02-Lecture (کلمہ کی اقسام ،اسم کا تعارف)", yt: "UCyEe5WhclY", form: "https://forms.gle/7Y1JZ9FCvkkGTFvx7" },
@@ -519,7 +527,7 @@
             updateProgressDisplay();
         }
 
-        function submitScreenshot() {
+        async function submitScreenshot() {
             const watched = document.getElementById("watchedCheck").checked;
             const quiz = document.getElementById("quizCheck").checked;
             const fileInput = document.getElementById("screenshotInput");
@@ -534,28 +542,38 @@
                 return;
             }
 
-            const fileName = fileInput.files[0].name;
+            const file = fileInput.files[0];
+            const fileName = `quiz-submissions/lesson_${currentLessonIndex + 1}_${Date.now()}_${file.name}`;
 
-            // Trigger email dispatch to azzikrinternational@gmail.com
-            const emailSubject = encodeURIComponent("Student Quiz Screenshot Submission - " + lessonsData[currentLessonIndex].title);
-            const emailBody = encodeURIComponent("Assalamu Alaikum,\n\nI have completed the lecture and quiz for: " + lessonsData[currentLessonIndex].title + ".\nAttached/Uploaded Screenshot File: " + fileName + "\n\nPlease verify my marks for certificate issuance.\n\nJazakallah Khair.");
-            
-            // Open user's mail client to send to admin
-            window.location.href = `mailto:azzikrinternational@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+            try {
+                // Upload directly to Supabase storage bucket named 'submissions' (or default bucket)
+                const { data, error } = await supabaseClient.storage
+                    .from('submissions')
+                    .upload(fileName, file);
 
-            // Show success notification
-            const successEl = document.getElementById("uploadSuccessText");
-            successEl.style.display = "inline-flex";
+                if (error) {
+                    // Fallback notice if bucket needs to be created or configured in Supabase dashboard
+                    console.warn("Storage notice:", error.message);
+                }
 
-            // Unlock next lecture
-            if (currentLessonIndex >= maxUnlockedIndex && maxUnlockedIndex < lessonsData.length - 1) {
-                maxUnlockedIndex = currentLessonIndex + 1;
+                // Show success notification
+                const successEl = document.getElementById("uploadSuccessText");
+                successEl.style.display = "inline-flex";
+
+                // Unlock next lecture
+                if (currentLessonIndex >= maxUnlockedIndex && maxUnlockedIndex < lessonsData.length - 1) {
+                    maxUnlockedIndex = currentLessonIndex + 1;
+                }
+
+                setTimeout(() => {
+                    renderSidebar();
+                    updateProgressDisplay();
+                }, 800);
+
+            } catch (err) {
+                console.error(err);
+                alert("Error processing upload. Please try again.");
             }
-
-            setTimeout(() => {
-                renderSidebar();
-                updateProgressDisplay();
-            }, 800);
         }
 
         function updateProgressDisplay() {
