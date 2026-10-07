@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Dashboard - Az-Zikr International</title>
+    <title>Student Dashboard - Asaan Grammar | Az-Zikr International</title>
+    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -17,12 +18,13 @@
 
         body {
             background-color: var(--bg-light);
-            margin: 0;
             font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            color: #334155;
         }
 
-        /* Top Dash Navigation Bar */
-        .dash-header {
+        /* Top Header Bar */
+        .portal-header {
             background: #ffffff;
             border-bottom: 1px solid var(--border-color);
             padding: 15px 30px;
@@ -30,45 +32,68 @@
             justify-content: space-between;
             align-items: center;
         }
-        .dash-brand {
+        .portal-logo-area {
             display: flex;
             align-items: center;
             gap: 12px;
             font-weight: 700;
             color: var(--primary-dark);
-            text-decoration: none;
             font-size: 1.1rem;
         }
-        .dash-brand img { height: 35px; border-radius: 4px; }
+        .portal-logo-area img {
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .back-link {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-green); }
 
         /* Main Dashboard Grid Layout */
-        .dash-layout {
+        .dashboard-container {
             display: grid;
-            grid-template-columns: 320px 1fr;
+            grid-template-columns: 350px 1fr;
             min-height: calc(100vh - 70px);
+        }
+        @media (max-width: 900px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Sidebar Syllabus */
-        .dash-sidebar {
+        .dashboard-sidebar {
             background: #ffffff;
             border-right: 1px solid var(--border-color);
-            padding: 25px 20px;
+            padding: 25px;
             overflow-y: auto;
+            max-height: calc(100vh - 70px);
         }
-        .course-title-small {
-            font-size: 0.85rem;
+        .dept-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-green);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: var(--primary-green);
-            font-weight: 700;
             margin-bottom: 5px;
         }
-        .dash-sidebar h3 {
-            margin: 0 0 20px 0;
+        .course-title-sidebar {
+            font-size: 1.3rem;
             color: var(--primary-dark);
-            font-size: 1.2rem;
+            margin: 0 0 20px 0;
+            font-weight: 800;
         }
         
+        /* Progress Bar */
         .progress-box {
             background: #f0fdf4;
             border: 1px solid #bbf7d0;
@@ -76,228 +101,245 @@
             border-radius: 10px;
             margin-bottom: 25px;
         }
-        .progress-text {
+        .progress-info {
             display: flex;
             justify-content: space-between;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            color: #374151;
-            margin-bottom: 6px;
+            color: #166534;
+            margin-bottom: 8px;
         }
-        .progress-track {
-            background: #e5e7eb;
+        .progress-bar-bg {
+            background: #dcfce7;
             height: 8px;
             border-radius: 4px;
             overflow: hidden;
         }
-        .progress-fill {
+        .progress-bar-fill {
             background: var(--primary-green);
             height: 100%;
             width: 15%;
+            border-radius: 4px;
         }
 
-        .module-list {
+        /* Lesson Items in Sidebar */
+        .lesson-list {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
         }
-        .module-item {
-            padding: 12px 15px;
-            border-radius: 8px;
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            color: #4b5563;
-            font-size: 0.9rem;
-            font-weight: 500;
+        .lesson-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background: #ffffff;
             cursor: pointer;
+            text-decoration: none;
+            color: #334155;
             transition: all 0.2s;
         }
-        .module-item:hover {
+        .lesson-item:hover {
             border-color: var(--primary-green);
-            color: var(--primary-dark);
+            background: #f8fafc;
         }
-        .module-item.active {
+        .lesson-item.active {
             background: #f0fdf4;
-            border-color: var(--primary-green);
-            color: var(--primary-green);
+            border-color: #bbf7d0;
+            color: var(--primary-dark);
             font-weight: 600;
         }
-        .module-item i { font-size: 0.8rem; }
+        .lesson-item i { font-size: 1rem; color: #94a3b8; }
+        .lesson-item.active i { color: var(--primary-green); }
+        .lesson-item.completed i { color: #16a34a; }
 
-        /* Content Area */
-        .dash-content {
-            padding: 40px;
-            max-width: 900px;
+        /* Main Content Panel */
+        .dashboard-content {
+            padding: 35px;
+            overflow-y: auto;
+            max-height: calc(100vh - 70px);
+            background: #f8fafc;
         }
-        .video-container {
-            background: #000000;
-            border-radius: 12px;
-            aspect-ratio: 16/9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        .video-wrapper {
             position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            background: #000000;
+            border-radius: 14px;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
         }
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: 0;
         }
+
         .lesson-details-card {
             background: #ffffff;
-            border-radius: 12px;
             border: 1px solid var(--border-color);
+            border-radius: 14px;
             padding: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
         .lesson-details-card h2 {
-            margin-top: 0;
+            margin: 0 0 10px 0;
             color: var(--primary-dark);
+            font-size: 1.5rem;
         }
-        .lesson-details-card p {
+        .lesson-desc {
             color: #64748b;
             line-height: 1.6;
-        }
-        .resource-links-row {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-        .resource-btn {
-            background: #f8fafc;
-            border: 1px solid var(--border-color);
-            padding: 10px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #334155;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s;
-        }
-        .resource-btn:hover {
-            border-color: var(--primary-green);
-            color: var(--primary-green);
-        }
-        .btn-complete {
-            background: var(--primary-green);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: background 0.2s;
-        }
-        .btn-complete:hover {
-            background: #1b5e20;
+            margin-bottom: 25px;
         }
 
-        @media (max-width: 900px) {
-            .dash-layout { grid-template-columns: 1fr; }
-            .dash-sidebar { border-right: none; border-bottom: 1px solid var(--border-color); max-height: 300px; }
-            .dash-content { padding: 20px; }
+        /* Action Buttons & Google Form Callout */
+        .action-buttons-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
         }
+        .btn-quiz-compulsory {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+            color: white;
+            padding: 14px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.2);
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+        .btn-quiz-compulsory:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            transform: translateY(-2px);
+        }
+        .quiz-reminder-text {
+            font-size: 0.85rem;
+            color: #b45309;
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            padding: 10px 14px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            margin: 0;
+        }
+        .quiz-reminder-text i { color: #d97706; font-size: 1rem; }
+
+        .btn-notes {
+            background: #ffffff;
+            color: var(--primary-green);
+            border: 2px solid #bbf7d0;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            transition: all 0.2s;
+        }
+        .btn-notes:hover { background: #f0fdf4; }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header class="dash-header">
-        <a href="student-hub.html" class="dash-brand">
-            <img src="logo.jpeg" alt="Logo">
+    <!-- Top Navigation Bar -->
+    <header class="portal-header">
+        <div class="portal-logo-area">
+            <img src="logo.jpeg" alt="Az-Zikr Logo">
             <span>Az-Zikr International Portal</span>
-        </a>
-        <a href="student-hub.html" style="color: #4b5563; text-decoration: none; font-size: 0.9rem; font-weight: 600;">
-            <i class="fa-solid fa-arrow-left"></i> Back to Student Hub
-        </a>
+        </div>
+        <a href="student-hub.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Student Hub</a>
     </header>
 
-    <!-- Main Dashboard Split Layout -->
-    <div class="dash-layout">
-        
-        <!-- Left Sidebar Syllabus -->
-        <aside class="dash-sidebar">
-            <div class="course-title-small">Qur'an Arabic Department</div>
-            <h3>Asaan Grammar Course</h3>
-            
+    <!-- Dashboard Grid Container -->
+    <div class="dashboard-container">
+
+        <!-- Sidebar Syllabus -->
+        <aside class="dashboard-sidebar">
+            <div class="dept-tag">Qur'an Arabic Department</div>
+            <h2 class="course-title-sidebar">Asaan Grammar Course</h2>
+
             <div class="progress-box">
-                <div class="progress-text">
+                <div class="progress-info">
                     <span>Course Progress</span>
                     <span>15% Complete</span>
                 </div>
-                <div class="progress-track">
-                    <div class="progress-fill"></div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill"></div>
                 </div>
             </div>
 
-            <div class="module-list">
-                <div class="module-item active">
+            <div class="lesson-list">
+                <a href="#" class="lesson-item active">
                     <i class="fa-solid fa-play-circle"></i>
                     <span>1. Introduction to Arabic Root Words</span>
-                </div>
-                <div class="module-item">
-                    <i class="fa-solid fa-circle-check" style="color: #cbd5e1;"></i>
+                </a>
+                <a href="#" class="lesson-item">
+                    <i class="fa-solid fa-circle-check"></i>
                     <span>2. Understanding Ism (Nouns)</span>
-                </div>
-                <div class="module-item">
-                    <i class="fa-solid fa-lock" style="color: #cbd5e1;"></i>
+                </a>
+                <a href="#" class="lesson-item">
+                    <i class="fa-solid fa-lock"></i>
                     <span>3. Exploring Fi'l (Verbs) Basics</span>
-                </div>
-                <div class="module-item">
-                    <i class="fa-solid fa-lock" style="color: #cbd5e1;"></i>
+                </a>
+                <a href="#" class="lesson-item">
+                    <i class="fa-solid fa-lock"></i>
                     <span>4. Harf (Particles) in Qur'an</span>
-                </div>
-                <div class="module-item">
-                    <i class="fa-solid fa-lock" style="color: #cbd5e1;"></i>
+                </a>
+                <a href="#" class="lesson-item">
+                    <i class="fa-solid fa-lock"></i>
                     <span>5. Sentence Structures & Practice</span>
-                </div>
+                </a>
             </div>
         </aside>
 
-        <!-- Right Content Area -->
-        <main class="dash-content">
-            <!-- Video Box (Replace src with your YouTube embed link) -->
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID" title="Lesson Video" allowfullscreen></iframe>
+        <!-- Main Video & Lesson Content Area -->
+        <main class="dashboard-content">
+            
+            <!-- Video Container -->
+            <div class="video-wrapper">
+                <!-- Replace src placeholder with actual YouTube embed link when provided -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Lesson Video Player" allowfullscreen></iframe>
             </div>
 
-            <!-- Lesson Notes & Action Card -->
+            <!-- Lesson Details & Compulsory Google Form Quiz -->
             <div class="lesson-details-card">
-                <h2>Module 1: Introduction to Arabic Root Words</h2>
-                <p>Welcome to the first module of the Asaan Grammar Course. In this lesson, we break down how nearly all Arabic words are derived from 3-letter root systems, making Qur'anic vocabulary memorization straightforward and intuitive.</p>
+                <h2>Lesson 1: Introduction to Arabic Root Words</h2>
+                <p class="lesson-desc">In this opening session, we explore how Arabic words are built from fundamental 3-letter root formations, giving you direct keys to unlock vocabulary meanings across the entire Holy Qur'an.</p>
                 
-                <!-- Resource Links (Notes PDF & Google Form Quiz) -->
-                <div class="resource-links-row">
-                    <a href="notes/lesson-1-handout.pdf" target="_blank" class="resource-btn">
-                        <i class="fa-solid fa-file-pdf" style="color: #dc2626;"></i> Download Lesson PDF Notes
-                    </a>
-                    <a href="https://forms.gle/CVPpeTwUPo7Bb6gB8" target="_blank" class="resource-btn">
-                        <i class="fa-solid fa-square-poll-check" style="color: #2563eb;"></i> Complete Lesson Quiz (Google Form)
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;">
+                    <a href="notes/lesson-1-notes.pdf" target="_blank" class="btn-notes">
+                        <i class="fa-solid fa-file-pdf"></i> Download PDF Notes
                     </a>
                 </div>
 
-                <hr style="border: none; border-top: 1px solid var(--border-color); margin: 25px 0;">
-                
-                <div style="display: flex; justify-content: flex-end; align-items: center;">
-                    <button class="btn-complete">
-                        <i class="fa-solid fa-check"></i> Mark as Complete & Next Lesson
-                    </button>
+                <!-- Compulsory Google Form Section -->
+                <div class="action-buttons-group">
+                    <a href="https://forms.gle/your-google-form-link-here" target="_blank" class="btn-quiz-compulsory">
+                        <i class="fa-solid fa-square-poll-vertical"></i> Complete Compulsory Lesson Quiz (Google Form)
+                    </a>
+                    <p class="quiz-reminder-text">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Please take a screenshot of your secured marks after submission; you will be needing them at the end of the course for issuance of your certificate.
+                    </p>
                 </div>
             </div>
+
         </main>
 
     </div>
