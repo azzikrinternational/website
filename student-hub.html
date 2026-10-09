@@ -118,7 +118,7 @@
     <script>
         // Initialize Supabase with persistent storage configured
         const supabaseClient = supabase.createClient(
-            'httpshxsubmacyeprcvckpjuj.supabase.co'.replace('https', 'https://'), 
+            'https://hxsubmacyeprcvckpjuj.supabase.co', 
             'sb_publishable_Hrhr0EMdvwFjaPqaHyE_kg_k00oq4hw',
             {
                 auth: {
@@ -183,10 +183,18 @@
                 window.location.replace('index.html');
             });
 
-            // 4. Delete Account Handler (Fully clears local state and globally terminates auth session)
+            // 4. Delete Account Handler via Supabase RPC Database Deletion
             document.getElementById('deleteAccountBtn').addEventListener('click', async function() {
-                const confirmed = confirm("Are you sure you want to delete your account? This action cannot be undone.");
+                const confirmed = confirm("Are you sure you want to delete your account? This will permanently remove your database record and cannot be undone.");
                 if (!confirmed) return;
+
+                // Call the PostgreSQL function to delete the auth user record directly from database
+                const { error: rpcError } = await supabaseClient.rpc('fn_delete_user');
+                
+                if (rpcError) {
+                    alert("Error deleting account: " + rpcError.message);
+                    return;
+                }
 
                 // Completely wipe local and session data
                 localStorage.clear();
@@ -195,7 +203,7 @@
                 // Terminate session globally on Supabase
                 await supabaseClient.auth.signOut({ scope: 'global' });
 
-                alert("Account data and session successfully cleared.");
+                alert("Your account has been permanently deleted.");
                 
                 // Hard redirect to homepage with cache-busting
                 window.location.replace('index.html?t=' + new Date().getTime());
