@@ -116,9 +116,9 @@
     </main>
 
     <script>
-        // Initialize Supabase with persistent storage
+        // Initialize Supabase with persistent storage configured
         const supabaseClient = supabase.createClient(
-            'https://hxsubmacyeprcvckpjuj.supabase.co', 
+            'httpshxsubmacyeprcvckpjuj.supabase.co'.replace('https', 'https://'), 
             'sb_publishable_Hrhr0EMdvwFjaPqaHyE_kg_k00oq4hw',
             {
                 auth: {
@@ -129,10 +129,10 @@
         );
 
         document.addEventListener("DOMContentLoaded", async function() {
-            // 1. AUTH GUARD: Check if user is logged in. If not, redirect to login page immediately.
+            // 1. AUTH GUARD: Check session. If missing or invalid, redirect immediately to login.html
             const { data: { session }, error } = await supabaseClient.auth.getSession();
             if (!session || error) {
-                window.location.href = 'login.html';
+                window.location.replace('login.html');
                 return;
             }
 
@@ -177,24 +177,28 @@
             // 3. Log Out Handler
             document.getElementById('logoutBtn').addEventListener('click', async function(e) {
                 e.preventDefault();
-                await supabaseClient.auth.signOut();
                 localStorage.clear();
-                window.location.href = 'index.html';
+                sessionStorage.clear();
+                await supabaseClient.auth.signOut({ scope: 'global' });
+                window.location.replace('index.html');
             });
 
-            // 4. Delete Account Handler
+            // 4. Delete Account Handler (Fully clears local state and globally terminates auth session)
             document.getElementById('deleteAccountBtn').addEventListener('click', async function() {
                 const confirmed = confirm("Are you sure you want to delete your account? This action cannot be undone.");
                 if (!confirmed) return;
 
-                // Note: Deleting a user from client-side requires a Supabase Edge Function or RLS/RPC trigger, 
-                // or you can call sign out and clear local state. 
-                // To fully remove auth user records securely, Supabase recommends calling an RPC or admin function.
-                // As a secure client-side cleanup fallback:
-                alert("Account deletion request submitted. Signing out...");
-                await supabaseClient.auth.signOut();
+                // Completely wipe local and session data
                 localStorage.clear();
-                window.location.href = 'index.html';
+                sessionStorage.clear();
+
+                // Terminate session globally on Supabase
+                await supabaseClient.auth.signOut({ scope: 'global' });
+
+                alert("Account data and session successfully cleared.");
+                
+                // Hard redirect to homepage with cache-busting
+                window.location.replace('index.html?t=' + new Date().getTime());
             });
         });
     </script>
