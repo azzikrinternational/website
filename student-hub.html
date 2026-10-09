@@ -174,7 +174,7 @@
                 `;
             }
 
-            // 3. Log Out Handler (Logs out, but account remains in database so they can log back in without registering)
+            // 3. Log Out Handler
             document.getElementById('logoutBtn').addEventListener('click', async function(e) {
                 e.preventDefault();
                 localStorage.clear();
@@ -183,21 +183,36 @@
                 window.location.replace('login.html');
             });
 
-            // 4. Delete Account Handler (Wipes local storage, signs out, and redirects to signup so they must register again)
+            // 4. Delete Account Handler (Removes record from public.profiles table, clears storage, signs out globally, and redirects to signup)
             document.getElementById('deleteAccountBtn').addEventListener('click', async function() {
-                const confirmed = confirm("Are you sure you want to delete your account? Your record will be removed, and you will need to register again if you wish to return.");
+                const confirmed = confirm("Are you sure you want to delete your account? Your record will be permanently removed, and you will need to register again if you wish to return.");
                 if (!confirmed) return;
 
-                // Completely wipe local and session data
+                // Grab active session user to target the correct profiles record
+                const { data: { session: currentSession } } = await supabaseClient.auth.getSession();
+                
+                if (currentSession && currentSession.user) {
+                    // Delete row from public.profiles table
+                    const { error: profileError } = await supabaseClient
+                        .from('profiles')
+                        .delete()
+                        .eq('id', currentSession.user.id);
+
+                    if (profileError) {
+                        console.error("Error deleting user profile record:", profileError.message);
+                    }
+                }
+
+                // Completely wipe local and session storage
                 localStorage.clear();
                 sessionStorage.clear();
 
                 // Terminate session globally on Supabase
                 await supabaseClient.auth.signOut({ scope: 'global' });
 
-                alert("Your account has been deleted. Redirecting to registration page.");
+                alert("Your account data has been successfully deleted.");
                 
-                // Redirect to signup.html instead of login.html, forcing them to register again
+                // Hard redirect to signup page, forcing registration from scratch if they return
                 window.location.replace('signup.html?t=' + new Date().getTime());
             });
         });
