@@ -185,7 +185,7 @@
             this.classList.toggle('fa-eye-slash');
         });
 
-        // Handle Registration Form Submission & Database Profile Insertion
+        // Handle Registration Form Submission (Database Trigger handles public.profiles insertion)
         document.getElementById('signupForm').addEventListener('submit', async function(e) {
             e.preventDefault();
 
@@ -202,8 +202,8 @@
             submitBtn.textContent = "Creating Account...";
 
             try {
-                // 1. Create the user inside Supabase Auth
-                const { data: authData, error: authError } = await supabaseClient.auth.signUp({
+                // Register user in Supabase Auth (Postgres trigger automatically provisions public.profiles)
+                const { error: authError } = await supabaseClient.auth.signUp({
                     email: email,
                     password: password
                 });
@@ -213,27 +213,6 @@
                     submitBtn.disabled = false;
                     submitBtn.textContent = "Sign Up";
                     return;
-                }
-
-                // 2. Explicitly insert the user record into your public.profiles table
-                if (authData.user) {
-                    const { error: profileError } = await supabaseClient
-                        .from('profiles')
-                        .insert([
-                            { 
-                                id: authData.user.id, 
-                                email: email, 
-                                current_lesson: 0 
-                            }
-                        ]);
-
-                    if (profileError) {
-                        console.error("Error creating profile record:", profileError.message);
-                        alert("Account created in Auth, but failed to save profile data: " + profileError.message);
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = "Sign Up";
-                        return;
-                    }
                 }
 
                 alert("Registration successful! Please log in with your new account.");
