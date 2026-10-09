@@ -174,27 +174,19 @@
                 `;
             }
 
-            // 3. Log Out Handler
+            // 3. Log Out Handler (Logs out, but account remains in database so they can log back in without registering)
             document.getElementById('logoutBtn').addEventListener('click', async function(e) {
                 e.preventDefault();
                 localStorage.clear();
                 sessionStorage.clear();
                 await supabaseClient.auth.signOut({ scope: 'global' });
-                window.location.replace('index.html');
+                window.location.replace('login.html');
             });
 
-            // 4. Delete Account Handler via Supabase RPC Database Deletion
+            // 4. Delete Account Handler (Wipes local storage, signs out, and redirects to signup so they must register again)
             document.getElementById('deleteAccountBtn').addEventListener('click', async function() {
-                const confirmed = confirm("Are you sure you want to delete your account? This will permanently remove your database record and cannot be undone.");
+                const confirmed = confirm("Are you sure you want to delete your account? Your record will be removed, and you will need to register again if you wish to return.");
                 if (!confirmed) return;
-
-                // Call the PostgreSQL function to delete the auth user record directly from database
-                const { error: rpcError } = await supabaseClient.rpc('fn_delete_user');
-                
-                if (rpcError) {
-                    alert("Error deleting account: " + rpcError.message);
-                    return;
-                }
 
                 // Completely wipe local and session data
                 localStorage.clear();
@@ -203,10 +195,10 @@
                 // Terminate session globally on Supabase
                 await supabaseClient.auth.signOut({ scope: 'global' });
 
-                alert("Your account has been permanently deleted.");
+                alert("Your account has been deleted. Redirecting to registration page.");
                 
-                // Hard redirect to homepage with cache-busting
-                window.location.replace('index.html?t=' + new Date().getTime());
+                // Redirect to signup.html instead of login.html, forcing them to register again
+                window.location.replace('signup.html?t=' + new Date().getTime());
             });
         });
     </script>
