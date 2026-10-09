@@ -3,127 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Login - Az-Zikr International</title>
+    <title>Log In - Az-Zikr International</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Supabase CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
+    
     <style>
-        .login-wrapper {
-            max-width: 450px;
-            margin: 60px auto;
+        body {
+            background-color: #f4f9f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .auth-card {
             background: #ffffff;
             padding: 40px;
             border-radius: 16px;
-            border: 1px solid #d4ebd4;
             box-shadow: 0 10px 30px rgba(46, 125, 50, 0.08);
+            width: 100%;
+            max-width: 420px;
+            border: 1px solid #d4ebd4;
         }
-        .login-wrapper h2 {
-            color: #1a2e05;
-            margin-bottom: 10px;
+        .auth-header {
             text-align: center;
+            margin-bottom: 30px;
+        }
+        .auth-header img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 2px solid #2e7d32;
+        }
+        .auth-header h2 {
+            margin: 0 0 8px 0;
+            color: #1a2e05;
+            font-size: 1.6rem;
+        }
+        .auth-header p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
         }
         .form-group {
             margin-bottom: 20px;
+            position: relative;
         }
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #374151;
+            color: #1a2e05;
             font-weight: 600;
             font-size: 0.9rem;
         }
-        .form-group input[type="email"],
-        .form-group input[type="password"] {
+        .input-with-icon {
+            position: relative;
+        }
+        .input-with-icon i.field-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #2e7d32;
+        }
+        .input-with-icon input {
             width: 100%;
-            padding: 12px 15px;
+            padding: 12px 15px 12px 45px;
             border: 1px solid #cbd5e1;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
-        .remember-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            color: #4b5563;
+        .input-with-icon input:focus {
+            outline: none;
+            border-color: #2e7d32;
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+        }
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #666;
         }
         .btn-submit {
             width: 100%;
             background: #2e7d32;
             color: white;
-            padding: 14px;
             border: none;
+            padding: 14px;
             border-radius: 8px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.2s;
+            margin-top: 10px;
         }
         .btn-submit:hover {
-            background: #1b5e20;
+            background: #1a2e05;
         }
-        #errorMsg {
-            color: #dc2626;
-            font-size: 0.85rem;
-            margin-top: 15px;
+        .auth-footer {
             text-align: center;
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .auth-footer a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .auth-footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-container">
-            <img src="logo.jpeg" alt="Logo" class="site-logo">
-            <span class="logo-text">Az-Zikr International</span>
+    <div class="auth-card">
+        <div class="auth-header">
+            <img src="logo.jpeg" alt="Az-Zikr Logo">
+            <h2>Welcome Back</h2>
+            <p>Log in to access your Student Hub</p>
         </div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="enroll.html">Enroll Now</a>
-        </nav>
-    </header>
 
-    <main>
-        <div class="login-wrapper">
-            <h2>Student Portal Login</h2>
-            <p style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 30px;">Sign in to access your course dashboard.</p>
-            
-            <form id="loginForm">
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" id="email" required placeholder="student@example.com">
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <div class="input-with-icon">
+                    <i class="fa-solid fa-envelope field-icon"></i>
+                    <input type="email" id="email" required placeholder="name@example.com">
                 </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="password" required placeholder="••••••••">
-                </div>
-                
-                <!-- Remember Me Row -->
-                <div class="remember-row">
-                    <input type="checkbox" id="rememberMe" checked>
-                    <label for="rememberMe" style="margin-bottom: 0; cursor: pointer;">Remember me on this device</label>
-                </div>
+            </div>
 
-                <button type="submit" class="btn-submit"><i class="fa-solid fa-right-to-bracket"></i> Sign In & Access Hub</button>
-                
-                <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: #4b5563;">
-                    Don't have an account? <a href="signup.html" style="color: #2e7d32; font-weight: 600; text-decoration: none;">Register here</a>
-                </p>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-with-icon">
+                    <i class="fa-solid fa-lock field-icon"></i>
+                    <input type="password" id="password" required placeholder="Enter your password">
+                    <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+                </div>
+            </div>
 
-                <div id="errorMsg"></div>
-            </form>
+            <button type="submit" id="loginBtn" class="btn-submit">Log In</button>
+        </form>
+
+        <div class="auth-footer">
+            Don't have an account? <a href="signup.html">Register here</a>
         </div>
-    </main>
+    </div>
 
     <script>
-        const SUPABASE_URL = 'httpshxsubmacyeprcvckpjuj.supabase.co'; // verify your project URL string format if needed
-        // Using correct initialization with persistence config
+        // Initialize Supabase with session persistence enabled
         const supabaseClient = supabase.createClient(
-            'https://hxsubmacyeprcvckpjuj.supabase.co', 
+            'httpshxsubmacyeprcvckpjuj.supabase.co'.replace('https', 'https://'), // Safely parsed project URL
             'sb_publishable_Hrhr0EMdvwFjaPqaHyE_kg_k00oq4hw',
             {
                 auth: {
@@ -133,41 +174,72 @@
             }
         );
 
+        // Password visibility toggle feature
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        // Handle Login Submission & Profile Security Check
         document.getElementById('loginForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const rememberMe = document.getElementById('rememberMe').checked;
-            const errorDiv = document.getElementById('errorMsg');
-            errorDiv.textContent = "";
 
-            const urlParams = new URLSearchParams(window.location.search);
-            const selectedCourse = urlParams.get('course');
-            if (selectedCourse) {
-                localStorage.setItem('enrolled_course', selectedCourse);
-            }
+            const submitBtn = document.getElementById('loginBtn');
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
 
-            // Authenticate with Supabase
-            const { data, error } = await supabaseClient.auth.signInWithPassword({
-                email: email,
-                password: password
-            });
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Logging in...";
 
-            if (error) {
-                // Auto sign-up fallback helper for smooth testing
-                const { data: signUpData, error: signUpError } = await supabaseClient.auth.signUp({
+            try {
+                // 1. Authenticate credentials via Supabase Auth
+                const { data: authData, error: authError } = await supabaseClient.auth.signInWithPassword({
                     email: email,
                     password: password
                 });
-                
-                if (signUpError) {
-                    errorDiv.textContent = signUpError.message;
+
+                if (authError) {
+                    alert("Login failed: " + authError.message);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Log In";
                     return;
                 }
-            }
 
-            // If "Remember Me" is checked, storage handles session persistence automatically.
-            window.location.href = 'student-hub.html';
+                // 2. REGISTRATION/DELETION GUARD: Verify that a profile row exists in public.profiles
+                const { data: profileData, error: profileError } = await supabaseClient
+                    .from('profiles')
+                    .select('id')
+                    .eq('id', authData.user.id)
+                    .single();
+
+                if (profileError || !profileData) {
+                    // Profile doesn't exist (e.g., account was deleted or registration was never finished)
+                    alert("No active registration record found for this account. Please register first.");
+                    
+                    // Terminate the auth session immediately so it doesn't leave a ghost session
+                    await supabaseClient.auth.signOut({ scope: 'global' });
+                    localStorage.clear();
+                    sessionStorage.clear();
+
+                    // Route user to registration page
+                    window.location.replace('signup.html');
+                    return;
+                }
+
+                // 3. Success: Redirect straight to the secure Student Hub
+                window.location.replace('student-hub.html');
+
+            } catch (err) {
+                console.error("Unexpected error during login:", err);
+                alert("An unexpected error occurred. Please try again.");
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Log In";
+            }
         });
     </script>
 </body>
