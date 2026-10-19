@@ -180,4 +180,205 @@
             justify-content: center;
             gap: 6px;
         }
-        .btn-wa-group:hover { background
+        .btn-wa-group:hover { background: #16a34a; }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px; right: 30px;
+            color: white; font-size: 40px; font-weight: bold; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
+            <span class="logo-text">Az-Zikr International</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="courses.html">Courses</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+        <div class="header-socials">
+            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" title="WhatsApp Channel" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" title="Facebook Page" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/azzikr_international/" target="_blank" title="Instagram" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" title="YouTube Channel" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+    </header>
+
+    <div class="enroll-hero">
+        <h2>Departmental Learning Hubs</h2>
+        <p>Explore specialized Quranic and Islamic course offerings grouped by department.</p>
+    </div>
+
+    <main class="enroll-main-container">
+        <div class="dept-hub-grid">
+
+            <!-- TAJWEED HUB -->
+            <div class="dept-card">
+                <div>
+                    <div class="dept-header">
+                        <i class="fa-solid fa-book-quran"></i>
+                        <h3>Tajweed Department</h3>
+                    </div>
+                    <div class="dept-body">
+                        <div class="dept-course-item">
+                            <img src="IMG-20260827-WA0368.jpg" class="thumb-preview" onclick="openFlyer('IMG-20260827-WA0368.jpg')" alt="Tajweed & Qaida">
+                            <div class="course-info">
+                                <h5>Tajweed & Noorani Qaida</h5>
+                                <p>Proper phonetics & recitation rules.</p>
+                            </div>
+                        </div>
+                        <div class="dept-course-item">
+                            <img src="IMG-20261015-WA0025.jpg" class="thumb-preview" onclick="openFlyer('IMG-20261015-WA0025.jpg')" alt="Tajweed Course">
+                            <div class="course-info">
+                                <h5>Tajweed (Basic to Intermediate)</h5>
+                                <p>Live Zoom classes starting Oct 25, 2026.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dept-footer">
+                    <a href="https://wa.me/923335449457?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Tajweed%20Department%20courses." target="_blank" class="btn-wa-group"><i class="fa-brands fa-whatsapp"></i> Enroll in Tajweed</a>
+                </div>
+            </div>
+
+            <!-- ARABIC HUB -->
+            <div class="dept-card">
+                <div>
+                    <div class="dept-header" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);">
+                        <i class="fa-solid fa-language"></i>
+                        <h3>Arabic Department</h3>
+                    </div>
+                    <div class="dept-body">
+                        <div class="dept-course-item">
+                            <img src="IMG-20261015-WA0002.jpg" class="thumb-preview" onclick="openFlyer('IMG-20261015-WA0002.jpg')" alt="Basic Arabic">
+                            <div class="course-info">
+                                <h5>Basic Arabic Grammar (Batch 05)</h5>
+                                <p>Lisan-ul-Quran starting Jan 2027.</p>
+                            </div>
+                        </div>
+                        <div class="dept-course-item">
+                            <img src="IMG-20261015-WA0004.jpg" class="thumb-preview" onclick="openFlyer('IMG-20261015-WA0004.jpg')" alt="Advance Arabic">
+                            <div class="course-info">
+                                <h5>Advance Arabic Grammar (Batch 06)</h5>
+                                <p>Tarkeeb course in Urdu starting Jan 2027.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dept-footer">
+                    <a href="https://wa.me/923335449457?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Arabic%20Department%20courses." target="_blank" class="btn-wa-group"><i class="fa-brands fa-whatsapp"></i> Enroll in Arabic</a>
+                </div>
+            </div>
+
+            <!-- HIFZ HUB -->
+            <div class="dept-card">
+                <div>
+                    <div class="dept-header" style="background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);">
+                        <i class="fa-solid fa-award"></i>
+                        <h3>Hifz Department</h3>
+                    </div>
+                    <div class="dept-body">
+                        <div class="dept-course-item">
+                            <img src="IMG-20261010-WA0230.jpg" class="thumb-preview" onclick="openFlyer('IMG-20261010-WA0230.jpg')" alt="Hifz 30th Para">
+                            <div class="course-info">
+                                <h5>Hifz 30th Para (Batch 03)</h5>
+                                <p>Memorization with translation from Oct 28.</p>
+                            </div>
+                        </div>
+                        <div class="dept-course-item">
+                            <img src="IMG-20261010-WA0231.jpg" class="thumb-preview" onclick="openFlyer('IMG-20261010-WA0231.jpg')" alt="Hifz Suratul Kahf">
+                            <div class="course-info">
+                                <h5>Hifz Suratul Kahf (Batch 04)</h5>
+                                <p>Memorization with translation from Oct 29.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dept-footer">
+                    <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Hifz%20Department%20courses." target="_blank" class="btn-wa-group"><i class="fa-brands fa-whatsapp"></i> Enroll in Hifz</a>
+                </div>
+            </div>
+
+            <!-- ENGLISH & KIDS HUBS -->
+            <div class="dept-card">
+                <div>
+                    <div class="dept-header" style="background: linear-gradient(135deg, #d97706 0%, #b45309 100%);">
+                        <i class="fa-solid fa-globe"></i>
+                        <h3>English & Kids Dept</h3>
+                    </div>
+                    <div class="dept-body">
+                        <div class="dept-course-item">
+                            <img src="IMG-20260924-WA0129.jpg" class="thumb-preview" onclick="openFlyer('IMG-20260924-WA0129.jpg')" alt="English Speakers">
+                            <div class="course-info">
+                                <h5>Quran Arabic for English Speakers</h5>
+                                <p>Tailored for global English learners.</p>
+                            </div>
+                        </div>
+                        <div class="dept-course-item">
+                            <img src="BIS.png" class="thumb-preview" onclick="openFlyer('BIS.png')" alt="Kids Tarbiyah">
+                            <div class="course-info">
+                                <h5>Basic Islamic History (Kids Tarbiyah)</h5>
+                                <p>Prophetic stories for age 8-16.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dept-footer">
+                    <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20English%20or%20Kids%20courses." target="_blank" class="btn-wa-group"><i class="fa-brands fa-whatsapp"></i> Enroll in English/Kids</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="imageModal" class="modal" onclick="closeFlyer()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="fullFlyerImage" alt="Enlarged Flyer">
+    </div>
+
+    <footer>
+        <div class="footer-socials">
+            <span class="footer-social-title">Follow & Join Us:</span>
+            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="footer-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Channel</a>
+            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="footer-btn fb-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn insta-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn yt-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        </div>
+        <p>&copy; 2026 Az-Zikr International. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function openFlyer(imageSrc) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("fullFlyerImage");
+            modal.style.display = "flex";
+            modalImg.src = imageSrc;
+        }
+        function closeFlyer() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
