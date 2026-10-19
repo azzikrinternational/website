@@ -220,4 +220,327 @@
             cursor: pointer;
             background: #f1f5f9;
             aspect-ratio: 4/3;
-            overflow:
+            overflow: hidden;
+        }
+        .flyer-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .flyer-img-wrapper:hover .flyer-img {
+            transform: scale(1.04);
+        }
+        .flyer-badge-open {
+            position: absolute;
+            top: 10px; right: 10px;
+            background: #16a34a;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        .click-hint {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(0,0,0,0.65);
+            color: white;
+            font-size: 0.75rem;
+            text-align: center;
+            padding: 5px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .flyer-img-wrapper:hover .click-hint { opacity: 1; }
+        .flyer-details {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+        .flyer-details h4 {
+            margin: 0 0 4px 0;
+            color: var(--primary-dark);
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .flyer-dept-label {
+            font-size: 0.75rem;
+            color: #15803d;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .flyer-tagline {
+            font-size: 0.8rem;
+            color: #4b5563;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        .flyer-btn {
+            background: #25D366;
+            color: white;
+            text-align: center;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 3px 10px rgba(37, 211, 102, 0.25);
+            transition: all 0.2s;
+        }
+        .flyer-btn:hover {
+            background: #20ba5a;
+            transform: translateY(-1px);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px; right: 30px;
+            color: white; font-size: 40px; font-weight: bold; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
+            <span class="logo-text">Az-Zikr International</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="courses.html">Courses</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+        <div class="header-socials">
+            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" title="WhatsApp Channel" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" title="Facebook Page" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/azzikr_international/" target="_blank" title="Instagram" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" title="YouTube Channel" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+    </header>
+
+    <div class="enroll-hero">
+        <h2>Interactive WhatsApp Groups</h2>
+        <p>Join our active WhatsApp batch programs below.</p>
+    </div>
+
+    <main class="enroll-main-container">
+        <div class="whatsapp-portal-wrapper">
+            <div class="whatsapp-section-title">
+                <i class="fa-solid fa-comments"></i> Active WhatsApp Courses by Department
+            </div>
+
+            <!-- ================= 1. TAJWEED DEPARTMENT ================= -->
+            <div class="dept-header-badge dept-tajweed"><i class="fa-solid fa-book-quran"></i> Tajweed Department</div>
+            <div class="whatsapp-grid-4x4">
+                <!-- Tarteel-Ul-Qur'an -->
+                <div class="flyer-card">
+                    <div class="flyer-img-wrapper" onclick="openFlyer('IMG-20260827-WA0368.jpg')">
+                        <img src="IMG-20260827-WA0368.jpg" alt="Tarteel-Ul-Qur'an Flyer" class="flyer-img" loading="lazy">
+                        <div class="flyer-badge-open">Open</div>
+                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Enlarge</div>
+                    </div>
+                    <div class="flyer-details">
+                        <div>
+                            <div class="flyer-dept-label">Tajweed Department</div>
+                            <h4>Tarteel-Ul-Qur'an</h4>
+                            <div class="flyer-tagline">Perfect your Qur'an recitation with proper phonetics.</div>
+                        </div>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Tarteel-Ul-Qur'an." target="_blank" class="flyer-btn"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- Tajweed Course (Basic to Intermediate) -->
+                <div class="flyer-card">
+                    <div class="flyer-img-wrapper" onclick="openFlyer('IMG-20261015-WA0025.jpg')">
+                        <img src="IMG-20261015-WA0025.jpg" alt="Tajweed Course Flyer" class="flyer-img" loading="lazy">
+                        <div class="flyer-badge-open">Open</div>
+                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Enlarge</div>
+                    </div>
+                    <div class="flyer-details">
+                        <div>
+                            <div class="flyer-dept-label">Tajweed Department</div>
+                            <h4>Tajweed Course (Basic to Intermediate)</h4>
+                            <div class="flyer-tagline">Live online classes via Zoom, starting 25 October 2026.</div>
+                        </div>
+                        <a href="https://wa.me/923335449457?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20Tajweed%20Course%20(Basic%20to%20Intermediate)." target="_blank" class="flyer-btn"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= 2. ARABIC DEPARTMENT ================= -->
+            <div class="dept-header-badge dept-arabic"><i class="fa-solid fa-language"></i> Arabic Department</div>
+            <div class="whatsapp-grid-4x4">
+                <!-- Advance Arabic Grammar (Batch 06) -->
+                <div class="flyer-card">
+                    <div class="flyer-img-wrapper" onclick="openFlyer('IMG-20261015-WA0004.jpg')">
+                        <img src="IMG-20261015-WA0004.jpg" alt="Advance Arabic Grammar Course Flyer" class="flyer-img" loading="lazy">
+                        <div class="flyer-badge-open">Open</div>
+                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Enlarge</div>
+                    </div>
+                    <div class="flyer-details">
+                        <div>
+                            <div class="flyer-dept-label">Arabic Department</div>
+                            <h4>Advance Arabic Grammar (Batch 06)</h4>
+                            <div class="flyer-tagline">Tarkeeb Course (Medium: Urdu), starting in January 2027.</div>
+                        </div>
+                        <a href="https://wa.me/923335449457?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Advance%20Arabic%20Grammar%20Course%20Batch%2006." target="_blank" class="flyer-btn"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= 3. HIFZ DEPARTMENT ================= -->
+            <div class="dept-header-badge dept-hifz"><i class="fa-solid fa-award"></i> Hifz Department</div>
+            <div class="whatsapp-grid-4x4">
+                <!-- Hifz 30th Para -->
+                <div class="flyer-card">
+                    <div class="flyer-img-wrapper" onclick="openFlyer('IMG-20261010-WA0230.jpg')">
+                        <img src="IMG-20261010-WA0230.jpg" alt="Hifz 30th Para Flyer" class="flyer-img" loading="lazy">
+                        <div class="flyer-badge-open">Open</div>
+                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Enlarge</div>
+                    </div>
+                    <div class="flyer-details">
+                        <div>
+                            <div class="flyer-dept-label">Hifz Department</div>
+                            <h4>Hifz 30th Para (Batch 03)</h4>
+                            <div class="flyer-tagline">Memorization of the 30th Para with translation, starting Oct 28, 2026.</div>
+                        </div>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Hifz%2030th%20Para%20Batch%2003." target="_blank" class="flyer-btn"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- Hifz Suratul Kahf -->
+                <div class="flyer-card">
+                    <div class="flyer-img-wrapper" onclick="openFlyer('IMG-20261010-WA0231.jpg')">
+                        <img src="IMG-20261010-WA0231.jpg" alt="Hifz Suratul Kahf Flyer" class="flyer-img" loading="lazy">
+                        <div class="flyer-badge-open">Open</div>
+                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Enlarge</div>
+                    </div>
+                    <div class="flyer-details">
+                        <div>
+                            <div class="flyer-dept-label">Hifz Department</div>
+                            <h4>Hifz Suratul Kahf (Batch 04)</h4>
+                            <div class="flyer-tagline">Memorization of Suratul Kahf with translation, starting Oct 29, 2026.</div>
+                        </div>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Hifz%20Suratul%20Kahf%20Batch%2004." target="_blank" class="flyer-btn"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= 4. ENGLISH DEPARTMENT ================= -->
+            <div class="dept-header-badge dept-english"><i class="fa-solid fa-globe"></i> English Department</div>
+            <div class="whatsapp-grid-4x4">
+                <!-- Quran Arabic for English Speakers -->
+                <div class="flyer-card">
+                    <div class="flyer-img-wrapper" onclick="openFlyer('IMG-20260924-WA0129.jpg')">
+                        <img src="IMG-20260924-WA0129.jpg" alt="English Course Flyer" class="flyer-img" loading="lazy">
+                        <div class="flyer-badge-open">Open</div>
+                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Enlarge</div>
+                    </div>
+                    <div class="flyer-details">
+                        <div>
+                            <div class="flyer-dept-label">English Department</div>
+                            <h4>Quran Arabic for English Speakers</h4>
+                            <div class="flyer-tagline">Learn Qur'an Arabic understanding for English speaking students.</div>
+                        </div>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20English%20Department%20course." target="_blank" class="flyer-btn"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- Basic Arabic Grammar (Batch 05) -->
+                <div class="flyer-card">
+                    <div class="flyer-img-wrapper" onclick="openFlyer('IMG-20261015-WA0002.jpg')">
+                        <img src="IMG-20261015-WA0002.jpg" alt="Basic Arabic Grammar Course Flyer" class="flyer-img" loading="lazy">
+                        <div class="flyer-badge-open">Open</div>
+                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Enlarge</div>
+                    </div>
+                    <div class="flyer-details">
+                        <div>
+                            <div class="flyer-dept-label">English Department</div>
+                            <h4>Basic Arabic Grammar (Batch 05)</h4>
+                            <div class="flyer-tagline">Lisan-ul-Quran in English, starting in January 2027.</div>
+                        </div>
+                        <a href="https://wa.me/923335449457?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Basic%20Arabic%20Grammar%20Course%20Batch%2005." target="_blank" class="flyer-btn"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= 5. KIDS TARBIYAH DEPARTMENT ================= -->
+            <div class="dept-header-badge dept-kids"><i class="fa-solid fa-child"></i> Kids Tarbiyah Department</div>
+            <div class="whatsapp-grid-4x4">
+                <!-- Basic Islamic History -->
+                <div class="flyer-card">
+                    <div class="flyer-img-wrapper" onclick="openFlyer('BIS.png')">
+                        <img src="BIS.png" alt="Basic Islamic History Flyer" class="flyer-img" loading="lazy">
+                        <div class="flyer-badge-open">Open</div>
+                        <div class="click-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Enlarge</div>
+                    </div>
+                    <div class="flyer-details">
+                        <div>
+                            <div class="flyer-dept-label">Kids Tarbiyah Dept</div>
+                            <h4>Basic Islamic History</h4>
+                            <div class="flyer-tagline">Inspiring prophetic stories (Qasas ul Anbiyaa) for kids age 8-16.</div>
+                        </div>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Basic%20Islamic%20History%20(Kids%20Tarbiyah)." target="_blank" class="flyer-btn"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="imageModal" class="modal" onclick="closeFlyer()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="fullFlyerImage" alt="Enlarged Flyer">
+    </div>
+
+    <footer>
+        <div class="footer-socials">
+            <span class="footer-social-title">Follow & Join Us:</span>
+            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="footer-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Channel</a>
+            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="footer-btn fb-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn insta-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn yt-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        </div>
+        <p>&copy; 2026 Az-Zikr International. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function openFlyer(imageSrc) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("fullFlyerImage");
+            modal.style.display = "flex";
+            modalImg.src = imageSrc;
+        }
+        function closeFlyer() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
