@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Advanced Google Structured Data (Course & ItemList Schema) -->
+    <!-- Advanced Google Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -155,7 +155,7 @@
             color: #334155;
         }
 
-        /* Top Header Styling matching screenshot */
+        /* Top Header Styling */
         header {
             background-color: var(--primary-navy);
             display: flex;
@@ -237,42 +237,19 @@
             margin: 30px auto;
             padding: 0 20px 60px 20px;
         }
-        .whatsapp-portal-wrapper {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-            border: 1px solid #e2e8f0;
-        }
 
-        .portal-top-bar {
-            margin-bottom: 25px;
-        }
-        .whatsapp-section-title {
-            font-size: 1.35rem;
-            color: #0f172a;
-            margin: 0 0 18px 0;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .whatsapp-section-title i {
-            color: #25D366;
-            font-size: 1.5rem;
-        }
-
-        /* Filter Tabs Buttons */
+        /* Filter Tabs */
         .filter-tabs {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            margin-bottom: 30px;
         }
         .filter-btn {
             flex: 1 1 160px;
             min-width: 140px;
             text-align: center;
-            background: #f8fafc;
+            background: #ffffff;
             color: #475569;
             border: 1.5px solid #e2e8f0;
             padding: 10px 16px;
@@ -299,14 +276,39 @@
             box-shadow: 0 4px 14px rgba(26, 54, 93, 0.25);
         }
 
-        /* 3-Column Equal Grid Layout */
+        /* Department Section Wrappers */
+        .dept-group-block {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
+            border: 1px solid #e2e8f0;
+        }
+        .dept-header-title {
+            font-size: 1.35rem;
+            color: #0f172a;
+            margin: 0 0 20px 0;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+        .dept-header-title i {
+            color: #25D366;
+            font-size: 1.5rem;
+        }
+
+        /* Course Grid */
         .whatsapp-grid-3col {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
             gap: 25px;
         }
 
-        /* Improved Course Cards matching screenshot proportions */
+        /* Course Cards with Feature Icon Badges */
         .modern-course-card {
             background: #ffffff;
             border-radius: 18px;
@@ -316,7 +318,7 @@
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
             position: relative;
         }
         .modern-course-card:hover {
@@ -342,6 +344,28 @@
             transform: scale(1.06);
             opacity: 0.92;
         }
+        
+        .click-zoom-badge {
+            position: absolute;
+            top: 12px; left: 12px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: background 0.2s;
+        }
+        .flyer-img-container:hover .click-zoom-badge {
+            background: rgba(37, 211, 102, 0.95);
+            color: #0f172a;
+        }
+
         .status-pill {
             position: absolute;
             top: 12px; right: 12px;
@@ -356,49 +380,14 @@
             letter-spacing: 0.5px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
-        .hover-preview-hint {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            background: linear-gradient(transparent, rgba(15, 23, 42, 0.85));
-            color: #ffffff;
-            font-size: 0.78rem;
-            text-align: center;
-            padding: 14px 10px 8px 10px;
-            opacity: 0;
-            transition: opacity 0.25s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-        .flyer-img-container:hover .hover-preview-hint { opacity: 1; }
 
         .card-body {
-            padding: 20px;
+            padding: 18px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
             justify-content: space-between;
         }
-        .dept-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.72rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            margin-bottom: 10px;
-            padding: 4px 10px;
-            border-radius: 8px;
-            width: fit-content;
-        }
-        .dept-tajweed { background: #dcfce7; color: #15803d; }
-        .dept-english { background: #fef3c7; color: #b45309; }
-        .dept-arabic { background: #e0f2fe; color: #0369a1; }
-        .dept-hifz { background: #f3e8ff; color: #6d28d9; }
-        .dept-kids { background: #fce7f3; color: #be185d; }
-
         .card-body h4 {
             margin: 0 0 8px 0;
             color: #0f172a;
@@ -409,9 +398,29 @@
         .card-body p {
             font-size: 0.85rem;
             color: #64748b;
-            margin: 0 0 18px 0;
+            margin: 0 0 14px 0;
             line-height: 1.45;
         }
+
+        /* Icon Badge Tags */
+        .feature-icon-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+        .icon-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 4px 8px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .icon-tag i { color: #15803d; }
 
         .action-enroll-btn {
             background: var(--wa-green);
@@ -516,196 +525,253 @@
 
     <div class="enroll-hero">
         <h2>Interactive WhatsApp Groups</h2>
-        <p>Browse active batch programs across all specialized departments.</p>
+        <p>Browse active batch programs sorted into departmental groups.</p>
     </div>
 
     <main class="enroll-main-container">
-        <div class="whatsapp-portal-wrapper">
-            
-            <div class="portal-top-bar">
-                <div class="whatsapp-section-title">
-                    <i class="fa-brands fa-whatsapp"></i> Filter Courses By Department
-                </div>
 
-                <!-- Wide Department Navigation Buttons -->
-                <div class="filter-tabs">
-                    <button class="filter-btn active" onclick="filterDepartment('all', this)"><i class="fa-solid fa-border-all"></i> All Batches</button>
-                    <button class="filter-btn" onclick="filterDepartment('tajweed', this)"><i class="fa-solid fa-book-quran"></i> Tajweed Dept</button>
-                    <button class="filter-btn" onclick="filterDepartment('english', this)"><i class="fa-solid fa-globe"></i> English Dept</button>
-                    <button class="filter-btn" onclick="filterDepartment('arabic', this)"><i class="fa-solid fa-language"></i> Arabic Dept</button>
-                    <button class="filter-btn" onclick="filterDepartment('hifz', this)"><i class="fa-solid fa-award"></i> Hifz Dept</button>
-                    <button class="filter-btn" onclick="filterDepartment('kids', this)"><i class="fa-solid fa-child"></i> Kids Tarbiyah</button>
-                </div>
+        <!-- Department Filter Navigation Bar -->
+        <div class="filter-tabs">
+            <button class="filter-btn active" onclick="filterDepartment('all', this)"><i class="fa-solid fa-border-all"></i> All Departments</button>
+            <button class="filter-btn" onclick="filterDepartment('tajweed', this)"><i class="fa-solid fa-book-quran"></i> Tajweed Dept</button>
+            <button class="filter-btn" onclick="filterDepartment('arabic', this)"><i class="fa-solid fa-language"></i> Arabic Dept</button>
+            <button class="filter-btn" onclick="filterDepartment('english', this)"><i class="fa-solid fa-globe"></i> English Dept</button>
+            <button class="filter-btn" onclick="filterDepartment('hifz', this)"><i class="fa-solid fa-award"></i> Hifz Dept</button>
+            <button class="filter-btn" onclick="filterDepartment('kids', this)"><i class="fa-solid fa-child"></i> Kids Tarbiyah</button>
+        </div>
+
+        <!-- 1. TAJWEED DEPARTMENT GROUP -->
+        <div class="dept-group-block" data-dept-group="tajweed">
+            <div class="dept-header-title">
+                <i class="fa-solid fa-book-quran"></i> Tajweed Department
             </div>
-
-            <!-- Modern Course Cards Grid -->
             <div class="whatsapp-grid-3col">
                 
-                <!-- 1. Tajweed Department - Tarteel-Ul-Qur'an -->
-                <div class="modern-course-card" data-dept="tajweed">
+                <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20260827-WA0368.jpg')">
                         <img src="IMG-20260827-WA0368.jpg" alt="Tarteel-Ul-Qur'an Flyer" loading="lazy">
+                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
-                        <div class="hover-preview-hint"><i class="fa-solid fa-expand"></i> Click to Enlarge</div>
                     </div>
                     <div class="card-body">
                         <div>
-                            <span class="dept-chip dept-tajweed"><i class="fa-solid fa-book-quran"></i> Tajweed Dept</span>
                             <h4>Tarteel-Ul-Qur'an</h4>
                             <p>Perfect your Qur'an recitation with proper phonetics and rules.</p>
+                            <div class="feature-icon-tags">
+                                <span class="icon-tag"><i class="fa-solid fa-circle-play"></i> Live Sessions</span>
+                                <span class="icon-tag"><i class="fa-solid fa-user-check"></i> Direct Feedback</span>
+                            </div>
                         </div>
                         <a href="https://wa.me/923034504994?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Tarteel-Ul-Qur'an." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
                     </div>
                 </div>
 
-                <!-- 2. Tajweed Department - Tajweed Course (Basic to Intermediate) -->
-                <div class="modern-course-card" data-dept="tajweed">
+                <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261015-WA0025.jpg')">
                         <img src="IMG-20261015-WA0025.jpg" alt="Tajweed Course Flyer" loading="lazy">
+                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
-                        <div class="hover-preview-hint"><i class="fa-solid fa-expand"></i> Click to Enlarge</div>
                     </div>
                     <div class="card-body">
                         <div>
-                            <span class="dept-chip dept-tajweed"><i class="fa-solid fa-book-quran"></i> Tajweed Dept</span>
                             <h4>Tajweed Course (Basic to Intermediate)</h4>
                             <p>Live online classes via Zoom, starting 25 October 2026.</p>
+                            <div class="feature-icon-tags">
+                                <span class="icon-tag"><i class="fa-solid fa-video"></i> Zoom Classes</span>
+                                <span class="icon-tag"><i class="fa-solid fa-calendar-days"></i> Oct 25, 2026</span>
+                            </div>
                         </div>
                         <a href="https://wa.me/923034504994?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20Tajweed%20Course%20(Basic%20to%20Intermediate)." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
                     </div>
                 </div>
 
-                <!-- 3. Arabic Department - Advance Arabic Grammar Course (Batch 06) -->
-                <div class="modern-course-card" data-dept="arabic">
+            </div>
+        </div>
+
+        <!-- 2. ARABIC DEPARTMENT GROUP -->
+        <div class="dept-group-block" data-dept-group="arabic">
+            <div class="dept-header-title">
+                <i class="fa-solid fa-language"></i> Arabic Department
+            </div>
+            <div class="whatsapp-grid-3col">
+                
+                <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261015-WA0004.jpg')">
                         <img src="IMG-20261015-WA0004.jpg" alt="Advance Arabic Grammar Course Flyer" loading="lazy">
+                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
-                        <div class="hover-preview-hint"><i class="fa-solid fa-expand"></i> Click to Enlarge</div>
                     </div>
                     <div class="card-body">
                         <div>
-                            <span class="dept-chip dept-arabic"><i class="fa-solid fa-language"></i> Arabic Dept</span>
                             <h4>Advance Arabic Grammar (Batch 06)</h4>
                             <p>Tarkeeb Course (Medium: Urdu), starting in January 2027.</p>
+                            <div class="feature-icon-tags">
+                                <span class="icon-tag"><i class="fa-solid fa-graduation-cap"></i> Advance Level</span>
+                                <span class="icon-tag"><i class="fa-solid fa-clock"></i> Jan 2027</span>
+                            </div>
                         </div>
                         <a href="https://wa.me/923034504994?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Advance%20Arabic%20Grammar%20Course%20Batch%2006." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
                     </div>
                 </div>
 
-                <!-- 4. Arabic Department - Asaan Arbi Grammar (Batch 09) -->
-                <div class="modern-course-card" data-dept="arabic">
+                <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261018-WA0175.jpg')">
                         <img src="IMG-20261018-WA0175.jpg" alt="Asaan Arbi Grammar Batch 09 Flyer" loading="lazy">
+                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
-                        <div class="hover-preview-hint"><i class="fa-solid fa-expand"></i> Click to Enlarge</div>
                     </div>
                     <div class="card-body">
                         <div>
-                            <span class="dept-chip dept-arabic"><i class="fa-solid fa-language"></i> Arabic Dept</span>
                             <h4>Asaan Arbi Grammar (Batch 09)</h4>
                             <p>Lisan-ul-Quran Series by Sir Amir Sohail (Females Only), starting January 2027.</p>
+                            <div class="feature-icon-tags">
+                                <span class="icon-tag"><i class="fa-solid fa-venus"></i> Females Only</span>
+                                <span class="icon-tag"><i class="fa-solid fa-certificate"></i> Certification</span>
+                            </div>
                         </div>
                         <a href="https://wa.me/923034504994?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Asaan%20Arbi%20Grammar%20Batch%2009." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
                     </div>
                 </div>
 
-                <!-- 5. Arabic Department - Professional Diploma Level 1 (Batch 09) -->
-                <div class="modern-course-card" data-dept="arabic">
+                <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261018-WA0193.jpg')">
                         <img src="IMG-20261018-WA0193.jpg" alt="Professional Diploma Level 1 Basic Grammar Flyer" loading="lazy">
+                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
-                        <div class="hover-preview-hint"><i class="fa-solid fa-expand"></i> Click to Enlarge</div>
                     </div>
                     <div class="card-body">
                         <div>
-                            <span class="dept-chip dept-arabic"><i class="fa-solid fa-language"></i> Arabic Dept</span>
                             <h4>Professional Diploma - Level 1 (Batch 09)</h4>
                             <p>Basic Quranic Arabic Grammar based on Lisan-ul-Quran (2024 Methodology), starting January 2027.</p>
+                            <div class="feature-icon-tags">
+                                <span class="icon-tag"><i class="fa-solid fa-award"></i> Diploma Level 1</span>
+                                <span class="icon-tag"><i class="fa-solid fa-file-pdf"></i> Materials Provided</span>
+                            </div>
                         </div>
                         <a href="https://wa.me/923034504994?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Professional%20Diploma%20Level%201%20Basic%20Grammar%20Batch%2009." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
                     </div>
                 </div>
 
-                <!-- 6. English Department - Quran Arabic for English Speakers -->
-                <div class="modern-course-card" data-dept="english">
+            </div>
+        </div>
+
+        <!-- 3. ENGLISH DEPARTMENT GROUP -->
+        <div class="dept-group-block" data-dept-group="english">
+            <div class="dept-header-title">
+                <i class="fa-solid fa-globe"></i> English Department
+            </div>
+            <div class="whatsapp-grid-3col">
+                
+                <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20260924-WA0129.jpg')">
                         <img src="IMG-20260924-WA0129.jpg" alt="English Course Flyer" loading="lazy">
+                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
-                        <div class="hover-preview-hint"><i class="fa-solid fa-expand"></i> Click to Enlarge</div>
                     </div>
                     <div class="card-body">
                         <div>
-                            <span class="dept-chip dept-english"><i class="fa-solid fa-globe"></i> English Dept</span>
                             <h4>Quran Arabic for English Speakers</h4>
                             <p>Learn Qur'an Arabic understanding tailored for English speaking students.</p>
+                            <div class="feature-icon-tags">
+                                <span class="icon-tag"><i class="fa-solid fa-language"></i> English Medium</span>
+                                <span class="icon-tag"><i class="fa-solid fa-book-open"></i> Quran Understanding</span>
+                            </div>
                         </div>
                         <a href="https://wa.me/923034504994?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20English%20Department%20course." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
                     </div>
                 </div>
 
-                <!-- 7. English Department - Basic Arabic Grammar (Batch 05) -->
-                <div class="modern-course-card" data-dept="english">
+                <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261015-WA0002.jpg')">
                         <img src="IMG-20261015-WA0002.jpg" alt="Basic Arabic Grammar Course Flyer" loading="lazy">
+                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
-                        <div class="hover-preview-hint"><i class="fa-solid fa-expand"></i> Click to Enlarge</div>
                     </div>
                     <div class="card-body">
                         <div>
-                            <span class="dept-chip dept-english"><i class="fa-solid fa-globe"></i> English Dept</span>
                             <h4>Basic Arabic Grammar (Batch 05)</h4>
                             <p>Lisan-ul-Quran in English, starting in January 2027.</p>
+                            <div class="feature-icon-tags">
+                                <span class="icon-tag"><i class="fa-solid fa-globe"></i> English Medium</span>
+                                <span class="icon-tag"><i class="fa-solid fa-calendar-days"></i> Jan 2027</span>
+                            </div>
                         </div>
                         <a href="https://wa.me/923034504994?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Basic%20Arabic%20Grammar%20Course%20Batch%2005." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
                     </div>
                 </div>
 
-                <!-- 8. Hifz Department - Hifz 30th Para -->
-                <div class="modern-course-card" data-dept="hifz">
+            </div>
+        </div>
+
+        <!-- 4. HIFZ DEPARTMENT GROUP -->
+        <div class="dept-group-block" data-dept-group="hifz">
+            <div class="dept-header-title">
+                <i class="fa-solid fa-award"></i> Hifz Department
+            </div>
+            <div class="whatsapp-grid-3col">
+                
+                <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261010-WA0230.jpg')">
                         <img src="IMG-20261010-WA0230.jpg" alt="Hifz 30th Para Flyer" loading="lazy">
+                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
-                        <div class="hover-preview-hint"><i class="fa-solid fa-expand"></i> Click to Enlarge</div>
                     </div>
                     <div class="card-body">
                         <div>
-                            <span class="dept-chip dept-hifz"><i class="fa-solid fa-award"></i> Hifz Dept</span>
                             <h4>Hifz 30th Para (Batch 03)</h4>
                             <p>Memorization of the 30th Para with translation, starting Oct 28, 2026.</p>
+                            <div class="feature-icon-tags">
+                                <span class="icon-tag"><i class="fa-solid fa-brain"></i> Memorization</span>
+                                <span class="icon-tag"><i class="fa-solid fa-calendar-days"></i> Oct 28, 2026</span>
+                            </div>
                         </div>
                         <a href="https://wa.me/923034504994?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Hifz%2030th%20Para%20Batch%2003." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
                     </div>
                 </div>
 
-                <!-- 9. Hifz Department - Suratul Kahf -->
-                <div class="modern-course-card" data-dept="hifz">
+                <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261010-WA0231.jpg')">
                         <img src="IMG-20261010-WA0231.jpg" alt="Hifz Suratul Kahf Flyer" loading="lazy">
+                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
-                        <div class="hover-preview-hint"><i class="fa-solid fa-expand"></i> Click to Enlarge</div>
                     </div>
                     <div class="card-body">
                         <div>
-                            <span class="dept-chip dept-hifz"><i class="fa-solid fa-award"></i> Hifz Dept</span>
                             <h4>Hifz Suratul Kahf (Batch 04)</h4>
                             <p>Memorization of Suratul Kahf with translation, starting Oct 29, 2026.</p>
+                            <div class="feature-icon-tags">
+                                <span class="icon-tag"><i class="fa-solid fa-book-quran"></i> Suratul Kahf</span>
+                                <span class="icon-tag"><i class="fa-solid fa-calendar-days"></i> Oct 29, 2026</span>
+                            </div>
                         </div>
                         <a href="https://wa.me/923034504994?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Hifz%20Suratul%20Kahf%20Batch%2004." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
                     </div>
                 </div>
 
-                <!-- 10. Kids Tarbiyah Dept - Basic Islamic History -->
-                <div class="modern-course-card" data-dept="kids">
+            </div>
+        </div>
+
+        <!-- 5. KIDS TARBIYAH GROUP -->
+        <div class="dept-group-block" data-dept-group="kids">
+            <div class="dept-header-title">
+                <i class="fa-solid fa-child"></i> Kids Tarbiyah
+            </div>
+            <div class="whatsapp-grid-3col">
+                
+                <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('BIS.png')">
                         <img src="BIS.png" alt="Basic Islamic History Flyer" loading="lazy">
+                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
-                        <div class="hover-preview-hint"><i class="fa-solid fa-expand"></i> Click to Enlarge</div>
                     </div>
                     <div class="card-body">
                         <div>
-                            <span class="dept-chip dept-kids"><i class="fa-solid fa-child"></i> Kids Tarbiyah</span>
                             <h4>Basic Islamic History</h4>
                             <p>Inspiring prophetic stories (Qasas ul Anbiyaa) for kids age 8-16.</p>
+                            <div class="feature-icon-tags">
+                                <span class="icon-tag"><i class="fa-solid fa-child-reaching"></i> Age 8-16</span>
+                                <span class="icon-tag"><i class="fa-solid fa-book-atlas"></i> Prophetic Stories</span>
+                            </div>
                         </div>
                         <a href="https://wa.me/923034504994?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Basic%20Islamic%20History%20(Kids%20Tarbiyah)." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
                     </div>
@@ -713,6 +779,7 @@
 
             </div>
         </div>
+
     </main>
 
     <div id="imageModal" class="modal" onclick="closeFlyer()">
@@ -743,17 +810,17 @@
 
         /* Filter Department Function */
         function filterDepartment(dept, element) {
-            var cards = document.querySelectorAll('.modern-course-card');
+            var blocks = document.querySelectorAll('.dept-group-block');
             var buttons = document.querySelectorAll('.filter-btn');
 
             buttons.forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
 
-            cards.forEach(card => {
-                if (dept === 'all' || card.getAttribute('data-dept') === dept) {
-                    card.style.display = 'flex';
+            blocks.forEach(block => {
+                if (dept === 'all' || block.getAttribute('data-dept-group') === dept) {
+                    block.style.display = 'block';
                 } else {
-                    card.style.display = 'none';
+                    block.style.display = 'none';
                 }
             });
         }
