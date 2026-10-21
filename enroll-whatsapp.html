@@ -141,11 +141,12 @@
     
     <style>
         :root {
+            --primary-navy: #1a365d;
             --primary-dark: #0f172a;
             --wa-green: #25D366;
             --wa-hover: #1eb956;
-            --bg-light: #f1f5f9;
-            --border-color: #cbd5e1;
+            --bg-light: #f8fafc;
+            --border-color: #e2e8f0;
         }
         body {
             background-color: var(--bg-light);
@@ -153,21 +154,80 @@
             margin: 0;
             color: #334155;
         }
+
+        /* Top Header Styling matching screenshot */
+        header {
+            background-color: var(--primary-navy);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .site-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ffffff;
+        }
+        .logo-text {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.2px;
+        }
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+        nav a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: var(--wa-green);
+        }
+        .header-socials {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .social-icon {
+            color: #ffffff;
+            font-size: 1.1rem;
+            transition: transform 0.2s, color 0.2s;
+        }
+        .social-icon:hover {
+            transform: translateY(-2px);
+            color: var(--wa-green);
+        }
+
         .enroll-hero {
             background: linear-gradient(rgba(15, 23, 42, 0.90), rgba(15, 23, 42, 0.95)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
             color: #ffffff;
             text-align: center;
-            padding: 65px 20px 55px 20px;
+            padding: 50px 20px 45px 20px;
         }
         .enroll-hero h2 {
-            font-size: 2.6rem;
-            margin-bottom: 12px;
+            font-size: 2.3rem;
+            margin-bottom: 10px;
             font-weight: 800;
             color: #ffffff;
-            letter-spacing: -0.5px;
         }
         .enroll-hero p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: #94a3b8;
             max-width: 620px;
             margin: 0 auto;
@@ -179,48 +239,48 @@
         }
         .whatsapp-portal-wrapper {
             background: #ffffff;
-            border-radius: 24px;
-            padding: 35px;
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
             border: 1px solid #e2e8f0;
         }
 
         .portal-top-bar {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         .whatsapp-section-title {
-            font-size: 1.45rem;
+            font-size: 1.35rem;
             color: #0f172a;
-            margin: 0 0 20px 0;
+            margin: 0 0 18px 0;
             font-weight: 800;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
         .whatsapp-section-title i {
             color: #25D366;
-            font-size: 1.7rem;
+            font-size: 1.5rem;
         }
 
-        /* Wide Department Filter Buttons */
+        /* Filter Tabs Buttons */
         .filter-tabs {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
         .filter-btn {
-            flex: 1 1 180px;
-            min-width: 160px;
+            flex: 1 1 160px;
+            min-width: 140px;
             text-align: center;
             background: #f8fafc;
             color: #475569;
-            border: 2px solid #e2e8f0;
-            padding: 12px 20px;
-            border-radius: 14px;
-            font-size: 0.95rem;
+            border: 1.5px solid #e2e8f0;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -231,38 +291,37 @@
             border-color: #94a3b8;
             color: #0f172a;
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.04);
         }
         .filter-btn.active {
-            background: #0f172a;
+            background: var(--primary-navy);
             color: #ffffff;
-            border-color: #0f172a;
-            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
+            border-color: var(--primary-navy);
+            box-shadow: 0 4px 14px rgba(26, 54, 93, 0.25);
         }
 
-        /* Modern Grid Layout */
+        /* 3-Column Equal Grid Layout */
         .whatsapp-grid-3col {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 28px;
+            gap: 25px;
         }
 
-        /* Distinct Modern Card Style */
+        /* Improved Course Cards matching screenshot proportions */
         .modern-course-card {
             background: #ffffff;
-            border-radius: 20px;
+            border-radius: 18px;
             border: 1px solid #e2e8f0;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             position: relative;
         }
         .modern-course-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 35px rgba(15, 23, 42, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(15, 23, 42, 0.08);
             border-color: #cbd5e1;
         }
 
@@ -270,7 +329,7 @@
             position: relative;
             cursor: pointer;
             background: #0f172a;
-            aspect-ratio: 16/10;
+            aspect-ratio: 4/3;
             overflow: hidden;
         }
         .flyer-img-container img {
@@ -280,13 +339,13 @@
             transition: transform 0.4s ease, opacity 0.3s ease;
         }
         .flyer-img-container:hover img {
-            transform: scale(1.08);
-            opacity: 0.9;
+            transform: scale(1.06);
+            opacity: 0.92;
         }
         .status-pill {
             position: absolute;
             top: 12px; right: 12px;
-            background: rgba(37, 211, 102, 0.92);
+            background: rgba(37, 211, 102, 0.95);
             backdrop-filter: blur(4px);
             color: #0f172a;
             font-size: 0.7rem;
@@ -295,7 +354,7 @@
             border-radius: 30px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
         .hover-preview-hint {
             position: absolute;
@@ -343,7 +402,7 @@
         .card-body h4 {
             margin: 0 0 8px 0;
             color: #0f172a;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 800;
             line-height: 1.35;
         }
@@ -356,10 +415,10 @@
 
         .action-enroll-btn {
             background: var(--wa-green);
-            color: #0f172a;
+            color: #ffffff;
             text-align: center;
-            padding: 12px 18px;
-            border-radius: 12px;
+            padding: 11px 16px;
+            border-radius: 10px;
             text-decoration: none;
             font-size: 0.92rem;
             font-weight: 800;
@@ -368,13 +427,44 @@
             justify-content: center;
             gap: 8px;
             transition: all 0.25s ease;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
         }
         .action-enroll-btn:hover {
             background: var(--wa-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+            box-shadow: 0 8px 18px rgba(37, 211, 102, 0.35);
         }
+
+        /* Footer styling */
+        footer {
+            background: var(--primary-navy);
+            color: #94a3b8;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+        .footer-socials {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .footer-btn {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.2s;
+        }
+        .footer-btn:hover { background: rgba(255, 255, 255, 0.2); }
 
         /* Lightbox Modal */
         .modal {
@@ -390,7 +480,7 @@
         .modal-content {
             max-width: 90%;
             max-height: 90%;
-            border-radius: 14px;
+            border-radius: 12px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
         .modal-close {
@@ -502,7 +592,7 @@
                     </div>
                 </div>
 
-                <!-- 4. Arabic Department - Asaan Arbi Grammar (Batch 09) NEW -->
+                <!-- 4. Arabic Department - Asaan Arbi Grammar (Batch 09) -->
                 <div class="modern-course-card" data-dept="arabic">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261018-WA0175.jpg')">
                         <img src="IMG-20261018-WA0175.jpg" alt="Asaan Arbi Grammar Batch 09 Flyer" loading="lazy">
@@ -519,7 +609,7 @@
                     </div>
                 </div>
 
-                <!-- 5. Arabic Department - Professional Diploma Level 1 (Batch 09) NEW -->
+                <!-- 5. Arabic Department - Professional Diploma Level 1 (Batch 09) -->
                 <div class="modern-course-card" data-dept="arabic">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261018-WA0193.jpg')">
                         <img src="IMG-20261018-WA0193.jpg" alt="Professional Diploma Level 1 Basic Grammar Flyer" loading="lazy">
@@ -632,11 +722,10 @@
 
     <footer>
         <div class="footer-socials">
-            <span class="footer-social-title">Follow & Join Us:</span>
-            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="footer-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Channel</a>
-            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="footer-btn fb-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
-            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn insta-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn yt-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
+            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="footer-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Channel</a>
+            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="footer-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
         </div>
         <p>&copy; 2026 Az-Zikr International. All Rights Reserved.</p>
     </footer>
