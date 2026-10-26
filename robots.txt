@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://azzikrinternational.netlify.app/sitemap.xml
+# Sitemap Location
+Sitemap: https://azzikrinternational.com/sitemap.xml
