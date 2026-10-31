@@ -99,30 +99,6 @@
             color: #f3c669 !important;
         }
 
-        /* Dynamic Home Button that appears on scroll */
-        .scroll-home-btn {
-            display: none;
-            background: #2e7d32;
-            color: white;
-            padding: 6px 14px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            transition: background 0.2s;
-        }
-        .scroll-home-btn:hover {
-            background: #388e3c;
-        }
-
-        /* Class toggled via JS when scrolling down */
-        header.scrolled .scroll-home-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
         .hero-join-btn {
             display: inline-flex;
             align-items: center;
@@ -157,20 +133,22 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
-        @media screen and (max-width: 768px) {
+        /* Responsive handling for mobile devices and landscape rotations */
+        @media screen and (max-width: 900px) {
             header {
                 position: fixed;
-                background: rgba(5, 15, 30, 0.9) !important;
+                background: rgba(5, 15, 30, 0.92) !important;
                 backdrop-filter: blur(6px);
-                flex-direction: column;
-                gap: 10px;
-                padding: 10px !important;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding: 10px 15px !important;
             }
             header nav {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 6px;
+                gap: 8px;
             }
             header nav a {
                 font-size: 0.8rem;
@@ -181,15 +159,15 @@
                 gap: 8px;
             }
             .intro-section {
-                padding-top: 140px !important;
+                padding-top: 110px !important;
                 min-height: auto !important;
                 padding: 40px 15px !important;
             }
             .intro-section h1 {
-                font-size: 1.5rem !important;
+                font-size: 1.8rem !important;
             }
             .intro-section p.intro-text {
-                font-size: 0.92rem !important;
+                font-size: 0.95rem !important;
             }
             .hero-join-btn {
                 width: 100%;
@@ -224,8 +202,6 @@
                 <a href="https://www.instagram.com/azzikr_international/" target="_blank" title="Instagram" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" title="YouTube Channel" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
             </div>
-            <!-- Dynamic Home Button appearing on right side when scrolling -->
-            <a href="#top" class="scroll-home-btn"><i class="fa-solid fa-house"></i> Home</a>
         </div>
     </header>
 
@@ -361,18 +337,6 @@
         </div>
         <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: #C3923E; text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: #C3923E; text-decoration: none;">Terms of Service</a></p>
     </footer>
-
-    <!-- JavaScript to trigger the Home button on scroll -->
-    <script>
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 300) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
 
 </body>
 </html>
