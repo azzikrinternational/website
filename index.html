@@ -42,7 +42,7 @@
       "name": "Az-Zikr International",
       "url": "https://azzikrinternational.com",
       "logo": "https://azzikrinternational.com/logo.jpeg",
-      "description": "Az-Zikr International is a free online Islamic institute serving exclusively women worldwide with authentic free Quran education and structured Islamic studies.",
+      "description": "Az-Zikr International is a dedicated online Islamic institute serving exclusively women worldwide with authentic free Quran education and structured Islamic studies.",
       "sameAs": [
         "https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q",
         "https://facebook.com/profile.php?id=61589858578851",
@@ -71,29 +71,45 @@
             padding: 0;
         }
         
-        /* Transparent Header Overlay with Scroll Transition */
+        /* Permanently Transparent Fixed Header */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: transparent;
+            background: transparent !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 30px;
             box-sizing: border-box;
-            transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease;
         }
 
-        /* Solid background applied smoothly when scrolled */
-        header.scrolled {
-            background: #0f172a !important;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            border-bottom: none;
-            padding: 12px 30px;
+        /* Dynamic Home Button that appears on scroll */
+        .scroll-home-btn {
+            display: none;
+            background: #2e7d32;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            transition: background 0.2s;
+        }
+        .scroll-home-btn:hover {
+            background: #388e3c;
+        }
+
+        /* Class toggled via JS when scrolling down */
+        header.scrolled .scroll-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .hero-join-btn {
@@ -132,41 +148,41 @@
 
         @media screen and (max-width: 768px) {
             header {
-                position: relative;
-                background: #0f172a !important; /* solid background on mobile for clear legibility */
+                position: fixed;
+                background: rgba(5, 15, 30, 0.85) !important; /* Slight dark tint on mobile for legibility over image */
+                backdrop-filter: blur(6px);
                 flex-direction: column;
-                gap: 12px;
-                padding: 12px 10px !important;
+                gap: 10px;
+                padding: 10px !important;
             }
             header nav {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 8px;
+                gap: 6px;
             }
             header nav a {
-                font-size: 0.85rem;
-                padding: 4px 8px;
+                font-size: 0.8rem;
+                padding: 3px 6px;
             }
             .header-socials {
                 display: flex;
-                gap: 10px;
-                margin-top: 4px;
+                gap: 8px;
             }
             .intro-section {
-                padding-top: 40px !important;
+                padding-top: 130px !important;
                 min-height: auto !important;
-                padding: 60px 15px 80px 15px !important;
+                padding: 40px 15px !important;
             }
             .intro-section h1 {
-                font-size: 1.65rem !important;
+                font-size: 1.5rem !important;
             }
             .intro-section p.intro-text {
-                font-size: 0.98rem !important;
+                font-size: 0.92rem !important;
             }
             .hero-join-btn {
                 width: 100%;
-                max-width: 260px;
+                max-width: 240px;
             }
         }
     </style>
@@ -190,30 +206,29 @@
             <a href="contact.html">Contact Us</a>
             <a href="login.html" style="background: #2e7d32; color: white; border-radius: 4px;">Student Login</a>
         </nav>
-        <div class="header-socials">
-            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" title="WhatsApp Channel" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" title="Facebook Page" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/azzikr_international/" target="_blank" title="Instagram" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" title="YouTube Channel" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="header-socials">
+                <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" title="WhatsApp Channel" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" title="Facebook Page" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/azzikr_international/" target="_blank" title="Instagram" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" title="YouTube Channel" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <!-- Dynamic Home Button appearing on scroll -->
+            <a href="#top" class="scroll-home-btn"><i class="fa-solid fa-house"></i> Home</a>
         </div>
     </header>
 
-    <!-- BANNER 1: Translucent Welcome Hero Banner with top padding to account for absolute header -->
-    <section class="intro-section" style="min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(rgba(5, 15, 30, 0.92), rgba(5, 15, 30, 0.96)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff; padding: 130px 20px 60px 20px; text-align: center;">
+    <!-- BANNER 1: Translucent Welcome Hero Banner -->
+    <section id="top" class="intro-section" style="min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(rgba(5, 15, 30, 0.88), rgba(5, 15, 30, 0.94)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff; padding: 130px 20px 60px 20px; text-align: center;">
         
         <!-- Quranic Verse 54:17 -->
         <div style="max-width: 780px; margin: 0 auto 20px auto; text-align: center;">
-            <!-- Arabic Verse with refined gold accent and subtle glow -->
             <p style="font-family: 'Amiri', serif; font-size: 1.3rem; font-weight: 700; color: #f3c669; line-height: 1.8; margin-bottom: 8px; direction: rtl; text-shadow: 0 2px 8px rgba(0,0,0,0.6); letter-spacing: 0.5px;">
                 وَلَقَدۡ يَسَّرۡنَا الۡقُرۡاٰنَ لِلذِّكۡرِ فَهَلۡ مِنۡ مُّدَّكِرٍ
             </p>
-            
-            <!-- English Translation with improved clarity -->
             <p style="font-size: 0.88rem; font-style: italic; color: #e2e8f0; line-height: 1.5; margin-bottom: 4px; text-shadow: 0 1px 3px rgba(0,0,0,0.6);">
                 "And We have certainly made the Quran easy to remember. So is there anyone who will be mindful?"
             </p>
-            
-            <!-- Surah Reference Badge -->
             <span style="display: inline-block; font-size: 0.7rem; color: #f3c669; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; background: rgba(243, 198, 105, 0.1); padding: 2px 10px; border-radius: 10px; border: 1px solid rgba(243, 198, 105, 0.2);">
                 Surah Al-Qamar 54:17
             </span>
@@ -254,7 +269,7 @@
 
     <main>
         <!-- Learning Method Options with Polished Cards -->
-        <div id="learning-methods" style="scroll-margin-top: 40px; background: #ffffff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 40px; text-align: center;">
+        <div id="learning-methods" style="scroll-margin-top: 100px; background: #ffffff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 40px; text-align: center;">
             <h2 style="color: #2e7d32; font-size: 1.75rem; margin-bottom: 10px;">Choose Your Learning Method</h2>
             <p style="color: #555555; font-size: 1rem; margin-bottom: 30px;">Access our courses either through our self-paced website portal or join our active WhatsApp cohorts.</p>
             
@@ -336,11 +351,11 @@
         <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: #C3923E; text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: #C3923E; text-decoration: none;">Terms of Service</a></p>
     </footer>
 
-    <!-- JavaScript to handle header solid background transition on scroll -->
+    <!-- JavaScript to toggle the Home button on the right side when scrolling -->
     <script>
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
-            if (window.scrollY > 50) {
+            if (window.scrollY > 300) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
