@@ -71,21 +71,28 @@
             padding: 0;
         }
         
-        /* Permanently Transparent Fixed Header */
+        /* Fixed Header with Dark Glassmorphism Overlay for Perfect Legibility */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: transparent !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(5, 15, 30, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 30px;
             box-sizing: border-box;
             transition: all 0.3s ease;
+        }
+
+        /* Ensure nav links and text have shadows so they never wash out */
+        header nav a, .logo-text, .header-socials a {
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
         }
 
         /* Dynamic Home Button that appears on scroll */
@@ -149,7 +156,7 @@
         @media screen and (max-width: 768px) {
             header {
                 position: fixed;
-                background: rgba(5, 15, 30, 0.85) !important; /* Slight dark tint on mobile for legibility over image */
+                background: rgba(5, 15, 30, 0.9) !important;
                 backdrop-filter: blur(6px);
                 flex-direction: column;
                 gap: 10px;
@@ -204,7 +211,7 @@
             <a href="courses.html">Courses</a>
             <a href="faq.html">FAQ</a>
             <a href="contact.html">Contact Us</a>
-            <a href="login.html" style="background: #2e7d32; color: white; border-radius: 4px;">Student Login</a>
+            <a href="login.html" style="background: #2e7d32; color: white; border-radius: 4px; padding: 6px 12px; text-shadow: none;">Student Login</a>
         </nav>
         <div style="display: flex; align-items: center; gap: 12px;">
             <div class="header-socials">
@@ -213,13 +220,13 @@
                 <a href="https://www.instagram.com/azzikr_international/" target="_blank" title="Instagram" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" title="YouTube Channel" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
             </div>
-            <!-- Dynamic Home Button appearing on scroll -->
+            <!-- Dynamic Home Button appearing on right side when scrolling -->
             <a href="#top" class="scroll-home-btn"><i class="fa-solid fa-house"></i> Home</a>
         </div>
     </header>
 
     <!-- BANNER 1: Translucent Welcome Hero Banner -->
-    <section id="top" class="intro-section" style="min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(rgba(5, 15, 30, 0.88), rgba(5, 15, 30, 0.94)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff; padding: 130px 20px 60px 20px; text-align: center;">
+    <section id="top" class="intro-section" style="min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(rgba(5, 15, 30, 0.88), rgba(5, 15, 30, 0.94)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff; padding: 140px 20px 60px 20px; text-align: center;">
         
         <!-- Quranic Verse 54:17 -->
         <div style="max-width: 780px; margin: 0 auto 20px auto; text-align: center;">
@@ -351,7 +358,7 @@
         <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: #C3923E; text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: #C3923E; text-decoration: none;">Terms of Service</a></p>
     </footer>
 
-    <!-- JavaScript to toggle the Home button on the right side when scrolling -->
+    <!-- JavaScript to trigger the Home button on scroll -->
     <script>
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
