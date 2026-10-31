@@ -113,6 +113,27 @@
         .hero-join-btn:active {
             transform: translateY(-1px);
         }
+
+        .action-banner-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #ffffff;
+            color: #2e7d32;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .action-banner-btn:hover {
+            background: #f4f9f4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
         
         /* Card Interactions */
         .portal-card, .whatsapp-card {
@@ -145,7 +166,8 @@
                 margin-top: 4px;
             }
             .intro-section {
-                padding: 55px 16px 75px 16px !important;
+                min-height: auto !important;
+                padding: 60px 16px !important;
             }
             .intro-section h1 {
                 font-size: 1.6rem !important;
@@ -153,7 +175,7 @@
             .intro-section p.intro-text {
                 font-size: 0.95rem !important;
             }
-            .hero-join-btn {
+            .hero-join-btn, .action-banner-btn {
                 width: 100%;
                 max-width: 260px;
             }
@@ -187,8 +209,8 @@
         </div>
     </header>
 
-    <!-- Professional Hero Section with Option 2 Copy & Visual Trust Indicators -->
-    <section class="intro-section" style="background: linear-gradient(rgba(5, 15, 30, 0.92), rgba(5, 15, 30, 0.96)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff; padding: 95px 20px 115px 20px; text-align: center;">
+    <!-- BANNER 1: Full-Page Translucent Welcome Hero Banner -->
+    <section class="intro-section" style="min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(rgba(5, 15, 30, 0.92), rgba(5, 15, 30, 0.96)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff; padding: 60px 20px; text-align: center;">
         
         <!-- Official Status Pill Badge -->
         <div class="trust-badge">
@@ -215,7 +237,7 @@
         </p>
 
         <!-- Centered Enhanced Join Us Action Button -->
-        <div class="hero-actions" style="display: flex; justify-content: center; margin-top: 15px;">
+        <div class="hero-actions" style="display: flex; justify-content: center; margin-top: 10px;">
             <a href="#learning-methods" class="hero-join-btn">
                 <span>Join Us</span>
                 <i class="fa-solid fa-arrow-down-long"></i>
@@ -223,31 +245,120 @@
         </div>
     </section>
 
-    <!-- Info Strip with Authenticity Highlights -->
-    <section class="info-strip">
-        <div class="info-box">
-            <h4><i class="fa-solid fa-hand-holding-heart" style="color: #2e7d32; margin-right: 6px;"></i> 100% Free Education</h4>
-            <p>All courses, materials, and instruction are provided entirely free of charge Fi-Sabeelillah.</p>
-        </div>
-        <div class="info-box">
-            <h4><i class="fa-solid fa-user-shield" style="color: #2e7d32; margin-right: 6px;"></i> Student Safety & Privacy</h4>
-            <p>Strict policies protect student security: unofficial groups, advertising, and external contact are prohibited.</p>
-        </div>
-        <div class="info-box">
-            <h4><i class="fa-solid fa-graduation-cap" style="color: #2e7d32; margin-right: 6px;"></i> Academic Evaluation</h4>
-            <p>Transparent grading system ranging from Grade A (90-100% Outstanding) to Grade F (Below 59%).</p>
+    <!-- BANNER 2: Button Directing to Departments & Quick Info Strip -->
+    <section class="info-strip" style="background: #1b5e20; padding: 35px 20px; text-align: center;">
+        <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+            <h3 style="color: #ffffff; font-size: 1.4rem; margin: 0; font-weight: 600;">Ready to begin your journey of sacred knowledge?</h3>
+            <p style="color: #d4ebd4; font-size: 0.95rem; margin: 0;">Explore our specialized departments tailored for comprehensive female Islamic learning.</p>
+            <a href="#academic-departments" class="action-banner-btn">
+                <span>Explore Departments</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
         </div>
     </section>
 
+    <div style="background: #f8fafc; padding: 20px 0;">
+        <div class="info-strip" style="background: transparent; box-shadow: none; margin-top: 0;">
+            <div class="info-box">
+                <h4><i class="fa-solid fa-hand-holding-heart" style="color: #2e7d32; margin-right: 6px;"></i> 100% Free Education</h4>
+                <p>All courses, materials, and instruction are provided entirely free of charge Fi-Sabeelillah.</p>
+            </div>
+            <div class="info-box">
+                <h4><i class="fa-solid fa-user-shield" style="color: #2e7d32; margin-right: 6px;"></i> Student Safety & Privacy</h4>
+                <p>Strict policies protect student security: unofficial groups, advertising, and external contact are prohibited.</p>
+            </div>
+            <div class="info-box">
+                <h4><i class="fa-solid fa-graduation-cap" style="color: #2e7d32; margin-right: 6px;"></i> Academic Evaluation</h4>
+                <p>Transparent grading system ranging from Grade A (90-100% Outstanding) to Grade F (Below 59%).</p>
+            </div>
+        </div>
+    </div>
+
     <main>
-        <!-- Learning Method Options with Polished Cards -->
-        <div id="learning-methods" style="scroll-margin-top: 40px; background: #ffffff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 40px; text-align: center;">
-            <h2 style="color: #2e7d32; font-size: 1.75rem; margin-bottom: 10px;">Choose Your Learning Method</h2>
-            <p style="color: #555555; font-size: 1rem; margin-bottom: 30px;">Access our courses either through our self-paced website portal or join our active WhatsApp cohorts.</p>
+        <!-- BANNER 3: Choose Your Learning Method Banner -->
+        <div id="learning-methods" style="scroll-margin-top: 40px; background: #ffffff; padding: 50px 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 40px; text-align: center;">
+            <h2 style="color: #2e7d32; font-size: 1.85rem; margin-bottom: 10px;">Choose Your Learning Method</h2>
+            <p style="color: #555555; font-size: 1rem; margin-bottom: 35px; max-width: 600px; margin-left: auto; margin-right: auto;">Access our courses either through our self-paced website portal or join our active WhatsApp cohorts.</p>
             
             <div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">
                 <!-- Website Student Portal Card -->
                 <div class="portal-card" style="background: #f4f9f4; border: 1px solid #d4ebd4; padding: 24px; border-radius: 8px; width: 320px; text-align: left; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
                         <h3 style="color: #2e7d32; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;"><i class="fa-solid fa-laptop"></i> Website Student Portal</h3>
-                        <p style="font-size: 0.92rem; color: #555; line-height:
+                        <p style="font-size: 0.92rem; color: #555; line-height: 1.5;">Self-paced video lessons, automated quizzes via Google Forms, and progress tracking.</p>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 20px;">
+                        <a href="login.html" style="flex: 1; text-align: center; background: #4b5563; color: white; padding: 10px 12px; border-radius: 6px; text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: background 0.2s;"><i class="fa-solid fa-right-to-bracket"></i> Log In</a>
+                        <a href="signup.html" style="flex: 1; text-align: center; background: #2e7d32; color: white; padding: 10px 12px; border-radius: 6px; text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: background 0.2s;"><i class="fa-solid fa-user-plus"></i> Register</a>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Study Groups Card -->
+                <div class="whatsapp-card" style="background: #f0fdf4; border: 1px solid #dcfce7; padding: 24px; border-radius: 8px; width: 320px; text-align: left; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h3 style="color: #15803d; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Study Groups</h3>
+                        <p style="font-size: 0.92rem; color: #555; line-height: 1.5;">Weekly lessons, direct teacher feedback, and interactive community groups.</p>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <a href="enroll-whatsapp.html" style="display: block; text-align: center; background: #25D366; color: white; padding: 10px 16px; border-radius: 6px; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: background 0.2s;"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="academic-departments" style="scroll-margin-top: 30px;">
+            <h2 class="section-title">Academic Departments</h2>
+        </div>
+        
+        <div class="department-grid">
+            <!-- 1. Qur'anic Arabic Department -->
+            <a href="courses.html?dept=quranic-arabic" class="dept-playcard" style="background-image: url('sarang-bhojwani-hXuTdcAjoHs-unsplash.jpg');">
+                <div class="playcard-overlay"></div>
+                <h3 class="playcard-title">Qur'anic Arabic Language Department</h3>
+            </a>
+
+            <!-- 2. Tajweed Department -->
+            <a href="courses.html?dept=tajweed" class="dept-playcard" style="background-image: url('indonesia-bertauhid-ocEpT2tKX5c-unsplash.jpg');">
+                <div class="playcard-overlay"></div>
+                <h3 class="playcard-title">Tajweed, Tarteel, & Nazrah Department</h3>
+            </a>
+
+            <!-- 3. Hifz Department -->
+            <a href="courses.html?dept=hifz" class="dept-playcard" style="background-image: url('aoun-abbas-97o4XH0htUs-unsplash.jpg');">
+                <div class="playcard-overlay"></div>
+                <h3 class="playcard-title">Hifz Department</h3>
+            </a>
+
+            <!-- 4. Seerah Department -->
+            <a href="courses.html?dept=seerah" class="dept-playcard" style="background-image: url('sulthan-auliya-rzzS0_pMsD0-unsplash.jpg');">
+                <div class="playcard-overlay"></div>
+                <h3 class="playcard-title">Seerah Department</h3>
+            </a>
+
+            <!-- 5. Kids Tarbiyah Department -->
+            <a href="courses.html?dept=kids-tarbiyah" class="dept-playcard" style="background-image: url('nick-fewings-ZcBY_mxVBCE-unsplash.jpg');">
+                <div class="playcard-overlay"></div>
+                <h3 class="playcard-title">Kids Tarbiyah Department</h3>
+            </a>
+
+            <!-- 6. English Department -->
+            <a href="courses.html?dept=english-dept" class="dept-playcard" style="background-image: url('amirhadi-manavi-moghadam-ChbOPN8Ybjs-unsplash.jpg');">
+                <div class="playcard-overlay"></div>
+                <h3 class="playcard-title">Lisan ul Quran in English Department</h3>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-socials">
+            <span class="footer-social-title">Follow & Join Us:</span>
+            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="footer-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Channel</a>
+            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="footer-btn fb-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn insta-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn yt-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        </div>
+        <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: #C3923E; text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: #C3923E; text-decoration: none;">Terms of Service</a></p>
+    </footer>
+
+</body>
+</html>
