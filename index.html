@@ -58,10 +58,15 @@
     }
     </script>
 
-    <!-- Inline Mobile Responsiveness & Enhanced Button Styling -->
+    <!-- Inline Mobile Responsiveness & Polished UI Styling -->
     <style>
         html {
             scroll-behavior: smooth;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #333333;
+            line-height: 1.6;
         }
         .hero-join-btn {
             display: inline-flex;
@@ -72,20 +77,29 @@
             color: #ffffff;
             font-size: 1.05rem;
             font-weight: 600;
-            padding: 14px 32px;
+            padding: 14px 36px;
             border-radius: 50px;
             text-decoration: none;
             box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .hero-join-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.6);
+            box-shadow: 0 10px 28px rgba(46, 125, 50, 0.55);
             background: linear-gradient(135deg, #388e3c, #2e7d32);
         }
         .hero-join-btn:active {
             transform: translateY(-1px);
+        }
+        
+        /* Polished Card Hover Transitions */
+        .portal-card, .whatsapp-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .portal-card:hover, .whatsapp-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         @media screen and (max-width: 768px) {
@@ -110,17 +124,17 @@
                 margin-top: 4px;
             }
             .intro-section {
-                padding: 50px 15px 70px 15px !important;
+                padding: 60px 15px 80px 15px !important;
             }
             .intro-section h1 {
-                font-size: 1.5rem !important;
+                font-size: 1.65rem !important;
             }
             .intro-section p.intro-text {
-                font-size: 0.95rem !important;
+                font-size: 0.98rem !important;
             }
             .hero-join-btn {
                 width: 100%;
-                max-width: 250px;
+                max-width: 260px;
             }
         }
     </style>
@@ -152,23 +166,23 @@
         </div>
     </header>
 
-    <!-- Enhanced Hero Section with Improved Contrast, Vignette Overlay & Prominent CTA -->
-    <section class="intro-section" style="background: linear-gradient(rgba(5, 15, 30, 0.90), rgba(5, 15, 30, 0.95)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff; padding: 90px 20px 110px 20px; text-align: center;">
+    <!-- Enhanced Hero Section with Refined Spacing & Typography -->
+    <section class="intro-section" style="background: linear-gradient(rgba(5, 15, 30, 0.92), rgba(5, 15, 30, 0.96)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff; padding: 100px 20px 120px 20px; text-align: center;">
         
-        <!-- Verse 54:17 styled with Amiri font in smaller size and gold accent -->
-        <div style="max-width: 750px; margin: 0 auto 20px auto;">
-            <p style="font-family: 'Amiri', serif; font-size: 1.2rem; font-weight: 700; color: #c9933b; line-height: 1.6; margin-bottom: 4px; direction: rtl; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+        <!-- Verse 54:17 styled with Amiri font and gold accent -->
+        <div style="max-width: 780px; margin: 0 auto 24px auto;">
+            <p style="font-family: 'Amiri', serif; font-size: 1.35rem; font-weight: 700; color: #e2b15c; line-height: 1.7; margin-bottom: 6px; direction: rtl; text-shadow: 0 2px 5px rgba(0,0,0,0.85); letter-spacing: 0.5px;">
                 وَلَقَدۡ يَسَّرۡنَا الۡقُرۡاٰنَ لِلذِّكۡرِ فَهَلۡ مِنۡ مُّدَّكِرٍ
             </p>
-            <p style="font-size: 0.82rem; font-style: italic; color: #f8fafc; line-height: 1.4; margin-bottom: 3px; text-shadow: 0 1px 3px rgba(0,0,0,0.8);">
+            <p style="font-size: 0.86rem; font-style: italic; color: #f1f5f9; line-height: 1.5; margin-bottom: 6px; text-shadow: 0 1px 3px rgba(0,0,0,0.85);">
                 "And We have certainly made the Quran easy to remember. So is there anyone who will be mindful?"
             </p>
-            <span style="font-size: 0.65rem; color: #c9933b; font-weight: 700; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.8);">(54:17)</span>
+            <span style="font-size: 0.7rem; color: #e2b15c; font-weight: 700; letter-spacing: 1px; text-shadow: 0 1px 2px rgba(0,0,0,0.85);">(54:17)</span>
         </div>
 
-        <h1 style="color: #ffffff; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.6); margin-bottom: 20px;">Free Online Quran Education for Women</h1>
-        <p class="intro-text" style="color: #f8f9fa; font-weight: 400; max-width: 800px; margin: 0 auto 30px auto; text-shadow: 0 1px 3px rgba(0,0,0,0.6); line-height: 1.6;">
-            Az-Zikr International is a free online Islamic institute serving exclusively women. We offer authentic, structured Quranic and Islamic studies for students worldwide.
+        <h1 style="color: #ffffff; font-size: 2.2rem; font-weight: 700; text-shadow: 0 2px 6px rgba(0,0,0,0.65); margin-bottom: 18px; letter-spacing: -0.5px;">Free Online Quran Education for Women</h1>
+        <p class="intro-text" style="color: #f1f5f9; font-size: 1.05rem; font-weight: 400; max-width: 780px; margin: 0 auto 36px auto; text-shadow: 0 1px 4px rgba(0,0,0,0.6); line-height: 1.7;">
+            Az-Zikr International is a dedicated online Islamic institute serving exclusively women. We offer authentic, structured Quranic and Islamic studies for students worldwide.
         </p>
 
         <!-- Centered Enhanced Join Us Action Button -->
@@ -196,32 +210,32 @@
     </section>
 
     <main>
-        <!-- Learning Method Options with ID placed right at the top for exact alignment -->
-        <div id="learning-methods" style="scroll-margin-top: 40px; background: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 40px; text-align: center;">
-            <h2 style="color: #2e7d32; margin-bottom: 10px;">Choose Your Learning Method</h2>
-            <p style="color: #666; margin-bottom: 25px;">Access our courses either through our self-paced website portal or join our active WhatsApp cohorts.</p>
+        <!-- Learning Method Options with Polished Cards -->
+        <div id="learning-methods" style="scroll-margin-top: 40px; background: #ffffff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 40px; text-align: center;">
+            <h2 style="color: #2e7d32; font-size: 1.75rem; margin-bottom: 10px;">Choose Your Learning Method</h2>
+            <p style="color: #555555; font-size: 1rem; margin-bottom: 30px;">Access our courses either through our self-paced website portal or join our active WhatsApp cohorts.</p>
             
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <!-- Website Student Portal Card with Log In and Register Buttons -->
-                <div style="background: #f4f9f4; border: 1px solid #d4ebd4; padding: 20px; border-radius: 6px; width: 300px; text-align: left; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">
+                <!-- Website Student Portal Card -->
+                <div class="portal-card" style="background: #f4f9f4; border: 1px solid #d4ebd4; padding: 24px; border-radius: 8px; width: 320px; text-align: left; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <h3 style="color: #2e7d32; margin-top: 0;"><i class="fa-solid fa-laptop"></i> Website Student Portal</h3>
-                        <p style="font-size: 0.9rem; color: #555;">Self-paced video lessons, automated quizzes via Google Forms, and progress tracking.</p>
+                        <h3 style="color: #2e7d32; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;"><i class="fa-solid fa-laptop"></i> Website Student Portal</h3>
+                        <p style="font-size: 0.92rem; color: #555; line-height: 1.5;">Self-paced video lessons, automated quizzes via Google Forms, and progress tracking.</p>
                     </div>
-                    <div style="display: flex; gap: 8px; margin-top: 15px;">
-                        <a href="login.html" style="flex: 1; text-align: center; background: #555555; color: white; padding: 8px 10px; border-radius: 4px; text-decoration: none; font-size: 0.85rem; font-weight: bold;"><i class="fa-solid fa-right-to-bracket"></i> Log In</a>
-                        <a href="signup.html" style="flex: 1; text-align: center; background: #2e7d32; color: white; padding: 8px 10px; border-radius: 4px; text-decoration: none; font-size: 0.85rem; font-weight: bold;"><i class="fa-solid fa-user-plus"></i> Register</a>
+                    <div style="display: flex; gap: 10px; margin-top: 20px;">
+                        <a href="login.html" style="flex: 1; text-align: center; background: #4b5563; color: white; padding: 10px 12px; border-radius: 6px; text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: background 0.2s;"><i class="fa-solid fa-right-to-bracket"></i> Log In</a>
+                        <a href="signup.html" style="flex: 1; text-align: center; background: #2e7d32; color: white; padding: 10px 12px; border-radius: 6px; text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: background 0.2s;"><i class="fa-solid fa-user-plus"></i> Register</a>
                     </div>
                 </div>
 
-                <!-- WhatsApp Study Groups Card with Enroll Now Button (Linked to enroll-whatsapp.html) -->
-                <div style="background: #f0fdf4; border: 1px solid #dcfce7; padding: 20px; border-radius: 6px; width: 300px; text-align: left; display: flex; flex-direction: column; justify-content: space-between;">
+                <!-- WhatsApp Study Groups Card -->
+                <div class="whatsapp-card" style="background: #f0fdf4; border: 1px solid #dcfce7; padding: 24px; border-radius: 8px; width: 320px; text-align: left; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <h3 style="color: #15803d; margin-top: 0;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Study Groups</h3>
-                        <p style="font-size: 0.9rem; color: #555;">Weekly lessons, direct teacher feedback, and interactive community groups.</p>
+                        <h3 style="color: #15803d; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Study Groups</h3>
+                        <p style="font-size: 0.92rem; color: #555; line-height: 1.5;">Weekly lessons, direct teacher feedback, and interactive community groups.</p>
                     </div>
-                    <div style="margin-top: 15px;">
-                        <a href="enroll-whatsapp.html" style="display: block; text-align: center; background: #25D366; color: white; padding: 8px 15px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold;"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
+                    <div style="margin-top: 20px;">
+                        <a href="enroll-whatsapp.html" style="display: block; text-align: center; background: #25D366; color: white; padding: 10px 16px; border-radius: 6px; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: background 0.2s;"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
                     </div>
                 </div>
             </div>
