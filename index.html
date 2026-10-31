@@ -26,7 +26,7 @@
     <meta name="twitter:description" content="Az-Zikr International is a free online Islamic institute serving exclusively women. We offer authentic, structured Quranic and Islamic studies for students worldwide.">
     <meta name="twitter:image" content="https://azzikrinternational.com/logo.jpeg">
 
-    <!-- Preload Critical Hero Background Image for Faster Loading -->
+    <!-- Preload Critical Background Image for Faster Loading -->
     <link rel="preload" as="image" href="levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg">
 
     <!-- Google Fonts for Amiri Arabic & Inter Typography -->
@@ -71,17 +71,15 @@
             padding: 0;
         }
         
-        /* Fixed Header with Dark Glassmorphism Overlay for Perfect Legibility */
+        /* Permanently Transparent Fixed Header */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(5, 15, 30, 0.65);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            background: transparent !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -90,9 +88,12 @@
             transition: all 0.3s ease;
         }
 
-        /* Ensure nav links and text have shadows so they never wash out */
-        header nav a, .logo-text, .header-socials a {
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        /* Dedicated Narrow Strip Under Header using the requested background image */
+        .site-header-strip {
+            width: 100%;
+            height: 90px;
+            background: linear-gradient(rgba(5, 15, 30, 0.85), rgba(5, 15, 30, 0.92)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
+            border-bottom: 1px solid rgba(226, 177, 92, 0.2);
         }
 
         /* Dynamic Home Button that appears on scroll */
@@ -176,8 +177,10 @@
                 display: flex;
                 gap: 8px;
             }
+            .site-header-strip {
+                height: 120px;
+            }
             .intro-section {
-                padding-top: 130px !important;
                 min-height: auto !important;
                 padding: 40px 15px !important;
             }
@@ -211,7 +214,7 @@
             <a href="courses.html">Courses</a>
             <a href="faq.html">FAQ</a>
             <a href="contact.html">Contact Us</a>
-            <a href="login.html" style="background: #2e7d32; color: white; border-radius: 4px; padding: 6px 12px; text-shadow: none;">Student Login</a>
+            <a href="login.html" style="background: #2e7d32; color: white; border-radius: 4px; padding: 6px 12px;">Student Login</a>
         </nav>
         <div style="display: flex; align-items: center; gap: 12px;">
             <div class="header-socials">
@@ -225,8 +228,11 @@
         </div>
     </header>
 
+    <!-- Dedicated Header Pattern Strip placed directly under the fixed header -->
+    <div class="site-header-strip"></div>
+
     <!-- BANNER 1: Translucent Welcome Hero Banner -->
-    <section id="top" class="intro-section" style="min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(rgba(5, 15, 30, 0.88), rgba(5, 15, 30, 0.94)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff; padding: 140px 20px 60px 20px; text-align: center;">
+    <section id="top" class="intro-section" style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(rgba(5, 15, 30, 0.88), rgba(5, 15, 30, 0.94)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff; padding: 50px 20px 60px 20px; text-align: center;">
         
         <!-- Quranic Verse 54:17 -->
         <div style="max-width: 780px; margin: 0 auto 20px auto; text-align: center;">
