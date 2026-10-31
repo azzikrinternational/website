@@ -71,29 +71,27 @@
             padding: 0;
         }
         
-        /* Permanently Transparent Fixed Header */
+        /* Fixed Header with Dark Pattern Background Image */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: transparent !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(rgba(5, 15, 30, 0.88), rgba(5, 15, 30, 0.94)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat top center/cover !important;
+            border-bottom: 1px solid rgba(226, 177, 92, 0.25);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
+            padding: 12px 30px;
             box-sizing: border-box;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             transition: all 0.3s ease;
         }
 
-        /* Dedicated Narrow Strip Under Header using the requested background image */
-        .site-header-strip {
-            width: 100%;
-            height: 90px;
-            background: linear-gradient(rgba(5, 15, 30, 0.85), rgba(5, 15, 30, 0.92)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
-            border-bottom: 1px solid rgba(226, 177, 92, 0.2);
+        /* Nav links readability */
+        header nav a, .logo-text, .header-socials a {
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
         }
 
         /* Dynamic Home Button that appears on scroll */
@@ -157,8 +155,6 @@
         @media screen and (max-width: 768px) {
             header {
                 position: fixed;
-                background: rgba(5, 15, 30, 0.9) !important;
-                backdrop-filter: blur(6px);
                 flex-direction: column;
                 gap: 10px;
                 padding: 10px !important;
@@ -177,10 +173,8 @@
                 display: flex;
                 gap: 8px;
             }
-            .site-header-strip {
-                height: 120px;
-            }
             .intro-section {
+                padding-top: 130px !important;
                 min-height: auto !important;
                 padding: 40px 15px !important;
             }
@@ -214,7 +208,7 @@
             <a href="courses.html">Courses</a>
             <a href="faq.html">FAQ</a>
             <a href="contact.html">Contact Us</a>
-            <a href="login.html" style="background: #2e7d32; color: white; border-radius: 4px; padding: 6px 12px;">Student Login</a>
+            <a href="login.html" style="background: #2e7d32; color: white; border-radius: 4px; padding: 6px 12px; text-shadow: none;">Student Login</a>
         </nav>
         <div style="display: flex; align-items: center; gap: 12px;">
             <div class="header-socials">
@@ -228,11 +222,8 @@
         </div>
     </header>
 
-    <!-- Dedicated Header Pattern Strip placed directly under the fixed header -->
-    <div class="site-header-strip"></div>
-
-    <!-- BANNER 1: Translucent Welcome Hero Banner -->
-    <section id="top" class="intro-section" style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(rgba(5, 15, 30, 0.88), rgba(5, 15, 30, 0.94)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff; padding: 50px 20px 60px 20px; text-align: center;">
+    <!-- BANNER 1: Welcome Hero Banner -->
+    <section id="top" class="intro-section" style="min-height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(rgba(5, 15, 30, 0.88), rgba(5, 15, 30, 0.94)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff; padding: 130px 20px 60px 20px; text-align: center;">
         
         <!-- Quranic Verse 54:17 -->
         <div style="max-width: 780px; margin: 0 auto 20px auto; text-align: center;">
@@ -253,128 +244,4 @@
         </h1>
         
         <!-- Subheadline -->
-        <p class="intro-text" style="color: #f1f5f9; font-size: 1.05rem; font-weight: 400; max-width: 820px; margin: 0 auto 36px auto; text-shadow: 0 1px 4px rgba(0,0,0,0.6); line-height: 1.7;">
-            Join a global community of female learners at <strong>Az-Zikr International</strong>. We offer structured, high-quality Islamic education, guided by dedicated instructors in a safe and supportive virtual environment.
-        </p>
-
-        <!-- Action Button -->
-        <div class="hero-actions" style="display: flex; justify-content: center; margin-top: 10px;">
-            <a href="#learning-methods" class="hero-join-btn">
-                <span>Join Us</span>
-            </a>
-        </div>
-    </section>
-
-    <section class="info-strip">
-        <div class="info-box">
-            <h4>100% Free Education</h4>
-            <p>All courses, materials, and instruction are provided entirely free of charge Fi-Sabeelillah.</p>
-        </div>
-        <div class="info-box">
-            <h4>Student Safety & Privacy</h4>
-            <p>Strict policies protect student security: unofficial groups, advertising, and external contact are prohibited.</p>
-        </div>
-        <div class="info-box">
-            <h4>Academic Evaluation</h4>
-            <p>Transparent grading system ranging from Grade A (90-100% Outstanding) to Grade F (Below 59%).</p>
-        </div>
-    </section>
-
-    <main>
-        <!-- Learning Method Options with Polished Cards -->
-        <div id="learning-methods" style="scroll-margin-top: 100px; background: #ffffff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 40px; text-align: center;">
-            <h2 style="color: #2e7d32; font-size: 1.75rem; margin-bottom: 10px;">Choose Your Learning Method</h2>
-            <p style="color: #555555; font-size: 1rem; margin-bottom: 30px;">Access our courses either through our self-paced website portal or join our active WhatsApp cohorts.</p>
-            
-            <div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">
-                <!-- Website Student Portal Card -->
-                <div class="portal-card" style="background: #f4f9f4; border: 1px solid #d4ebd4; padding: 24px; border-radius: 8px; width: 320px; text-align: left; display: flex; flex-direction: column; justify-content: space-between;">
-                    <div>
-                        <h3 style="color: #2e7d32; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;"><i class="fa-solid fa-laptop"></i> Website Student Portal</h3>
-                        <p style="font-size: 0.92rem; color: #555; line-height: 1.5;">Self-paced video lessons, automated quizzes via Google Forms, and progress tracking.</p>
-                    </div>
-                    <div style="display: flex; gap: 10px; margin-top: 20px;">
-                        <a href="login.html" style="flex: 1; text-align: center; background: #4b5563; color: white; padding: 10px 12px; border-radius: 6px; text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: background 0.2s;"><i class="fa-solid fa-right-to-bracket"></i> Log In</a>
-                        <a href="signup.html" style="flex: 1; text-align: center; background: #2e7d32; color: white; padding: 10px 12px; border-radius: 6px; text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: background 0.2s;"><i class="fa-solid fa-user-plus"></i> Register</a>
-                    </div>
-                </div>
-
-                <!-- WhatsApp Study Groups Card -->
-                <div class="whatsapp-card" style="background: #f0fdf4; border: 1px solid #dcfce7; padding: 24px; border-radius: 8px; width: 320px; text-align: left; display: flex; flex-direction: column; justify-content: space-between;">
-                    <div>
-                        <h3 style="color: #15803d; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Study Groups</h3>
-                        <p style="font-size: 0.92rem; color: #555; line-height: 1.5;">Weekly lessons, direct teacher feedback, and interactive community groups.</p>
-                    </div>
-                    <div style="margin-top: 20px;">
-                        <a href="enroll-whatsapp.html" style="display: block; text-align: center; background: #25D366; color: white; padding: 10px 16px; border-radius: 6px; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: background 0.2s;"><i class="fa-solid fa-user-plus"></i> Enroll Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="section-title">Academic Departments</h2>
-        
-        <div class="department-grid">
-            <!-- 1. Qur'anic Arabic Department -->
-            <a href="courses.html?dept=quranic-arabic" class="dept-playcard" style="background-image: url('sarang-bhojwani-hXuTdcAjoHs-unsplash.jpg');">
-                <div class="playcard-overlay"></div>
-                <h3 class="playcard-title">Qur'anic Arabic Language Department</h3>
-            </a>
-
-            <!-- 2. Tajweed Department -->
-            <a href="courses.html?dept=tajweed" class="dept-playcard" style="background-image: url('indonesia-bertauhid-ocEpT2tKX5c-unsplash.jpg');">
-                <div class="playcard-overlay"></div>
-                <h3 class="playcard-title">Tajweed, Tarteel, & Nazrah Department</h3>
-            </a>
-
-            <!-- 3. Hifz Department -->
-            <a href="courses.html?dept=hifz" class="dept-playcard" style="background-image: url('aoun-abbas-97o4XH0htUs-unsplash.jpg');">
-                <div class="playcard-overlay"></div>
-                <h3 class="playcard-title">Hifz Department</h3>
-            </a>
-
-            <!-- 4. Seerah Department -->
-            <a href="courses.html?dept=seerah" class="dept-playcard" style="background-image: url('sulthan-auliya-rzzS0_pMsD0-unsplash.jpg');">
-                <div class="playcard-overlay"></div>
-                <h3 class="playcard-title">Seerah Department</h3>
-            </a>
-
-            <!-- 5. Kids Tarbiyah Department -->
-            <a href="courses.html?dept=kids-tarbiyah" class="dept-playcard" style="background-image: url('nick-fewings-ZcBY_mxVBCE-unsplash.jpg');">
-                <div class="playcard-overlay"></div>
-                <h3 class="playcard-title">Kids Tarbiyah Department</h3>
-            </a>
-
-            <!-- 6. English Department -->
-            <a href="courses.html?dept=english-dept" class="dept-playcard" style="background-image: url('amirhadi-manavi-moghadam-ChbOPN8Ybjs-unsplash.jpg');">
-                <div class="playcard-overlay"></div>
-                <h3 class="playcard-title">Lisan ul Quran in English Department</h3>
-            </a>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-socials">
-            <span class="footer-social-title">Follow & Join Us:</span>
-            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="footer-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Channel</a>
-            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="footer-btn fb-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
-            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn insta-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn yt-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
-        </div>
-        <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: #C3923E; text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: #C3923E; text-decoration: none;">Terms of Service</a></p>
-    </footer>
-
-    <!-- JavaScript to trigger the Home button on scroll -->
-    <script>
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 300) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
-
-</body>
-</html>
+        <p class="intro-text" style="color: #f1f5f9; font-size: 1.05rem; font-weight: 400
