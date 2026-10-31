@@ -42,7 +42,7 @@
       "name": "Az-Zikr International",
       "url": "https://azzikrinternational.com",
       "logo": "https://azzikrinternational.com/logo.jpeg",
-      "description": "Az-Zikr International is a dedicated online Islamic institute serving exclusively women worldwide with authentic free Quran education and structured Islamic studies.",
+      "description": "Az-Zikr International is a free online Islamic institute serving exclusively women worldwide with authentic free Quran education and structured Islamic studies.",
       "sameAs": [
         "https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q",
         "https://facebook.com/profile.php?id=61589858578851",
@@ -71,20 +71,29 @@
             padding: 0;
         }
         
-        /* Transparent Header Overlay */
+        /* Transparent Header Overlay with Scroll Transition */
         header {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: transparent !important;
+            background: transparent;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 30px;
             box-sizing: border-box;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Solid background applied smoothly when scrolled */
+        header.scrolled {
+            background: #0f172a !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border-bottom: none;
+            padding: 12px 30px;
         }
 
         .hero-join-btn {
@@ -326,6 +335,18 @@
         </div>
         <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: #C3923E; text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: #C3923E; text-decoration: none;">Terms of Service</a></p>
     </footer>
+
+    <!-- JavaScript to handle header solid background transition on scroll -->
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 
 </body>
 </html>
