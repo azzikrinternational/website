@@ -19,43 +19,230 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Styling for individual books list inside cards */
+        :root {
+            --primary-navy: #1a365d;
+            --wa-green: #25D366;
+            --wa-hover: #1eb956;
+            --bg-light: #f8fafc;
+        }
+        body {
+            background-color: var(--bg-light);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            color: #334155;
+        }
+        header {
+            background-color: var(--primary-navy);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .site-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ffffff;
+        }
+        .logo-text {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+        nav a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        nav a:hover, nav a.active {
+            color: var(--wa-green);
+        }
+        .header-socials {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .social-icon {
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+        
+        /* Banner Style */
+        .courses-banner {
+            background: linear-gradient(rgba(15, 23, 42, 0.90), rgba(15, 23, 42, 0.95)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
+            color: #ffffff;
+            text-align: center;
+            padding: 50px 20px 45px 20px;
+        }
+        .courses-banner h2 {
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+        .courses-banner p {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .main-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px 60px 20px;
+        }
+
+        .info-box {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .info-box h4 {
+            margin: 0 0 8px 0;
+            color: #0f172a;
+            font-size: 1.25rem;
+        }
+        .info-box p {
+            margin: 0;
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* Card Container Layout */
+        .resource-card {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .resource-card h3 {
+            margin: 0 0 12px 0;
+            color: #0f172a;
+            font-size: 1.35rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .resource-card h3 i {
+            color: #2e7d32;
+        }
+        .resource-desc {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin: 0 0 20px 0;
+            line-height: 1.5;
+        }
+
+        /* Individual Books List Styling */
         .book-list {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            margin: 15px 0;
-            padding: 10px;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 15px;
             background: #f8fafc;
-            border-radius: 10px;
+            border-radius: 14px;
             border: 1px dashed #cbd5e1;
         }
-
         .book-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.88rem;
+            gap: 10px;
+            font-size: 0.92rem;
             color: #1e293b;
             text-decoration: none;
             font-weight: 600;
-            padding: 8px 12px;
+            padding: 10px 14px;
             background: #ffffff;
-            border-radius: 6px;
+            border-radius: 8px;
             border: 1px solid #e2e8f0;
             transition: all 0.2s ease;
         }
-
         .book-item i {
             color: #2e7d32; 
         }
-
         .book-item:hover {
             background: #f1f5f9;
             color: #15803d;
             border-color: #94a3b8;
-            transform: translateX(3px);
+            transform: translateX(4px);
         }
+
+        /* Folder Button */
+        .folder-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-align: center;
+            background: #2e7d32;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+            margin-top: 15px;
+        }
+        .folder-btn:hover {
+            background: #236327;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: var(--primary-navy);
+            color: #94a3b8;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+        .footer-socials {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .footer-btn {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .footer-btn:hover { background: rgba(255, 255, 255, 0.2); }
     </style>
 </head>
 <body>
@@ -81,57 +268,52 @@
         </div>
     </header>
 
-    <div class="courses-banner" style="background: linear-gradient(rgba(5, 15, 30, 0.85), rgba(5, 15, 30, 0.90)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff;">
-        <h2 style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">Arabic Resources & E-Library</h2>
-        <p style="color: #f8f9fa; text-shadow: 0 1px 3px rgba(0,0,0,0.6);">Free access to basic grammar books, notes, and study guides.</p>
+    <div class="courses-banner">
+        <h2>Arabic Resources & E-Library</h2>
+        <p>Free access to basic grammar books, notes, and study guides.</p>
     </div>
 
-    <main>
-        <div class="info-box" style="margin-bottom: 30px; text-align: center;">
+    <main class="main-container">
+        <div class="info-box">
             <h4>Explore Our Basic Arabic Resources</h4>
             <p>Access foundational course textbooks and open the main folder directly Fi-Sabeelillah.</p>
         </div>
 
-        <!-- Resource Category Grid (Single Basic Section) -->
-        <div class="course-grid" style="max-width: 600px; margin: 0 auto;">
-
-            <!-- Folder 1: Basic -->
-            <div class="course-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <h4><i class="fa-solid fa-folder-open" style="color: #2e7d32;"></i> Basic Arabic Resources</h4>
-                    <p class="course-desc">Foundational books and introductory grammar guides for beginners starting their Quranic Arabic journey.</p>
-                    
-                    <!-- Individual Books List -->
-                    <div class="book-list">
-                        <a href="https://drive.google.com/file/d/1bEhit6yl9JBuWxPVGPEUf1zmMmWoUMuD/view" target="_blank" class="book-item">
-                            <i class="fa-solid fa-book"></i> Basic Arabic Grammar Book 1 (Drive View)
-                        </a>
-                        <a href="https://drive.google.com/file/d/1kUAgK0WEZA9VOcv_zk4GQK_lcjVq2yB2/view" target="_blank" class="book-item">
-                            <i class="fa-solid fa-book"></i> Basic Arabic Grammar Book 2 (Drive View)
-                        </a>
-                    </div>
-                </div>
-
-                <div style="margin-top: 15px;">
-                    <!-- PASTE YOUR GOOGLE DRIVE BASIC FOLDER LINK BELOW IN href="" -->
-                    <a href="PASTE_YOUR_BASIC_FOLDER_LINK_HERE" target="_blank" style="display: block; text-align: center; background: #2e7d32; color: white; padding: 10px 16px; border-radius: 4px; text-decoration: none; font-weight: bold;">
-                        <i class="fa-solid fa-folder-open"></i> Open Basic Folder
+        <!-- Main Resource Card -->
+        <div class="resource-card">
+            <div>
+                <h3><i class="fa-solid fa-folder-open"></i> Basic Arabic Resources</h3>
+                <p class="resource-desc">Foundational books and introductory grammar guides for beginners starting their Quranic Arabic journey.</p>
+                
+                <!-- Individual Books List -->
+                <div class="book-list">
+                    <a href="https://drive.google.com/file/d/1bEhit6yl9JBuWxPVGPEUf1zmMmWoUMuD/view" target="_blank" class="book-item">
+                        <i class="fa-solid fa-book"></i> Basic Arabic Grammar Book 1 (Drive View)
+                    </a>
+                    <a href="https://drive.google.com/file/d/1kUAgK0WEZA9VOcv_zk4GQK_lcjVq2yB2/view" target="_blank" class="book-item">
+                        <i class="fa-solid fa-book"></i> Basic Arabic Grammar Book 2 (Drive View)
                     </a>
                 </div>
             </div>
 
+            <div>
+                <!-- Replace with your actual Google Drive Folder link -->
+                <a href="PASTE_YOUR_BASIC_FOLDER_LINK_HERE" target="_blank" class="folder-btn">
+                    <i class="fa-solid fa-folder-open"></i> Open Basic Folder
+                </a>
+            </div>
         </div>
     </main>
 
     <footer>
         <div class="footer-socials">
-            <span class="footer-social-title">Follow & Join Us:</span>
-            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="footer-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Channel</a>
-            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="footer-btn fb-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
-            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn insta-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn yt-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
+            <span class="footer-social-title" style="color:#fff; font-weight:700; font-size:0.9rem;">Follow & Join Us:</span>
+            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="footer-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Channel</a>
+            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="footer-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
         </div>
-        <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: var(--accent-color); text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: var(--accent-color); text-decoration: none;">Terms of Service</a></p>
+        <p>&copy; 2026 Az-Zikr International. All Rights Reserved.</p>
     </footer>
 
 </body>
