@@ -328,4 +328,88 @@
     </header>
 
     <!-- Main Library Section Layout -->
-    <main
+    <main class="library-layout">
+
+        <!-- COLUMN 1: SELECT NAMES (Scholars / Authors) -->
+        <aside class="library-sidebar">
+            <div class="sidebar-title">Select Names</div>
+            <input type="text" id="scholarSearch" class="sidebar-search" placeholder="Type to search names" onkeyup="filterList('scholarSearch', 'scholarList')">
+            <ul id="scholarList" class="sidebar-list">
+                <li>- Sir Amir Suhail</li>
+            </ul>
+        </aside>
+
+        <!-- COLUMN 2: CATEGORIES (Basic Grammar Category Only) -->
+        <aside class="library-sidebar">
+            <div class="sidebar-title">Categories</div>
+            <input type="text" id="categorySearch" class="sidebar-search" placeholder="Type to search eBook C" onkeyup="filterList('categorySearch', 'categoryList')">
+            <ul id="categoryList" class="sidebar-list">
+                <li>- BASIC ARABIC GRAMMAR</li>
+            </ul>
+        </aside>
+
+        <!-- COLUMN 3: MAIN BOOKS FEED -->
+        <section class="library-content">
+            
+            <div class="content-header-bar">
+                <span>LATEST . BASIC ARABIC GRAMMAR & LISAN-UL-QURAN</span>
+                <select aria-label="Sort collection books">
+                    <option>Latest Additions</option>
+                    <option>Alphabetical</option>
+                </select>
+            </div>
+
+            <!-- Book Item 1: Urdu Version -->
+            <div class="book-feed-card">
+                <img src="lq1.png" alt="Lisan-ul-Quran Urdu Cover" class="book-thumbnail">
+                <div class="book-details">
+                    <h3><a href="https://drive.google.com/file/d/1bEhit6yl9JBuWxPVGPEUf1zmMmWoUMuD/view" target="_blank">Lisan-ul-Quran (عربی کے بنیادی قواعد) - Urdu Edition</a></h3>
+                    <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Suhail</span></div>
+                    <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
+                    <div class="book-snippet">
+                        Foundational Arabic grammar textbook in Urdu script designed for students to understand the Holy Quran directly.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Item 2: Roman Urdu Version -->
+            <div class="book-feed-card">
+                <img src="lq1.png" alt="Lisan-ul-Quran Roman Urdu Cover" class="book-thumbnail">
+                <div class="book-details">
+                    <h3><a href="https://drive.google.com/file/d/1kUAgK0WEZA9VOcv_zk4GQK_lcjVq2yB2/view" target="_blank">Lisan-ul-Quran - Roman Urdu Edition</a></h3>
+                    <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Suhail</span></div>
+                    <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
+                    <div class="book-snippet">
+                        Essential Arabic grammar guide presented in Roman Urdu script for easy reading, pronunciation practice, and accessible learning.
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Az-Zikr International E-Library. All Rights Reserved. Fi-Sabeelillah.</p>
+    </footer>
+
+    <!-- JavaScript Filter Functionality -->
+    <script>
+        function filterList(inputId, listId) {
+            let input = document.getElementById(inputId);
+            let filter = input.value.toLowerCase();
+            let ul = document.getElementById(listId);
+            let li = ul.getElementsByTagName('li');
+
+            for (let i = 0; i < li.length; i++) {
+                let txtValue = li[i].textContent || li[i].innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
