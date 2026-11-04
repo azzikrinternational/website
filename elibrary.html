@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
 
-    <title>E-Library & Arabic Resources | Az-Zikr International</title>
-    <meta name="description" content="Access free Islamic books, Arabic resources, basic grammar guides, dictionaries, and study notes at Az-Zikr International.">
+    <title>E-Library & Digital Collection | Az-Zikr International</title>
+    <meta name="description" content="Explore our comprehensive digital library featuring Islamic books, author collections, and topic-based categories.">
 
     <link rel="canonical" href="https://azzikrinternational.com/elibrary.html">
     <meta property="og:url" content="https://azzikrinternational.com/elibrary.html">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="E-Library & Arabic Resources | Az-Zikr International">
-    <meta property="og:description" content="Download free Islamic books, Arabic dictionaries, and study materials for women worldwide.">
+    <meta property="og:title" content="E-Library & Digital Collection | Az-Zikr International">
+    <meta property="og:description" content="Explore digital Islamic books, author collections, and topic categories.">
     <meta property="og:image" content="https://azzikrinternational.com/logo.jpeg">
 
     <link rel="stylesheet" href="style.css">
@@ -21,16 +21,19 @@
     <style>
         :root {
             --primary-navy: #1a365d;
-            --wa-green: #25D366;
-            --wa-hover: #1eb956;
-            --bg-light: #f8fafc;
+            --sidebar-green: #a8d5ba;
+            --sidebar-green-dark: #8fc7a5;
+            --bg-light: #f4f6f8;
+            --border-color: #d1d5db;
         }
         body {
             background-color: var(--bg-light);
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
-            color: #334155;
+            color: #1f2937;
         }
+
+        /* Top Header Styling */
         header {
             background-color: var(--primary-navy);
             display: flex;
@@ -61,7 +64,8 @@
         }
         nav {
             display: flex;
-            gap: 25px;
+            gap: 20px;
+            align-items: center;
         }
         nav a {
             color: #e2e8f0;
@@ -71,7 +75,7 @@
             transition: color 0.2s;
         }
         nav a:hover, nav a.active {
-            color: var(--wa-green);
+            color: #f3c669;
         }
         .header-socials {
             display: flex;
@@ -82,174 +86,185 @@
             color: #ffffff;
             font-size: 1.1rem;
         }
-        
-        /* Banner Style */
-        .courses-banner {
-            background: linear-gradient(rgba(15, 23, 42, 0.90), rgba(15, 23, 42, 0.95)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
+
+        /* Top Bar Banner / Date ticker */
+        .library-top-ticker {
+            background: #111827;
             color: #ffffff;
-            text-align: center;
-            padding: 50px 20px 45px 20px;
-        }
-        .courses-banner h2 {
-            font-size: 2.3rem;
-            margin-bottom: 10px;
-            font-weight: 800;
-        }
-        .courses-banner p {
-            font-size: 1.1rem;
-            color: #94a3b8;
-            max-width: 620px;
-            margin: 0 auto;
-        }
-
-        .main-container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px 60px 20px;
-        }
-
-        .info-box {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
-            border: 1px solid #e2e8f0;
-            text-align: center;
-        }
-        .info-box h4 {
-            margin: 0 0 8px 0;
-            color: #0f172a;
-            font-size: 1.25rem;
-        }
-        .info-box p {
-            margin: 0;
-            color: #64748b;
-            font-size: 0.95rem;
-        }
-
-        /* Card Container Layout */
-        .resource-card {
-            background: #ffffff;
-            border-radius: 20px;
-            border: 1px solid #e2e8f0;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            padding: 8px 30px;
+            font-size: 0.85rem;
             display: flex;
-            flex-direction: column;
             justify-content: space-between;
-        }
-        .resource-card h3 {
-            margin: 0 0 12px 0;
-            color: #0f172a;
-            font-size: 1.35rem;
-            display: flex;
             align-items: center;
-            gap: 10px;
-        }
-        .resource-card h3 i {
-            color: #2e7d32;
-        }
-        .resource-desc {
-            color: #64748b;
-            font-size: 0.95rem;
-            margin: 0 0 20px 0;
-            line-height: 1.5;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Individual Books List Styling */
-        .book-list {
+        /* Main Layout Grid */
+        .library-layout {
+            max-width: 1350px;
+            margin: 25px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 270px 270px 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .library-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Green Sidebar Boxes */
+        .library-sidebar {
+            background-color: #9ccbaf;
+            border-radius: 6px;
+            padding: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #85bc9b;
+        }
+        .sidebar-title {
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #1e3a24;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        .sidebar-search {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid #bbf2d0;
+            border-radius: 4px;
+            background: #ffffff;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            outline: none;
+        }
+        .sidebar-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 520px;
+            overflow-y: auto;
+        }
+        .sidebar-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            font-size: 0.88rem;
+            color: #1c3522;
+            cursor: pointer;
+            transition: color 0.15s;
+        }
+        .sidebar-list li:hover {
+            color: #064e3b;
+            font-weight: 600;
+        }
+
+        /* Right Content Area */
+        .library-content {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin: 20px 0;
-            padding: 15px;
-            background: #f8fafc;
-            border-radius: 14px;
-            border: 1px dashed #cbd5e1;
+            gap: 15px;
         }
-        .book-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.92rem;
-            color: #1e293b;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 10px 14px;
-            background: #ffffff;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s ease;
-        }
-        .book-item i {
-            color: #2e7d32; 
-        }
-        .book-item:hover {
-            background: #f1f5f9;
-            color: #15803d;
-            border-color: #94a3b8;
-            transform: translateX(4px);
-        }
-
-        /* Folder Button */
-        .folder-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-align: center;
-            background: #2e7d32;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 12px;
-            text-decoration: none;
+        .content-header-bar {
+            background-color: #9ccbaf;
+            padding: 12px 18px;
+            border-radius: 6px;
             font-weight: 700;
             font-size: 0.95rem;
-            transition: background 0.2s, transform 0.2s;
-            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
-            margin-top: 15px;
+            color: #1c3522;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #85bc9b;
         }
-        .folder-btn:hover {
-            background: #236327;
-            transform: translateY(-2px);
+        .content-header-bar select {
+            background: white;
+            border: 1px solid #cbd5e1;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
         }
 
+        /* Book Card Item Feed */
+        .book-feed-card {
+            background: #ffffff;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            padding: 18px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s;
+        }
+        .book-feed-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+        .book-thumbnail {
+            width: 140px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid #cbd5e1;
+            background: #f1f5f9;
+            flex-shrink: 0;
+        }
+        .book-details {
+            flex-grow: 1;
+        }
+        .book-details h3 {
+            margin: 0 0 6px 0;
+            font-size: 1.15rem;
+        }
+        .book-details h3 a {
+            color: #0284c7;
+            text-decoration: none;
+        }
+        .book-details h3 a:hover {
+            text-decoration: underline;
+        }
+        .book-meta {
+            font-size: 0.86rem;
+            color: #4b5563;
+            margin-bottom: 4px;
+        }
+        .book-meta span {
+            color: #0284c7;
+        }
+        .book-snippet {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        /* Footer */
         footer {
             background: var(--primary-navy);
             color: #94a3b8;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
+            padding: 25px 20px;
+            margin-top: 50px;
         }
-        .footer-socials {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-        .footer-btn {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.1);
-        }
-        .footer-btn:hover { background: rgba(255, 255, 255, 0.2); }
+        footer p { margin: 0; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
+    <!-- Top Ticker Bar -->
+    <div class="library-top-ticker">
+        <span><i class="fa-solid fa-book-open"></i> Az-Zikr International E-Library Portal</span>
+        <span><i class="fa-regular fa-calendar"></i> 24th Jumada I, 1448 A.H.</span>
+    </div>
+
+    <!-- Main Navigation Bar -->
     <header>
         <div class="logo-container">
-            <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
+            <img src="logo.jpeg" alt="Logo" class="site-logo" loading="lazy">
             <span class="logo-text">Az-Zikr International</span>
         </div>
         <nav>
@@ -261,60 +276,133 @@
             <a href="contact.html">Contact Us</a>
         </nav>
         <div class="header-socials">
-            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" title="WhatsApp Channel" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" title="Facebook Page" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/azzikr_international/" target="_blank" title="Instagram" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" title="YouTube Channel" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
         </div>
     </header>
 
-    <div class="courses-banner">
-        <h2>Arabic Resources & E-Library</h2>
-        <p>Free access to basic grammar books, notes, and study guides.</p>
-    </div>
+    <!-- Main Library Section Layout -->
+    <main class="library-layout">
 
-    <main class="main-container">
-        <div class="info-box">
-            <h4>Explore Our Basic Arabic Resources</h4>
-            <p>Access foundational course textbooks and open the main folder directly Fi-Sabeelillah.</p>
-        </div>
+        <!-- COLUMN 1: SELECT NAMES (Scholars / Authors) -->
+        <aside class="library-sidebar">
+            <div class="sidebar-title">Select Names</div>
+            <input type="text" id="scholarSearch" class="sidebar-search" placeholder="Type to search names" onkeyup="filterList('scholarSearch', 'scholarList')">
+            <ul id="scholarList" class="sidebar-list">
+                <li>- Imam Ismail Al-Ajlouni</li>
+                <li>- Imam Jalal ud Din Suyuti 849-911H</li>
+                <li>- Imam Shawkani (1173-1250 AH)</li>
+                <li>- Mufti Shaykh Abdul Azeez ibn Abdullah...</li>
+                <li>- Permanent Committee of Major Schol...</li>
+                <li>- Imam Abdul-Muhsin al Abbaad</li>
+                <li>- Imam Abdulaziz bin Abdullah Bin Baz</li>
+                <li>- Imam Abdur Rahman ibn Nasir as Saadi</li>
+                <li>- Alamah Dr Saleh al Fawzan</li>
+                <li>- Imam Muhammad ibn Abdul Wahhab</li>
+                <li>- Ibn Qayyim al-Jawziyya</li>
+                <li>- Imam Al-Albani</li>
+            </ul>
+        </aside>
 
-        <!-- Main Resource Card -->
-        <div class="resource-card">
-            <div>
-                <h3><i class="fa-solid fa-folder-open"></i> Basic Arabic Resources</h3>
-                <p class="resource-desc">Foundational books and introductory grammar guides for beginners starting their Quranic Arabic journey.</p>
-                
-                <!-- Individual Books List -->
-                <div class="book-list">
-                    <a href="https://drive.google.com/file/d/1bEhit6yl9JBuWxPVGPEUf1zmMmWoUMuD/view" target="_blank" class="book-item">
-                        <i class="fa-solid fa-book"></i> Basic Arabic Grammar Book 1 (Drive View)
-                    </a>
-                    <a href="https://drive.google.com/file/d/1kUAgK0WEZA9VOcv_zk4GQK_lcjVq2yB2/view" target="_blank" class="book-item">
-                        <i class="fa-solid fa-book"></i> Basic Arabic Grammar Book 2 (Drive View)
-                    </a>
+        <!-- COLUMN 2: CATEGORIES -->
+        <aside class="library-sidebar">
+            <div class="sidebar-title">Categories</div>
+            <input type="text" id="categorySearch" class="sidebar-search" placeholder="Type to search eBook C" onkeyup="filterList('categorySearch', 'categoryList')">
+            <ul id="categoryList" class="sidebar-list">
+                <li>- DUA-ZIKR</li>
+                <li>- QURAN</li>
+                <li>- IBN QAYYIUM</li>
+                <li>- IMAM ALBANI</li>
+                <li>- IMAM BIN BAZ</li>
+                <li>- PROPHET ﷺ</li>
+                <li>- ADVICE</li>
+                <li>- ALLAH ﷻ</li>
+                <li>- RAMADAN - SIYAM</li>
+                <li>- AQEEDAH - Emaan</li>
+                <li>- ISLAM-4-KIDs</li>
+                <li>- TAFSEER</li>
+                <li>- HADITH</li>
+            </ul>
+        </aside>
+
+        <!-- COLUMN 3: MAIN BOOKS FEED -->
+        <section class="library-content">
+            
+            <div class="content-header-bar">
+                <span>LATEST . ALAMAH DR SALEH AL FAWZAN BOOKS</span>
+                <select aria-label="Sort or filter collection books">
+                    <option>Latest Additions</option>
+                    <option>Most Popular</option>
+                    <option>Alphabetical</option>
+                </select>
+            </div>
+
+            <!-- Book Item 1 -->
+            <div class="book-feed-card">
+                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300" alt="Book Cover" class="book-thumbnail">
+                <div class="book-details">
+                    <h3><a href="https://drive.google.com/file/d/1bEhit6yl9JBuWxPVGPEUf1zmMmWoUMuD/view" target="_blank">Take Account Before the Days Slip Away</a></h3>
+                    <div class="book-meta"><strong>Author:</strong> <span>Alamah Dr Saleh al Fawzan</span></div>
+                    <div class="book-meta"><strong>Categories:</strong> <span>RAMADAN - SIYAM</span></div>
+                    <div class="book-snippet">
+                        "So let us take account of ourselves regarding these ten days that have passed and how they were spent. Did we have concern and give importance to performing acts of obedience to Allah..."
+                    </div>
                 </div>
             </div>
 
-            <div>
-                <!-- Replace with your actual Google Drive Folder link -->
-                <a href="PASTE_YOUR_BASIC_FOLDER_LINK_HERE" target="_blank" class="folder-btn">
-                    <i class="fa-solid fa-folder-open"></i> Open Basic Folder
-                </a>
+            <!-- Book Item 2 -->
+            <div class="book-feed-card">
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300" alt="Book Cover" class="book-thumbnail">
+                <div class="book-details">
+                    <h3><a href="https://drive.google.com/file/d/1kUAgK0WEZA9VOcv_zk4GQK_lcjVq2yB2/view" target="_blank">1-Page Summary of The Three Principles - Imam Abdul Wahhab</a></h3>
+                    <div class="book-meta"><strong>Author:</strong> <span>Imam Muhammad ibn Abdul Wahhab 1115-1206 H., Alamah Dr Saleh al Fawzan</span></div>
+                    <div class="book-meta"><strong>Categories:</strong> <span>AQEEDAH - Emaan, ISLAM-4-KIDs</span></div>
+                    <div class="book-snippet">
+                        A concise summary outlining the fundamental principles of Islamic creed, designed for swift comprehension and structured revision.
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <!-- Book Item 3 -->
+            <div class="book-feed-card">
+                <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=300" alt="Book Cover" class="book-thumbnail">
+                <div class="book-details">
+                    <h3><a href="#" target="_blank">An Explanation of the Four Fundamental Principles</a></h3>
+                    <div class="book-meta"><strong>Author:</strong> <span>Alamah Dr Saleh al Fawzan</span></div>
+                    <div class="book-meta"><strong>Categories:</strong> <span>AQEEDAH - Emaan</span></div>
+                    <div class="book-snippet">
+                        Detailed commentary explaining the core foundations regarding monotheism (Tawheed) and refuting misconceptions.
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
     </main>
 
     <footer>
-        <div class="footer-socials">
-            <span class="footer-social-title" style="color:#fff; font-weight:700; font-size:0.9rem;">Follow & Join Us:</span>
-            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="footer-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Channel</a>
-            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="footer-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
-            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
-        </div>
-        <p>&copy; 2026 Az-Zikr International. All Rights Reserved.</p>
+        <p>&copy; 2026 Az-Zikr International E-Library. All Rights Reserved. Fi-Sabeelillah.</p>
     </footer>
 
+    <!-- JavaScript Filter Functionality matching your screenshot search inputs -->
+    <script>
+        function filterList(inputId, listId) {
+            let input = document.getElementById(inputId);
+            let filter = input.value.toLowerCase();
+            let ul = document.getElementById(listId);
+            let li = ul.getElementsByTagName('li');
+
+            for (let i = 0; i < li.length; i++) {
+                let txtValue = li[i].textContent || li[i].innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
