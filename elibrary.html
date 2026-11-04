@@ -24,8 +24,6 @@
     <style>
         :root {
             --primary-navy: #1a365d;
-            --theme-blue: #1e3a5f;
-            --theme-blue-light: #2c4d75;
             --bg-light: #f4f6f8;
             --border-color: #d1d5db;
         }
@@ -155,32 +153,36 @@
             }
         }
 
-        /* Updated Navy / Blue Theme Sidebar Boxes */
+        /* Sidebar Boxes Styled with Background Image & Dark Overlay */
         .library-sidebar {
-            background-color: var(--theme-blue);
-            border-radius: 6px;
-            padding: 18px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border: 1px solid var(--theme-blue-light);
+            background: linear-gradient(rgba(5, 15, 30, 0.88), rgba(5, 15, 30, 0.92)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
         .sidebar-title {
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             font-weight: 800;
             letter-spacing: 0.5px;
-            color: #ffffff;
-            margin-bottom: 12px;
+            color: #f3c669;
+            margin-bottom: 14px;
             text-transform: uppercase;
         }
         .sidebar-search {
             width: 100%;
             padding: 9px 12px;
-            border: 1px solid #4a6fa5;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 4px;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.9);
             font-size: 0.9rem;
             margin-bottom: 15px;
             box-sizing: border-box;
             outline: none;
+        }
+        .sidebar-search:focus {
+            background: #ffffff;
+            border-color: #f3c669;
         }
         .sidebar-list {
             list-style: none;
@@ -191,7 +193,7 @@
         }
         .sidebar-list li {
             padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.88rem;
             color: #e2e8f0;
             cursor: pointer;
@@ -208,17 +210,18 @@
             flex-direction: column;
             gap: 15px;
         }
+        /* Top content header bar returned to original solid/clean theme style */
         .content-header-bar {
-            background-color: var(--theme-blue);
+            background-color: #9ccbaf;
             padding: 12px 18px;
             border-radius: 6px;
             font-weight: 700;
             font-size: 0.95rem;
-            color: #ffffff;
+            color: #1c3522;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid var(--theme-blue-light);
+            border: 1px solid #85bc9b;
         }
         .content-header-bar select {
             background: white;
@@ -226,6 +229,7 @@
             padding: 4px 8px;
             border-radius: 4px;
             font-size: 0.85rem;
+            cursor: pointer;
         }
 
         /* Book Card Item Feed */
