@@ -15,6 +15,9 @@
     <meta property="og:description" content="Explore digital Lisan-ul-Quran books in Urdu and Roman Urdu.">
     <meta property="og:image" content="https://azzikrinternational.com/logo.jpeg">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -39,7 +42,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: linear-gradient(to bottom, rgba(5, 15, 30, 0.95) 0%, rgba(5, 15, 30, 0.9) 100%) !important;
+            background: linear-gradient(to bottom, rgba(5, 15, 30, 0.75) 0%, rgba(5, 15, 30, 0.2) 100%) !important;
             backdrop-filter: blur(3px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
@@ -65,11 +68,11 @@
             color: #ffffff !important;
             font-weight: 800;
             font-size: 1.25rem;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 2px rgba(0, 0, 0, 0.8);
         }
         header nav a, .header-socials a, .dropdown-btn {
             color: #ffffff !important;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 2px rgba(0, 0, 0, 0.8);
             font-weight: 500;
             text-decoration: none;
             font-size: 0.95rem;
@@ -289,7 +292,7 @@
 </head>
 <body>
 
-    <!-- Main Navigation Bar (Uniform with Index Code) -->
+    <!-- Main Navigation Bar (Exact Index Header Code Match) -->
     <header>
         <div class="logo-container">
             <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
@@ -334,7 +337,7 @@
             </ul>
         </aside>
 
-        <!-- COLUMN 2: CATEGORIES (Basic Grammar Only) -->
+        <!-- COLUMN 2: CATEGORIES (Basic Grammar Category Only) -->
         <aside class="library-sidebar">
             <div class="sidebar-title">Categories</div>
             <input type="text" id="categorySearch" class="sidebar-search" placeholder="Type to search eBook C" onkeyup="filterList('categorySearch', 'categoryList')">
@@ -356,7 +359,7 @@
 
             <!-- Book Item 1: Urdu Version -->
             <div class="book-feed-card">
-                <img src="lq1.png" alt="Lisan-ul-Quran Urdu Cover" class="book-thumbnail">
+                <img src="lq1.jpg" alt="Lisan-ul-Quran Urdu Cover" class="book-thumbnail">
                 <div class="book-details">
                     <h3><a href="https://drive.google.com/file/d/1bEhit6yl9JBuWxPVGPEUf1zmMmWoUMuD/view" target="_blank">Lisan-ul-Quran (عربی کے بنیادی قواعد) - Urdu Edition</a></h3>
                     <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Suhail</span></div>
@@ -369,7 +372,7 @@
 
             <!-- Book Item 2: Roman Urdu Version -->
             <div class="book-feed-card">
-                <img src="lq1.png" alt="Lisan-ul-Quran Roman Urdu Cover" class="book-thumbnail">
+                <img src="lq1_2.jpg" alt="Lisan-ul-Quran Roman Urdu Cover" class="book-thumbnail">
                 <div class="book-details">
                     <h3><a href="https://drive.google.com/file/d/1kUAgK0WEZA9VOcv_zk4GQK_lcjVq2yB2/view" target="_blank">Lisan-ul-Quran - Roman Urdu Edition</a></h3>
                     <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Suhail</span></div>
@@ -391,20 +394,4 @@
     <!-- JavaScript Filter Functionality -->
     <script>
         function filterList(inputId, listId) {
-            let input = document.getElementById(inputId);
-            let filter = input.value.toLowerCase();
-            let ul = document.getElementById(listId);
-            let li = ul.getElementsByTagName('li');
-
-            for (let i = 0; i < li.length; i++) {
-                let txtValue = li[i].textContent || li[i].innerText;
-                if (txtValue.toLowerCase().indexOf(filter) > -1) {
-                    li[i].style.display = "";
-                } else {
-                    li[i].style.display = "none";
-                }
-            }
-        }
-    </script>
-</body>
-</html>
+            let
