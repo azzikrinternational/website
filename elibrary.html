@@ -25,13 +25,14 @@
             --border-color: #d1d5db;
         }
         body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-light);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
-            color: #1f2937;
+            color: #333333;
+            line-height: 1.6;
         }
 
-        /* Index-Matched Header Styling */
+        /* Exact Index Header Styling */
         header {
             position: sticky;
             top: 0;
@@ -46,6 +47,7 @@
             align-items: center;
             padding: 14px 30px;
             box-sizing: border-box;
+            transition: all 0.3s ease;
         }
         .logo-container {
             display: flex;
@@ -60,14 +62,17 @@
             border: 2px solid #ffffff;
         }
         .logo-text {
-            color: #ffffff;
+            color: #ffffff !important;
             font-weight: 800;
             font-size: 1.25rem;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
         }
-        header nav a, .logo-text, .header-socials a, .dropdown-btn {
+        header nav a, .header-socials a, .dropdown-btn {
             color: #ffffff !important;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
             font-weight: 500;
             text-decoration: none;
+            font-size: 0.95rem;
         }
         header nav a:hover, .dropdown:hover .dropdown-btn {
             color: #f3c669 !important;
@@ -108,6 +113,7 @@
             text-decoration: none;
             display: block;
             font-size: 0.9rem;
+            text-shadow: none !important;
         }
         .dropdown-content a:hover {
             background-color: rgba(255, 255, 255, 0.1);
@@ -283,7 +289,7 @@
 </head>
 <body>
 
-    <!-- Main Navigation Bar (Matched to Index Code) -->
+    <!-- Main Navigation Bar (Uniform with Index Code) -->
     <header>
         <div class="logo-container">
             <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
@@ -304,7 +310,7 @@
                 </div>
             </div>
 
-            <a href="login.html" style="background: #2e7d32; color: white !important; border-radius: 4px; padding: 6px 12px;">Student Login</a>
+            <a href="login.html" style="background: #2e7d32; color: white !important; border-radius: 4px; padding: 6px 12px; text-shadow: none;">Student Login</a>
         </nav>
         <div style="display: flex; align-items: center; gap: 12px;">
             <div class="header-socials">
@@ -328,14 +334,12 @@
             </ul>
         </aside>
 
-        <!-- COLUMN 2: CATEGORIES -->
+        <!-- COLUMN 2: CATEGORIES (Basic Grammar Only) -->
         <aside class="library-sidebar">
             <div class="sidebar-title">Categories</div>
             <input type="text" id="categorySearch" class="sidebar-search" placeholder="Type to search eBook C" onkeyup="filterList('categorySearch', 'categoryList')">
             <ul id="categoryList" class="sidebar-list">
                 <li>- BASIC ARABIC GRAMMAR</li>
-                <li>- LISAN-UL-QURAN (URDU)</li>
-                <li>- LISAN-UL-QURAN (ROMAN URDU)</li>
             </ul>
         </aside>
 
@@ -356,7 +360,7 @@
                 <div class="book-details">
                     <h3><a href="https://drive.google.com/file/d/1bEhit6yl9JBuWxPVGPEUf1zmMmWoUMuD/view" target="_blank">Lisan-ul-Quran (عربی کے بنیادی قواعد) - Urdu Edition</a></h3>
                     <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Suhail</span></div>
-                    <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR, LISAN-UL-QURAN (URDU)</span></div>
+                    <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
                     <div class="book-snippet">
                         Foundational Arabic grammar textbook in Urdu script designed for students to understand the Holy Quran directly.
                     </div>
@@ -369,7 +373,7 @@
                 <div class="book-details">
                     <h3><a href="https://drive.google.com/file/d/1kUAgK0WEZA9VOcv_zk4GQK_lcjVq2yB2/view" target="_blank">Lisan-ul-Quran - Roman Urdu Edition</a></h3>
                     <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Suhail</span></div>
-                    <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR, LISAN-UL-QURAN (ROMAN URDU)</span></div>
+                    <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
                     <div class="book-snippet">
                         Essential Arabic grammar guide presented in Roman Urdu script for easy reading, pronunciation practice, and accessible learning.
                     </div>
