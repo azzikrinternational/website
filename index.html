@@ -90,13 +90,58 @@
         }
 
         /* Strong text shadows to ensure nav items never wash out on bright image areas */
-        header nav a, .logo-text, .header-socials a {
+        header nav a, .logo-text, .header-socials a, .dropdown-btn {
             color: #ffffff !important;
             text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 2px rgba(0, 0, 0, 0.8);
             font-weight: 500;
         }
-        header nav a:hover {
+        header nav a:hover, .dropdown:hover .dropdown-btn {
             color: #f3c669 !important;
+        }
+
+        /* Option 1: Clean Dropdown Menu Styling */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-btn {
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: 0.95rem;
+            cursor: pointer;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(5, 15, 30, 0.95);
+            min-width: 140px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+            border-radius: 6px;
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            padding: 8px 0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .dropdown-content a {
+            color: #ffffff !important;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            text-shadow: none !important;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #f3c669 !important;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
         .hero-join-btn {
@@ -150,7 +195,7 @@
                 justify-content: center;
                 gap: 8px;
             }
-            header nav a {
+            header nav a, .dropdown-btn {
                 font-size: 0.8rem;
                 padding: 3px 6px;
             }
@@ -187,12 +232,21 @@
             <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
             <span class="logo-text">Az-Zikr International</span>
         </div>
-        <nav>
+        <nav style="display: flex; align-items: center; gap: 20px;">
             <a href="index.html" class="active">Home</a>
-            <a href="about.html">About Us</a>
             <a href="courses.html">Courses</a>
-            <a href="faq.html">FAQ</a>
+            <a href="elibrary.html">E-Library</a>
             <a href="contact.html">Contact Us</a>
+            
+            <!-- Option 1: Clean Dropdown for secondary items -->
+            <div class="dropdown">
+                <button class="dropdown-btn">More <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
+                <div class="dropdown-content">
+                    <a href="about.html">About Us</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+
             <a href="login.html" style="background: #2e7d32; color: white !important; border-radius: 4px; padding: 6px 12px; text-shadow: none;">Student Login</a>
         </nav>
         <div style="display: flex; align-items: center; gap: 12px;">
@@ -219,6 +273,7 @@
             <span style="display: inline-block; font-size: 0.7rem; color: #f3c669; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; background: rgba(243, 198, 105, 0.1); padding: 2px 10px; border-radius: 10px; border: 1px solid rgba(243, 198, 105, 0.2);">
                 Surah Al-Qamar 54:17
             </span>
+
         </div>
 
         <!-- Main Heading -->
