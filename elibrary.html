@@ -21,8 +21,6 @@
     <style>
         :root {
             --primary-navy: #1a365d;
-            --sidebar-green: #a8d5ba;
-            --sidebar-green-dark: #8fc7a5;
             --bg-light: #f4f6f8;
             --border-color: #d1d5db;
         }
@@ -205,8 +203,8 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.06);
         }
         .book-thumbnail {
-            width: 140px;
-            height: 90px;
+            width: 100px;
+            height: 135px;
             object-fit: cover;
             border-radius: 4px;
             border: 1px solid #cbd5e1;
@@ -291,6 +289,7 @@
             <div class="sidebar-title">Select Names</div>
             <input type="text" id="scholarSearch" class="sidebar-search" placeholder="Type to search names" onkeyup="filterList('scholarSearch', 'scholarList')">
             <ul id="scholarList" class="sidebar-list">
+                <li>- Sir Amir Sohail</li>
                 <li>- Imam Ismail Al-Ajlouni</li>
                 <li>- Imam Jalal ud Din Suyuti 849-911H</li>
                 <li>- Imam Shawkani (1173-1250 AH)</li>
@@ -298,11 +297,7 @@
                 <li>- Permanent Committee of Major Schol...</li>
                 <li>- Imam Abdul-Muhsin al Abbaad</li>
                 <li>- Imam Abdulaziz bin Abdullah Bin Baz</li>
-                <li>- Imam Abdur Rahman ibn Nasir as Saadi</li>
                 <li>- Alamah Dr Saleh al Fawzan</li>
-                <li>- Imam Muhammad ibn Abdul Wahhab</li>
-                <li>- Ibn Qayyim al-Jawziyya</li>
-                <li>- Imam Al-Albani</li>
             </ul>
         </aside>
 
@@ -311,19 +306,16 @@
             <div class="sidebar-title">Categories</div>
             <input type="text" id="categorySearch" class="sidebar-search" placeholder="Type to search eBook C" onkeyup="filterList('categorySearch', 'categoryList')">
             <ul id="categoryList" class="sidebar-list">
+                <li>- LISAN-UL-QURAN</li>
+                <li>- BASIC ARABIC GRAMMAR</li>
                 <li>- DUA-ZIKR</li>
                 <li>- QURAN</li>
-                <li>- IBN QAYYIUM</li>
                 <li>- IMAM ALBANI</li>
-                <li>- IMAM BIN BAZ</li>
                 <li>- PROPHET ﷺ</li>
                 <li>- ADVICE</li>
-                <li>- ALLAH ﷻ</li>
                 <li>- RAMADAN - SIYAM</li>
                 <li>- AQEEDAH - Emaan</li>
                 <li>- ISLAM-4-KIDs</li>
-                <li>- TAFSEER</li>
-                <li>- HADITH</li>
             </ul>
         </aside>
 
@@ -331,7 +323,7 @@
         <section class="library-content">
             
             <div class="content-header-bar">
-                <span>LATEST . ALAMAH DR SALEH AL FAWZAN BOOKS</span>
+                <span>LATEST . LISAN-UL-QURAN & BASIC ARABIC BOOKS</span>
                 <select aria-label="Sort or filter collection books">
                     <option>Latest Additions</option>
                     <option>Most Popular</option>
@@ -339,41 +331,28 @@
                 </select>
             </div>
 
-            <!-- Book Item 1 -->
+            <!-- Book Item 1: Lisan-ul-Quran Book 1 -->
             <div class="book-feed-card">
-                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300" alt="Book Cover" class="book-thumbnail">
+                <img src="lq1.jpg" alt="Lisan-ul-Quran Book 1 Cover" class="book-thumbnail">
                 <div class="book-details">
-                    <h3><a href="https://drive.google.com/file/d/1bEhit6yl9JBuWxPVGPEUf1zmMmWoUMuD/view" target="_blank">Take Account Before the Days Slip Away</a></h3>
-                    <div class="book-meta"><strong>Author:</strong> <span>Alamah Dr Saleh al Fawzan</span></div>
-                    <div class="book-meta"><strong>Categories:</strong> <span>RAMADAN - SIYAM</span></div>
+                    <h3><a href="https://drive.google.com/file/d/1bEhit6yl9JBuWxPVGPEUf1zmMmWoUMuD/view" target="_blank">Lisan-ul-Quran (عربی کے بنیادی قواعد) - Part 1</a></h3>
+                    <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Sohail</span></div>
+                    <div class="book-meta"><strong>Categories:</strong> <span>LISAN-UL-QURAN, BASIC ARABIC GRAMMAR</span></div>
                     <div class="book-snippet">
-                        "So let us take account of ourselves regarding these ten days that have passed and how they were spent. Did we have concern and give importance to performing acts of obedience to Allah..."
+                        Foundational Arabic grammar textbook designed for beginners to understand the Quran directly. Compiled by Sir Amir Sohail, published by Maktaba Quran Academy Faisalabad.
                     </div>
                 </div>
             </div>
 
-            <!-- Book Item 2 -->
+            <!-- Book Item 2: Lisan-ul-Quran Book 2 -->
             <div class="book-feed-card">
-                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300" alt="Book Cover" class="book-thumbnail">
+                <img src="lq1.jpg" alt="Lisan-ul-Quran Book 2 Cover" class="book-thumbnail">
                 <div class="book-details">
-                    <h3><a href="https://drive.google.com/file/d/1kUAgK0WEZA9VOcv_zk4GQK_lcjVq2yB2/view" target="_blank">1-Page Summary of The Three Principles - Imam Abdul Wahhab</a></h3>
-                    <div class="book-meta"><strong>Author:</strong> <span>Imam Muhammad ibn Abdul Wahhab 1115-1206 H., Alamah Dr Saleh al Fawzan</span></div>
-                    <div class="book-meta"><strong>Categories:</strong> <span>AQEEDAH - Emaan, ISLAM-4-KIDs</span></div>
+                    <h3><a href="https://drive.google.com/file/d/1kUAgK0WEZA9VOcv_zk4GQK_lcjVq2yB2/view" target="_blank">Lisan-ul-Quran (عربی کے بنیادی قواعد) - Part 2</a></h3>
+                    <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Sohail</span></div>
+                    <div class="book-meta"><strong>Categories:</strong> <span>LISAN-UL-QURAN, BASIC ARABIC GRAMMAR</span></div>
                     <div class="book-snippet">
-                        A concise summary outlining the fundamental principles of Islamic creed, designed for swift comprehension and structured revision.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Book Item 3 -->
-            <div class="book-feed-card">
-                <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=300" alt="Book Cover" class="book-thumbnail">
-                <div class="book-details">
-                    <h3><a href="#" target="_blank">An Explanation of the Four Fundamental Principles</a></h3>
-                    <div class="book-meta"><strong>Author:</strong> <span>Alamah Dr Saleh al Fawzan</span></div>
-                    <div class="book-meta"><strong>Categories:</strong> <span>AQEEDAH - Emaan</span></div>
-                    <div class="book-snippet">
-                        Detailed commentary explaining the core foundations regarding monotheism (Tawheed) and refuting misconceptions.
+                        Advanced introductory grammar concepts and practice exercises following the Lisan-ul-Quran structured methodology.
                     </div>
                 </div>
             </div>
@@ -386,7 +365,7 @@
         <p>&copy; 2026 Az-Zikr International E-Library. All Rights Reserved. Fi-Sabeelillah.</p>
     </footer>
 
-    <!-- JavaScript Filter Functionality matching your screenshot search inputs -->
+    <!-- JavaScript Filter Functionality -->
     <script>
         function filterList(inputId, listId) {
             let input = document.getElementById(inputId);
