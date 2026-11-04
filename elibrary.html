@@ -6,7 +6,7 @@
     <meta name="robots" content="index, follow">
 
     <title>E-Library & Digital Collection | Az-Zikr International</title>
-    <meta name="description" content="Explore our comprehensive digital library featuring Lisan-ul-Quran books by Sir Amir Suhail in Urdu and Roman Urdu.">
+    <meta name="description" content="Explore our comprehensive digital library featuring Lisan-ul-Quran books by Sir Amir Suhail.">
 
     <link rel="canonical" href="https://azzikrinternational.com/elibrary.html">
     <meta property="og:url" content="https://azzikrinternational.com/elibrary.html">
@@ -31,17 +31,21 @@
             color: #1f2937;
         }
 
-        /* Top Header Styling */
+        /* Index-Matched Header Styling */
         header {
-            background-color: var(--primary-navy);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             position: sticky;
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(5, 15, 30, 0.95) 0%, rgba(5, 15, 30, 0.9) 100%) !important;
+            backdrop-filter: blur(3px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 30px;
+            box-sizing: border-box;
         }
         .logo-container {
             display: flex;
@@ -60,47 +64,73 @@
             font-weight: 800;
             font-size: 1.25rem;
         }
-        nav {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-        nav a {
-            color: #e2e8f0;
+        header nav a, .logo-text, .header-socials a, .dropdown-btn {
+            color: #ffffff !important;
+            font-weight: 500;
             text-decoration: none;
-            font-weight: 600;
+        }
+        header nav a:hover, .dropdown:hover .dropdown-btn {
+            color: #f3c669 !important;
+        }
+
+        /* Clean Dropdown Menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-btn {
+            background: none;
+            border: none;
+            font-family: inherit;
             font-size: 0.95rem;
-            transition: color 0.2s;
+            cursor: pointer;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
-        nav a:hover, nav a.active {
-            color: #f3c669;
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(5, 15, 30, 0.95);
+            min-width: 140px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+            border-radius: 6px;
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            padding: 8px 0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
+        .dropdown-content a {
+            color: #ffffff !important;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #f3c669 !important;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
         .header-socials {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
         .social-icon {
             color: #ffffff;
             font-size: 1.1rem;
         }
 
-        /* Top Bar Banner / Date ticker */
-        .library-top-ticker {
-            background: #111827;
-            color: #ffffff;
-            padding: 8px 30px;
-            font-size: 0.85rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
         /* Main Layout Grid */
         .library-layout {
             max-width: 1350px;
-            margin: 25px auto;
+            margin: 35px auto;
             padding: 0 20px;
             display: grid;
             grid-template-columns: 270px 270px 1fr;
@@ -253,30 +283,36 @@
 </head>
 <body>
 
-    <!-- Top Ticker Bar -->
-    <div class="library-top-ticker">
-        <span><i class="fa-solid fa-book-open"></i> Az-Zikr International E-Library Portal</span>
-        <span><i class="fa-regular fa-calendar"></i> 24th Jumada I, 1448 A.H.</span>
-    </div>
-
-    <!-- Main Navigation Bar -->
+    <!-- Main Navigation Bar (Matched to Index Code) -->
     <header>
         <div class="logo-container">
-            <img src="logo.jpeg" alt="Logo" class="site-logo" loading="lazy">
+            <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
             <span class="logo-text">Az-Zikr International</span>
         </div>
-        <nav>
+        <nav style="display: flex; align-items: center; gap: 20px;">
             <a href="index.html">Home</a>
             <a href="courses.html">Courses</a>
-            <a href="elibrary.html" class="active">E-Library</a>
-            <a href="faq.html">FAQ</a>
+            <a href="elibrary.html" style="color: #f3c669 !important;">E-Library</a>
             <a href="contact.html">Contact Us</a>
+            
+            <!-- Dropdown for secondary items -->
+            <div class="dropdown">
+                <button class="dropdown-btn">More <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
+                <div class="dropdown-content">
+                    <a href="about.html">About Us</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+
+            <a href="login.html" style="background: #2e7d32; color: white !important; border-radius: 4px; padding: 6px 12px;">Student Login</a>
         </nav>
-        <div class="header-socials">
-            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="header-socials">
+                <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" title="WhatsApp Channel" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" title="Facebook Page" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/azzikr_international/" target="_blank" title="Instagram" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" title="YouTube Channel" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
+            </div>
         </div>
     </header>
 
@@ -297,9 +333,9 @@
             <div class="sidebar-title">Categories</div>
             <input type="text" id="categorySearch" class="sidebar-search" placeholder="Type to search eBook C" onkeyup="filterList('categorySearch', 'categoryList')">
             <ul id="categoryList" class="sidebar-list">
+                <li>- BASIC ARABIC GRAMMAR</li>
                 <li>- LISAN-UL-QURAN (URDU)</li>
                 <li>- LISAN-UL-QURAN (ROMAN URDU)</li>
-                <li>- BASIC ARABIC GRAMMAR</li>
             </ul>
         </aside>
 
@@ -307,7 +343,7 @@
         <section class="library-content">
             
             <div class="content-header-bar">
-                <span>LATEST . SIR AMIR SUHAIL LISAN-UL-QURAN BOOKS</span>
+                <span>LATEST . BASIC ARABIC GRAMMAR & LISAN-UL-QURAN</span>
                 <select aria-label="Sort collection books">
                     <option>Latest Additions</option>
                     <option>Alphabetical</option>
@@ -316,11 +352,11 @@
 
             <!-- Book Item 1: Urdu Version -->
             <div class="book-feed-card">
-                <img src="lq1.jpg" alt="Lisan-ul-Quran Urdu Cover" class="book-thumbnail">[cite: 8]
+                <img src="lq1.jpg" alt="Lisan-ul-Quran Urdu Cover" class="book-thumbnail">
                 <div class="book-details">
                     <h3><a href="https://drive.google.com/file/d/1bEhit6yl9JBuWxPVGPEUf1zmMmWoUMuD/view" target="_blank">Lisan-ul-Quran (عربی کے بنیادی قواعد) - Urdu Edition</a></h3>
                     <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Suhail</span></div>
-                    <div class="book-meta"><strong>Categories:</strong> <span>LISAN-UL-QURAN (URDU), BASIC ARABIC GRAMMAR</span></div>
+                    <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR, LISAN-UL-QURAN (URDU)</span></div>
                     <div class="book-snippet">
                         Foundational Arabic grammar textbook in Urdu script designed for students to understand the Holy Quran directly.
                     </div>
@@ -329,11 +365,11 @@
 
             <!-- Book Item 2: Roman Urdu Version -->
             <div class="book-feed-card">
-                <img src="lq1.jpg" alt="Lisan-ul-Quran Roman Urdu Cover" class="book-thumbnail">[cite: 8]
+                <img src="lq1_2.jpg" alt="Lisan-ul-Quran Roman Urdu Cover" class="book-thumbnail">
                 <div class="book-details">
                     <h3><a href="https://drive.google.com/file/d/1kUAgK0WEZA9VOcv_zk4GQK_lcjVq2yB2/view" target="_blank">Lisan-ul-Quran - Roman Urdu Edition</a></h3>
                     <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Suhail</span></div>
-                    <div class="book-meta"><strong>Categories:</strong> <span>LISAN-UL-QURAN (ROMAN URDU), BASIC ARABIC GRAMMAR</span></div>
+                    <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR, LISAN-UL-QURAN (ROMAN URDU)</span></div>
                     <div class="book-snippet">
                         Essential Arabic grammar guide presented in Roman Urdu script for easy reading, pronunciation practice, and accessible learning.
                     </div>
