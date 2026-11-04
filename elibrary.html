@@ -24,6 +24,8 @@
     <style>
         :root {
             --primary-navy: #1a365d;
+            --theme-blue: #1e3a5f;
+            --theme-blue-light: #2c4d75;
             --bg-light: #f4f6f8;
             --border-color: #d1d5db;
         }
@@ -153,26 +155,26 @@
             }
         }
 
-        /* Green Sidebar Boxes */
+        /* Updated Navy / Blue Theme Sidebar Boxes */
         .library-sidebar {
-            background-color: #9ccbaf;
+            background-color: var(--theme-blue);
             border-radius: 6px;
             padding: 18px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border: 1px solid #85bc9b;
+            border: 1px solid var(--theme-blue-light);
         }
         .sidebar-title {
             font-size: 0.82rem;
             font-weight: 800;
             letter-spacing: 0.5px;
-            color: #1e3a24;
+            color: #ffffff;
             margin-bottom: 12px;
             text-transform: uppercase;
         }
         .sidebar-search {
             width: 100%;
             padding: 9px 12px;
-            border: 1px solid #bbf2d0;
+            border: 1px solid #4a6fa5;
             border-radius: 4px;
             background: #ffffff;
             font-size: 0.9rem;
@@ -189,14 +191,14 @@
         }
         .sidebar-list li {
             padding: 8px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             font-size: 0.88rem;
-            color: #1c3522;
+            color: #e2e8f0;
             cursor: pointer;
             transition: color 0.15s;
         }
         .sidebar-list li:hover {
-            color: #064e3b;
+            color: #f3c669;
             font-weight: 600;
         }
 
@@ -207,16 +209,16 @@
             gap: 15px;
         }
         .content-header-bar {
-            background-color: #9ccbaf;
+            background-color: var(--theme-blue);
             padding: 12px 18px;
             border-radius: 6px;
             font-weight: 700;
             font-size: 0.95rem;
-            color: #1c3522;
+            color: #ffffff;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid #85bc9b;
+            border: 1px solid var(--theme-blue-light);
         }
         .content-header-bar select {
             background: white;
@@ -326,72 +328,4 @@
     </header>
 
     <!-- Main Library Section Layout -->
-    <main class="library-layout">
-
-        <!-- COLUMN 1: SELECT NAMES (Scholars / Authors) -->
-        <aside class="library-sidebar">
-            <div class="sidebar-title">Select Names</div>
-            <input type="text" id="scholarSearch" class="sidebar-search" placeholder="Type to search names" onkeyup="filterList('scholarSearch', 'scholarList')">
-            <ul id="scholarList" class="sidebar-list">
-                <li>- Sir Amir Suhail</li>
-            </ul>
-        </aside>
-
-        <!-- COLUMN 2: CATEGORIES (Basic Grammar Category Only) -->
-        <aside class="library-sidebar">
-            <div class="sidebar-title">Categories</div>
-            <input type="text" id="categorySearch" class="sidebar-search" placeholder="Type to search eBook C" onkeyup="filterList('categorySearch', 'categoryList')">
-            <ul id="categoryList" class="sidebar-list">
-                <li>- BASIC ARABIC GRAMMAR</li>
-            </ul>
-        </aside>
-
-        <!-- COLUMN 3: MAIN BOOKS FEED -->
-        <section class="library-content">
-            
-            <div class="content-header-bar">
-                <span>LATEST . BASIC ARABIC GRAMMAR & LISAN-UL-QURAN</span>
-                <select aria-label="Sort collection books">
-                    <option>Latest Additions</option>
-                    <option>Alphabetical</option>
-                </select>
-            </div>
-
-            <!-- Book Item 1: Urdu Version -->
-            <div class="book-feed-card">
-                <img src="lq1.jpg" alt="Lisan-ul-Quran Urdu Cover" class="book-thumbnail">
-                <div class="book-details">
-                    <h3><a href="https://drive.google.com/file/d/1bEhit6yl9JBuWxPVGPEUf1zmMmWoUMuD/view" target="_blank">Lisan-ul-Quran (عربی کے بنیادی قواعد) - Urdu Edition</a></h3>
-                    <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Suhail</span></div>
-                    <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
-                    <div class="book-snippet">
-                        Foundational Arabic grammar textbook in Urdu script designed for students to understand the Holy Quran directly.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Book Item 2: Roman Urdu Version -->
-            <div class="book-feed-card">
-                <img src="lq1_2.jpg" alt="Lisan-ul-Quran Roman Urdu Cover" class="book-thumbnail">
-                <div class="book-details">
-                    <h3><a href="https://drive.google.com/file/d/1kUAgK0WEZA9VOcv_zk4GQK_lcjVq2yB2/view" target="_blank">Lisan-ul-Quran - Roman Urdu Edition</a></h3>
-                    <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Suhail</span></div>
-                    <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
-                    <div class="book-snippet">
-                        Essential Arabic grammar guide presented in Roman Urdu script for easy reading, pronunciation practice, and accessible learning.
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Az-Zikr International E-Library. All Rights Reserved. Fi-Sabeelillah.</p>
-    </footer>
-
-    <!-- JavaScript Filter Functionality -->
-    <script>
-        function filterList(inputId, listId) {
-            let
+    <main
