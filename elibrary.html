@@ -210,26 +210,29 @@
             flex-direction: column;
             gap: 15px;
         }
-        /* Top content header bar returned to original solid/clean theme style */
+        
+        /* Top Content Header Bar Styled with Background Image & Dark Overlay */
         .content-header-bar {
-            background-color: #9ccbaf;
-            padding: 12px 18px;
-            border-radius: 6px;
+            background: linear-gradient(rgba(5, 15, 30, 0.88), rgba(5, 15, 30, 0.92)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
+            padding: 14px 20px;
+            border-radius: 8px;
             font-weight: 700;
             font-size: 0.95rem;
-            color: #1c3522;
+            color: #ffffff;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid #85bc9b;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         .content-header-bar select {
             background: white;
             border: 1px solid #cbd5e1;
-            padding: 4px 8px;
+            padding: 6px 10px;
             border-radius: 4px;
             font-size: 0.85rem;
             cursor: pointer;
+            outline: none;
         }
 
         /* Book Card Item Feed */
@@ -357,34 +360,37 @@
             
             <div class="content-header-bar">
                 <span>LATEST . BASIC ARABIC GRAMMAR & LISAN-UL-QURAN</span>
-                <select aria-label="Sort collection books">
-                    <option>Latest Additions</option>
-                    <option>Alphabetical</option>
+                <select id="sortSelect" aria-label="Sort collection books" onchange="sortBooks()">
+                    <option value="latest">Latest Additions</option>
+                    <option value="alphabetical">Alphabetical</option>
                 </select>
             </div>
 
-            <!-- Book Item 1: Urdu Version -->
-            <div class="book-feed-card">
-                <img src="lq1.png" alt="Lisan-ul-Quran Urdu Cover" class="book-thumbnail">
-                <div class="book-details">
-                    <h3><a href="https://drive.google.com/file/d/1bEhit6yl9JBuWxPVGPEUf1zmMmWoUMuD/view" target="_blank">Lisan-ul-Quran (عربی کے بنیادی قواعد) - Urdu Edition</a></h3>
-                    <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Suhail</span></div>
-                    <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
-                    <div class="book-snippet">
-                        Foundational Arabic grammar textbook in Urdu script designed for students to understand the Holy Quran directly.
+            <!-- Books Container -->
+            <div id="booksContainer" style="display: flex; flex-direction: column; gap: 15px;">
+                <!-- Book Item 1: Urdu Version -->
+                <div class="book-feed-card" data-title="Lisan-ul-Quran Urdu Edition">
+                    <img src="lq1.png" alt="Lisan-ul-Quran Urdu Cover" class="book-thumbnail">
+                    <div class="book-details">
+                        <h3><a href="https://drive.google.com/file/d/1bEhit6yl9JBuWxPVGPEUf1zmMmWoUMuD/view" target="_blank">Lisan-ul-Quran (عربی کے بنیادی قواعد) - Urdu Edition</a></h3>
+                        <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Suhail</span></div>
+                        <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
+                        <div class="book-snippet">
+                            Foundational Arabic grammar textbook in Urdu script designed for students to understand the Holy Quran directly.
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Book Item 2: Roman Urdu Version -->
-            <div class="book-feed-card">
-                <img src="lq1.png" alt="Lisan-ul-Quran Roman Urdu Cover" class="book-thumbnail">
-                <div class="book-details">
-                    <h3><a href="https://drive.google.com/file/d/1kUAgK0WEZA9VOcv_zk4GQK_lcjVq2yB2/view" target="_blank">Lisan-ul-Quran - Roman Urdu Edition</a></h3>
-                    <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Suhail</span></div>
-                    <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
-                    <div class="book-snippet">
-                        Essential Arabic grammar guide presented in Roman Urdu script for easy reading, pronunciation practice, and accessible learning.
+                <!-- Book Item 2: Roman Urdu Version -->
+                <div class="book-feed-card" data-title="Lisan-ul-Quran Roman Urdu Edition">
+                    <img src="lq1.png" alt="Lisan-ul-Quran Roman Urdu Cover" class="book-thumbnail">
+                    <div class="book-details">
+                        <h3><a href="https://drive.google.com/file/d/1kUAgK0WEZA9VOcv_zk4GQK_lcjVq2yB2/view" target="_blank">Lisan-ul-Quran - Roman Urdu Edition</a></h3>
+                        <div class="book-meta"><strong>Author:</strong> <span>Sir Amir Suhail</span></div>
+                        <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
+                        <div class="book-snippet">
+                            Essential Arabic grammar guide presented in Roman Urdu script for easy reading, pronunciation practice, and accessible learning.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -397,7 +403,7 @@
         <p>&copy; 2026 Az-Zikr International E-Library. All Rights Reserved. Fi-Sabeelillah.</p>
     </footer>
 
-    <!-- JavaScript Filter Functionality -->
+    <!-- JavaScript Filter and Sorting Functionality -->
     <script>
         function filterList(inputId, listId) {
             let input = document.getElementById(inputId);
@@ -413,6 +419,26 @@
                     li[i].style.display = "none";
                 }
             }
+        }
+
+        function sortBooks() {
+            let sortVal = document.getElementById('sortSelect').value;
+            let container = document.getElementById('booksContainer');
+            let cards = Array.from(container.getElementsByClassName('book-feed-card'));
+
+            cards.sort((a, b) => {
+                let titleA = a.getAttribute('data-title').toLowerCase();
+                let titleB = b.getAttribute('data-title').toLowerCase();
+                if (sortVal === 'alphabetical') {
+                    return titleA.localeCompare(titleB);
+                } else {
+                    // Default / Latest order (original position)
+                    return 0;
+                }
+            });
+
+            // Re-append sorted elements
+            cards.forEach(card => container.appendChild(card));
         }
     </script>
 </body>
