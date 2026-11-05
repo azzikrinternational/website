@@ -26,6 +26,7 @@
             --primary-navy: #1a365d;
             --bg-light: #f4f6f8;
             --border-color: #d1d5db;
+            --accent-gold: #f3c669;
         }
         body {
             font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -78,7 +79,7 @@
             font-size: 0.95rem;
         }
         header nav a:hover, .dropdown:hover .dropdown-btn {
-            color: #f3c669 !important;
+            color: var(--accent-gold) !important;
         }
 
         /* Dropdown Menu Styling */
@@ -120,7 +121,7 @@
         }
         .dropdown-content a:hover {
             background-color: rgba(255, 255, 255, 0.1);
-            color: #f3c669 !important;
+            color: var(--accent-gold) !important;
         }
         .dropdown:hover .dropdown-content {
             display: block;
@@ -136,17 +137,87 @@
             font-size: 1.1rem;
         }
 
-        /* Banner positioning with top offset to sit below fixed header */
+        /* Banner positioning with top offset */
         .courses-banner {
             margin-top: 70px;
             padding: 60px 20px;
             text-align: center;
         }
 
+        /* Golden Divider Bar */
+        .golden-divider {
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-gold);
+            margin: 12px auto 14px auto;
+            border-radius: 2px;
+        }
+
         main {
             padding: 40px 20px;
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        /* Explanatory FAQ Accordions */
+        .faq-item {
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            overflow: hidden;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .faq-item:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .faq-question {
+            padding: 20px 24px;
+            margin: 0;
+            color: var(--primary-navy);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-question i {
+            font-size: 0.9rem;
+            color: #64748b;
+            transition: transform 0.3s ease;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+            padding: 0 24px;
+            color: #475569;
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            padding: 0 24px 20px 24px;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+            color: var(--primary-navy);
+        }
+        .faq-answer p {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+        .faq-answer ul {
+            margin: 8px 0 12px 20px;
+            padding-left: 0;
         }
 
         /* Footer Styling */
@@ -175,10 +246,10 @@
             <a href="contact.html">Contact Us</a>
             
             <div class="dropdown">
-                <button class="dropdown-btn" style="color: #f3c669 !important;">More <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
+                <button class="dropdown-btn" style="color: var(--accent-gold) !important;">More <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
                 <div class="dropdown-content">
                     <a href="about.html">About Us</a>
-                    <a href="faq.html" class="active" style="color: #f3c669 !important;">FAQ</a>
+                    <a href="faq.html" class="active" style="color: var(--accent-gold) !important;">FAQ</a>
                 </div>
             </div>
 
@@ -196,32 +267,91 @@
 
     <!-- Header Banner -->
     <div class="courses-banner" style="background: linear-gradient(rgba(5, 15, 30, 0.85), rgba(5, 15, 30, 0.90)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff; text-align: center;">
-        <h2 style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.6); margin: 0 0 10px 0;">Frequently Asked Questions</h2>
-        <p style="color: #f8f9fa; text-shadow: 0 1px 3px rgba(0,0,0,0.6); margin: 0 auto; text-align: center; max-width: 600px;">Find quick answers regarding admissions, rules, and course details.</p>
+        <h2 style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.6); margin: 0;">Frequently Asked Questions</h2>
+        <div class="golden-divider"></div>
+        <p style="color: #f8f9fa; text-shadow: 0 1px 3px rgba(0,0,0,0.6); margin: 0 auto; text-align: center; max-width: 600px;">Find detailed explanations regarding admissions, study formats, and institute policies.</p>
     </div>
 
     <!-- Main Content -->
     <main>
-        <div class="info-box" style="background: #ffffff; padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-            <h4 style="color: var(--primary-navy); margin-top: 0;">Are classes really 100% free?</h4>
-            <p style="color: #555555; margin-bottom: 0;">Yes, all courses provided by Az-Zikr International are completely free of charge Fi-Sabeelillah.</p>
+        <!-- Item 1 -->
+        <div class="faq-item active">
+            <h4 class="faq-question">
+                <span>Are classes really 100% free of charge?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </h4>
+            <div class="faq-answer">
+                <p><strong>Yes, absolutely.</strong> All courses, study guides, live instruction, and digital reading materials provided by Az-Zikr International are completely free <em>Fi-Sabeelillah</em> (for the sake of Allah).</p>
+                <p>We do not charge any admission fees, monthly tuition, or hidden registration costs across any of our academic departments.</p>
+            </div>
         </div>
 
-        <div class="info-box" style="background: #ffffff; padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-            <h4 style="color: var(--primary-navy); margin-top: 0;">Who can enroll in these classes?</h4>
-            <p style="color: #555555; margin-bottom: 0;">Our courses are exclusively for female students worldwide. Select courses in the Kids Tarbiyah department are open to young boys and girls (ages 8-16).</p>
+        <!-- Item 2 -->
+        <div class="faq-item">
+            <h4 class="faq-question">
+                <span>Who is eligible to enroll in these courses?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </h4>
+            <div class="faq-answer">
+                <p>Our institute primary focus is providing a safe, supportive, and dedicated virtual learning environment for <strong>female students worldwide</strong> of all skill levels.</p>
+                <p>However, select foundational courses offered under our <strong>Kids Tarbiyah Department</strong> are specially structured for young children (both boys and girls ages 8–16).</p>
+            </div>
         </div>
 
-        <div class="info-box" style="background: #ffffff; padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-            <h4 style="color: var(--primary-navy); margin-top: 0;">How do I register for a course?</h4>
-            <p style="color: #555555; margin-bottom: 0;">Visit the <a href="enroll.html" style="color: #2e7d32; font-weight: 600; text-decoration: none;">Enroll Now</a> page, click on your desired course flyer, and join the official WhatsApp registration group link provided.</p>
+        <!-- Item 3 -->
+        <div class="faq-item">
+            <h4 class="faq-question">
+                <span>How does the registration process work?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </h4>
+            <div class="faq-answer">
+                <p>Enrolling in a batch is quick and straightforward:</p>
+                <ul>
+                    <li>Navigate to the <strong><a href="courses.html" style="color: #2e7d32; font-weight: 600;">Courses</a></strong> page to select your desired program.</li>
+                    <li>Click on the course flyer or enrollment button to access the official WhatsApp admission group.</li>
+                    <li>Follow the short orientation instructions shared by group administrators to confirm your seat.</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="info-box" style="background: #ffffff; padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-            <h4 style="color: var(--primary-navy); margin-top: 0;">What platforms are used for classes?</h4>
-            <p style="color: #555555; margin-bottom: 0;">Classes are conducted live via Zoom or Google Meet, with study materials and announcements shared in dedicated WhatsApp groups.</p>
+        <!-- Item 4 -->
+        <div class="faq-item">
+            <h4 class="faq-question">
+                <span>Which digital platforms are used for classes and materials?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </h4>
+            <div class="faq-answer">
+                <p>We utilize user-friendly online tools to ensure smooth learning across different time zones:</p>
+                <ul>
+                    <li><strong>Live Classes:</strong> Conducted interactively through <em>Zoom Workplace</em> or <em>Google Meet</em>.</li>
+                    <li><strong>Announcements & Recitations:</strong> Managed through moderated, official WhatsApp study cohorts.</li>
+                    <li><strong>Self-Paced Resources:</strong> PDF textbooks, Tajweed workbooks, and recorded video links are accessible via our website portal and E-Library.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="faq-item">
+            <h4 class="faq-question">
+                <span>What are the student privacy and security rules?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </h4>
+            <div class="faq-answer">
+                <p>We uphold strict privacy standards to safeguard our sisters:</p>
+                <p>Creation of unofficial messaging groups, unauthorized commercial advertising, or personal side-messaging between students without admin consent is strictly forbidden and results in immediate removal from the institute.</p>
+            </div>
         </div>
     </main>
+
+    <!-- Interactive FAQ Toggle Script -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
 
     <!-- Footer -->
     <footer>
@@ -232,7 +362,7 @@
             <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn insta-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
             <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn yt-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
         </div>
-        <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: #C3923E; text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: #C3923E; text-decoration: none;">Terms of Service</a></p>
+        <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: var(--accent-gold); text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: var(--accent-gold); text-decoration: none;">Terms of Service</a></p>
     </footer>
 
 </body>
