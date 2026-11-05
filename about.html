@@ -15,46 +15,205 @@
     <meta property="og:description" content="Discover our mission, safety protocols, and academic standards at Az-Zikr International.">
     <meta property="og:image" content="https://azzikrinternational.com/logo.jpeg">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-navy: #1a365d;
+            --bg-light: #f4f6f8;
+            --border-color: #d1d5db;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-light);
+            margin: 0;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* Fully Transparent Immersive Fixed Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(5, 15, 30, 0.75) 0%, rgba(5, 15, 30, 0.2) 100%) !important;
+            backdrop-filter: blur(3px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 30px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .site-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ffffff;
+        }
+        .logo-text {
+            color: #ffffff !important;
+            font-weight: 800;
+            font-size: 1.25rem;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+        }
+        header nav a, .header-socials a, .dropdown-btn {
+            color: #ffffff !important;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        header nav a:hover, .dropdown:hover .dropdown-btn {
+            color: #f3c669 !important;
+        }
+
+        /* Dropdown Menu Styling */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-btn {
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: 0.95rem;
+            cursor: pointer;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(5, 15, 30, 0.95);
+            min-width: 140px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+            border-radius: 6px;
+            z-index: 1001;
+            top: 100%;
+            left: 0;
+            padding: 8px 0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .dropdown-content a {
+            color: #ffffff !important;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            text-shadow: none !important;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #f3c669 !important;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .header-socials {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .social-icon {
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        /* Banner positioning with top offset so it sits cleanly below the fixed header */
+        .courses-banner {
+            margin-top: 70px;
+            background: linear-gradient(rgba(5, 15, 30, 0.85), rgba(5, 15, 30, 0.90)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        main {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Footer Styling */
+        footer {
+            background: var(--primary-navy);
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 50px;
+        }
+        footer p { margin: 0; font-size: 0.9rem; }
+    </style>
 </head>
 <body>
 
+    <!-- Header Navbar -->
     <header>
         <div class="logo-container">
             <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
             <span class="logo-text">Az-Zikr International</span>
         </div>
-        <nav>
+        <nav style="display: flex; align-items: center; gap: 20px;">
             <a href="index.html">Home</a>
-            <a href="about.html" class="active">About Us</a>
             <a href="courses.html">Courses</a>
-            <a href="faq.html">FAQ</a>
+            <a href="elibrary.html">E-Library</a>
             <a href="contact.html">Contact Us</a>
+            
+            <div class="dropdown">
+                <button class="dropdown-btn" style="color: #f3c669 !important;">More <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
+                <div class="dropdown-content">
+                    <a href="about.html" style="color: #f3c669 !important;">About Us</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+
+            <a href="login.html" style="background: #2e7d32; color: white !important; border-radius: 4px; padding: 6px 12px; text-shadow: none;">Student Login</a>
         </nav>
-        <div class="header-socials">
-            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" title="WhatsApp Channel" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" title="Facebook Page" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/azzikr_international/" target="_blank" title="Instagram" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" title="YouTube Channel" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="header-socials">
+                <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" title="WhatsApp Channel" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" title="Facebook Page" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/azzikr_international/" target="_blank" title="Instagram" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" title="YouTube Channel" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
+            </div>
         </div>
     </header>
 
-    <div class="courses-banner" style="background: linear-gradient(rgba(5, 15, 30, 0.85), rgba(5, 15, 30, 0.90)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover; color: #ffffff;">
-        <h2 style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">About Az-Zikr International</h2>
-        <p style="color: #f8f9fa; text-shadow: 0 1px 3px rgba(0,0,0,0.6);">Providing authentic Islamic education to sisters across the globe Fi-Sabeelillah.</p>
+    <!-- Header Banner -->
+    <div class="courses-banner">
+        <h2 style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.6); margin: 0 0 10px 0; font-size: 2.2rem;">About Az-Zikr International</h2>
+        <p style="color: #f8f9fa; text-shadow: 0 1px 3px rgba(0,0,0,0.6); margin: 0; font-size: 1.05rem;">Providing authentic Islamic education to sisters across the globe Fi-Sabeelillah.</p>
     </div>
 
+    <!-- Main Content -->
     <main>
-        <div class="info-box" style="margin-bottom: 25px;">
-            <h4>Our Mission</h4>
-            <p>Az-Zikr International is a free online Islamic institute dedicated exclusively to women. Our goal is to make authentic Quranic and Islamic knowledge accessible to female students worldwide, without financial barriers.</p>
+        <div class="info-box" style="background: #ffffff; padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+            <h4 style="color: var(--primary-navy); margin-top: 0;">Our Mission</h4>
+            <p style="color: #555555; margin-bottom: 0;">Az-Zikr International is a free online Islamic institute dedicated exclusively to women. Our goal is to make authentic Quranic and Islamic knowledge accessible to female students worldwide, without financial barriers.</p>
         </div>
 
-        <div class="info-box" style="margin-bottom: 25px;">
-            <h4>Academic Excellence & Standards</h4>
-            <p>We maintain a rigorous academic evaluation process across all departments to foster dedicated learning and student accountability. Our grading criteria includes:</p>
-            <ul style="margin-left: 20px; margin-top: 10px; color: var(--text-muted);">
+        <div class="info-box" style="background: #ffffff; padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+            <h4 style="color: var(--primary-navy); margin-top: 0;">Academic Excellence & Standards</h4>
+            <p style="color: #555555; margin-bottom: 10px;">We maintain a rigorous academic evaluation process across all departments to foster dedicated learning and student accountability. Our grading criteria includes:</p>
+            <ul style="margin-left: 20px; margin-top: 0; color: #555555;">
                 <li><strong>Grade A:</strong> 90% – 100% (Outstanding)</li>
                 <li><strong>Grade B:</strong> 80% – 89% (Excellent)</li>
                 <li><strong>Grade C:</strong> 70% – 79% (Very Good)</li>
@@ -63,12 +222,13 @@
             </ul>
         </div>
 
-        <div class="info-box" style="margin-bottom: 25px;">
-            <h4>Student Safety & Rules</h4>
-            <p>We strictly enforce student privacy and security in our learning community. Unofficial WhatsApp groups, unauthorized advertising, and personal contact among students are strictly prohibited to ensure a safe learning space.</p>
+        <div class="info-box" style="background: #ffffff; padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+            <h4 style="color: var(--primary-navy); margin-top: 0;">Student Safety & Rules</h4>
+            <p style="color: #555555; margin-bottom: 0;">We strictly enforce student privacy and security in our learning community. Unofficial WhatsApp groups, unauthorized advertising, and personal contact among students are strictly prohibited to ensure a safe learning space.</p>
         </div>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-socials">
             <span class="footer-social-title">Follow & Join Us:</span>
@@ -77,7 +237,7 @@
             <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn insta-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
             <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn yt-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
         </div>
-        <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: var(--accent-color); text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: var(--accent-color); text-decoration: none;">Terms of Service</a></p>
+        <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: #C3923E; text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: #C3923E; text-decoration: none;">Terms of Service</a></p>
     </footer>
 
 </body>
