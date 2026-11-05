@@ -34,21 +34,22 @@
             line-height: 1.6;
         }
 
-        /* Fixed Navigation Header */
+        /* Fully Transparent Immersive Fixed Header */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: linear-gradient(to bottom, rgba(5, 15, 30, 0.95) 0%, rgba(5, 15, 30, 0.85) 100%) !important;
-            backdrop-filter: blur(4px);
+            background: linear-gradient(to bottom, rgba(5, 15, 30, 0.75) 0%, rgba(5, 15, 30, 0.2) 100%) !important;
+            backdrop-filter: blur(3px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 14px 30px;
             box-sizing: border-box;
+            transition: all 0.3s ease;
         }
         .logo-container {
             display: flex;
@@ -134,12 +135,12 @@
             font-size: 1.1rem;
         }
 
-        /* Banner positioning fix: Starts below the fixed header */
+        /* Banner positioning with top offset so it sits cleanly below the fixed header */
         .page-banner {
-            margin-top: 75px; /* Offset fixed header height */
-            background: linear-gradient(rgba(5, 15, 30, 0.88), rgba(5, 15, 30, 0.92)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
+            margin-top: 70px;
+            background: linear-gradient(rgba(5, 15, 30, 0.85), rgba(5, 15, 30, 0.90)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
             color: #ffffff;
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -195,8 +196,8 @@
 
     <!-- Header Banner -->
     <div class="page-banner">
-        <h2 style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.6); margin: 0 0 8px 0; font-size: 2.2rem; font-weight: 700;">Contact Us</h2>
-        <p style="color: #f8f9fa; text-shadow: 0 1px 3px rgba(0,0,0,0.6); margin: 0; font-size: 1rem;">Get in touch with us for inquiries, admissions, and support.</p>
+        <h2 style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.6); margin: 0 0 10px 0; font-size: 2.2rem;">Contact Us</h2>
+        <p style="color: #f8f9fa; text-shadow: 0 1px 3px rgba(0,0,0,0.6); margin: 0; font-size: 1.05rem;">Get in touch with us for inquiries, admissions, and support.</p>
     </div>
 
     <!-- Main Content Block -->
