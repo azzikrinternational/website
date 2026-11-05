@@ -34,22 +34,21 @@
             line-height: 1.6;
         }
 
-        /* Exact Index / E-Library Header Styling */
+        /* Fixed Navigation Header */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: linear-gradient(to bottom, rgba(5, 15, 30, 0.75) 0%, rgba(5, 15, 30, 0.2) 100%) !important;
-            backdrop-filter: blur(3px);
+            background: linear-gradient(to bottom, rgba(5, 15, 30, 0.95) 0%, rgba(5, 15, 30, 0.85) 100%) !important;
+            backdrop-filter: blur(4px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 14px 30px;
             box-sizing: border-box;
-            transition: all 0.3s ease;
         }
         .logo-container {
             display: flex;
@@ -67,11 +66,11 @@
             color: #ffffff !important;
             font-weight: 800;
             font-size: 1.25rem;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 2px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
         }
         header nav a, .header-socials a, .dropdown-btn {
             color: #ffffff !important;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 2px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
             font-weight: 500;
             text-decoration: none;
             font-size: 0.95rem;
@@ -80,7 +79,7 @@
             color: #f3c669 !important;
         }
 
-        /* Clean Dropdown Menu */
+        /* Dropdown Menu Styling */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -103,7 +102,7 @@
             min-width: 140px;
             box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
             border-radius: 6px;
-            z-index: 1;
+            z-index: 1001;
             top: 100%;
             left: 0;
             padding: 8px 0;
@@ -135,20 +134,21 @@
             font-size: 1.1rem;
         }
 
-        /* Banner positioned below the fixed header */
-        .courses-banner {
-            background: linear-gradient(rgba(5, 15, 30, 0.85), rgba(5, 15, 30, 0.90)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
+        /* Banner positioning fix: Starts below the fixed header */
+        .page-banner {
+            margin-top: 75px; /* Offset fixed header height */
+            background: linear-gradient(rgba(5, 15, 30, 0.88), rgba(5, 15, 30, 0.92)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
             color: #ffffff;
-            padding: 120px 20px 40px 20px;
+            padding: 50px 20px;
             text-align: center;
-            margin-top: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         main {
-            padding: 30px 0 50px 0;
+            padding: 40px 20px;
         }
 
-        /* Footer */
+        /* Footer Styling */
         footer {
             background: var(--primary-navy);
             color: #94a3b8;
@@ -161,7 +161,7 @@
 </head>
 <body>
 
-    <!-- Main Navigation Bar -->
+    <!-- Header Navbar -->
     <header>
         <div class="logo-container">
             <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
@@ -173,7 +173,6 @@
             <a href="elibrary.html">E-Library</a>
             <a href="contact.html" style="color: #f3c669 !important;">Contact Us</a>
             
-            <!-- Dropdown for secondary items -->
             <div class="dropdown">
                 <button class="dropdown-btn">More <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
                 <div class="dropdown-content">
@@ -194,33 +193,28 @@
         </div>
     </header>
 
-    <div class="courses-banner">
-        <h2 style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.6); margin: 0 0 10px 0; font-size: 2.2rem;">Contact Us</h2>
-        <p style="color: #f8f9fa; text-shadow: 0 1px 3px rgba(0,0,0,0.6); margin: 0; font-size: 1.05rem;">Get in touch with us for inquiries, admissions, and support.</p>
+    <!-- Header Banner -->
+    <div class="page-banner">
+        <h2 style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.6); margin: 0 0 8px 0; font-size: 2.2rem; font-weight: 700;">Contact Us</h2>
+        <p style="color: #f8f9fa; text-shadow: 0 1px 3px rgba(0,0,0,0.6); margin: 0; font-size: 1rem;">Get in touch with us for inquiries, admissions, and support.</p>
     </div>
 
+    <!-- Main Content Block -->
     <main>
-        <section class="dept-block" style="max-width: 600px; margin: 0 auto; padding: 0 20px;">
-            <h3 class="dept-header" style="text-align: center; margin-top: 0; margin-bottom: 20px; color: var(--primary-navy);">Get in Touch</h3>
+        <section style="max-width: 600px; margin: 0 auto;">
+            <h3 style="text-align: center; margin-top: 0; margin-bottom: 20px; color: var(--primary-navy); font-size: 1.5rem; font-weight: 700;">Get in Touch</h3>
             <div style="background: #ffffff; padding: 35px; border-radius: 10px; border: 1px solid var(--border-color); text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
                 <p style="margin-bottom: 25px; color: #555555; font-size: 1rem;">Have questions regarding our courses or registration process? Reach out via WhatsApp or connect through our social media channels.</p>
-                <a href="https://wa.me/923335449457" target="_blank" class="hero-btn" style="background-color: #25D366; color: #ffffff; padding: 12px 24px !important; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px; font-weight: 600;">
-                    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp (+92 333 5449457)
+                <a href="https://wa.me/923335449457" target="_blank" style="background-color: #25D366; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Chat on WhatsApp (+92 333 5449457)
                 </a>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-socials">
             <span class="footer-social-title">Follow & Join Us:</span>
             <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="footer-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Channel</a>
-            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="footer-btn fb-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
-            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn insta-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn yt-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
-        </div>
-        <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: #C3923E; text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: #C3923E; text-decoration: none;">Terms of Service</a></p>
-    </footer>
-
-</body>
-</html>
+            <a href="
