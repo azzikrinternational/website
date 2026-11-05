@@ -124,3 +124,102 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
+
+        .header-socials {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .social-icon {
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        /* Compact Header Banner */
+        .courses-banner {
+            background: linear-gradient(rgba(5, 15, 30, 0.85), rgba(5, 15, 30, 0.90)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
+            color: #ffffff;
+            padding: 100px 20px 30px 20px; /* Adjusted padding to sit right under header */
+            text-align: center;
+        }
+
+        main {
+            padding: 20px 0 40px 0; /* Reduced top gap */
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-navy);
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 40px;
+        }
+        footer p { margin: 0; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation Bar -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
+            <span class="logo-text">Az-Zikr International</span>
+        </div>
+        <nav style="display: flex; align-items: center; gap: 20px;">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="elibrary.html">E-Library</a>
+            <a href="contact.html" style="color: #f3c669 !important;">Contact Us</a>
+            
+            <!-- Dropdown for secondary items -->
+            <div class="dropdown">
+                <button class="dropdown-btn">More <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
+                <div class="dropdown-content">
+                    <a href="about.html">About Us</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+
+            <a href="login.html" style="background: #2e7d32; color: white !important; border-radius: 4px; padding: 6px 12px; text-shadow: none;">Student Login</a>
+        </nav>
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="header-socials">
+                <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" title="WhatsApp Channel" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" title="Facebook Page" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/azzikr_international/" target="_blank" title="Instagram" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" title="YouTube Channel" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="courses-banner">
+        <h2 style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.6); margin: 0 0 10px 0;">Contact Us</h2>
+        <p style="color: #f8f9fa; text-shadow: 0 1px 3px rgba(0,0,0,0.6); margin: 0;">Get in touch with us for inquiries, admissions, and support.</p>
+    </div>
+
+    <main>
+        <section class="dept-block" style="max-width: 600px; margin: 0 auto; padding: 0 20px;">
+            <h3 class="dept-header" style="text-align: center; margin-top: 10px; margin-bottom: 15px;">Get in Touch</h3>
+            <div style="background: #ffffff; padding: 30px; border-radius: 10px; border: 1px solid var(--border-color); text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                <p style="margin-bottom: 20px; color: #555555;">Have questions regarding our courses or registration process? Reach out via WhatsApp or connect through our social media channels.</p>
+                <a href="https://wa.me/923335449457" target="_blank" class="hero-btn" style="background-color: #25D366; color: #ffffff; padding: 12px 24px !important; text-decoration: none; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px; font-weight: 600;">
+                    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp (+92 333 5449457)
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-socials">
+            <span class="footer-social-title">Follow & Join Us:</span>
+            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="footer-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Channel</a>
+            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="footer-btn fb-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn insta-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn yt-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        </div>
+        <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: #C3923E; text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: #C3923E; text-decoration: none;">Terms of Service</a></p>
+    </footer>
+
+</body>
+</html>
