@@ -6,13 +6,13 @@
     <meta name="robots" content="index, follow">
 
     <title>E-Library & Digital Collection | Az-Zikr International</title>
-    <meta name="description" content="Explore our comprehensive digital library featuring Lisan-ul-Quran books by Sir Amir Suhail.">
+    <meta name="description" content="Explore our comprehensive digital library featuring Lisan-ul-Quran books, Madinah Arabic books, Quranic Dictionaries, and Advanced Arabic guides.">
 
     <link rel="canonical" href="https://azzikrinternational.com/elibrary.html">
     <meta property="og:url" content="https://azzikrinternational.com/elibrary.html">
     <meta property="og:type" content="website">
     <meta property="og:title" content="E-Library & Digital Collection | Az-Zikr International">
-    <meta property="og:description" content="Explore digital Lisan-ul-Quran books in Urdu and Roman Urdu.">
+    <meta property="og:description" content="Explore digital Lisan-ul-Quran books, Madinah Arabic books, and Quranic Dictionaries.">
     <meta property="og:image" content="https://azzikrinternational.com/logo.jpeg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +26,7 @@
             --primary-navy: #1a365d;
             --bg-light: #f4f6f8;
             --border-color: #d1d5db;
+            --accent-gold: #f3c669;
         }
         body {
             font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -78,7 +79,7 @@
             font-size: 0.95rem;
         }
         header nav a:hover, .dropdown:hover .dropdown-btn {
-            color: #f3c669 !important;
+            color: var(--accent-gold) !important;
         }
 
         /* Clean Dropdown Menu */
@@ -120,7 +121,7 @@
         }
         .dropdown-content a:hover {
             background-color: rgba(255, 255, 255, 0.1);
-            color: #f3c669 !important;
+            color: var(--accent-gold) !important;
         }
         .dropdown:hover .dropdown-content {
             display: block;
@@ -165,7 +166,7 @@
             font-size: 0.85rem;
             font-weight: 800;
             letter-spacing: 0.5px;
-            color: #f3c669;
+            color: var(--accent-gold);
             margin-bottom: 14px;
             text-transform: uppercase;
         }
@@ -182,7 +183,7 @@
         }
         .sidebar-search:focus {
             background: #ffffff;
-            border-color: #f3c669;
+            border-color: var(--accent-gold);
         }
         .sidebar-list {
             list-style: none;
@@ -200,7 +201,7 @@
             transition: color 0.15s;
         }
         .sidebar-list li:hover {
-            color: #f3c669;
+            color: var(--accent-gold);
             font-weight: 600;
         }
 
@@ -301,7 +302,7 @@
 </head>
 <body>
 
-    <!-- Main Navigation Bar (Exact Index Header Code Match) -->
+    <!-- Main Navigation Bar -->
     <header>
         <div class="logo-container">
             <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
@@ -310,10 +311,9 @@
         <nav style="display: flex; align-items: center; gap: 20px;">
             <a href="index.html">Home</a>
             <a href="courses.html">Courses</a>
-            <a href="elibrary.html" style="color: #f3c669 !important;">E-Library</a>
+            <a href="elibrary.html" style="color: var(--accent-gold) !important;">E-Library</a>
             <a href="contact.html">Contact Us</a>
             
-            <!-- Dropdown for secondary items -->
             <div class="dropdown">
                 <button class="dropdown-btn">More <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
                 <div class="dropdown-content">
@@ -343,15 +343,19 @@
             <input type="text" id="scholarSearch" class="sidebar-search" placeholder="Type to search names" onkeyup="filterList('scholarSearch', 'scholarList')">
             <ul id="scholarList" class="sidebar-list">
                 <li>- Sir Amir Suhail</li>
+                <li>- Late Lutf-ur-Rehman Khan</li>
+                <li>- Maulana Mukhtar Ahmad</li>
             </ul>
         </aside>
 
-        <!-- COLUMN 2: CATEGORIES (Basic Grammar Category Only) -->
+        <!-- COLUMN 2: CATEGORIES -->
         <aside class="library-sidebar">
             <div class="sidebar-title">Categories</div>
             <input type="text" id="categorySearch" class="sidebar-search" placeholder="Type to search eBook C" onkeyup="filterList('categorySearch', 'categoryList')">
             <ul id="categoryList" class="sidebar-list">
                 <li>- BASIC ARABIC GRAMMAR</li>
+                <li>- QURANIC DICTIONARY</li>
+                <li>- ADVANCED ARABIC GRAMMAR</li>
             </ul>
         </aside>
 
@@ -359,7 +363,7 @@
         <section class="library-content">
             
             <div class="content-header-bar">
-                <span>LATEST . BASIC ARABIC GRAMMAR & LISAN-UL-QURAN</span>
+                <span>COMPLETE DIGITAL COLLECTION & E-LIBRARY</span>
                 <select id="sortSelect" aria-label="Sort collection books" onchange="sortBooks()">
                     <option value="latest">Latest Additions</option>
                     <option value="alphabetical">Alphabetical</option>
@@ -368,7 +372,21 @@
 
             <!-- Books Container -->
             <div id="booksContainer" style="display: flex; flex-direction: column; gap: 15px;">
-                <!-- Book Item 1: Urdu Version -->
+                
+                <!-- Section 1: Dictionary -->
+                <div class="book-feed-card" data-title="The Quranic Dictionary">
+                    <img src="lq1.png" alt="Quranic Dictionary Cover" class="book-thumbnail">
+                    <div class="book-details">
+                        <h3><a href="https://drive.google.com/file/d/1VKMKL2up3gBdAsEiIG1nBM-2ndnp2StA/view?usp=drive_link" target="_blank">The Quranic Dictionary (قرآنی ڈکشنری)</a></h3>
+                        <div class="book-meta"><strong>Author:</strong> <span>Late Lutf-ur-Rehman Khan</span></div>
+                        <div class="book-meta"><strong>Categories:</strong> <span>QURANIC DICTIONARY</span></div>
+                        <div class="book-snippet">
+                            Comprehensive Quranic dictionary reference work detailing root words and semantic meanings compiled by late Lutf-ur-Rehman Khan.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Basic Grammar - Sir Amir Suhail Editions -->
                 <div class="book-feed-card" data-title="Lisan-ul-Quran Urdu Edition">
                     <img src="lq1.png" alt="Lisan-ul-Quran Urdu Cover" class="book-thumbnail">
                     <div class="book-details">
@@ -381,7 +399,6 @@
                     </div>
                 </div>
 
-                <!-- Book Item 2: Roman Urdu Version -->
                 <div class="book-feed-card" data-title="Lisan-ul-Quran Roman Urdu Edition">
                     <img src="lq1.png" alt="Lisan-ul-Quran Roman Urdu Cover" class="book-thumbnail">
                     <div class="book-details">
@@ -393,6 +410,57 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Section 2: Basic Grammar - Madinah Arabic Books -->
+                <div class="book-feed-card" data-title="Madinah Arabic Book 1 Lughat_ul_Arabia 1">
+                    <img src="lq1.png" alt="Madinah Arabic Book 1 Cover" class="book-thumbnail">
+                    <div class="book-details">
+                        <h3><a href="https://drive.google.com/file/d/1UzBhFRS4qUXEE7LvlG64hmkYZIHRw2sW/view?usp=drive_link" target="_blank">Madinah Arabic Book 1 - Lughat_ul_Arabia 1</a></h3>
+                        <div class="book-meta"><strong>Author:</strong> <span>Dr. V. Abdur Rahim</span></div>
+                        <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
+                        <div class="book-snippet">
+                            The renowned foundational text for learning Classical Arabic structured around modern pedagogical methods.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-feed-card" data-title="Madinah Arabic Book 2 Lughat_ul_Arabia 2">
+                    <img src="lq1.png" alt="Madinah Arabic Book 2 Cover" class="book-thumbnail">
+                    <div class="book-details">
+                        <h3><a href="https://drive.google.com/file/d/1Z7KzZ5x3XDCzxu3-g1nLehI09Z2CSC-R/view?usp=drive_link" target="_blank">Madinah Arabic Book 2 - Lughat_ul_Arabia 2</a></h3>
+                        <div class="book-meta"><strong>Author:</strong> <span>Dr. V. Abdur Rahim</span></div>
+                        <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
+                        <div class="book-snippet">
+                            Intermediate level continuation of the Madinah Arabic curriculum focusing on advanced verb forms and sentence patterns.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-feed-card" data-title="Madinah Arabic Book 3 Lughat_ul_Arabia 3">
+                    <img src="lq1.png" alt="Madinah Arabic Book 3 Cover" class="book-thumbnail">
+                    <div class="book-details">
+                        <h3><a href="https://drive.google.com/file/d/1INm5dfuB2pQ8GHAevgXiLh_oMuVWh39g/view?usp=drive_link" target="_blank">Madinah Arabic Book 3 - Lughat_ul_Arabia 3</a></h3>
+                        <div class="book-meta"><strong>Author:</strong> <span>Dr. V. Abdur Rahim</span></div>
+                        <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
+                        <div class="book-snippet">
+                            Advanced grammar rules, complex sentence structures, and classical text excerpts from the Madinah Series.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Advanced Arabic -->
+                <div class="book-feed-card" data-title="Al Yaqoot wal Marjan Grammatical Solution">
+                    <img src="lq1.png" alt="Al Yaqoot wal Marjan Cover" class="book-thumbnail">
+                    <div class="book-details">
+                        <h3><a href="https://drive.google.com/drive/folders/1COYM9YO-avu8lH3JRkbFRzdyhcy8CCjU?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank">Al Yaqoot wal Marjan - Grammatical Solution of each word of Quran</a></h3>
+                        <div class="book-meta"><strong>Author:</strong> <span>Maulana Mukhtar Ahmad</span></div>
+                        <div class="book-meta"><strong>Categories:</strong> <span>ADVANCED ARABIC GRAMMAR</span></div>
+                        <div class="book-snippet">
+                            Detailed word-by-word grammatical breakdown and morphological analysis of every word in the Holy Quran.
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </section>
@@ -400,7 +468,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Az-Zikr International E-Library. All Rights Reserved. Fi-Sabeelillah.</p>
+        <p>&copy; 2026 Az-Zikr International E-Library. All Rights Reserved. | <a href="privacy.html" style="color: var(--accent-gold); text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: var(--accent-gold); text-decoration: none;">Terms of Service</a></p>
     </footer>
 
     <!-- JavaScript Filter and Sorting Functionality -->
@@ -432,12 +500,10 @@
                 if (sortVal === 'alphabetical') {
                     return titleA.localeCompare(titleB);
                 } else {
-                    // Default / Latest order (original position)
                     return 0;
                 }
             });
 
-            // Re-append sorted elements
             cards.forEach(card => container.appendChild(card));
         }
     </script>
