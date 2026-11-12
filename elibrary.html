@@ -200,7 +200,7 @@
             cursor: pointer;
             transition: color 0.15s;
         }
-        .sidebar-list li:hover {
+        .sidebar-list li:hover, .sidebar-list li.active-filter {
             color: var(--accent-gold);
             font-weight: 600;
         }
@@ -212,7 +212,7 @@
             gap: 15px;
         }
         
-        /* Top Content Header Bar Styled with Background Image & Dark Overlay */
+        /* Top Content Header Bar */
         .content-header-bar {
             background: linear-gradient(rgba(5, 15, 30, 0.88), rgba(5, 15, 30, 0.92)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
             padding: 14px 20px;
@@ -340,22 +340,25 @@
         <!-- COLUMN 1: SELECT NAMES (Scholars / Authors) -->
         <aside class="library-sidebar">
             <div class="sidebar-title">Select Names</div>
-            <input type="text" id="scholarSearch" class="sidebar-search" placeholder="Type to search names" onkeyup="filterList('scholarSearch', 'scholarList')">
+            <input type="text" id="scholarSearch" class="sidebar-search" placeholder="Type to search names" onkeyup="filterSidebar('scholarSearch', 'scholarList')">
             <ul id="scholarList" class="sidebar-list">
-                <li>- Sir Amir Suhail</li>
-                <li>- Late Lutf-ur-Rehman Khan</li>
-                <li>- Maulana Mukhtar Ahmad</li>
+                <li onclick="filterByAuthor('All', this)">- All Authors</li>
+                <li onclick="filterByAuthor('Sir Amir Suhail', this)">- Sir Amir Suhail</li>
+                <li onclick="filterByAuthor('Late Lutf-ur-Rehman Khan', this)">- Late Lutf-ur-Rehman Khan</li>
+                <li onclick="filterByAuthor('Dr. V. Abdur Rahim', this)">- Dr. V. Abdur Rahim</li>
+                <li onclick="filterByAuthor('Maulana Mukhtar Ahmad', this)">- Maulana Mukhtar Ahmad</li>
             </ul>
         </aside>
 
         <!-- COLUMN 2: CATEGORIES -->
         <aside class="library-sidebar">
             <div class="sidebar-title">Categories</div>
-            <input type="text" id="categorySearch" class="sidebar-search" placeholder="Type to search eBook C" onkeyup="filterList('categorySearch', 'categoryList')">
+            <input type="text" id="categorySearch" class="sidebar-search" placeholder="Type to search category" onkeyup="filterSidebar('categorySearch', 'categoryList')">
             <ul id="categoryList" class="sidebar-list">
-                <li>- BASIC ARABIC GRAMMAR</li>
-                <li>- QURANIC DICTIONARY</li>
-                <li>- ADVANCED ARABIC GRAMMAR</li>
+                <li onclick="filterByCategory('All', this)">- All Categories</li>
+                <li onclick="filterByCategory('BASIC ARABIC GRAMMAR', this)">- BASIC ARABIC GRAMMAR</li>
+                <li onclick="filterByCategory('QURANIC DICTIONARY', this)">- QURANIC DICTIONARY</li>
+                <li onclick="filterByCategory('ADVANCED ARABIC GRAMMAR', this)">- ADVANCED ARABIC GRAMMAR</li>
             </ul>
         </aside>
 
@@ -374,8 +377,8 @@
             <div id="booksContainer" style="display: flex; flex-direction: column; gap: 15px;">
                 
                 <!-- Section 1: Dictionary -->
-                <div class="book-feed-card" data-title="The Quranic Dictionary">
-                    <img src="lq1.png" alt="Quranic Dictionary Cover" class="book-thumbnail">
+                <div class="book-feed-card" data-title="The Quranic Dictionary" data-author="Late Lutf-ur-Rehman Khan" data-category="QURANIC DICTIONARY">
+                    <img src="qd LTR.jpg" alt="Quranic Dictionary Cover" class="book-thumbnail">
                     <div class="book-details">
                         <h3><a href="https://drive.google.com/file/d/1VKMKL2up3gBdAsEiIG1nBM-2ndnp2StA/view?usp=drive_link" target="_blank">The Quranic Dictionary (قرآنی ڈکشنری)</a></h3>
                         <div class="book-meta"><strong>Author:</strong> <span>Late Lutf-ur-Rehman Khan</span></div>
@@ -387,7 +390,7 @@
                 </div>
 
                 <!-- Section 2: Basic Grammar - Sir Amir Suhail Editions -->
-                <div class="book-feed-card" data-title="Lisan-ul-Quran Urdu Edition">
+                <div class="book-feed-card" data-title="Lisan-ul-Quran Urdu Edition" data-author="Sir Amir Suhail" data-category="BASIC ARABIC GRAMMAR">
                     <img src="lq1.png" alt="Lisan-ul-Quran Urdu Cover" class="book-thumbnail">
                     <div class="book-details">
                         <h3><a href="https://drive.google.com/file/d/1bEhit6yl9JBuWxPVGPEUf1zmMmWoUMuD/view" target="_blank">Lisan-ul-Quran (عربی کے بنیادی قواعد) - Urdu Edition</a></h3>
@@ -399,7 +402,7 @@
                     </div>
                 </div>
 
-                <div class="book-feed-card" data-title="Lisan-ul-Quran Roman Urdu Edition">
+                <div class="book-feed-card" data-title="Lisan-ul-Quran Roman Urdu Edition" data-author="Sir Amir Suhail" data-category="BASIC ARABIC GRAMMAR">
                     <img src="lq1.png" alt="Lisan-ul-Quran Roman Urdu Cover" class="book-thumbnail">
                     <div class="book-details">
                         <h3><a href="https://drive.google.com/file/d/1kUAgK0WEZA9VOcv_zk4GQK_lcjVq2yB2/view" target="_blank">Lisan-ul-Quran - Roman Urdu Edition</a></h3>
@@ -412,8 +415,8 @@
                 </div>
 
                 <!-- Section 2: Basic Grammar - Madinah Arabic Books -->
-                <div class="book-feed-card" data-title="Madinah Arabic Book 1 Lughat_ul_Arabia 1">
-                    <img src="lq1.png" alt="Madinah Arabic Book 1 Cover" class="book-thumbnail">
+                <div class="book-feed-card" data-title="Madinah Arabic Book 1 Lughat_ul_Arabia 1" data-author="Dr. V. Abdur Rahim" data-category="BASIC ARABIC GRAMMAR">
+                    <img src="MLA123.jpg" alt="Madinah Arabic Book 1 Cover" class="book-thumbnail">
                     <div class="book-details">
                         <h3><a href="https://drive.google.com/file/d/1UzBhFRS4qUXEE7LvlG64hmkYZIHRw2sW/view?usp=drive_link" target="_blank">Madinah Arabic Book 1 - Lughat_ul_Arabia 1</a></h3>
                         <div class="book-meta"><strong>Author:</strong> <span>Dr. V. Abdur Rahim</span></div>
@@ -424,8 +427,8 @@
                     </div>
                 </div>
 
-                <div class="book-feed-card" data-title="Madinah Arabic Book 2 Lughat_ul_Arabia 2">
-                    <img src="lq1.png" alt="Madinah Arabic Book 2 Cover" class="book-thumbnail">
+                <div class="book-feed-card" data-title="Madinah Arabic Book 2 Lughat_ul_Arabia 2" data-author="Dr. V. Abdur Rahim" data-category="BASIC ARABIC GRAMMAR">
+                    <img src="MLA123.jpg" alt="Madinah Arabic Book 2 Cover" class="book-thumbnail">
                     <div class="book-details">
                         <h3><a href="https://drive.google.com/file/d/1Z7KzZ5x3XDCzxu3-g1nLehI09Z2CSC-R/view?usp=drive_link" target="_blank">Madinah Arabic Book 2 - Lughat_ul_Arabia 2</a></h3>
                         <div class="book-meta"><strong>Author:</strong> <span>Dr. V. Abdur Rahim</span></div>
@@ -436,8 +439,8 @@
                     </div>
                 </div>
 
-                <div class="book-feed-card" data-title="Madinah Arabic Book 3 Lughat_ul_Arabia 3">
-                    <img src="lq1.png" alt="Madinah Arabic Book 3 Cover" class="book-thumbnail">
+                <div class="book-feed-card" data-title="Madinah Arabic Book 3 Lughat_ul_Arabia 3" data-author="Dr. V. Abdur Rahim" data-category="BASIC ARABIC GRAMMAR">
+                    <img src="MLA123.jpg" alt="Madinah Arabic Book 3 Cover" class="book-thumbnail">
                     <div class="book-details">
                         <h3><a href="https://drive.google.com/file/d/1INm5dfuB2pQ8GHAevgXiLh_oMuVWh39g/view?usp=drive_link" target="_blank">Madinah Arabic Book 3 - Lughat_ul_Arabia 3</a></h3>
                         <div class="book-meta"><strong>Author:</strong> <span>Dr. V. Abdur Rahim</span></div>
@@ -449,8 +452,8 @@
                 </div>
 
                 <!-- Section 3: Advanced Arabic -->
-                <div class="book-feed-card" data-title="Al Yaqoot wal Marjan Grammatical Solution">
-                    <img src="lq1.png" alt="Al Yaqoot wal Marjan Cover" class="book-thumbnail">
+                <div class="book-feed-card" data-title="Al Yaqoot wal Marjan Grammatical Solution" data-author="Maulana Mukhtar Ahmad" data-category="ADVANCED ARABIC GRAMMAR">
+                    <img src="YQM.jpg" alt="Al Yaqoot wal Marjan Cover" class="book-thumbnail">
                     <div class="book-details">
                         <h3><a href="https://drive.google.com/drive/folders/1COYM9YO-avu8lH3JRkbFRzdyhcy8CCjU?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank">Al Yaqoot wal Marjan - Grammatical Solution of each word of Quran</a></h3>
                         <div class="book-meta"><strong>Author:</strong> <span>Maulana Mukhtar Ahmad</span></div>
@@ -473,7 +476,10 @@
 
     <!-- JavaScript Filter and Sorting Functionality -->
     <script>
-        function filterList(inputId, listId) {
+        let currentAuthorFilter = 'All';
+        let currentCategoryFilter = 'All';
+
+        function filterSidebar(inputId, listId) {
             let input = document.getElementById(inputId);
             let filter = input.value.toLowerCase();
             let ul = document.getElementById(listId);
@@ -485,6 +491,48 @@
                     li[i].style.display = "";
                 } else {
                     li[i].style.display = "none";
+                }
+            }
+        }
+
+        function filterByAuthor(authorName, element) {
+            currentAuthorFilter = authorName;
+            updateActiveState('scholarList', element);
+            applyFilters();
+        }
+
+        function filterByCategory(catName, element) {
+            currentCategoryFilter = catName;
+            updateActiveState('categoryList', element);
+            applyFilters();
+        }
+
+        function updateActiveState(listId, element) {
+            let list = document.getElementById(listId);
+            let items = list.getElementsByTagName('li');
+            for (let item of items) {
+                item.classList.remove('active-filter');
+            }
+            if (element) {
+                element.classList.add('active-filter');
+            }
+        }
+
+        function applyFilters() {
+            let container = document.getElementById('booksContainer');
+            let cards = container.getElementsByClassName('book-feed-card');
+
+            for (let card of cards) {
+                let cardAuthor = card.getAttribute('data-author');
+                let cardCategory = card.getAttribute('data-category');
+
+                let matchesAuthor = (currentAuthorFilter === 'All' || cardAuthor === currentAuthorFilter);
+                let matchesCategory = (currentCategoryFilter === 'All' || cardCategory === currentCategoryFilter);
+
+                if (matchesAuthor && matchesCategory) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
                 }
             }
         }
