@@ -99,7 +99,7 @@
             color: #f3c669 !important;
         }
 
-        /* Option 1: Clean Dropdown Menu Styling */
+        /* Clean Dropdown Menu Styling */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -119,10 +119,10 @@
             display: none;
             position: absolute;
             background-color: rgba(5, 15, 30, 0.95);
-            min-width: 140px;
+            min-width: 180px;
             box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
             border-radius: 6px;
-            z-index: 1;
+            z-index: 1001;
             top: 100%;
             left: 0;
             padding: 8px 0;
@@ -235,10 +235,22 @@
         <nav style="display: flex; align-items: center; gap: 20px;">
             <a href="index.html" class="active">Home</a>
             <a href="courses.html">Courses</a>
-            <a href="elibrary.html">E-Library</a>
+            
+            <!-- E-Library Dropdown Menu -->
+            <div class="dropdown">
+                <button class="dropdown-btn">E-Library <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
+                <div class="dropdown-content">
+                    <a href="elibrary.html">Book Club</a>
+                    <a href="dua.html">Dua</a>
+                    <a href="articles.html">Articles</a>
+                    <a href="course-material.html">Course Material</a>
+                    <a href="certificates.html">Student Certificates</a>
+                </div>
+            </div>
+
             <a href="contact.html">Contact Us</a>
             
-            <!-- Option 1: Clean Dropdown for secondary items -->
+            <!-- More Dropdown Menu -->
             <div class="dropdown">
                 <button class="dropdown-btn">More <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
                 <div class="dropdown-content">
