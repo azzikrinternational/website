@@ -102,7 +102,7 @@
             display: none;
             position: absolute;
             background-color: rgba(5, 15, 30, 0.95);
-            min-width: 140px;
+            min-width: 180px;
             box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
             border-radius: 6px;
             z-index: 1;
@@ -311,9 +311,23 @@
         <nav style="display: flex; align-items: center; gap: 20px;">
             <a href="index.html">Home</a>
             <a href="courses.html">Courses</a>
-            <a href="elibrary.html" style="color: var(--accent-gold) !important;">E-Library</a>
+            
+            <!-- E-Library Dropdown Menu -->
+            <div class="dropdown">
+                <button class="dropdown-btn">E-Library <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
+                <div class="dropdown-content">
+                    <a href="elibrary.html">Full Collection</a>
+                    <a href="book-club.html">Book Club</a>
+                    <a href="dua.html">Dua</a>
+                    <a href="articles.html">Articles</a>
+                    <a href="course-material.html">Course Material</a>
+                    <a href="certificates.html">Student Certificates</a>
+                </div>
+            </div>
+
             <a href="contact.html">Contact Us</a>
             
+            <!-- More Dropdown Menu -->
             <div class="dropdown">
                 <button class="dropdown-btn">More <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
                 <div class="dropdown-content">
@@ -347,6 +361,8 @@
                 <li onclick="filterByAuthor('Late Lutf-ur-Rehman Khan', this)">- Late Lutf-ur-Rehman Khan</li>
                 <li onclick="filterByAuthor('Dr. V. Abdur Rahim', this)">- Dr. V. Abdur Rahim</li>
                 <li onclick="filterByAuthor('Maulana Mukhtar Ahmad', this)">- Maulana Mukhtar Ahmad</li>
+                <li onclick="filterByAuthor('Maulana Shahid Javed', this)">- Maulana Shahid Javed</li>
+                <li onclick="filterByAuthor('Hafiz Engineer Naveed Ahmad', this)">- Hafiz Engineer Naveed Ahmad</li>
             </ul>
         </aside>
 
@@ -447,6 +463,43 @@
                         <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
                         <div class="book-snippet">
                             Advanced grammar rules, complex sentence structures, and classical text excerpts from the Madinah Series.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newly Added Books from Drive Links / Covers -->
+                <div class="book-feed-card" data-title="Aasan Arabi Bol Chaal" data-author="Maulana Shahid Javed" data-category="BASIC ARABIC GRAMMAR">
+                    <img src="asaan bol chaal.jpg" alt="Aasan Arabi Bol Chaal Cover" class="book-thumbnail">
+                    <div class="book-details">
+                        <h3><a href="https://drive.google.com/drive/folders/1p_y_96PPPMwqi2iJ7hWUmNY6TYb0tSaX?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank">Aasan Arabi Bol Chaal (آسان عربی بول چال)</a></h3>
+                        <div class="book-meta"><strong>Author:</strong> <span>Maulana Shahid Javed</span></div>
+                        <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
+                        <div class="book-snippet">
+                            A comprehensive collection of spoken Arabic sentences and conversational structures designed for Islamic institute environments.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-feed-card" data-title="Aasan Arabi Grammar" data-author="Hafiz Engineer Naveed Ahmad" data-category="BASIC ARABIC GRAMMAR">
+                    <img src="asaan arabi grammar.jpg" alt="Aasan Arabi Grammar Cover" class="book-thumbnail">
+                    <div class="book-details">
+                        <h3><a href="https://drive.google.com/drive/folders/1p_y_96PPPMwqi2iJ7hWUmNY6TYb0tSaX?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank">Aasan Arabi Grammar (آسان عربی گرامر - تسهیل النحو والصرف)</a></h3>
+                        <div class="book-meta"><strong>Author:</strong> <span>Hafiz Engineer Naveed Ahmad</span></div>
+                        <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
+                        <div class="book-snippet">
+                            Simplified Arabic grammar guide focusing on Nahw and Sarf for easy comprehension and Quranic study.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-feed-card" data-title="Arabi Grammar Baraye Quran Fehmi" data-author="Hafiz Engineer Naveed Ahmad" data-category="BASIC ARABIC GRAMMAR">
+                    <img src="arbi grammar baraye FQ.jpg" alt="Arabi Grammar Baraye Quran Fehmi Cover" class="book-thumbnail">
+                    <div class="book-details">
+                        <h3><a href="https://drive.google.com/drive/folders/1p_y_96PPPMwqi2iJ7hWUmNY6TYb0tSaX?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto" target="_blank">Arabi Grammar Baraye Quran Fehmi (عربی گرامر برائے قرآن فہمی)</a></h3>
+                        <div class="book-meta"><strong>Author:</strong> <span>Hafiz Engineer Naveed Ahmad</span></div>
+                        <div class="book-meta"><strong>Categories:</strong> <span>BASIC ARABIC GRAMMAR</span></div>
+                        <div class="book-snippet">
+                            Targeted Arabic grammar workbook tailored specifically to assist students in understanding the Quran directly.
                         </div>
                     </div>
                 </div>
