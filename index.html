@@ -89,7 +89,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Strong text shadows to ensure nav items never wash out on bright image areas */
         header nav a, .logo-text, .header-socials a, .dropdown-btn {
             color: #ffffff !important;
             text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 2px rgba(0, 0, 0, 0.8);
@@ -169,7 +168,6 @@
             transform: translateY(-1px);
         }
         
-        /* Polished Card Hover Transitions */
         .portal-card, .whatsapp-card, .wisdom-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -178,7 +176,6 @@
             box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
         }
 
-        /* Responsive handling for mobile devices and landscape rotations */
         @media screen and (max-width: 900px) {
             header {
                 position: fixed;
@@ -324,7 +321,7 @@
     <!-- Main Content Area with Optimized Section Flow -->
     <main style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
         
-        <!-- 1. Choose Your Learning Method (Updated Navy & Gold Theme) -->
+        <!-- 1. Choose Your Learning Method -->
         <div id="learning-methods" style="scroll-margin-top: 100px; background: #ffffff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 40px; text-align: center; border-top: 4px solid #1a365d;">
             <h2 style="color: #1a365d; font-size: 1.75rem; margin-bottom: 10px;">Choose Your Learning Method</h2>
             <p style="color: #555555; font-size: 1rem; margin-bottom: 30px;">Access our courses either through our self-paced website portal or join our active WhatsApp cohorts.</p>
@@ -441,64 +438,56 @@
 
     </main>
 
-    <!-- Professional 3-Column Footer Styled After Sample -->
-    <footer style="background-color: #121212; color: #d1d5db; padding: 60px 20px 30px 20px; font-family: 'Inter', sans-serif;">
-        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.2fr; gap: 40px; align-items: start; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 40px;">
+    <!-- Professional 2-Column Enhanced Footer -->
+    <footer style="background-color: #0f172a; color: #cbd5e1; padding: 60px 20px 30px 20px; font-family: 'Inter', sans-serif; border-top: 3px solid #f3c669;">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1.2fr; gap: 50px; align-items: start; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 40px;">
             
-            <!-- Column 1: Logo & About Az-Zikr International -->
+            <!-- Column 1: About Az-Zikr International -->
             <div>
                 <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
                     <img src="logo.jpeg" alt="Az-Zikr International Logo" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid #f3c669;">
-                    <span style="color: #ffffff; font-weight: 800; font-size: 1.2rem;">Az-Zikr International</span>
+                    <span style="color: #ffffff; font-weight: 800; font-size: 1.25rem;">Az-Zikr International</span>
                 </div>
                 <h4 style="color: #f3c669; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 10px 0;">About Az-Zikr International</h4>
-                <p style="font-size: 0.92rem; color: #9ca3af; line-height: 1.6; margin: 0;">
-                    An online institute dedicated to empowering women through free Islamic education. We offer certificate-based programs that enable students to learn from the comfort of their homes[cite: 7].
+                <p style="font-size: 0.92rem; color: #94a3b8; line-height: 1.7; margin: 0;">
+                    An online institute dedicated to empowering women through free Islamic education. We offer certificate-based programs that enable students to learn from the comfort of their homes.
                 </p>
             </div>
 
-            <!-- Column 2: Quick Links -->
+            <!-- Column 2: Contact & Socials -->
             <div>
-                <h3 style="color: #ffffff; font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 20px;">Quick Links</h3>
-                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-                    <li><a href="about.html" style="color: #9ca3af; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">About Us</a></li>
-                    <li><a href="courses.html" style="color: #9ca3af; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">Courses</a></li>
-                    <li><a href="elibrary.html" style="color: #9ca3af; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">E-Library</a></li>
-                    <li><a href="dua.html" style="color: #9ca3af; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">Daily Dua</a></li>
-                    <li><a href="contact.html" style="color: #9ca3af; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Contact & Socials -->
-            <div>
-                <h3 style="color: #ffffff; font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 20px;">Contact</h3>
-                <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px;">
-                    <div style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.92rem; color: #9ca3af;">
+                <h3 style="color: #ffffff; font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 20px; border-left: 3px solid #f3c669; padding-left: 10px;">Contact Us</h3>
+                <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 22px;">
+                    <div style="display: flex; align-items: flex-start; gap: 12px; font-size: 0.92rem; color: #94a3b8;">
                         <i class="fa-solid fa-location-dot" style="color: #f3c669; margin-top: 4px;"></i>
                         <span>Az-Zikr International Online Institute</span>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: #9ca3af;">
+                    <div style="display: flex; align-items: center; gap: 12px; font-size: 0.92rem; color: #94a3b8;">
+                        <i class="fa-solid fa-phone" style="color: #f3c669;"></i>
+                        <span>+92 333 5449457</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px; font-size: 0.92rem; color: #94a3b8;">
                         <i class="fa-solid fa-envelope" style="color: #f3c669;"></i>
-                        <span>admin@azzikrinternational.com</span>
+                        <span>azzikrinternational@gmail.com</span>
                     </div>
                 </div>
                 <!-- Social Icons -->
-                <div style="display: flex; gap: 16px; align-items: center;">
-                    <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" style="color: #ffffff; background: rgba(255,255,255,0.08); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background 0.2s;"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/azzikr_international/" target="_blank" style="color: #ffffff; background: rgba(255,255,255,0.08); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background 0.2s;"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" style="color: #ffffff; background: rgba(255,255,255,0.08); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background 0.2s;"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" style="color: #ffffff; background: rgba(255,255,255,0.08); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background 0.2s;"><i class="fa-brands fa-whatsapp"></i></a>
+                <div style="display: flex; gap: 14px; align-items: center;">
+                    <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" style="color: #ffffff; background: rgba(255,255,255,0.08); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background 0.2s, color 0.2s;" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/azzikr_international/" target="_blank" style="color: #ffffff; background: rgba(255,255,255,0.08); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background 0.2s, color 0.2s;" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" style="color: #ffffff; background: rgba(255,255,255,0.08); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background 0.2s, color 0.2s;" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" style="color: #ffffff; background: rgba(255,255,255,0.08); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background 0.2s, color 0.2s;" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
 
         </div>
 
         <!-- Copyright Row -->
-        <div style="max-width: 1200px; margin: 25px auto 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.85rem; color: #9ca3af;">
+        <div style="max-width: 1200px; margin: 25px auto 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 0.85rem; color: #94a3b8;">
             <p style="margin: 0;">&copy; 2026 Az-Zikr International. All Rights Reserved.</p>
             <div style="display: flex; gap: 20px;">
-                <a href="privacy.html" style="color: #9ca3af; text-decoration: none;">Privacy Policy</a>
-                <a href="terms.html" style="color: #9ca3af; text-decoration: none;">Terms of Service</a>
+                <a href="privacy.html" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;">Privacy Policy</a>
+                <a href="terms.html" style="color: #9ca3af; text-decoration: none; transition: color 0.2s;">Terms of Service</a>
             </div>
         </div>
     </footer>
