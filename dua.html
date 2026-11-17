@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <title>Daily Supplications (Duas) | Az-Zikr International</title>
+    <meta name="description" content="Explore a collection of authentic daily supplications (Duas) for knowledge, guidance, and remembrance at Az-Zikr International.">
+
+    <link rel="canonical" href="https://azzikrinternational.com/dua.html">
+    <meta property="og:url" content="https://azzikrinternational.com/dua.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Daily Supplications (Duas) | Az-Zikr International">
+    <meta property="og:description" content="Explore authentic daily supplications and Quranic prayers for female learners.">
+    <meta property="og:image" content="https://azzikrinternational.com/logo.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-navy: #1a365d;
+            --bg-light: #f4f6f8;
+            --accent-gold: #f3c669;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-light);
+            margin: 0;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(5, 15, 30, 0.75) 0%, rgba(5, 15, 30, 0.2) 100%) !important;
+            backdrop-filter: blur(3px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 30px;
+            box-sizing: border-box;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .site-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ffffff;
+        }
+        .logo-text {
+            color: #ffffff !important;
+            font-weight: 800;
+            font-size: 1.25rem;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+        }
+        header nav a, .header-socials a, .dropdown-btn {
+            color: #ffffff !important;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        header nav a:hover, .dropdown:hover .dropdown-btn {
+            color: var(--accent-gold) !important;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-btn {
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: 0.95rem;
+            cursor: pointer;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(5, 15, 30, 0.95);
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+            border-radius: 6px;
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            padding: 8px 0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .dropdown-content a {
+            color: #ffffff !important;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            text-shadow: none !important;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-gold) !important;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Main Content Layout */
+        .dua-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .page-header-box {
+            background: linear-gradient(rgba(5, 15, 30, 0.88), rgba(5, 15, 30, 0.92)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .page-header-box h1 {
+            margin: 0 0 10px 0;
+            font-size: 2rem;
+            color: var(--accent-gold);
+        }
+        .page-header-box p {
+            margin: 0;
+            color: #e2e8f0;
+            font-size: 1.05rem;
+        }
+
+        /* Dua Cards Grid */
+        .dua-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .dua-card {
+            background: linear-gradient(rgba(255, 252, 245, 0.45), rgba(255, 252, 245, 0.45)), url('pngtree-elegant-islamic-inspire.jpg') no-repeat center center/cover;
+            border: 1px solid #e6c88a;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            text-align: center;
+        }
+        .dua-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a365d;
+            line-height: 1.9;
+            margin-bottom: 12px;
+            direction: rtl;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+        }
+        .dua-translation {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #1a365d;
+            line-height: 1.6;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+        }
+        .dua-reference {
+            font-size: 0.9rem;
+            color: #5c3d0c;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-navy);
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 50px;
+        }
+        footer p { margin: 0; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation Bar -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
+            <span class="logo-text">Az-Zikr International</span>
+        </div>
+        <nav style="display: flex; align-items: center; gap: 20px;">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            
+            <!-- E-Library Dropdown Menu -->
+            <div class="dropdown">
+                <button class="dropdown-btn">E-Library <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
+                <div class="dropdown-content">
+                    <a href="elibrary.html">Book Club</a>
+                    <a href="dua.html" style="color: var(--accent-gold) !important;">Dua</a>
+                    <a href="articles.html">Articles</a>
+                    <a href="course-material.html">Course Material</a>
+                </div>
+            </div>
+
+            <a href="contact.html">Contact Us</a>
+            
+            <!-- More Dropdown Menu -->
+            <div class="dropdown">
+                <button class="dropdown-btn">More <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
+                <div class="dropdown-content">
+                    <a href="about.html">About Us</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+
+            <a href="login.html" style="background: #2e7d32; color: white !important; border-radius: 4px; padding: 6px 12px; text-shadow: none;">Student Login</a>
+        </nav>
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="header-socials">
+                <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" title="WhatsApp Channel" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" title="Facebook Page" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/azzikr_international/" target="_blank" title="Instagram" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" title="YouTube Channel" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="dua-container">
+        <div class="page-header-box">
+            <h1>Daily Supplications (Duas)</h1>
+            <p>A collection of essential prayers and Quranic supplications for spiritual growth and seeking beneficial knowledge.</p>
+        </div>
+
+        <div class="dua-grid">
+            <!-- Dua 1: Rabbi Zidni Ilma (Added from your link) -->
+            <div class="dua-card">
+                <div class="dua-arabic">رَبِّ زِدْنِي عِلْمًا</div>
+                <div class="dua-translation">"My Lord, increase me in knowledge."</div>
+                <div class="dua-reference">Surah Taha 20:114</div>
+            </div>
+
+            <!-- You can easily add more Duas here following the same structure -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: var(--accent-gold); text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: var(--accent-gold); text-decoration: none;">Terms of Service</a></p>
+    </footer>
+
+</body>
+</html>
