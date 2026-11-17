@@ -227,6 +227,7 @@
 </head>
 <body>
 
+    <!-- Main Navigation Header -->
     <header>
         <div class="logo-container">
             <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
@@ -240,7 +241,7 @@
             <div class="dropdown">
                 <button class="dropdown-btn">E-Library <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
                 <div class="dropdown-content">
-                    <a href="elibrary.html">Book Club</a>
+                    <a href="elibrary.html">Full Collection</a>
                     <a href="dua.html">Dua</a>
                     <a href="articles.html">Articles</a>
                     <a href="course-material.html">Course Material</a>
@@ -304,6 +305,7 @@
         </div>
     </section>
 
+    <!-- Info Strip -->
     <section class="info-strip">
         <div class="info-box">
             <h4>100% Free Education</h4>
@@ -319,38 +321,10 @@
         </div>
     </section>
 
+    <!-- Main Content Area with Optimized Section Flow -->
     <main style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
         
-        <!-- Hadith of the Day & View Duas Section -->
-        <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 40px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 15px;">
-                <div>
-                    <h2 style="color: #1a365d; font-size: 1.6rem; margin: 0;">Hadith of the Day</h2>
-                    <p style="color: #64748b; font-size: 0.92rem; margin: 4px 0 0 0;">Daily Prophetic guidance and authentic supplications</p>
-                </div>
-                <a href="dua.html" style="background: #1a365d; color: #ffffff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-size: 0.92rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s;">
-                    <i class="fa-solid fa-hands-praying"></i> View Duas &rarr;
-                </a>
-            </div>
-
-            <!-- Centered Custom Image Card Display -->
-            <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;">
-                <!-- Hadith Image Card (Rename your uploaded image to hadith-muslim-6514.jpg) -->
-                <div class="wisdom-image-card" style="max-width: 420px; width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-                    <img src="hadith-muslim-6514.jpg" alt="Hadith of the Day - Sahih Muslim 6514" style="width: 100%; height: auto; display: block;">
-                </div>
-
-                <!-- Featured Dua Image Card (Save your Dua card image as dua-featured.jpg) -->
-                <div class="wisdom-image-card" style="max-width: 420px; width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.08); display: flex; flex-direction: column; justify-content: space-between; background: #faf8f5;">
-                    <img src="dua-featured.jpg" alt="Featured Daily Dua" style="width: 100%; height: auto; display: block;">
-                    <div style="padding: 12px 16px; text-align: center; background: #ffffff; border-top: 1px solid #e2e8f0;">
-                        <a href="dua.html" style="color: #1a365d; font-weight: 700; font-size: 0.92rem; text-decoration: none;">Browse All Daily Duas &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Learning Method Options with Polished Cards -->
+        <!-- 1. Choose Your Learning Method -->
         <div id="learning-methods" style="scroll-margin-top: 100px; background: #ffffff; padding: 40px 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 40px; text-align: center;">
             <h2 style="color: #2e7d32; font-size: 1.75rem; margin-bottom: 10px;">Choose Your Learning Method</h2>
             <p style="color: #555555; font-size: 1rem; margin-bottom: 30px;">Access our courses either through our self-paced website portal or join our active WhatsApp cohorts.</p>
@@ -381,9 +355,10 @@
             </div>
         </div>
 
+        <!-- 2. Academic Departments -->
         <h2 class="section-title">Academic Departments</h2>
         
-        <div class="department-grid">
+        <div class="department-grid" style="margin-bottom: 40px;">
             <!-- 1. Qur'anic Arabic Department -->
             <a href="courses.html?dept=quranic-arabic" class="dept-playcard" style="background-image: url('sarang-bhojwani-hXuTdcAjoHs-unsplash.jpg');">
                 <div class="playcard-overlay"></div>
@@ -420,8 +395,39 @@
                 <h3 class="playcard-title">Lisan ul Quran in English Department</h3>
             </a>
         </div>
+
+        <!-- 3. Hadith of the Day & Duas Section -->
+        <div style="background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 40px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 15px;">
+                <div>
+                    <h2 style="color: #1a365d; font-size: 1.6rem; margin: 0;">Hadith of the Day</h2>
+                    <p style="color: #64748b; font-size: 0.92rem; margin: 4px 0 0 0;">Daily Prophetic guidance and authentic supplications</p>
+                </div>
+                <a href="dua.html" style="background: #1a365d; color: #ffffff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-size: 0.92rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s;">
+                    <i class="fa-solid fa-hands-praying"></i> View Duas &rarr;
+                </a>
+            </div>
+
+            <!-- Centered Custom Image Card Display -->
+            <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;">
+                <!-- Hadith Image Card -->
+                <div class="wisdom-image-card" style="max-width: 420px; width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                    <img src="hadith-muslim-6514.jpg" alt="Hadith of the Day - Sahih Muslim 6514" style="width: 100%; height: auto; display: block;">
+                </div>
+
+                <!-- Featured Dua Image Card -->
+                <div class="wisdom-image-card" style="max-width: 420px; width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.08); display: flex; flex-direction: column; justify-content: space-between; background: #faf8f5;">
+                    <img src="dua-featured.jpg" alt="Featured Daily Dua" style="width: 100%; height: auto; display: block;">
+                    <div style="padding: 12px 16px; text-align: center; background: #ffffff; border-top: 1px solid #e2e8f0;">
+                        <a href="dua.html" style="color: #1a365d; font-weight: 700; font-size: 0.92rem; text-decoration: none;">Browse All Daily Duas &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-socials">
             <span class="footer-social-title">Follow & Join Us:</span>
