@@ -177,38 +177,103 @@
             background-color: var(--bg-light);
             font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
+            padding: 0;
             color: var(--text-dark);
             line-height: 1.6;
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Clean Uniform Glassmorphism Header */
+        /* Header Matched to index.html & Screenshot */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(5, 15, 30, 0.72) !important;
+            background: rgba(24, 39, 58, 0.88) !important;
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.14);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 30px;
+            padding: 12px 30px;
             box-sizing: border-box;
+            gap: 14px;
             transition: all 0.3s ease;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .site-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold-highlight);
+        }
+
+        .logo-text {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
         }
 
         header nav a, .logo-text, .header-socials a, .dropdown-btn {
             color: #ffffff !important;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 2px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85), 0 0 2px rgba(0, 0, 0, 0.75);
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             font-weight: 500;
+            font-size: 0.92rem;
             text-decoration: none;
+            transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
         }
+
+        header nav a.nav-pill-active {
+            background: rgba(255, 255, 255, 0.14);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
         header nav a:hover, .dropdown:hover .dropdown-btn {
             color: var(--gold-highlight) !important;
+        }
+
+        .student-login-link {
+            background: #1a365d !important;
+            color: #ffffff !important;
+            border-radius: 5px;
+            padding: 6px 14px !important;
+            font-weight: 600 !important;
+            text-shadow: none !important;
+            border: 1px solid var(--gold-highlight);
+        }
+
+        .student-login-link:hover {
+            background: #234876 !important;
+            color: #ffffff !important;
+        }
+
+        .header-socials {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
         }
 
         /* Clean Dropdown Menu Styling */
@@ -219,10 +284,10 @@
         .dropdown-btn {
             background: none;
             border: none;
-            font-family: inherit;
-            font-size: 0.95rem;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.92rem;
             cursor: pointer;
-            padding: 0;
+            padding: 4px 2px;
             display: inline-flex;
             align-items: center;
             gap: 4px;
@@ -230,9 +295,9 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: rgba(5, 15, 30, 0.95);
+            background-color: rgba(10, 20, 36, 0.96);
             min-width: 180px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.35);
             border-radius: 6px;
             z-index: 1001;
             top: 100%;
@@ -245,14 +310,15 @@
             padding: 8px 16px;
             text-decoration: none;
             display: block;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             text-shadow: none !important;
         }
         .dropdown-content a:hover {
             background-color: rgba(255, 255, 255, 0.1);
             color: var(--gold-highlight) !important;
         }
-        .dropdown:hover .dropdown-content {
+        .dropdown:hover .dropdown-content,
+        .dropdown.open .dropdown-content {
             display: block;
         }
 
@@ -261,7 +327,7 @@
             background: linear-gradient(180deg, rgba(8, 18, 36, 0.86) 0%, rgba(11, 22, 40, 0.94) 100%), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
             color: #ffffff;
             text-align: center;
-            padding: 118px 20px 50px 20px;
+            padding: 112px 20px 46px 20px;
             border-bottom: 3px solid var(--gold-highlight);
         }
         .enroll-hero-kicker {
@@ -271,7 +337,7 @@
             font-size: 0.74rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.4px;
+            letter-spacing: 1.3px;
             color: var(--gold-highlight);
             background: rgba(243, 198, 105, 0.12);
             border: 1px solid rgba(243, 198, 105, 0.35);
@@ -280,7 +346,7 @@
             margin-bottom: 14px;
         }
         .enroll-hero h1 {
-            font-size: 2.15rem;
+            font-size: 2.1rem;
             margin: 0 auto 12px auto;
             font-weight: 700;
             letter-spacing: -0.02em;
@@ -290,7 +356,7 @@
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
         }
         .enroll-hero p {
-            font-size: 0.98rem;
+            font-size: 0.96rem;
             color: #e2e8f0;
             max-width: 700px;
             margin: 0 auto;
@@ -300,44 +366,45 @@
 
         .enroll-main-container {
             max-width: 1220px;
-            margin: 28px auto;
-            padding: 0 20px 56px 20px;
+            margin: 26px auto;
+            padding: 0 18px 52px 18px;
+            box-sizing: border-box;
         }
 
         /* Polished Department Filter Tabs */
         .filter-tabs {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 26px;
+            gap: 8px;
+            margin-bottom: 24px;
             padding: 10px;
             background: #eef2f7;
             border: 1px solid #dde4ee;
             border-radius: 14px;
         }
         .filter-btn {
-            flex: 1 1 155px;
-            min-width: 140px;
+            flex: 1 1 150px;
+            min-width: 135px;
             text-align: center;
             background: var(--surface-white);
             color: var(--primary-navy);
             border: 1px solid #d5dde8;
-            padding: 10px 14px;
+            padding: 10px 12px;
             border-radius: 10px;
             font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.84rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 7px;
             box-shadow: 0 2px 5px rgba(15, 23, 42, 0.04);
         }
         .filter-btn i {
             color: var(--accent-gold);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             transition: color 0.2s ease;
         }
         .filter-btn:hover {
@@ -360,13 +427,14 @@
         .dept-group-block {
             background: var(--surface-white);
             border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 26px;
+            padding: 22px;
+            margin-bottom: 24px;
             box-shadow: 0 6px 20px rgba(15, 23, 42, 0.035);
             border: 1px solid var(--border-color);
+            box-sizing: border-box;
         }
         .dept-header-title {
-            font-size: 1.15rem;
+            font-size: 1.12rem;
             color: var(--primary-navy);
             margin: 0 0 18px 0;
             font-weight: 700;
@@ -374,7 +442,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 10px 16px;
+            padding: 10px 14px;
             background: linear-gradient(90deg, #f8fafc 0%, #ffffff 100%);
             border: 1px solid #e2e8f0;
             border-left: 4px solid var(--accent-gold);
@@ -382,17 +450,18 @@
         }
         .dept-header-title i {
             color: var(--accent-gold);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             background: rgba(201, 147, 59, 0.14);
             padding: 7px;
             border-radius: 7px;
+            flex-shrink: 0;
         }
 
         /* Sleek Course Grid */
         .whatsapp-grid-3col {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+            gap: 18px;
         }
 
         /* Sleek Course Cards */
@@ -531,6 +600,7 @@
             padding: 10px 16px;
             border-radius: 10px;
             text-decoration: none;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             font-size: 0.86rem;
             font-weight: 700;
             letter-spacing: 0.01em;
@@ -571,7 +641,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             margin-bottom: 14px;
             flex-wrap: wrap;
         }
@@ -610,59 +680,137 @@
             backdrop-filter: blur(6px);
             align-items: center;
             justify-content: center;
+            padding: 16px;
+            box-sizing: border-box;
         }
         .modal-content {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 92%;
+            max-height: 88%;
             border-radius: 12px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
         .modal-close {
             position: absolute;
-            top: 20px;
-            right: 30px;
+            top: 16px;
+            right: 24px;
             color: #ffffff;
-            font-size: 38px;
+            font-size: 36px;
             font-weight: bold;
             cursor: pointer;
+            line-height: 1;
             transition: transform 0.2s ease;
         }
         .modal-close:hover {
             transform: scale(1.15);
         }
 
+        /* Mobile & Tablet Optimization */
         @media screen and (max-width: 900px) {
             header {
                 position: fixed;
-                background: rgba(5, 15, 30, 0.94) !important;
-                backdrop-filter: blur(8px);
+                background: rgba(16, 28, 44, 0.96) !important;
+                backdrop-filter: blur(10px);
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: space-between;
-                padding: 10px 15px !important;
-            }
-            header nav {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
+                align-items: center;
+                padding: 10px 12px !important;
                 gap: 8px;
             }
-            header nav a, .dropdown-btn {
-                font-size: 0.8rem;
-                padding: 3px 6px;
+            .site-logo {
+                width: 34px;
+                height: 34px;
+            }
+            .logo-text {
+                font-size: 0.95rem;
             }
             .header-socials {
                 display: flex;
                 gap: 8px;
+                font-size: 0.9rem;
+            }
+            header nav {
+                width: 100%;
+                order: 3;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 6px 10px;
+                padding-top: 6px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            header nav a, .dropdown-btn {
+                font-size: 0.78rem;
+                padding: 3px 6px;
+            }
+            .student-login-link {
+                padding: 4px 10px !important;
+                font-size: 0.76rem !important;
+            }
+            .dropdown-content {
+                min-width: 155px;
+            }
+            .dropdown-content a {
+                font-size: 0.8rem;
+                padding: 7px 12px;
             }
             .enroll-hero {
-                padding: 125px 16px 38px 16px;
+                padding: 138px 14px 34px 14px;
+            }
+            .enroll-hero-kicker {
+                font-size: 0.68rem;
+                padding: 4px 12px;
             }
             .enroll-hero h1 {
-                font-size: 1.6rem;
+                font-size: 1.48rem;
+            }
+            .enroll-hero p {
+                font-size: 0.88rem;
+                line-height: 1.55;
+            }
+            .enroll-main-container {
+                margin: 18px auto;
+                padding: 0 12px 44px 12px;
+            }
+            .filter-tabs {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 7px;
+                padding: 8px;
+                margin-bottom: 18px;
+            }
+            .filter-btn {
+                flex: none;
+                min-width: 0;
+                width: 100%;
+                padding: 9px 8px;
+                font-size: 0.78rem;
+                gap: 6px;
             }
             .dept-group-block {
-                padding: 18px;
+                padding: 14px;
+                border-radius: 14px;
+                margin-bottom: 18px;
+            }
+            .dept-header-title {
+                font-size: 0.98rem;
+                padding: 9px 12px;
+                margin-bottom: 14px;
+                gap: 8px;
+            }
+            .whatsapp-grid-3col {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .card-body {
+                padding: 14px 15px 16px 15px;
+            }
+            .card-body h4 {
+                font-size: 0.95rem;
+            }
+            .card-body p {
+                font-size: 0.82rem;
             }
         }
     </style>
@@ -675,13 +823,13 @@
             <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
             <span class="logo-text">Az-Zikr International</span>
         </div>
-        <nav style="display: flex; align-items: center; gap: 20px;">
+        <nav>
             <a href="index.html">Home</a>
             <a href="courses.html">Courses</a>
             
             <!-- E-Library Dropdown Menu -->
             <div class="dropdown">
-                <button class="dropdown-btn">E-Library <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
+                <button type="button" class="dropdown-btn" onclick="toggleDropdown(this, event)">E-Library <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
                 <div class="dropdown-content">
                     <a href="elibrary.html">Books</a>
                     <a href="dua.html">Dua</a>
@@ -694,22 +842,20 @@
             
             <!-- More Dropdown Menu -->
             <div class="dropdown">
-                <button class="dropdown-btn">More <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
+                <button type="button" class="dropdown-btn" onclick="toggleDropdown(this, event)">More <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i></button>
                 <div class="dropdown-content">
                     <a href="about.html">About Us</a>
                     <a href="faq.html">FAQ</a>
                 </div>
             </div>
 
-            <a href="login.html" style="background: #1a365d; color: white !important; border-radius: 4px; padding: 6px 12px; text-shadow: none; border: 1px solid #f3c669;">Student Login</a>
+            <a href="login.html" class="student-login-link">Student Login</a>
         </nav>
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <div class="header-socials">
-                <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" title="WhatsApp Channel" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" title="Facebook Page" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/azzikr_international/" target="_blank" title="Instagram" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" title="YouTube Channel" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
-            </div>
+        <div class="header-socials">
+            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" title="WhatsApp Channel" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" title="Facebook Page" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/azzikr_international/" target="_blank" title="Instagram" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" title="YouTube Channel" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
         </div>
     </header>
 
@@ -723,12 +869,12 @@
 
         <!-- Department Filter Navigation Bar -->
         <div class="filter-tabs">
-            <button class="filter-btn active" onclick="filterDepartment('all', this)"><i class="fa-solid fa-border-all"></i> All Departments</button>
-            <button class="filter-btn" onclick="filterDepartment('tajweed', this)"><i class="fa-solid fa-book-quran"></i> Tajweed Dept</button>
-            <button class="filter-btn" onclick="filterDepartment('arabic', this)"><i class="fa-solid fa-language"></i> Arabic Dept</button>
-            <button class="filter-btn" onclick="filterDepartment('english', this)"><i class="fa-solid fa-globe"></i> English Dept</button>
-            <button class="filter-btn" onclick="filterDepartment('hifz', this)"><i class="fa-solid fa-award"></i> Hifz Dept</button>
-            <button class="filter-btn" onclick="filterDepartment('kids', this)"><i class="fa-solid fa-child"></i> Kids Tarbiyah</button>
+            <button type="button" class="filter-btn active" onclick="filterDepartment('all', this)"><i class="fa-solid fa-border-all"></i> All Departments</button>
+            <button type="button" class="filter-btn" onclick="filterDepartment('tajweed', this)"><i class="fa-solid fa-book-quran"></i> Tajweed Dept</button>
+            <button type="button" class="filter-btn" onclick="filterDepartment('arabic', this)"><i class="fa-solid fa-language"></i> Arabic Dept</button>
+            <button type="button" class="filter-btn" onclick="filterDepartment('english', this)"><i class="fa-solid fa-globe"></i> English Dept</button>
+            <button type="button" class="filter-btn" onclick="filterDepartment('hifz', this)"><i class="fa-solid fa-award"></i> Hifz Dept</button>
+            <button type="button" class="filter-btn" onclick="filterDepartment('kids', this)"><i class="fa-solid fa-child"></i> Kids Tarbiyah</button>
         </div>
 
         <!-- 1. TAJWEED DEPARTMENT GROUP -->
@@ -991,6 +1137,26 @@
     </footer>
 
     <script>
+        function toggleDropdown(buttonElement, event) {
+            event.stopPropagation();
+            const parentDropdown = buttonElement.closest('.dropdown');
+            const isOpen = parentDropdown.classList.contains('open');
+
+            document.querySelectorAll('.dropdown.open').forEach(drop => {
+                drop.classList.remove('open');
+            });
+
+            if (!isOpen) {
+                parentDropdown.classList.add('open');
+            }
+        }
+
+        document.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown.open').forEach(drop => {
+                drop.classList.remove('open');
+            });
+        });
+
         function filterDepartment(dept, btnElement) {
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
