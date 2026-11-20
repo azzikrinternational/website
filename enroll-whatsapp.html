@@ -214,7 +214,7 @@
         nav {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 14px;
             flex-wrap: wrap;
         }
         nav a {
@@ -388,7 +388,7 @@
         .flyer-img-container {
             position: relative;
             cursor: pointer;
-            background: var(--primary-dark);
+            background: #eef2f7;
             aspect-ratio: 4/3;
             overflow: hidden;
         }
@@ -396,11 +396,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
             transition: transform 0.35s ease, opacity 0.3s ease;
         }
         .flyer-img-container:hover img {
             transform: scale(1.05);
-            opacity: 0.94;
+            opacity: 0.95;
         }
 
         .click-zoom-badge {
@@ -417,6 +418,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            z-index: 2;
             transition: background 0.2s ease, color 0.2s ease;
         }
         .flyer-img-container:hover .click-zoom-badge {
@@ -436,6 +438,7 @@
             border-radius: 20px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            z-index: 2;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
         }
 
@@ -465,7 +468,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
         .icon-tag {
             font-size: 0.72rem;
@@ -482,26 +485,39 @@
             color: #2e7d32;
         }
 
+        /* Upgraded Enroll Now Button */
         .action-enroll-btn {
-            background: var(--wa-green);
+            background: linear-gradient(135deg, #25c261 0%, #179848 100%);
             color: #ffffff;
             text-align: center;
-            padding: 11px 16px;
-            border-radius: 10px;
+            padding: 12px 18px;
+            border-radius: 12px;
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 700;
+            font-size: 0.92rem;
+            font-weight: 800;
+            letter-spacing: 0.01em;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            transition: all 0.22s ease;
-            box-shadow: 0 4px 12px rgba(34, 181, 90, 0.22);
+            gap: 9px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 16px rgba(23, 152, 72, 0.28);
         }
         .action-enroll-btn:hover {
-            background: var(--wa-hover);
+            background: linear-gradient(135deg, #2bd46b 0%, #1baa51 100%);
             transform: translateY(-2px);
-            box-shadow: 0 7px 16px rgba(34, 181, 90, 0.32);
+            box-shadow: 0 10px 22px rgba(23, 152, 72, 0.38);
+        }
+        .action-enroll-btn:active {
+            transform: translateY(0);
+        }
+        .action-enroll-btn i {
+            font-size: 0.95rem;
+            transition: transform 0.25s ease;
+        }
+        .action-enroll-btn:hover i {
+            transform: translateX(2px);
         }
 
         /* Footer */
@@ -580,7 +596,7 @@
             header {
                 flex-direction: column;
                 gap: 12px;
-                padding: 12px 12px;
+                padding: 12px 10px;
             }
             nav {
                 justify-content: center;
@@ -606,7 +622,7 @@
 
     <header>
         <div class="logo-container">
-            <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
+            <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="eager">
             <span class="logo-text">Az-Zikr International</span>
         </div>
         <nav>
@@ -652,7 +668,7 @@
 
                 <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20260827-WA0368.jpg')">
-                        <img src="IMG-20260827-WA0368.jpg" alt="Tarteel-Ul-Qur'an WhatsApp Course Flyer" loading="lazy">
+                        <img src="IMG-20260827-WA0368.jpg" alt="Tarteel-Ul-Qur'an WhatsApp Course Flyer" loading="eager">
                         <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
                     </div>
@@ -665,13 +681,13 @@
                                 <span class="icon-tag"><i class="fa-solid fa-user-check"></i> Direct Feedback</span>
                             </div>
                         </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Tarteel-Ul-Qur'an." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Tarteel-Ul-Qur'an." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
                     </div>
                 </div>
 
                 <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261015-WA0025.jpg')">
-                        <img src="IMG-20261015-WA0025.jpg" alt="Tajweed Course Basic to Intermediate Flyer" loading="lazy">
+                        <img src="IMG-20261015-WA0025.jpg" alt="Tajweed Course Basic to Intermediate Flyer" loading="eager">
                         <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
                     </div>
@@ -684,7 +700,7 @@
                                 <span class="icon-tag"><i class="fa-solid fa-calendar-days"></i> Oct 25, 2026</span>
                             </div>
                         </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20Tajweed%20Course%20(Basic%20to%20Intermediate)." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20Tajweed%20Course%20(Basic%20to%20Intermediate)." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
                     </div>
                 </div>
 
@@ -700,7 +716,7 @@
 
                 <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261015-WA0004.jpg')">
-                        <img src="IMG-20261015-WA0004.jpg" alt="Advance Arabic Grammar Course Batch 06 Flyer" loading="lazy">
+                        <img src="IMG-20261015-WA0004.jpg" alt="Advance Arabic Grammar Course Batch 06 Flyer" loading="eager">
                         <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
                     </div>
@@ -713,13 +729,13 @@
                                 <span class="icon-tag"><i class="fa-solid fa-clock"></i> Jan 2027</span>
                             </div>
                         </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Advance%20Arabic%20Grammar%20Course%20Batch%2006." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Advance%20Arabic%20Grammar%20Course%20Batch%2006." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
                     </div>
                 </div>
 
                 <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261018-WA0175.jpg')">
-                        <img src="IMG-20261018-WA0175.jpg" alt="Asaan Arbi Grammar Batch 09 Flyer" loading="lazy">
+                        <img src="IMG-20261018-WA0175.jpg" alt="Asaan Arbi Grammar Batch 09 Flyer" loading="eager">
                         <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
                     </div>
@@ -732,13 +748,13 @@
                                 <span class="icon-tag"><i class="fa-solid fa-certificate"></i> Certification</span>
                             </div>
                         </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Asaan%20Arbi%20Grammar%20Batch%2009." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Asaan%20Arbi%20Grammar%20Batch%2009." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
                     </div>
                 </div>
 
                 <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261018-WA0193.jpg')">
-                        <img src="IMG-20261018-WA0193.jpg" alt="Professional Diploma Level 1 Basic Grammar Flyer" loading="lazy">
+                        <img src="IMG-20261018-WA0193.jpg" alt="Professional Diploma Level 1 Basic Grammar Flyer" loading="eager">
                         <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
                     </div>
@@ -751,7 +767,7 @@
                                 <span class="icon-tag"><i class="fa-solid fa-file-pdf"></i> Materials Provided</span>
                             </div>
                         </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Professional%20Diploma%20Level%201%20Basic%20Grammar%20Batch%2009." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Professional%20Diploma%20Level%201%20Basic%20Grammar%20Batch%2009." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
                     </div>
                 </div>
 
@@ -767,7 +783,7 @@
 
                 <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20260924-WA0129.jpg')">
-                        <img src="IMG-20260924-WA0129.jpg" alt="Quran Arabic for English Speakers Flyer" loading="lazy">
+                        <img src="IMG-20260924-WA0129.jpg" alt="Quran Arabic for English Speakers Flyer" loading="eager">
                         <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
                     </div>
@@ -780,13 +796,13 @@
                                 <span class="icon-tag"><i class="fa-solid fa-book-open"></i> Quran Understanding</span>
                             </div>
                         </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20English%20Department%20course." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20English%20Department%20course." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
                     </div>
                 </div>
 
                 <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261015-WA0002.jpg')">
-                        <img src="IMG-20261015-WA0002.jpg" alt="Basic Arabic Grammar Course Batch 05 Flyer" loading="lazy">
+                        <img src="IMG-20261015-WA0002.jpg" alt="Basic Arabic Grammar Course Batch 05 Flyer" loading="eager">
                         <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
                     </div>
@@ -799,7 +815,7 @@
                                 <span class="icon-tag"><i class="fa-solid fa-calendar-days"></i> Jan 2027</span>
                             </div>
                         </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Basic%20Arabic%20Grammar%20Course%20Batch%2005." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Basic%20Arabic%20Grammar%20Course%20Batch%2005." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
                     </div>
                 </div>
 
@@ -815,7 +831,7 @@
 
                 <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261010-WA0230.jpg')">
-                        <img src="IMG-20261010-WA0230.jpg" alt="Hifz 30th Para Batch 03 Flyer" loading="lazy">
+                        <img src="IMG-20261010-WA0230.jpg" alt="Hifz 30th Para Batch 03 Flyer" loading="eager">
                         <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
                     </div>
@@ -828,13 +844,13 @@
                                 <span class="icon-tag"><i class="fa-solid fa-language"></i> With Translation</span>
                             </div>
                         </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Hifz%2030th%20Para%20Batch%2003." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Hifz%2030th%20Para%20Batch%2003." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
                     </div>
                 </div>
 
                 <div class="modern-course-card">
                     <div class="flyer-img-container" onclick="openFlyer('IMG-20261010-WA0231.jpg')">
-                        <img src="IMG-20261010-WA0231.jpg" alt="Hifz Suratul Kahf Batch 04 Flyer" loading="lazy">
+                        <img src="IMG-20261010-WA0231.jpg" alt="Hifz Suratul Kahf Batch 04 Flyer" loading="eager">
                         <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
                     </div>
@@ -847,7 +863,7 @@
                                 <span class="icon-tag"><i class="fa-solid fa-calendar-days"></i> Oct 29, 2026</span>
                             </div>
                         </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Hifz%20Suratul%20Kahf%20Batch%2004." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Hifz%20Suratul%20Kahf%20Batch%2004." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
                     </div>
                 </div>
 
@@ -862,8 +878,8 @@
             <div class="whatsapp-grid-3col">
 
                 <div class="modern-course-card">
-                    <div class="flyer-img-container" onclick="openFlyer('BIS.png')">
-                        <img src="IMG-20260924-WA0130.jpg" alt="Qasas ul Anbiyaa and Basic Islamic History Flyer" loading="lazy">
+                    <div class="flyer-img-container" onclick="openFlyer('IMG-20260924-WA0130.jpg')">
+                        <img src="IMG-20260924-WA0130.jpg" alt="Qasas ul Anbiyaa and Basic Islamic History Flyer" loading="eager">
                         <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         <div class="status-pill">Open</div>
                     </div>
@@ -876,7 +892,7 @@
                                 <span class="icon-tag"><i class="fa-solid fa-book-open"></i> Qasas ul Anbiyaa</span>
                             </div>
                         </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Qasas%20ul%20Anbiyaa%20(Kids%20Tarbiyah)." target="_blank" class="action-enroll-btn"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
+                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Qasas%20ul%20Anbiyaa%20(Kids%20Tarbiyah)." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
                     </div>
                 </div>
 
