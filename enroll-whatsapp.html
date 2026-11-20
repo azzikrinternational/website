@@ -185,701 +185,100 @@
             background: linear-gradient(rgba(11, 22, 40, 0.88), rgba(11, 22, 40, 0.94)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
             color: #ffffff;
             text-align: center;
-            padding: 64px 20px 58px 20px;
+            padding: 52px 20px 48px 20px;
             border-bottom: 3px solid var(--accent-gold);
         }
         .hero-verse {
             font-family: 'Amiri', serif;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--accent-gold);
-            margin: 0 0 12px 0;
+            margin: 0 0 10px 0;
             direction: rtl;
         }
         .enroll-hero h1 {
-            font-size: 2.25rem;
-            margin: 0 auto 14px auto;
+            font-size: 2rem;
+            margin: 0 auto 12px auto;
             font-weight: 800;
             letter-spacing: -0.025em;
-            line-height: 1.2;
-            max-width: 820px;
+            line-height: 1.22;
+            max-width: 800px;
             color: #ffffff;
         }
         .enroll-hero p {
-            font-size: 1.05rem;
+            font-size: 0.98rem;
             color: #dbe4f0;
-            max-width: 740px;
+            max-width: 720px;
             margin: 0 auto;
-            line-height: 1.65;
+            line-height: 1.6;
             font-weight: 400;
         }
 
         .enroll-main-container {
-            max-width: 1240px;
-            margin: 36px auto;
-            padding: 0 20px 64px 20px;
+            max-width: 1220px;
+            margin: 28px auto;
+            padding: 0 20px 56px 20px;
         }
 
         /* Filter Tabs */
         .filter-tabs {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 32px;
+            gap: 8px;
+            margin-bottom: 24px;
         }
         .filter-btn {
-            flex: 1 1 165px;
-            min-width: 145px;
+            flex: 1 1 150px;
+            min-width: 135px;
             text-align: center;
             background: var(--surface-white);
             color: var(--text-muted);
             border: 1px solid var(--border-color);
-            padding: 11px 16px;
-            border-radius: 12px;
+            padding: 9px 14px;
+            border-radius: 10px;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.22s ease;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+            gap: 7px;
+            box-shadow: 0 2px 5px rgba(15, 23, 42, 0.02);
         }
         .filter-btn:hover {
             border-color: var(--primary-navy);
             color: var(--primary-navy);
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
         .filter-btn.active {
             background: var(--primary-navy);
             color: #ffffff;
             border-color: var(--primary-navy);
-            box-shadow: 0 6px 16px rgba(20, 40, 75, 0.22);
+            box-shadow: 0 5px 14px rgba(20, 40, 75, 0.2);
         }
 
         /* Department Section Wrappers */
         .dept-group-block {
             background: var(--surface-white);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 34px;
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 26px;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.035);
             border: 1px solid var(--border-color);
         }
         .dept-header-title {
-            font-size: 1.28rem;
+            font-size: 1.15rem;
             color: var(--primary-navy);
-            margin: 0 0 24px 0;
+            margin: 0 0 18px 0;
             font-weight: 800;
             letter-spacing: -0.015em;
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 13px 18px;
+            gap: 10px;
+            padding: 10px 16px;
             background: linear-gradient(90deg, #f8fafc 0%, #ffffff 100%);
             border: 1px solid #e2e8f0;
-            border-left: 5px solid var(--accent-gold);
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(20, 40, 75, 0.04);
-        }
-        .dept-header-title i {
-            color: var(--accent-gold);
-            font-size: 1.3rem;
-            background: rgba(201, 147, 59, 0.14);
-            padding: 8px;
-            border-radius: 8px;
-        }
-
-        /* Course Grid */
-        .whatsapp-grid-3col {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-            gap: 24px;
-        }
-
-        /* Course Cards */
-        .modern-course-card {
-            background: var(--surface-white);
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
-        }
-        .modern-course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.09);
-            border-color: #cbd5e1;
-        }
-
-        .flyer-img-container {
-            position: relative;
-            cursor: pointer;
-            background: #eef2f7;
-            aspect-ratio: 4/3;
-            overflow: hidden;
-        }
-        .flyer-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.35s ease, opacity 0.3s ease;
-        }
-        .flyer-img-container:hover img {
-            transform: scale(1.05);
-            opacity: 0.95;
-        }
-
-        .click-zoom-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: rgba(11, 22, 40, 0.84);
-            backdrop-filter: blur(4px);
-            color: #ffffff;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 5px 10px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            z-index: 2;
-            transition: background 0.2s ease, color 0.2s ease;
-        }
-        .flyer-img-container:hover .click-zoom-badge {
-            background: var(--accent-gold);
-            color: var(--primary-dark);
-        }
-
-        .status-pill {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(34, 181, 90, 0.95);
-            color: #ffffff;
-            font-size: 0.68rem;
-            font-weight: 800;
-            padding: 4px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            z-index: 2;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
-        }
-
-        .card-body {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            justify-content: space-between;
-        }
-        .card-body h4 {
-            margin: 0 0 8px 0;
-            color: var(--primary-navy);
-            font-size: 1.06rem;
-            font-weight: 800;
-            line-height: 1.35;
-            letter-spacing: -0.01em;
-        }
-        .card-body p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            margin: 0 0 14px 0;
-            line-height: 1.55;
-        }
-
-        .feature-icon-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 18px;
-        }
-        .icon-tag {
-            font-size: 0.72rem;
-            font-weight: 700;
-            background: #f1f5f9;
-            color: #334155;
-            padding: 5px 9px;
-            border-radius: 6px;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .icon-tag i {
-            color: #2e7d32;
-        }
-
-        /* Upgraded Enroll Now Button */
-        .action-enroll-btn {
-            background: linear-gradient(135deg, #25c261 0%, #179848 100%);
-            color: #ffffff;
-            text-align: center;
-            padding: 12px 18px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 800;
-            letter-spacing: 0.01em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 9px;
-            border: 1px solid rgba(255, 255, 255, 0.22);
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 6px 16px rgba(23, 152, 72, 0.28);
-        }
-        .action-enroll-btn:hover {
-            background: linear-gradient(135deg, #2bd46b 0%, #1baa51 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 22px rgba(23, 152, 72, 0.38);
-        }
-        .action-enroll-btn:active {
-            transform: translateY(0);
-        }
-        .action-enroll-btn i {
-            font-size: 0.95rem;
-            transition: transform 0.25s ease;
-        }
-        .action-enroll-btn:hover i {
-            transform: translateX(2px);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-navy);
-            color: #cbd5e1;
-            text-align: center;
-            padding: 34px 20px;
-            margin-top: 40px;
-            border-top: 3px solid var(--accent-gold);
-        }
-        .footer-socials {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-        }
-        .footer-social-title {
-            font-weight: 700;
-            color: #ffffff;
-        }
-        .footer-btn {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.1);
-            transition: background 0.2s ease;
-        }
-        .footer-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Lightbox Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(11, 22, 40, 0.92);
-            backdrop-filter: blur(6px);
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 12px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-        }
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #ffffff;
-            font-size: 38px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-        .modal-close:hover {
-            transform: scale(1.15);
-        }
-
-        @media screen and (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 12px;
-                padding: 12px 10px !important;
-            }
-            header nav {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 8px;
-            }
-            header nav a {
-                font-size: 0.85rem;
-                padding: 4px 8px;
-            }
-            .enroll-hero {
-                padding: 46px 16px 42px 16px;
-            }
-            .enroll-hero h1 {
-                font-size: 1.65rem;
-            }
-            .dept-group-block {
-                padding: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo-container">
-            <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
-            <span class="logo-text">Az-Zikr International</span>
-        </div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="courses.html">Courses</a>
-            <a href="faq.html">FAQ</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="login.html" style="background: #2e7d32; color: white; border-radius: 4px;">Student Login</a>
-        </nav>
-        <div class="header-socials">
-            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" title="WhatsApp Channel" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" title="Facebook Page" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/azzikr_international/" target="_blank" title="Instagram" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" title="YouTube Channel" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
-        </div>
-    </header>
-
-    <section class="enroll-hero">
-        <p class="hero-verse">وَلَقَدۡ يَسَّرۡنَا الۡقُرۡاٰنَ لِلذِّكۡرِ فَهَلۡ مِنۡ مُّدَّكِرٍ</p>
-        <h1>Interactive WhatsApp Study Cohorts for Women</h1>
-        <p>Az-Zikr International is a free online Islamic institute serving exclusively women. We offer authentic, structured Quranic and Islamic studies for students worldwide across active WhatsApp study groups.</p>
-    </section>
-
-    <main class="enroll-main-container">
-
-        <!-- Department Filter Navigation Bar -->
-        <div class="filter-tabs">
-            <button class="filter-btn active" onclick="filterDepartment('all', this)"><i class="fa-solid fa-border-all"></i> All Departments</button>
-            <button class="filter-btn" onclick="filterDepartment('tajweed', this)"><i class="fa-solid fa-book-quran"></i> Tajweed Dept</button>
-            <button class="filter-btn" onclick="filterDepartment('arabic', this)"><i class="fa-solid fa-language"></i> Arabic Dept</button>
-            <button class="filter-btn" onclick="filterDepartment('english', this)"><i class="fa-solid fa-globe"></i> English Dept</button>
-            <button class="filter-btn" onclick="filterDepartment('hifz', this)"><i class="fa-solid fa-award"></i> Hifz Dept</button>
-            <button class="filter-btn" onclick="filterDepartment('kids', this)"><i class="fa-solid fa-child"></i> Kids Tarbiyah</button>
-        </div>
-
-        <!-- 1. TAJWEED DEPARTMENT GROUP -->
-        <div class="dept-group-block" data-dept-group="tajweed">
-            <div class="dept-header-title">
-                <i class="fa-solid fa-book-quran"></i> Tajweed, Tarteel &amp; Nazrah Department
-            </div>
-            <div class="whatsapp-grid-3col">
-
-                <div class="modern-course-card">
-                    <div class="flyer-img-container" onclick="openFlyer('IMG-20260827-WA0368.jpg')">
-                        <img src="IMG-20260827-WA0368.jpg" alt="Tarteel-Ul-Qur'an WhatsApp Course Flyer" loading="eager">
-                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
-                        <div class="status-pill">Open</div>
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h4>Tarteel-Ul-Qur'an</h4>
-                            <p>Refine your Qur'an recitation with proper phonetics and structured Tajweed guidance.</p>
-                            <div class="feature-icon-tags">
-                                <span class="icon-tag"><i class="fa-solid fa-circle-play"></i> Live Sessions</span>
-                                <span class="icon-tag"><i class="fa-solid fa-user-check"></i> Direct Feedback</span>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Tarteel-Ul-Qur'an." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
-                    </div>
-                </div>
-
-                <div class="modern-course-card">
-                    <div class="flyer-img-container" onclick="openFlyer('IMG-20261015-WA0025.jpg')">
-                        <img src="IMG-20261015-WA0025.jpg" alt="Tajweed Course Basic to Intermediate Flyer" loading="eager">
-                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
-                        <div class="status-pill">Open</div>
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h4>Tajweed Course (Basic to Intermediate)</h4>
-                            <p>Live online classes via Zoom and WhatsApp for women, starting 25 October 2026.</p>
-                            <div class="feature-icon-tags">
-                                <span class="icon-tag"><i class="fa-solid fa-video"></i> Zoom Classes</span>
-                                <span class="icon-tag"><i class="fa-solid fa-calendar-days"></i> Oct 25, 2026</span>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20Tajweed%20Course%20(Basic%20to%20Intermediate)." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- 2. ARABIC DEPARTMENT GROUP -->
-        <div class="dept-group-block" data-dept-group="arabic">
-            <div class="dept-header-title">
-                <i class="fa-solid fa-language"></i> Qur'anic Arabic Language Department
-            </div>
-            <div class="whatsapp-grid-3col">
-
-                <div class="modern-course-card">
-                    <div class="flyer-img-container" onclick="openFlyer('IMG-20261015-WA0004.jpg')">
-                        <img src="IMG-20261015-WA0004.jpg" alt="Advance Arabic Grammar Course Batch 06 Flyer" loading="eager">
-                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
-                        <div class="status-pill">Open</div>
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h4>Advance Arabic Grammar (Batch 06)</h4>
-                            <p>Tarkeeb and grammatical analysis course (Medium: Urdu), starting January 2027.</p>
-                            <div class="feature-icon-tags">
-                                <span class="icon-tag"><i class="fa-solid fa-graduation-cap"></i> Advance Level</span>
-                                <span class="icon-tag"><i class="fa-solid fa-clock"></i> Jan 2027</span>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Advance%20Arabic%20Grammar%20Course%20Batch%2006." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
-                    </div>
-                </div>
-
-                <div class="modern-course-card">
-                    <div class="flyer-img-container" onclick="openFlyer('IMG-20261018-WA0175.jpg')">
-                        <img src="IMG-20261018-WA0175.jpg" alt="Asaan Arbi Grammar Batch 09 Flyer" loading="eager">
-                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
-                        <div class="status-pill">Open</div>
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h4>Asaan Arbi Grammar (Batch 09)</h4>
-                            <p>Lisan-ul-Quran Asaan Arbi Grammar for women by Sir Amir Sohail (Females Only), starting January 2027.</p>
-                            <div class="feature-icon-tags">
-                                <span class="icon-tag"><i class="fa-solid fa-venus"></i> Females Only</span>
-                                <span class="icon-tag"><i class="fa-solid fa-certificate"></i> Certification</span>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Asaan%20Arbi%20Grammar%20Batch%2009." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
-                    </div>
-                </div>
-
-                <div class="modern-course-card">
-                    <div class="flyer-img-container" onclick="openFlyer('IMG-20261018-WA0193.jpg')">
-                        <img src="IMG-20261018-WA0193.jpg" alt="Professional Diploma Level 1 Basic Grammar Flyer" loading="eager">
-                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
-                        <div class="status-pill">Open</div>
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h4>Professional Diploma - Level 1 (Batch 09)</h4>
-                            <p>Foundational Quranic Arabic grammar based on Lisan-ul-Quran (2024 Methodology), starting January 2027.</p>
-                            <div class="feature-icon-tags">
-                                <span class="icon-tag"><i class="fa-solid fa-award"></i> Diploma Level 1</span>
-                                <span class="icon-tag"><i class="fa-solid fa-file-pdf"></i> Materials Provided</span>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Professional%20Diploma%20Level%201%20Basic%20Grammar%20Batch%2009." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- 3. ENGLISH DEPARTMENT GROUP -->
-        <div class="dept-group-block" data-dept-group="english">
-            <div class="dept-header-title">
-                <i class="fa-solid fa-globe"></i> Lisan ul Quran in English Department
-            </div>
-            <div class="whatsapp-grid-3col">
-
-                <div class="modern-course-card">
-                    <div class="flyer-img-container" onclick="openFlyer('IMG-20260924-WA0129.jpg')">
-                        <img src="IMG-20260924-WA0129.jpg" alt="Quran Arabic for English Speakers Flyer" loading="eager">
-                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
-                        <div class="status-pill">Open</div>
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h4>Quran Arabic for English Speakers</h4>
-                            <p>Quranic Arabic comprehension and grammar tailored for English-speaking students worldwide.</p>
-                            <div class="feature-icon-tags">
-                                <span class="icon-tag"><i class="fa-solid fa-language"></i> English Medium</span>
-                                <span class="icon-tag"><i class="fa-solid fa-book-open"></i> Quran Understanding</span>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20the%20English%20Department%20course." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
-                    </div>
-                </div>
-
-                <div class="modern-course-card">
-                    <div class="flyer-img-container" onclick="openFlyer('IMG-20261015-WA0002.jpg')">
-                        <img src="IMG-20261015-WA0002.jpg" alt="Basic Arabic Grammar Course Batch 05 Flyer" loading="eager">
-                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
-                        <div class="status-pill">Open</div>
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h4>Basic Arabic Grammar (Batch 05)</h4>
-                            <p>Lisan-ul-Quran in English with structured lessons, starting in January 2027.</p>
-                            <div class="feature-icon-tags">
-                                <span class="icon-tag"><i class="fa-solid fa-globe"></i> English Medium</span>
-                                <span class="icon-tag"><i class="fa-solid fa-calendar-days"></i> Jan 2027</span>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Basic%20Arabic%20Grammar%20Course%20Batch%2005." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- 4. HIFZ DEPARTMENT GROUP -->
-        <div class="dept-group-block" data-dept-group="hifz">
-            <div class="dept-header-title">
-                <i class="fa-solid fa-award"></i> Hifz-ul-Quran Department
-            </div>
-            <div class="whatsapp-grid-3col">
-
-                <div class="modern-course-card">
-                    <div class="flyer-img-container" onclick="openFlyer('IMG-20261010-WA0230.jpg')">
-                        <img src="IMG-20261010-WA0230.jpg" alt="Hifz 30th Para Batch 03 Flyer" loading="eager">
-                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
-                        <div class="status-pill">Open</div>
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h4>Hifz 30th Para (Batch 03)</h4>
-                            <p>Structured memorization of the 30th Para with translation for women, starting Oct 28, 2026.</p>
-                            <div class="feature-icon-tags">
-                                <span class="icon-tag"><i class="fa-solid fa-brain"></i> Memorization</span>
-                                <span class="icon-tag"><i class="fa-solid fa-language"></i> With Translation</span>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Hifz%2030th%20Para%20Batch%2003." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
-                    </div>
-                </div>
-
-                <div class="modern-course-card">
-                    <div class="flyer-img-container" onclick="openFlyer('IMG-20261010-WA0231.jpg')">
-                        <img src="IMG-20261010-WA0231.jpg" alt="Hifz Suratul Kahf Batch 04 Flyer" loading="eager">
-                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
-                        <div class="status-pill">Open</div>
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h4>Hifz Suratul Kahf (Batch 04)</h4>
-                            <p>Structured memorization of Suratul Kahf with translation for women, starting Oct 29, 2026.</p>
-                            <div class="feature-icon-tags">
-                                <span class="icon-tag"><i class="fa-solid fa-book-quran"></i> Suratul Kahf</span>
-                                <span class="icon-tag"><i class="fa-solid fa-calendar-days"></i> Oct 29, 2026</span>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Hifz%20Suratul%20Kahf%20Batch%2004." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- 5. KIDS TARBIYAH DEPARTMENT GROUP -->
-        <div class="dept-group-block" data-dept-group="kids">
-            <div class="dept-header-title">
-                <i class="fa-solid fa-child"></i> Kids Tarbiyah Department
-            </div>
-            <div class="whatsapp-grid-3col">
-
-                <div class="modern-course-card">
-                    <div class="flyer-img-container" onclick="openFlyer('BIS.png')">
-                        <img src="BIS.png" alt="Qasas ul Anbiyaa and Basic Islamic History Flyer" loading="eager">
-                        <div class="click-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
-                        <div class="status-pill">Open</div>
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            <h4>Qasas ul Anbiyaa &amp; Basic Islamic History</h4>
-                            <p>Engaging prophetic stories (Qasas ul Anbiyaa) and core Islamic values for young learners ages 8-16.</p>
-                            <div class="feature-icon-tags">
-                                <span class="icon-tag"><i class="fa-solid fa-child"></i> Ages 8-16</span>
-                                <span class="icon-tag"><i class="fa-solid fa-book-open"></i> Qasas ul Anbiyaa</span>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/923444892262?text=Assalamu%20Alaikum,%20I%20want%20to%20register%20for%20Qasas%20ul%20Anbiyaa%20(Kids%20Tarbiyah)." target="_blank" class="action-enroll-btn"><i class="fa-brands fa-whatsapp"></i> Enroll Now</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </main>
-
-    <!-- Lightbox Modal for Flyer Zoom -->
-    <div id="flyerModal" class="modal" onclick="closeFlyer()">
-        <span class="modal-close" onclick="closeFlyer()">&times;</span>
-        <img class="modal-content" id="modalFlyerImg" onclick="event.stopPropagation()">
-    </div>
-
-    <footer>
-        <div class="footer-socials">
-            <span class="footer-social-title">Follow &amp; Join Us:</span>
-            <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" class="footer-btn wa-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Channel</a>
-            <a href="https://facebook.com/profile.php?id=61589858578851" target="_blank" class="footer-btn fb-btn"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
-            <a href="https://www.instagram.com/azzikr_international/" target="_blank" class="footer-btn insta-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <a href="https://www.youtube.com/@Az-ZikrInternational" target="_blank" class="footer-btn yt-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
-        </div>
-        <p>&copy; 2026 Az-Zikr International. All Rights Reserved. | <a href="privacy.html" style="color: #C3923E; text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: #C3923E; text-decoration: none;">Terms of Service</a></p>
-    </footer>
-
-    <script>
-        function filterDepartment(dept, btnElement) {
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            if (btnElement) {
-                btnElement.classList.add('active');
-            }
-
-            const blocks = document.querySelectorAll('.dept-group-block');
-            blocks.forEach(block => {
-                if (dept === 'all' || block.getAttribute('data-dept-group') === dept) {
-                    block.style.display = 'block';
-                } else {
-                    block.style.display = 'none';
-                }
-            });
-        }
-
-        function openFlyer(src) {
-            const modal = document.getElementById('flyerModal');
-            const modalImg = document.getElementById('modalFlyerImg');
-            modalImg.src = src;
-            modal.style.display = 'flex';
-        }
-
-        function closeFlyer() {
-            document.getElementById('flyerModal').style.display = 'none';
-        }
-    </script>
-</body>
-</html>
+            border-left: 4px solid var(--accent-gold);
+            border
