@@ -180,81 +180,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Header Matched to index.html */
-        header {
-            background-color: var(--primary-navy);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 30px;
-            box-shadow: 0 4px 14px rgba(11, 22, 40, 0.16);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            gap: 16px;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .site-logo {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent-gold);
-        }
-        .logo-text {
-            color: #ffffff;
-            font-weight: 800;
-            font-size: 1.2rem;
-            letter-spacing: -0.02em;
-        }
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-        nav a {
-            color: #e2e8f0;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.92rem;
-            padding: 6px 10px;
-            transition: all 0.2s ease;
-        }
-        nav a:hover,
-        nav a.active {
-            color: #ffffff;
-            border-bottom: 2px solid var(--accent-gold);
-        }
-        nav a.login-nav-btn {
-            background: #2e7d32;
-            color: #ffffff;
-            border-radius: 4px;
-            border-bottom: none;
-        }
-        nav a.login-nav-btn:hover {
-            background: #256628;
-            border-bottom: none;
-        }
-        .header-socials {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        .social-icon {
-            color: #ffffff;
-            font-size: 1.08rem;
-            transition: transform 0.2s ease, color 0.2s ease;
-        }
-        .social-icon:hover {
-            transform: translateY(-2px);
-            color: var(--accent-gold);
-        }
-
         /* Hero Section */
         .enroll-hero {
             background: linear-gradient(rgba(11, 22, 40, 0.88), rgba(11, 22, 40, 0.94)), url('levi-meir-clancy-tjO2I0KL0ec-unsplash.jpg') no-repeat center center/cover;
@@ -603,13 +528,15 @@
             header {
                 flex-direction: column;
                 gap: 12px;
-                padding: 12px 10px;
+                padding: 12px 10px !important;
             }
-            nav {
+            header nav {
+                display: flex;
+                flex-wrap: wrap;
                 justify-content: center;
                 gap: 8px;
             }
-            nav a {
+            header nav a {
                 font-size: 0.85rem;
                 padding: 4px 8px;
             }
@@ -629,7 +556,7 @@
 
     <header>
         <div class="logo-container">
-            <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="eager">
+            <img src="logo.jpeg" alt="Az-Zikr International Logo" class="site-logo" loading="lazy">
             <span class="logo-text">Az-Zikr International</span>
         </div>
         <nav>
@@ -638,7 +565,7 @@
             <a href="courses.html">Courses</a>
             <a href="faq.html">FAQ</a>
             <a href="contact.html">Contact Us</a>
-            <a href="login.html" class="login-nav-btn">Student Login</a>
+            <a href="login.html" style="background: #2e7d32; color: white; border-radius: 4px;">Student Login</a>
         </nav>
         <div class="header-socials">
             <a href="https://whatsapp.com/channel/0029ValPqOn4dTnRuL2at41q" target="_blank" title="WhatsApp Channel" class="social-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
