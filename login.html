@@ -94,6 +94,37 @@
             cursor: pointer;
             color: #666;
         }
+        .forgot-password-row {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: -10px;
+            margin-bottom: 14px;
+        }
+        .forgot-password-link {
+            color: #2e7d32;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .forgot-password-link:hover {
+            text-decoration: underline;
+            color: #1a2e05;
+        }
+        .auth-status {
+            margin-top: 12px;
+            font-size: 0.88rem;
+            text-align: center;
+            min-height: 18px;
+        }
+        .auth-status.success {
+            color: #2e7d32;
+            font-weight: 600;
+        }
+        .auth-status.error {
+            color: #c62828;
+            font-weight: 600;
+        }
         .btn-submit {
             width: 100%;
             background: #2e7d32;
@@ -105,7 +136,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: background 0.2s;
-            margin-top: 10px;
+            margin-top: 6px;
         }
         .btn-submit:hover {
             background: #1a2e05;
@@ -153,7 +184,12 @@
                 </div>
             </div>
 
+            <div class="forgot-password-row">
+                <a href="#" id="forgotPasswordLink" class="forgot-password-link">Forgot Password?</a>
+            </div>
+
             <button type="submit" id="loginBtn" class="btn-submit">Log In</button>
+            <div id="authStatus" class="auth-status"></div>
         </form>
 
         <div class="auth-footer">
@@ -177,12 +213,52 @@
         // Password visibility toggle feature
         const togglePassword = document.getElementById('togglePassword');
         const passwordInput = document.getElementById('password');
+        const authStatus = document.getElementById('authStatus');
+
+        function setStatus(msg, type = '') {
+            authStatus.textContent = msg;
+            authStatus.className = 'auth-status' + (type ? ' ' + type : '');
+        }
 
         togglePassword.addEventListener('click', function () {
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
             this.classList.toggle('fa-eye');
             this.classList.toggle('fa-eye-slash');
+        });
+
+        // Handle Forgot Password click
+        document.getElementById('forgotPasswordLink').addEventListener('click', async function (e) {
+            e.preventDefault();
+
+            const emailInput = document.getElementById('email');
+            const email = emailInput.value.trim();
+
+            if (!email) {
+                setStatus("Please enter your email address above first.", "error");
+                emailInput.focus();
+                return;
+            }
+
+            setStatus("Sending password reset link...");
+
+            // Replace with your actual deployed URL for reset-password.html
+            const resetRedirectUrl = new URL('reset-password.html', window.location.href).href;
+
+            try {
+                const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+                    redirectTo: resetRedirectUrl
+                });
+
+                if (error) {
+                    setStatus("Could not send reset email: " + error.message, "error");
+                } else {
+                    setStatus("Password reset link sent! Check your inbox (and spam folder).", "success");
+                }
+            } catch (err) {
+                console.error("Unexpected error sending reset email:", err);
+                setStatus("An unexpected error occurred. Please try again.", "error");
+            }
         });
 
         // Handle Login Submission & Profile Security Check
@@ -193,6 +269,7 @@
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value.trim();
 
+            setStatus("");
             submitBtn.disabled = true;
             submitBtn.textContent = "Logging in...";
 
@@ -204,7 +281,7 @@
                 });
 
                 if (authError) {
-                    alert("Login failed: " + authError.message);
+                    setStatus("Login failed: " + authError.message, "error");
                     submitBtn.disabled = false;
                     submitBtn.textContent = "Log In";
                     return;
@@ -236,7 +313,7 @@
 
             } catch (err) {
                 console.error("Unexpected error during login:", err);
-                alert("An unexpected error occurred. Please try again.");
+                setStatus("An unexpected error occurred. Please try again.", "error");
                 submitBtn.disabled = false;
                 submitBtn.textContent = "Log In";
             }
